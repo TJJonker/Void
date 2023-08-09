@@ -4,6 +4,9 @@
     <Filter Include="Void">
       <UniqueIdentifier>{371E8E7C-2355-8F0D-CC41-7510B8570B0F}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Void\Events">
+      <UniqueIdentifier>{532c43a9-659e-446b-89e2-c740997a7ab6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Void.h" />
@@ -18,6 +21,12 @@
     </ClInclude>
     <ClInclude Include="src\Void\Log.h">
       <Filter>Void</Filter>
+    </ClInclude>
+    <ClInclude Include="Event.h">
+      <Filter>Void\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyEvent.h">
+      <Filter>Void\Events</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -146,6 +146,8 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Event.h" />
+    <ClInclude Include="KeyEvent.h" />
     <ClInclude Include="src\Void.h" />
     <ClInclude Include="src\Void\Application.h" />
     <ClInclude Include="src\Void\Core.h" />
