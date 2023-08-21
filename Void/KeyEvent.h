@@ -4,20 +4,25 @@
 #include <sstream>
 
 namespace Void {
-	class VOID_API KeyEvent : public Event {
 
+	class KeyEvent : public Event {
 	public:
-		inline int GetKeyCode() const { return m_KeyCode; }
+		unsigned int GetKeyCode() const { return m_KeyCode; }
 
-		EVENT_CLASS_CATEGORY(EventCategoryKeyboard | EventCategoryInput)
 	protected:
-		KeyEvent(int keycode) : m_KeyCode(keycode) {}
-
-		int m_KeyCode;
+		KeyEvent(unsigned int keyCode) : m_KeyCode(keyCode) {}
+		unsigned int m_KeyCode;		
 	};
 
-	class VOID_API KeyPressedEvent : public KeyEvent {
 
+	class KeyPressedEvent : public KeyEvent {
+	public:
+		KeyPressedEvent(int keyCode, int repeatCount) : KeyEvent(keyCode), m_RepeatCount(repeatCount) {};
+
+		static EventType GetStaticType() { return EventType::KeyPressed; }
+		EventType GetEventType() const override { return GetStaticType(); }
+		
+	private:
+		int m_RepeatCount;
 	};
-	
 }
