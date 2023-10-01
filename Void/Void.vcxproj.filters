@@ -10,30 +10,24 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Void.h" />
-    <ClInclude Include="src\Void\Application.h">
+    <ClInclude Include="src\Void\Core\Application.h">
       <Filter>Void</Filter>
     </ClInclude>
-    <ClInclude Include="src\Void\Core.h">
+    <ClInclude Include="src\Void\Core\Core.h">
       <Filter>Void</Filter>
     </ClInclude>
-    <ClInclude Include="src\Void\EntryPoint.h">
+    <ClInclude Include="src\Void\Core\EntryPoint.h">
       <Filter>Void</Filter>
     </ClInclude>
-    <ClInclude Include="src\Void\Log.h">
+    <ClInclude Include="src\Void\Debug\Log.h">
       <Filter>Void</Filter>
-    </ClInclude>
-    <ClInclude Include="Event.h">
-      <Filter>Void\Events</Filter>
-    </ClInclude>
-    <ClInclude Include="KeyEvent.h">
-      <Filter>Void\Events</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Void\Application.cpp">
+    <ClCompile Include="src\Void\Core\Application.cpp">
       <Filter>Void</Filter>
     </ClCompile>
-    <ClCompile Include="src\Void\Log.cpp">
+    <ClCompile Include="src\Void\Debug\Log.cpp">
       <Filter>Void</Filter>
     </ClCompile>
   </ItemGroup>
