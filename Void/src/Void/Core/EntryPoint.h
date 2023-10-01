@@ -1,5 +1,5 @@
 #pragma once
-#include "../Debug/Log.h"
+#include "pch.h"
 
 #ifdef VOID_PLATFORM_WINDOWS
 
