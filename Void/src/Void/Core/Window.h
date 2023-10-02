@@ -15,13 +15,13 @@ namespace Void {
 	class Window
 	{
 	public:
-		virtual ~Window() = default;
-		virtual void OnUpdate() = 0;
-		virtual uint16_t GetWidth() const = 0;
-		virtual uint16_t GetHeight() const = 0;
+		//virtual ~Window() = default;
+		//virtual void OnUpdate() = 0;
+		//virtual uint16_t GetWidth() const = 0;
+		//virtual uint16_t GetHeight() const = 0;
 
-		virtual void SetVSync(bool enabled) = 0;
-		virtual bool IsVSyncEnabled() const = 0;
+		//virtual void SetVSync(bool enabled) = 0;
+		//virtual bool IsVSyncEnabled() const = 0;
 
 		static Window* Create(const WindowProps& props = WindowProps());
 	};

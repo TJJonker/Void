@@ -43,9 +43,6 @@
     <ClCompile Include="src\Void\Core\Application.cpp">
       <Filter>Void\Core</Filter>
     </ClCompile>
-    <ClCompile Include="src\Void\Core\Window.cpp">
-      <Filter>Void\Core</Filter>
-    </ClCompile>
     <ClCompile Include="src\Void\Debug\Log.cpp">
       <Filter>Void\Debug</Filter>
     </ClCompile>

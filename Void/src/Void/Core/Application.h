@@ -1,6 +1,7 @@
 #pragma once
 
 #include "pch.h"
+#include "Window.h"
 
 namespace Void {
 
@@ -10,6 +11,9 @@ namespace Void {
 		virtual ~Application();
 
 		void Run();
+
+	private:
+		std::unique_ptr<Window> m_Window;
 	};
 
 	Application* CreateApplication();

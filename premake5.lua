@@ -9,6 +9,8 @@ workspace "Void"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+include "Void/vendor/GLFW"
+
 project "Void"
 	location "Void"
 	kind "SharedLib"
@@ -25,12 +27,23 @@ project "Void"
 	}
 
 	includedirs {
-		"%{prj.name}/vendor/spdlog/include"
+		"%{prj.name}/vendor/spdlog/include",
+		"%{prj.name}/src",
+		"%{prj.name}/vendor/GLFW/include"
+	}
+
+	libdirs {
+		"%{prj.name}/vendor/GLFW/bin/Debug-windows-x86_64/GLFW"
+	}
+
+	links {
+		"GLFW", "opengl32"
 	}
 
 	filter "system:windows"
 		cppdialect "C++17"
-		staticruntime "On"
+		staticruntime "off"
+		runtime "Debug"
 		systemversion "latest"
 
 		defines {
