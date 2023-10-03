@@ -1,6 +1,8 @@
 #include "pch.h"
 #include "WindowsWindow.h"
 #include <GLFW/glfw3.h>
+#include <Void/Event/WindowEvents.h>
+#include <Void/Event/MouseEvents.h>
 
 namespace Void {
 
@@ -37,6 +39,17 @@ namespace Void {
 		glfwMakeContextCurrent(m_Window);
 		glfwSetWindowUserPointer(m_Window, &m_Data);
 		SetVSync(true);
+
+		glfwSetWindowCloseCallback(m_Window, [](GLFWwindow* window) {
+			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
+			WindowCloseEvent event;
+			data.EventCallback(event);
+			});
+		glfwSetCursorPosCallback(m_Window, [](GLFWwindow* window, double x, double y) {
+			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
+			MouseMovedEvent event(x, y);
+			data.EventCallback(event);
+			});
 	}
 
 	void WindowsWindow::Shutdown()
@@ -60,11 +73,4 @@ namespace Void {
 	{
 		return m_Data.VSync;
 	}
-
-	bool WindowsWindow::IsRunning() const
-	{
-		return !glfwWindowShouldClose(m_Window);
-	}
-
-
 }

@@ -1,5 +1,6 @@
 #pragma once
 #include "pch.h"
+#include <Void/Event/Event.h>
 
 namespace Void {
 		
@@ -23,9 +24,10 @@ namespace Void {
 		virtual void SetVSync(bool enabled) = 0;
 		virtual bool IsVSyncEnabled() const = 0;
 
-		virtual bool IsRunning() const = 0;
-
 		static Scope<Window> Create(const WindowProps& props = WindowProps());
+
+		using EventCallbackFunction = std::function<void(Event&)>;
+		virtual void SetEventCallback(const EventCallbackFunction& callback) = 0;
 	};
 
 }
