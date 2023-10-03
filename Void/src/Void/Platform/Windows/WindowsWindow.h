@@ -20,7 +20,8 @@ namespace Void {
 		void SetVSync(bool enabled) override;
 		bool IsVSyncEnabled() const override;
 		
-		bool IsRunning() const override;
+		void SetEventCallback(const EventCallbackFunction& callback) override { m_Data.EventCallback = callback; }
+
 	private:
 		virtual void Init(const WindowProps& props);
 		virtual void Shutdown();
@@ -34,7 +35,7 @@ namespace Void {
 			unsigned int Width, Height;
 			bool VSync;
 
-			//EventCallbackFn EventCallback;
+			EventCallbackFunction EventCallback;
 		};
 
 		WindowData m_Data;

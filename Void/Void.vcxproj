@@ -163,6 +163,9 @@
     <ClInclude Include="src\Void\Core\EntryPoint.h" />
     <ClInclude Include="src\Void\Core\Window.h" />
     <ClInclude Include="src\Void\Debug\Log.h" />
+    <ClInclude Include="src\Void\Event\Event.h" />
+    <ClInclude Include="src\Void\Event\MouseEvents.h" />
+    <ClInclude Include="src\Void\Event\WindowEvents.h" />
     <ClInclude Include="src\Void\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="src\pch.h" />
   </ItemGroup>
