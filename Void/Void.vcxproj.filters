@@ -4,37 +4,51 @@
     <Filter Include="Void">
       <UniqueIdentifier>{371E8E7C-2355-8F0D-CC41-7510B8570B0F}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Void\Events">
-      <UniqueIdentifier>{532c43a9-659e-446b-89e2-c740997a7ab6}</UniqueIdentifier>
+    <Filter Include="Void\Core">
+      <UniqueIdentifier>{EFBCD503-5B27-8A7A-A465-3B20100F68CF}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Void\Debug">
+      <UniqueIdentifier>{EDB5997E-D96D-DBCB-4275-B4272E4C76BC}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Void\Platform">
+      <UniqueIdentifier>{6B484333-D708-BF69-A043-08E70CC30346}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Void\Platform\Windows">
+      <UniqueIdentifier>{A52D1CFC-119A-D7F6-DA8D-6F5446B9F95E}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Void.h" />
-    <ClInclude Include="src\Void\Application.h">
-      <Filter>Void</Filter>
+    <ClInclude Include="src\Void\Core\Application.h">
+      <Filter>Void\Core</Filter>
     </ClInclude>
-    <ClInclude Include="src\Void\Core.h">
-      <Filter>Void</Filter>
+    <ClInclude Include="src\Void\Core\Core.h">
+      <Filter>Void\Core</Filter>
     </ClInclude>
-    <ClInclude Include="src\Void\EntryPoint.h">
-      <Filter>Void</Filter>
+    <ClInclude Include="src\Void\Core\EntryPoint.h">
+      <Filter>Void\Core</Filter>
     </ClInclude>
-    <ClInclude Include="src\Void\Log.h">
-      <Filter>Void</Filter>
+    <ClInclude Include="src\Void\Core\Window.h">
+      <Filter>Void\Core</Filter>
     </ClInclude>
-    <ClInclude Include="Event.h">
-      <Filter>Void\Events</Filter>
+    <ClInclude Include="src\Void\Debug\Log.h">
+      <Filter>Void\Debug</Filter>
     </ClInclude>
-    <ClInclude Include="KeyEvent.h">
-      <Filter>Void\Events</Filter>
+    <ClInclude Include="src\Void\Platform\Windows\WindowsWindow.h">
+      <Filter>Void\Platform\Windows</Filter>
     </ClInclude>
+    <ClInclude Include="src\pch.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Void\Application.cpp">
-      <Filter>Void</Filter>
+    <ClCompile Include="src\Void\Core\Application.cpp">
+      <Filter>Void\Core</Filter>
     </ClCompile>
-    <ClCompile Include="src\Void\Log.cpp">
-      <Filter>Void</Filter>
+    <ClCompile Include="src\Void\Debug\Log.cpp">
+      <Filter>Void\Debug</Filter>
     </ClCompile>
+    <ClCompile Include="src\Void\Platform\Windows\WindowsWindow.cpp">
+      <Filter>Void\Platform\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pch.cpp" />
   </ItemGroup>
 </Project>

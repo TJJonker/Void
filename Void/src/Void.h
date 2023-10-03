@@ -1,7 +1,6 @@
 #pragma once
 
-#include "Void/Application.h"
+#include "Void/Core/Application.h"
+#include "Void/Core/EntryPoint.h"
 
-#include "Void/Log.h"
-
-#include "Void/EntryPoint.h"
+#include "Void/Debug/Log.h"
