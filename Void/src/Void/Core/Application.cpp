@@ -16,7 +16,10 @@ namespace Void {
 	}
 
 	void Application::Run() {
-		while (true) {
+		while (m_Window->IsRunning()) {
+			glClearColor(.1, .2, .1, 1);
+			glClear(GL_COLOR_BUFFER_BIT);
+			m_Window->OnUpdate();
 		}
 	}
 }

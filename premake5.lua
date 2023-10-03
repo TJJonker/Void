@@ -48,7 +48,8 @@ project "Void"
 
 		defines {
 			"VOID_PLATFORM_WINDOWS",
-			"VOID_BUILD_DLL"
+			"VOID_BUILD_DLL",
+			"VOID_ASSERT_ENABLED"
 		}
 
 		postbuildcommands {
