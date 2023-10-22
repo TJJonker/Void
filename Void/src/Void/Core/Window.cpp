@@ -6,6 +6,7 @@
 #endif
 
 namespace Void {
+
 	Scope<Window> Window::Create(const WindowProps& props) {
 #ifdef VOID_PLATFORM_WINDOWS
 		return CreateScope<WindowsWindow>(props);

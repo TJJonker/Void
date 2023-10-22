@@ -1,5 +1,6 @@
 #include <Void.h>
 
+
 class Sandbox : public Void::Application {
 public:
 	Sandbox() {
@@ -10,6 +11,7 @@ public:
 
 	}
 };
+
 
 Void::Application* Void::CreateApplication() {
 	return new Sandbox();

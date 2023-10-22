@@ -3,43 +3,63 @@
 #include <functional>
 
 namespace Void {
-	enum class EventType {
-		None,
-		WindowClose, WindowResize,
-		MouseMoved
-	};
 
-#define EVENT_CLASS_TYPE(type) static EventType GetStaticType() { return EventType::type; }\
+#define EVENT_CLASS_TYPE(type) static EventType GetStaticType() { return type; }\
 virtual const char* GetName() const override { return #type; }\
 virtual EventType GetEventType() const override { return GetStaticType(); }
 
+	/// <summary>
+	/// Different kinds of basic event types.
+	/// </summary>
+	enum class EventType {
+		None,
+		WindowClose,
+		MouseMoved
+	};
 
+	/// <summary>
+	/// Base Event class.
+	/// </summary>
 	class Event {
 	public:
 		~Event() = default;
 
-		bool IsHandled = false;
-
 		virtual EventType GetEventType() const = 0;
+
+		// Debugging purposes
 		virtual const char* GetName() const = 0;
 		virtual std::string ToString() const { return GetName(); }
 	};
 
-	class EventDispatcher {
+	/// <summary>
+	/// Class responsible for checking and delegating events.
+	/// </summary>
+	class EventDelegator {
 	private:
 		Event& m_Event;
 	
 	public:
-		EventDispatcher(Event& event)
+		/// <summary>
+		/// Constructor for EventDelegator.
+		/// </summary>
+		/// <param name="event"></param>
+		EventDelegator(Event& event)
 			: m_Event(event) { }
 
+
+		/// <summary>
+		/// Checks whether the events are the right type and delegates accordingly.
+		/// </summary>
+		/// <typeparam name="T">Type of Event.</typeparam>
+		/// <typeparam name="F">Type of function that should be run.</typeparam>
+		/// <param name="function">Function that should be run.</param>
+		/// <returns></returns>
 		template<typename T, typename F>
-		bool Dispatch(const F& function) {
+		void Delegate(const F& function) {
 			if (m_Event.GetEventType() == T::GetStaticType()) {
-				m_Event.IsHandled |= function(static_cast<T&>(m_Event));
-				return true;
+				// Run the given function and forward the event.
+				function(static_cast<T&>(m_Event));
 			}
-			return false;
 		}
 	};
 }

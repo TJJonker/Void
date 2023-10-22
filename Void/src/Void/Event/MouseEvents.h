@@ -11,7 +11,9 @@ namespace Void {
 		uint16_t GetX() const { return x; }
 		uint16_t GetY() const { return y; }
 
-		EVENT_CLASS_TYPE(MouseMoved);
+		EVENT_CLASS_TYPE(EventType::MouseMoved);
+
+		std::string ToString() const { return "MouseMovedEvent: " + std::to_string(x) + "," + std::to_string(y); }
 
 	private:
 		uint16_t x, y;

@@ -6,29 +6,12 @@ namespace Void {
 
 	class WindowsWindow : public Window
 	{
-	public:
-		WindowsWindow(const WindowProps& props);
-		virtual ~WindowsWindow();
-
-		void OnUpdate() override;
-
-		inline uint16_t GetWidth() const override { return m_Data.Width; }
-		inline uint16_t GetHeight() const override { return m_Data.Height; }
-
-		// Window attributes
-		//inline void SetEventCallback(const EventCallbackFn& callback) override { m_Data.EventCallback = callback; }
-		void SetVSync(bool enabled) override;
-		bool IsVSyncEnabled() const override;
-		
-		void SetEventCallback(const EventCallbackFunction& callback) override { m_Data.EventCallback = callback; }
-
-	private:
-		virtual void Init(const WindowProps& props);
-		virtual void Shutdown();
-
-	private:
+	private: 
 		GLFWwindow* m_Window;
 
+		/// <summary>
+		/// Struct containing base window data, that will also be passed with events.
+		/// </summary>
 		struct WindowData
 		{
 			std::string Title;
@@ -39,6 +22,25 @@ namespace Void {
 		};
 
 		WindowData m_Data;
+
+	public:
+		WindowsWindow(const WindowProps& props);
+		virtual ~WindowsWindow();
+
+		void OnUpdate() override;
+
+		inline uint16_t GetWidth() const override { return m_Data.Width; }
+		inline uint16_t GetHeight() const override { return m_Data.Height; }
+
+		// Window attributes
+		void SetVSync(bool enabled) override;
+		bool IsVSyncEnabled() const override;
+		
+		void SetEventCallback(const EventCallbackFunction& callback) override { m_Data.EventCallback = callback; }
+
+	private:
+		virtual void Init(const WindowProps& props);
+		virtual void Shutdown();
 	};
 }
 

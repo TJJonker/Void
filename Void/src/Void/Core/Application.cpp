@@ -9,29 +9,29 @@ namespace Void {
 
 	Application::Application()
 	{
-		m_Window = std::unique_ptr<Window>(Window::Create());
+		// Create a new window.
+		m_Window = Window::Create();
+		// Forward the window events to the OnEvent method.
 		m_Window->SetEventCallback(BIND_EVENT_FUNCTION(OnEvent));
 	}
 	
-	Application::~Application()
-	{
-	}
+	Application::~Application()	{ }
 
 	void Application::OnEvent(Event& e)
 	{
-		EventDispatcher dispatcher(e);
-		dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT_FUNCTION(CloseApplication));
-
-		VOID_CORE_TRACE(e.ToString());
+		EventDelegator delegator(e);
+		delegator.Delegate<WindowCloseEvent>(BIND_EVENT_FUNCTION(CloseApplication));
 	}
 
 	void Application::Run() {
 		while (m_IsRunning) {
 			glClearColor(.1, .2, .1, 1);
 			glClear(GL_COLOR_BUFFER_BIT);
+
 			m_Window->OnUpdate();
 		}
 	}
+
 	bool Application::CloseApplication(WindowCloseEvent& e)
 	{
 		m_IsRunning = false;
