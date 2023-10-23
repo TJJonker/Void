@@ -14,3 +14,5 @@
 #include "Void/Debug/Log.h"
 #include "Void/Core/Core.h"
 #include "Void/Debug/Assertion.h"
+
+#include <glm.hpp>

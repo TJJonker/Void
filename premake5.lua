@@ -14,7 +14,7 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 includeDirs = {}
 includeDirs["GLAD"] = "Void/vendor/GLAD/include"
 includeDirs["GLFW"] = "Void/vendor/GLFW/include"
-includeDirs["GLM"] = "Void/vendor/GLM/include"
+includeDirs["GLM"] = "Void/vendor/GLM"
 includeDirs["SPDLOG"] = "Void/vendor/SPDLOG/include"
 includeDirs["VOID"] = "Void/src"
 
