@@ -15,4 +15,4 @@
 #include "Void/Core/Core.h"
 #include "Void/Debug/Assertion.h"
 
-#include <glm.hpp>
+#include <glm/glm.hpp>

@@ -6,6 +6,6 @@ namespace Void {
 	{
 		void Draw(const std::shared_ptr<VertexArray> vertexArray) override;
 		void Clear() override;
-		void SetClearColor(glm::vec4& color) override;
+		void SetClearColor(const glm::vec4& color) override;
 	};
 }

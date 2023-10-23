@@ -13,7 +13,7 @@ namespace Void {
 		GLCall(glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT));
 	}
 
-	void OpenGLRenderer::SetClearColor(glm::vec4& color)
+	void OpenGLRenderer::SetClearColor(const glm::vec4& color)
 	{
 		GLCall(glClearColor(color.r, color.g, color.b, color.a));
 	}
