@@ -25,6 +25,12 @@
     <Filter Include="Void\Platform\OpenGL\Components\IndexBuffer">
       <UniqueIdentifier>{951F6C79-0185-FFFF-8A5D-A1D8F6C1F46E}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Void\Platform\OpenGL\Components\Renderer">
+      <UniqueIdentifier>{1AC1AFBE-063E-A301-2FBB-A3151B973F95}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Void\Platform\OpenGL\Components\VertexArray">
+      <UniqueIdentifier>{80BD2915-EC22-BD9B-75FB-5E74E15FB20A}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Void\Platform\OpenGL\Components\VertexBuffer">
       <UniqueIdentifier>{3B5EE6BC-2771-E615-D05A-C302BC4C8363}</UniqueIdentifier>
     </Filter>
@@ -48,6 +54,9 @@
     </Filter>
     <Filter Include="Void\Rendering\Components\VertexBuffer">
       <UniqueIdentifier>{406A3E5C-2CBC-154C-15DB-525C01CC2E35}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Void\Rendering\Components\VertexBufferLayout">
+      <UniqueIdentifier>{7EB4DCA6-6AC7-DCFF-13B1-B9ECFFA2794D}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -82,6 +91,12 @@
     <ClInclude Include="src\Void\Platform\OpenGL\Components\IndexBuffer\OpenGLIndexBuffer.h">
       <Filter>Void\Platform\OpenGL\Components\IndexBuffer</Filter>
     </ClInclude>
+    <ClInclude Include="src\Void\Platform\OpenGL\Components\Renderer\OpenGLRenderer.h">
+      <Filter>Void\Platform\OpenGL\Components\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Void\Platform\OpenGL\Components\VertexArray\OpenGLVertexArray.h">
+      <Filter>Void\Platform\OpenGL\Components\VertexArray</Filter>
+    </ClInclude>
     <ClInclude Include="src\Void\Platform\OpenGL\Components\VertexBuffer\OpenGLVertexBuffer.h">
       <Filter>Void\Platform\OpenGL\Components\VertexBuffer</Filter>
     </ClInclude>
@@ -100,13 +115,16 @@
     <ClInclude Include="src\Void\Rendering\Components\VertexBuffer\VertexBuffer.h">
       <Filter>Void\Rendering\Components\VertexBuffer</Filter>
     </ClInclude>
+    <ClInclude Include="src\Void\Rendering\Components\VertexBufferLayout\VertexBufferLayout.h">
+      <Filter>Void\Rendering\Components\VertexBufferLayout</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Void\Rendering\Components\VertexBufferLayout\VertexBufferLayoutElement.h">
+      <Filter>Void\Rendering\Components\VertexBufferLayout</Filter>
+    </ClInclude>
     <ClInclude Include="src\Void\Rendering\Renderer.h">
       <Filter>Void\Rendering</Filter>
     </ClInclude>
     <ClInclude Include="src\pch.h" />
-    <ClInclude Include="src\Void\Platform\OpenGL\Components\VertexArray\OpenGLVertexArray.h" />
-    <ClInclude Include="src\Void\Rendering\Components\VertexBufferLayout\VertexBufferLayout.h" />
-    <ClInclude Include="src\Void\Rendering\Components\VertexBufferLayout\VertexBufferLayoutElement.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Void\Core\Application.cpp">
@@ -120,6 +138,12 @@
     </ClCompile>
     <ClCompile Include="src\Void\Platform\OpenGL\Components\IndexBuffer\OpenGLIndexBuffer.cpp">
       <Filter>Void\Platform\OpenGL\Components\IndexBuffer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Void\Platform\OpenGL\Components\Renderer\OpenGLRenderer.cpp">
+      <Filter>Void\Platform\OpenGL\Components\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Void\Platform\OpenGL\Components\VertexArray\OpenGLVertexArray.cpp">
+      <Filter>Void\Platform\OpenGL\Components\VertexArray</Filter>
     </ClCompile>
     <ClCompile Include="src\Void\Platform\OpenGL\Components\VertexBuffer\OpenGLVertexBuffer.cpp">
       <Filter>Void\Platform\OpenGL\Components\VertexBuffer</Filter>
@@ -143,6 +167,5 @@
       <Filter>Void\Rendering</Filter>
     </ClCompile>
     <ClCompile Include="src\pch.cpp" />
-    <ClCompile Include="src\Void\Platform\OpenGL\Components\VertexArray\OpenGLVertexArray.cpp" />
   </ItemGroup>
 </Project>
