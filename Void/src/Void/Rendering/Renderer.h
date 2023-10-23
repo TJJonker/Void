@@ -1,15 +1,22 @@
 #pragma once
+#include "Components/VertexArray/VertexArray.h"
 
 namespace Void {
-	enum class RendererAPI {
-		None, OpenGL
-	};
 
 	class Renderer {
+	public:
+		enum class API {
+			None, OpenGL
+		};
+
 	private:
-		static RendererAPI m_RendererAPI;
+		static API m_RendererAPI;
 
 	public:
-		inline static RendererAPI GetAPI() { return m_RendererAPI; }
+		virtual void Draw(const std::shared_ptr<VertexArray> vertexArray) = 0;
+		virtual void Clear() = 0;
+		virtual void SetClearColor() = 0;
+
+		static API GetAPI() { return m_RendererAPI; }
 	};
 }

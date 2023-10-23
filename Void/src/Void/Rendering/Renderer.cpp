@@ -2,5 +2,5 @@
 #include "Renderer.h"
 
 namespace Void {
-	RendererAPI Renderer::m_RendererAPI = RendererAPI::OpenGL;
+	Renderer::API Renderer::m_RendererAPI = Renderer::API::OpenGL;
 }
