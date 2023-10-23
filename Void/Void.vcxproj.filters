@@ -16,8 +16,23 @@
     <Filter Include="Void\Platform">
       <UniqueIdentifier>{6B484333-D708-BF69-A043-08E70CC30346}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Void\Platform\OpenGL">
+      <UniqueIdentifier>{3FEBA2AF-2B7A-2C79-D498-4074C0063D1F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Void\Platform\OpenGL\Components">
+      <UniqueIdentifier>{F4EA2A36-60CE-3976-69D1-67B2D53300C7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Void\Platform\OpenGL\Debugging">
+      <UniqueIdentifier>{BAE38583-A609-50EA-8F4F-D5B57B1475B6}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Void\Platform\Windows">
       <UniqueIdentifier>{A52D1CFC-119A-D7F6-DA8D-6F5446B9F95E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Void\Rendering">
+      <UniqueIdentifier>{44582AD2-3026-1ED8-19BA-8EFE0527FA3C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Void\Rendering\Components">
+      <UniqueIdentifier>{D90AD5E9-45CD-0874-8E7D-9700FA7EE151}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -46,8 +61,20 @@
     <ClInclude Include="src\Void\Event\WindowEvents.h">
       <Filter>Void\Event</Filter>
     </ClInclude>
+    <ClInclude Include="src\Void\Platform\OpenGL\Components\OpenGLIndexBuffer.h">
+      <Filter>Void\Platform\OpenGL\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Void\Platform\OpenGL\Debugging\OpenGLDebugger.h">
+      <Filter>Void\Platform\OpenGL\Debugging</Filter>
+    </ClInclude>
     <ClInclude Include="src\Void\Platform\Windows\WindowsWindow.h">
       <Filter>Void\Platform\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Void\Rendering\Components\IndexBuffer.h">
+      <Filter>Void\Rendering\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Void\Rendering\Renderer.h">
+      <Filter>Void\Rendering</Filter>
     </ClInclude>
     <ClInclude Include="src\pch.h" />
   </ItemGroup>
@@ -61,8 +88,20 @@
     <ClCompile Include="src\Void\Debug\Log.cpp">
       <Filter>Void\Debug</Filter>
     </ClCompile>
+    <ClCompile Include="src\Void\Platform\OpenGL\Components\OpenGLIndexBuffer.cpp">
+      <Filter>Void\Platform\OpenGL\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Void\Platform\OpenGL\Debugging\OpenGLDebugger.cpp">
+      <Filter>Void\Platform\OpenGL\Debugging</Filter>
+    </ClCompile>
     <ClCompile Include="src\Void\Platform\Windows\WindowsWindow.cpp">
       <Filter>Void\Platform\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Void\Rendering\Components\IndexBuffer.cpp">
+      <Filter>Void\Rendering\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Void\Rendering\Renderer.cpp">
+      <Filter>Void\Rendering</Filter>
     </ClCompile>
     <ClCompile Include="src\pch.cpp" />
   </ItemGroup>

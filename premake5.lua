@@ -9,7 +9,11 @@ workspace "Void"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+includeDirs = {}
+includeDirs["GLAD"] = "%{prj.name}/vendor/GLAD/include"
+
 include "Void/vendor/GLFW"
+include "Void/vendor/GLAD"
 
 project "Void"
 	location "Void"
@@ -29,7 +33,8 @@ project "Void"
 	includedirs {
 		"%{prj.name}/vendor/spdlog/include",
 		"%{prj.name}/src",
-		"%{prj.name}/vendor/GLFW/include"
+		"%{prj.name}/vendor/GLFW/include",
+		"%{includeDirs.GLAD}"
 	}
 
 	libdirs {
@@ -37,7 +42,7 @@ project "Void"
 	}
 
 	links {
-		"GLFW", "opengl32"
+		"GLFW", "opengl32", "GLAD"
 	}
 
 	filter "system:windows"
