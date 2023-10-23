@@ -1,6 +1,6 @@
 #include "pch.h"
 #include "VertexArray.h"
-#include "Void/Rendering/Renderer.h"
+#include "Void/Rendering/Components/Renderer/Renderer.h"
 #include "Void/Platform/OpenGL/Components/VertexArray/OpenGLVertexArray.h"
 
 namespace Void {

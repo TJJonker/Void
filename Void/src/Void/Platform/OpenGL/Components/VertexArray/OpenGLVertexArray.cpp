@@ -15,7 +15,7 @@ namespace Void {
 
 	void OpenGLVertexArray::AddVertexBuffer(const std::shared_ptr<VertexBuffer>& vertexBuffer)
 	{
-		ASSERT(vertexBuffer->GetVertexBufferLayout().GetLayoutElements().size());
+		VOID_CORE_ASSERT(vertexBuffer->GetVertexBufferLayout().GetLayoutElements().size(), "VertexBuffer is empty.");
 
 		GLCall(glBindVertexArray(m_ID));
 		vertexBuffer->Bind();
