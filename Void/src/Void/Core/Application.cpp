@@ -4,6 +4,7 @@
 #include <Void/Rendering/Components/VertexBuffer/VertexBuffer.h>
 #include "Void/Rendering/Components/VertexBufferLayout/VertexBufferLayout.h"
 #include "Void/Rendering/Components/Renderer/RenderingCommands.h"
+#include "Input.h"
 
 namespace Void {
 
@@ -59,6 +60,9 @@ namespace Void {
 			m_Shader->Bind();
 			m_VertexArray->Bind();
 			RenderingCommands::Draw(m_VertexArray);
+
+			if (Input::KeyPressed('A'))
+				VOID_TRACE("'A' has been pressed!");
 
 			m_Window->OnUpdate();
 		}

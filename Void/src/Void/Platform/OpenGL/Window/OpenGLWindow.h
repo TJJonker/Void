@@ -5,7 +5,7 @@
 
 namespace Void {
 
-	class WindowsWindow : public Window
+	class OpenGLWindow : public Window
 	{
 	private: 
 		GLFWwindow* m_Window;
@@ -26,8 +26,8 @@ namespace Void {
 		std::shared_ptr<RenderingContext> m_RenderingContext;
 
 	public:
-		WindowsWindow(const WindowProps& props);
-		virtual ~WindowsWindow();
+		OpenGLWindow(const WindowProps& props);
+		virtual ~OpenGLWindow();
 
 		void OnUpdate() override;
 
@@ -40,9 +40,11 @@ namespace Void {
 		
 		void SetEventCallback(const EventCallbackFunction& callback) override { m_Data.EventCallback = callback; }
 
+		void* GetWindow() const override { return m_Window; }
+
 	private:
-		virtual void Init(const WindowProps& props);
-		virtual void Shutdown();
+		void Init(const WindowProps& props);
+		void Shutdown();
 	};
 }
 

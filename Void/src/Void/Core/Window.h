@@ -25,6 +25,8 @@ namespace Void {
 		virtual void SetVSync(bool enabled) = 0;
 		virtual bool IsVSyncEnabled() const = 0;
 
+		virtual void* GetWindow() const = 0;
+
 		/// <summary>
 		/// Creates a window, depending on the selected platform.
 		/// </summary>
