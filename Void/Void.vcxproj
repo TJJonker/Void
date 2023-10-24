@@ -157,7 +157,10 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Void\Rendering\Camera\CameraController\CameraController.h" />
+    <ClInclude Include="src\Void\Rendering\Camera\Camera\Camera.h" />
     <ClInclude Include="src\Void\Platform\OpenGL\Components\RenderingContext\OpenGLRenderingContext.h" />
+    <ClInclude Include="src\Void\Core\Input.h" />
     <ClInclude Include="src\Void\Rendering\Components\RenderingContext\RenderingContext.h" />
     <ClInclude Include="src\Void.h" />
     <ClInclude Include="src\Void\Core\Application.h" />
@@ -175,7 +178,7 @@
     <ClInclude Include="src\Void\Platform\OpenGL\Components\VertexArray\OpenGLVertexArray.h" />
     <ClInclude Include="src\Void\Platform\OpenGL\Components\VertexBuffer\OpenGLVertexBuffer.h" />
     <ClInclude Include="src\Void\Platform\OpenGL\Debugging\OpenGLDebugger.h" />
-    <ClInclude Include="src\Void\Platform\Windows\WindowsWindow.h" />
+    <ClInclude Include="src\Void\Platform\OpenGL\Window\OpenGLWindow.h" />
     <ClInclude Include="src\Void\Rendering\Components\IndexBuffer\IndexBuffer.h" />
     <ClInclude Include="src\Void\Rendering\Components\Renderer\Renderer.h" />
     <ClInclude Include="src\Void\Rendering\Components\Renderer\RenderingCommands.h" />
@@ -184,10 +187,15 @@
     <ClInclude Include="src\Void\Rendering\Components\VertexBuffer\VertexBuffer.h" />
     <ClInclude Include="src\Void\Rendering\Components\VertexBufferLayout\VertexBufferLayout.h" />
     <ClInclude Include="src\Void\Rendering\Components\VertexBufferLayout\VertexBufferLayoutElement.h" />
-    <ClInclude Include="src\Void\Utils\FileReader.h" />
+    <ClInclude Include="src\Void\Utils\ExternalFiles\FileReader.h" />
     <ClInclude Include="src\pch.h" />
+    <ClInclude Include="src\Void\Platform\OpenGL\Input\OpenGLInput.h" />
+    <ClInclude Include="src\Void\Utils\TimeSteps\Time.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Void\Rendering\Camera\CameraController\CameraController.cpp" />
+    <ClCompile Include="src\Void\Rendering\Camera\Camera\Camera.cpp" />
+    <ClCompile Include="src\Void\Core\Input.cpp" />
     <ClCompile Include="src\Void\Platform\OpenGL\Components\RenderingContext\OpenGLRenderingContext.cpp" />
     <ClCompile Include="src\Void\Rendering\Components\RenderingContext\RenderingContext.cpp" />
     <ClCompile Include="src\Void\Core\Application.cpp" />
@@ -199,17 +207,19 @@
     <ClCompile Include="src\Void\Platform\OpenGL\Components\VertexArray\OpenGLVertexArray.cpp" />
     <ClCompile Include="src\Void\Platform\OpenGL\Components\VertexBuffer\OpenGLVertexBuffer.cpp" />
     <ClCompile Include="src\Void\Platform\OpenGL\Debugging\OpenGLDebugger.cpp" />
-    <ClCompile Include="src\Void\Platform\Windows\WindowsWindow.cpp" />
+    <ClCompile Include="src\Void\Platform\OpenGL\Window\OpenGLWindow.cpp" />
     <ClCompile Include="src\Void\Rendering\Components\IndexBuffer\IndexBuffer.cpp" />
     <ClCompile Include="src\Void\Rendering\Components\Renderer\Renderer.cpp" />
     <ClCompile Include="src\Void\Rendering\Components\Renderer\RenderingCommands.cpp" />
     <ClCompile Include="src\Void\Rendering\Components\Shader\Shader.cpp" />
     <ClCompile Include="src\Void\Rendering\Components\VertexArray\VertexArray.cpp" />
     <ClCompile Include="src\Void\Rendering\Components\VertexBuffer\VertexBuffer.cpp" />
-    <ClCompile Include="src\Void\Utils\FileReader.cpp" />
+    <ClCompile Include="src\Void\Utils\ExternalFiles\FileReader.cpp" />
     <ClCompile Include="src\pch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="src\Void\Platform\OpenGL\Input\OpenGLInput.cpp" />
+    <ClCompile Include="src\Void\Utils\TimeSteps\Time.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="vendor\GLFW\GLFW.vcxproj">

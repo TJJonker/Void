@@ -2,14 +2,14 @@
 #include "Window.h"
 
 #ifdef VOID_PLATFORM_WINDOWS
-	#include "Void/Platform/Windows/WindowsWindow.h"
+	#include "Void/Platform/OpenGL/Window/OpenGLWindow.h"
 #endif
 
 namespace Void {
 
 	Scope<Window> Window::Create(const WindowProps& props) {
 #ifdef VOID_PLATFORM_WINDOWS
-		return CreateScope<WindowsWindow>(props);
+		return CreateScope<OpenGLWindow>(props);
 #else
 		VOID_CORE_ASSERT(false, "Unknown platform...");
 		return nullptr;

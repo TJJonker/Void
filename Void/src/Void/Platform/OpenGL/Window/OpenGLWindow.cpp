@@ -1,7 +1,8 @@
 #include "pch.h"
-#include "WindowsWindow.h"
+#include "OpenGLWindow.h"
 #include <Void/Event/WindowEvents.h>
 #include <Void/Event/MouseEvents.h>
+#include "Void/Platform/OpenGL/Input/OpenGLInput.h"
 
 /// WindowsWindow is a window type used for windows. 
 /// With the help of GLFW, we can create a window and render graphics inside this window. 
@@ -17,7 +18,7 @@ namespace Void {
 	/// Constructor for WindowsWindow.
 	/// </summary>
 	/// <param name="props">Window properties to adjust the created window.</param>
-	WindowsWindow::WindowsWindow(const WindowProps& props)
+	OpenGLWindow::OpenGLWindow(const WindowProps& props)
 	{
 		Init(props);
 	}
@@ -25,7 +26,7 @@ namespace Void {
 	/// <summary>
 	/// Destructor for WindowsWindow.
 	/// </summary>
-	WindowsWindow::~WindowsWindow()
+	OpenGLWindow::~OpenGLWindow()
 	{
 		Shutdown();
 	}
@@ -34,7 +35,7 @@ namespace Void {
 	/// Intializes the window.
 	/// </summary>
 	/// <param name="props">Window properties to adjust the created window.</param>
-	void WindowsWindow::Init(const WindowProps& props)
+	void OpenGLWindow::Init(const WindowProps& props)
 	{
 		// Set window data.
 		m_Data.Title = props.WindowTitle;
@@ -63,6 +64,13 @@ namespace Void {
 		m_RenderingContext.reset(RenderingContext::Create());
 		m_RenderingContext->Init();
 
+		Input::Create(m_Window);
+
+		// TODO: (Re)move this.
+		glfwSetInputMode(m_Window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+
+
+
 		// Set the data as user pointer for easy future access.
 		glfwSetWindowUserPointer(m_Window, &m_Data);
 		// Enabling VSync by default.
@@ -86,7 +94,7 @@ namespace Void {
 	/// <summary>
 	/// Shuts down the window.
 	/// </summary>
-	void WindowsWindow::Shutdown()
+	void OpenGLWindow::Shutdown()
 	{
 		glfwDestroyWindow(m_Window);
 	}
@@ -94,7 +102,7 @@ namespace Void {
 	/// <summary>
 	/// Updates the window.
 	/// </summary>
-	void WindowsWindow::OnUpdate()
+	void OpenGLWindow::OnUpdate()
 	{
 		glfwSwapBuffers(m_Window);
 		glfwPollEvents();
@@ -104,7 +112,7 @@ namespace Void {
 	///	Sets the VSync option.
 	/// </summary>
 	/// <param name="enabled">Whether vsync is enabled or not.</param>
-	void WindowsWindow::SetVSync(bool enabled)
+	void OpenGLWindow::SetVSync(bool enabled)
 	{
 		glfwSwapInterval(enabled);
 		m_Data.VSync = enabled;
@@ -114,7 +122,7 @@ namespace Void {
 	/// Returns whether VSync is enabled or not.
 	/// </summary>
 	/// <returns>Whether VSync is enabled or not.</returns>
-	bool WindowsWindow::IsVSyncEnabled() const
+	bool OpenGLWindow::IsVSyncEnabled() const
 	{
 		return m_Data.VSync;
 	}

@@ -1,8 +1,9 @@
 #include "pch.h"
 #include "OpenGLShader.h"
-#include "Void/Utils/FileReader.h"
+#include "Void/Utils/ExternalFiles/FileReader.h"
 #include <glad/glad.h>
 #include "Void/Platform/OpenGL/Debugging/OpenGLDebugger.h"
+#include <glm/gtc/type_ptr.hpp>
 
 namespace Void {
 	OpenGLShader::OpenGLShader(const char* vertexShaderPath, const char* fragmentShaderPath)
@@ -44,6 +45,11 @@ namespace Void {
 		GLCall(glUseProgram(0));
 	}
 
+	void OpenGLShader::SetMatrix4(const std::string& name, glm::mat4& v0)
+	{
+		GLCall(glUniformMatrix4fv(GetUniformLocation(name), 1, GL_FALSE, glm::value_ptr(v0)));
+	}
+
 	unsigned int OpenGLShader::CompileShader(const char* code, unsigned int type)
 	{
 		unsigned int shaderID = glCreateShader(type);
@@ -61,5 +67,14 @@ namespace Void {
 		}
 
 		return shaderID;
+	}
+
+	unsigned int OpenGLShader::GetUniformLocation(const std::string& name)
+	{
+		if (m_UniformMap.find(name) == m_UniformMap.end()) {
+			m_UniformMap.insert({ name, glGetUniformLocation(m_ID, name.c_str()) });
+		}
+
+		return m_UniformMap[name];
 	}
 }

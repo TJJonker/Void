@@ -118,7 +118,7 @@
     <ClInclude Include="src\Void\Platform\OpenGL\Debugging\OpenGLDebugger.h">
       <Filter>Void\Platform\OpenGL\Debugging</Filter>
     </ClInclude>
-    <ClInclude Include="src\Void\Platform\Windows\WindowsWindow.h">
+    <ClInclude Include="src\Void\Platform\OpenGL\Window\OpenGLWindow.h">
       <Filter>Void\Platform\Windows</Filter>
     </ClInclude>
     <ClInclude Include="src\Void\Rendering\Components\IndexBuffer\IndexBuffer.h">
@@ -145,12 +145,17 @@
     <ClInclude Include="src\Void\Rendering\Components\VertexBufferLayout\VertexBufferLayoutElement.h">
       <Filter>Void\Rendering\Components\VertexBufferLayout</Filter>
     </ClInclude>
-    <ClInclude Include="src\Void\Utils\FileReader.h">
+    <ClInclude Include="src\Void\Utils\ExternalFiles\FileReader.h">
       <Filter>Void\Utils</Filter>
     </ClInclude>
     <ClInclude Include="src\pch.h" />
     <ClInclude Include="src\Void\Rendering\Components\RenderingContext\RenderingContext.h" />
     <ClInclude Include="src\Void\Platform\OpenGL\Components\RenderingContext\OpenGLRenderingContext.h" />
+    <ClInclude Include="src\Void\Core\Input.h" />
+    <ClInclude Include="src\Void\Platform\OpenGL\Input\OpenGLInput.h" />
+    <ClInclude Include="src\Void\Rendering\Camera\Camera\Camera.h" />
+    <ClInclude Include="src\Void\Rendering\Camera\CameraController\CameraController.h" />
+    <ClInclude Include="src\Void\Utils\TimeSteps\Time.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Void\Core\Application.cpp">
@@ -180,7 +185,7 @@
     <ClCompile Include="src\Void\Platform\OpenGL\Debugging\OpenGLDebugger.cpp">
       <Filter>Void\Platform\OpenGL\Debugging</Filter>
     </ClCompile>
-    <ClCompile Include="src\Void\Platform\Windows\WindowsWindow.cpp">
+    <ClCompile Include="src\Void\Platform\OpenGL\Window\OpenGLWindow.cpp">
       <Filter>Void\Platform\Windows</Filter>
     </ClCompile>
     <ClCompile Include="src\Void\Rendering\Components\IndexBuffer\IndexBuffer.cpp">
@@ -201,12 +206,17 @@
     <ClCompile Include="src\Void\Rendering\Components\VertexBuffer\VertexBuffer.cpp">
       <Filter>Void\Rendering\Components\VertexBuffer</Filter>
     </ClCompile>
-    <ClCompile Include="src\Void\Utils\FileReader.cpp">
+    <ClCompile Include="src\Void\Utils\ExternalFiles\FileReader.cpp">
       <Filter>Void\Utils</Filter>
     </ClCompile>
     <ClCompile Include="src\pch.cpp" />
     <ClCompile Include="src\Void\Rendering\Components\RenderingContext\RenderingContext.cpp" />
     <ClCompile Include="src\Void\Platform\OpenGL\Components\RenderingContext\OpenGLRenderingContext.cpp" />
+    <ClCompile Include="src\Void\Platform\OpenGL\Input\OpenGLInput.cpp" />
+    <ClCompile Include="src\Void\Core\Input.cpp" />
+    <ClCompile Include="src\Void\Rendering\Camera\Camera\Camera.cpp" />
+    <ClCompile Include="src\Void\Rendering\Camera\CameraController\CameraController.cpp" />
+    <ClCompile Include="src\Void\Utils\TimeSteps\Time.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Temp\Shaders\VertexShader.glsl" />
