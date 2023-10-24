@@ -3,6 +3,8 @@
 #include "pch.h"
 #include "Window.h"
 #include <Void/Event/WindowEvents.h>
+#include <Void/Rendering/Components/VertexArray/VertexArray.h>
+#include "Void/Rendering/Components/Shader/Shader.h"
 
 namespace Void {
 
@@ -49,6 +51,13 @@ namespace Void {
 		/// <param name="e">Reference to the event called to close the application.</param>
 		/// <returns>True when successfull, false if failed.</returns>
 		bool CloseApplication(WindowCloseEvent& e);
+
+
+
+		//////////Temporary
+		std::shared_ptr<VertexArray> m_VertexArray;
+
+		std::shared_ptr<Shader> m_Shader;
 	};
 
 	/// <summary>

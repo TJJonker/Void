@@ -1,6 +1,5 @@
 #include "pch.h"
 #include "WindowsWindow.h"
-#include <GLFW/glfw3.h>
 #include <Void/Event/WindowEvents.h>
 #include <Void/Event/MouseEvents.h>
 
@@ -51,11 +50,19 @@ namespace Void {
 			VOID_CORE_ASSERT(success, "Could not intialize GLFW!");
 			s_GLFWInitialized = success;
 		}
+
+		glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3); // Set major and minor version so it matches version 3.3
+		glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+		glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE); // Switch to Core profile instead of Immediate mode
 		
 		// Create the window.
 		m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);
 		// Make the window the current context.
 		glfwMakeContextCurrent(m_Window);
+
+		m_RenderingContext.reset(RenderingContext::Create());
+		m_RenderingContext->Init();
+
 		// Set the data as user pointer for easy future access.
 		glfwSetWindowUserPointer(m_Window, &m_Data);
 		// Enabling VSync by default.

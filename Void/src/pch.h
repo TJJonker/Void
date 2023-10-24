@@ -4,6 +4,7 @@
 #include <memory>
 #include <string>
 #include <sstream>
+#include <fstream>
 
 #include <functional>
 
@@ -13,3 +14,6 @@
 
 #include "Void/Debug/Log.h"
 #include "Void/Core/Core.h"
+#include "Void/Debug/Assertion.h"
+
+#include <glm/glm.hpp>

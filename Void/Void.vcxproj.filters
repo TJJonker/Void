@@ -16,8 +16,59 @@
     <Filter Include="Void\Platform">
       <UniqueIdentifier>{6B484333-D708-BF69-A043-08E70CC30346}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Void\Platform\OpenGL">
+      <UniqueIdentifier>{3FEBA2AF-2B7A-2C79-D498-4074C0063D1F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Void\Platform\OpenGL\Components">
+      <UniqueIdentifier>{F4EA2A36-60CE-3976-69D1-67B2D53300C7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Void\Platform\OpenGL\Components\IndexBuffer">
+      <UniqueIdentifier>{951F6C79-0185-FFFF-8A5D-A1D8F6C1F46E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Void\Platform\OpenGL\Components\Renderer">
+      <UniqueIdentifier>{1AC1AFBE-063E-A301-2FBB-A3151B973F95}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Void\Platform\OpenGL\Components\Shader">
+      <UniqueIdentifier>{1AC05CA9-0612-3499-EF30-71A9DB214D82}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Void\Platform\OpenGL\Components\VertexArray">
+      <UniqueIdentifier>{80BD2915-EC22-BD9B-75FB-5E74E15FB20A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Void\Platform\OpenGL\Components\VertexBuffer">
+      <UniqueIdentifier>{3B5EE6BC-2771-E615-D05A-C302BC4C8363}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Void\Platform\OpenGL\Debugging">
+      <UniqueIdentifier>{BAE38583-A609-50EA-8F4F-D5B57B1475B6}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Void\Platform\Windows">
       <UniqueIdentifier>{A52D1CFC-119A-D7F6-DA8D-6F5446B9F95E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Void\Rendering">
+      <UniqueIdentifier>{44582AD2-3026-1ED8-19BA-8EFE0527FA3C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Void\Rendering\Components">
+      <UniqueIdentifier>{D90AD5E9-45CD-0874-8E7D-9700FA7EE151}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Void\Rendering\Components\IndexBuffer">
+      <UniqueIdentifier>{FA3E407E-6603-3F6E-2F69-6F389BECDAA3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Void\Rendering\Components\Renderer">
+      <UniqueIdentifier>{9F92A016-8BCE-A380-F4E0-BB77E03B4C9B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Void\Rendering\Components\Shader">
+      <UniqueIdentifier>{5F6C71A9-4BBD-5CEB-7421-4BAD60D1EF54}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Void\Rendering\Components\VertexArray">
+      <UniqueIdentifier>{E5DCFD19-51A1-FC09-1A07-2DD4868A983F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Void\Rendering\Components\VertexBuffer">
+      <UniqueIdentifier>{406A3E5C-2CBC-154C-15DB-525C01CC2E35}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Void\Rendering\Components\VertexBufferLayout">
+      <UniqueIdentifier>{7EB4DCA6-6AC7-DCFF-13B1-B9ECFFA2794D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Void\Utils">
+      <UniqueIdentifier>{D7ACD57F-C364-17CD-2C6C-F0281843B2BD}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -34,6 +85,9 @@
     <ClInclude Include="src\Void\Core\Window.h">
       <Filter>Void\Core</Filter>
     </ClInclude>
+    <ClInclude Include="src\Void\Debug\Assertion.h">
+      <Filter>Void\Debug</Filter>
+    </ClInclude>
     <ClInclude Include="src\Void\Debug\Log.h">
       <Filter>Void\Debug</Filter>
     </ClInclude>
@@ -46,10 +100,57 @@
     <ClInclude Include="src\Void\Event\WindowEvents.h">
       <Filter>Void\Event</Filter>
     </ClInclude>
+    <ClInclude Include="src\Void\Platform\OpenGL\Components\IndexBuffer\OpenGLIndexBuffer.h">
+      <Filter>Void\Platform\OpenGL\Components\IndexBuffer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Void\Platform\OpenGL\Components\Renderer\OpenGLRenderer.h">
+      <Filter>Void\Platform\OpenGL\Components\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Void\Platform\OpenGL\Components\Shader\OpenGLShader.h">
+      <Filter>Void\Platform\OpenGL\Components\Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Void\Platform\OpenGL\Components\VertexArray\OpenGLVertexArray.h">
+      <Filter>Void\Platform\OpenGL\Components\VertexArray</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Void\Platform\OpenGL\Components\VertexBuffer\OpenGLVertexBuffer.h">
+      <Filter>Void\Platform\OpenGL\Components\VertexBuffer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Void\Platform\OpenGL\Debugging\OpenGLDebugger.h">
+      <Filter>Void\Platform\OpenGL\Debugging</Filter>
+    </ClInclude>
     <ClInclude Include="src\Void\Platform\Windows\WindowsWindow.h">
       <Filter>Void\Platform\Windows</Filter>
     </ClInclude>
+    <ClInclude Include="src\Void\Rendering\Components\IndexBuffer\IndexBuffer.h">
+      <Filter>Void\Rendering\Components\IndexBuffer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Void\Rendering\Components\Renderer\Renderer.h">
+      <Filter>Void\Rendering\Components\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Void\Rendering\Components\Renderer\RenderingCommands.h">
+      <Filter>Void\Rendering\Components\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Void\Rendering\Components\Shader\Shader.h">
+      <Filter>Void\Rendering\Components\Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Void\Rendering\Components\VertexArray\VertexArray.h">
+      <Filter>Void\Rendering\Components\VertexArray</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Void\Rendering\Components\VertexBuffer\VertexBuffer.h">
+      <Filter>Void\Rendering\Components\VertexBuffer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Void\Rendering\Components\VertexBufferLayout\VertexBufferLayout.h">
+      <Filter>Void\Rendering\Components\VertexBufferLayout</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Void\Rendering\Components\VertexBufferLayout\VertexBufferLayoutElement.h">
+      <Filter>Void\Rendering\Components\VertexBufferLayout</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Void\Utils\FileReader.h">
+      <Filter>Void\Utils</Filter>
+    </ClInclude>
     <ClInclude Include="src\pch.h" />
+    <ClInclude Include="src\Void\Rendering\Components\RenderingContext\RenderingContext.h" />
+    <ClInclude Include="src\Void\Platform\OpenGL\Components\RenderingContext\OpenGLRenderingContext.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Void\Core\Application.cpp">
@@ -61,9 +162,54 @@
     <ClCompile Include="src\Void\Debug\Log.cpp">
       <Filter>Void\Debug</Filter>
     </ClCompile>
+    <ClCompile Include="src\Void\Platform\OpenGL\Components\IndexBuffer\OpenGLIndexBuffer.cpp">
+      <Filter>Void\Platform\OpenGL\Components\IndexBuffer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Void\Platform\OpenGL\Components\Renderer\OpenGLRenderer.cpp">
+      <Filter>Void\Platform\OpenGL\Components\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Void\Platform\OpenGL\Components\Shader\OpenGLShader.cpp">
+      <Filter>Void\Platform\OpenGL\Components\Shader</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Void\Platform\OpenGL\Components\VertexArray\OpenGLVertexArray.cpp">
+      <Filter>Void\Platform\OpenGL\Components\VertexArray</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Void\Platform\OpenGL\Components\VertexBuffer\OpenGLVertexBuffer.cpp">
+      <Filter>Void\Platform\OpenGL\Components\VertexBuffer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Void\Platform\OpenGL\Debugging\OpenGLDebugger.cpp">
+      <Filter>Void\Platform\OpenGL\Debugging</Filter>
+    </ClCompile>
     <ClCompile Include="src\Void\Platform\Windows\WindowsWindow.cpp">
       <Filter>Void\Platform\Windows</Filter>
     </ClCompile>
+    <ClCompile Include="src\Void\Rendering\Components\IndexBuffer\IndexBuffer.cpp">
+      <Filter>Void\Rendering\Components\IndexBuffer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Void\Rendering\Components\Renderer\Renderer.cpp">
+      <Filter>Void\Rendering\Components\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Void\Rendering\Components\Renderer\RenderingCommands.cpp">
+      <Filter>Void\Rendering\Components\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Void\Rendering\Components\Shader\Shader.cpp">
+      <Filter>Void\Rendering\Components\Shader</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Void\Rendering\Components\VertexArray\VertexArray.cpp">
+      <Filter>Void\Rendering\Components\VertexArray</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Void\Rendering\Components\VertexBuffer\VertexBuffer.cpp">
+      <Filter>Void\Rendering\Components\VertexBuffer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Void\Utils\FileReader.cpp">
+      <Filter>Void\Utils</Filter>
+    </ClCompile>
     <ClCompile Include="src\pch.cpp" />
+    <ClCompile Include="src\Void\Rendering\Components\RenderingContext\RenderingContext.cpp" />
+    <ClCompile Include="src\Void\Platform\OpenGL\Components\RenderingContext\OpenGLRenderingContext.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Temp\Shaders\VertexShader.glsl" />
+    <None Include="Temp\Shaders\FragmentShader.glsl" />
   </ItemGroup>
 </Project>
