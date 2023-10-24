@@ -18,6 +18,8 @@ namespace Void {
 		// Forward the window events to the OnEvent method.
 		m_Window->SetEventCallback(BIND_EVENT_FUNCTION(OnEvent));
 
+		m_CameraController = new CameraController();
+
 		//m_VertexArray = std::make_shared<VertexArray>(VertexArray::Create());
 		m_VertexArray.reset(VertexArray::Create());
 
@@ -56,13 +58,12 @@ namespace Void {
 		while (m_IsRunning) {
 			
 			Time::Update();
+			m_CameraController->Update();
 
 			RenderingCommands::SetClearColor({ .1, .2, .1, 1 });
 			RenderingCommands::Clear();
 
-			m_Shader->Bind();
-			m_VertexArray->Bind();
-			RenderingCommands::Draw(m_VertexArray);
+			RenderingCommands::Draw(m_VertexArray, m_Shader);
 
 			m_Window->OnUpdate();
 		}

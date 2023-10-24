@@ -12,8 +12,10 @@ namespace Void {
 		m_Renderer->Clear();
 	}
 
-	void RenderingCommands::Draw(const std::shared_ptr<VertexArray> vertexArray)
+	void RenderingCommands::Draw(const std::shared_ptr<VertexArray> vertexArray, const std::shared_ptr<Shader> shader)
 	{
+		shader->Bind();
+		vertexArray->Bind();
 		m_Renderer->Draw(vertexArray);
 	}
 }

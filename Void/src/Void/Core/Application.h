@@ -5,6 +5,8 @@
 #include <Void/Event/WindowEvents.h>
 #include <Void/Rendering/Components/VertexArray/VertexArray.h>
 #include "Void/Rendering/Components/Shader/Shader.h"
+#include "Void/Rendering/Camera/CameraController/CameraController.h"
+
 
 namespace Void {
 
@@ -52,7 +54,7 @@ namespace Void {
 		/// <returns>True when successfull, false if failed.</returns>
 		bool CloseApplication(WindowCloseEvent& e);
 
-
+		CameraController* m_CameraController;
 
 		//////////Temporary
 		std::shared_ptr<VertexArray> m_VertexArray;

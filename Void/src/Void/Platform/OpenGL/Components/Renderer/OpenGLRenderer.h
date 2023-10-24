@@ -1,5 +1,6 @@
 #pragma once
 #include "Void/Rendering/Components/Renderer/Renderer.h"
+#include <Void/Rendering/Components/Shader/Shader.h>
 
 namespace Void {
 	class OpenGLRenderer : public Renderer
