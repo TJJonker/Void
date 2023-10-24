@@ -5,6 +5,7 @@
 #include "Void/Rendering/Components/VertexBufferLayout/VertexBufferLayout.h"
 #include "Void/Rendering/Components/Renderer/RenderingCommands.h"
 #include "Input.h"
+#include "Void/Utils/TimeSteps/Time.h"
 
 namespace Void {
 
@@ -53,6 +54,8 @@ namespace Void {
 
 	void Application::Run() {
 		while (m_IsRunning) {
+			
+			Time::Update();
 
 			RenderingCommands::SetClearColor({ .1, .2, .1, 1 });
 			RenderingCommands::Clear();
@@ -60,9 +63,6 @@ namespace Void {
 			m_Shader->Bind();
 			m_VertexArray->Bind();
 			RenderingCommands::Draw(m_VertexArray);
-
-			if (Input::KeyPressed('A'))
-				VOID_TRACE("'A' has been pressed!");
 
 			m_Window->OnUpdate();
 		}

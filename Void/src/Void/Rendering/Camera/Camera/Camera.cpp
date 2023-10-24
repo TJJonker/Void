@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "Camera.h"
 #include <glm/gtc/matrix_transform.hpp>
+#include "Void/Utils/TimeSteps/Time.h"
 
 namespace Void {
     glm::mat4 Camera::GetView() const

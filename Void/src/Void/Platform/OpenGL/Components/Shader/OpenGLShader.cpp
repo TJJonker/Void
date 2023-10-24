@@ -1,6 +1,6 @@
 #include "pch.h"
 #include "OpenGLShader.h"
-#include "Void/Utils/FileReader.h"
+#include "Void/Utils/ExternalFiles/FileReader.h"
 #include <glad/glad.h>
 #include "Void/Platform/OpenGL/Debugging/OpenGLDebugger.h"
 
