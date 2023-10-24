@@ -66,6 +66,11 @@ namespace Void {
 
 		Input::Create(m_Window);
 
+		// TODO: (Re)move this.
+		glfwSetInputMode(m_Window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+
+
+
 		// Set the data as user pointer for easy future access.
 		glfwSetWindowUserPointer(m_Window, &m_Data);
 		// Enabling VSync by default.

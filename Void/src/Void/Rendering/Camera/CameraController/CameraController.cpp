@@ -17,12 +17,13 @@ namespace Void {
 	void CameraController::Update()
 	{
 		MoveCamera();
+		LookCamera();
 	}
 
 	void CameraController::MoveCamera()
 	{
-		int moveX = Input::KeyDown('d') - Input::KeyDown('a');
-		int moveY = Input::KeyDown('w') - Input::KeyDown('s');
+		int moveX = Input::KeyDown('D') - Input::KeyDown('A');
+		int moveY = Input::KeyDown('W') - Input::KeyDown('S');
 		m_Camera->MoveCamera({ moveX, moveY });
 	}
 
@@ -33,7 +34,7 @@ namespace Void {
 
 	void CameraController::LookCamera()
 	{
-		glm::vec2 mousePosition;
+		glm::vec2 mousePosition = Input::MousePosition(); 
 		m_Camera->LookCamera(mousePosition);
 	}
 }

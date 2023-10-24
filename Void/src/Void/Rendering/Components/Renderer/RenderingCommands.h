@@ -12,6 +12,6 @@ namespace Void {
 	public:
 		static void SetClearColor(const glm::vec4& color);
 		static void Clear();
-		static void Draw(const std::shared_ptr<VertexArray> vertexArray, std::shared_ptr<Shader> shader);
+		static void Draw(const std::shared_ptr<VertexArray> vertexArray, std::shared_ptr<Shader> shader, glm::mat4 viewMatrix);
 	};
 }

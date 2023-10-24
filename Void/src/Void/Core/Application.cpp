@@ -6,6 +6,7 @@
 #include "Void/Rendering/Components/Renderer/RenderingCommands.h"
 #include "Input.h"
 #include "Void/Utils/TimeSteps/Time.h"
+#include <glm/gtc/matrix_transform.hpp>
 
 namespace Void {
 
@@ -23,10 +24,15 @@ namespace Void {
 		//m_VertexArray = std::make_shared<VertexArray>(VertexArray::Create());
 		m_VertexArray.reset(VertexArray::Create());
 
-		float vertices[21] = {
-			-0.5f, -0.5f, 0.0f, 0.8f, 0.2f, 0.8f, 1.0f,
-			 0.5f, -0.5f, 0.0f, 0.2f, 0.3f, 0.8f, 1.0f,
-			 0.0f,  0.5f, 0.0f, 0.8f, 0.8f, 0.2f, 1.0f
+		float vertices[24] = {
+			 -0.5f, -0.5f, -0.5f,
+			  0.5f, -0.5f, -0.5f,
+			  0.5f,  0.5f, -0.5f,
+			 -0.5f,  0.5f, -0.5f,
+			 -0.5f, -0.5f,  0.5f,
+			  0.5f, -0.5f,  0.5f,
+			  0.5f,  0.5f,  0.5f,
+			 -0.5f,  0.5f,  0.5f
 		};
 
 		std::shared_ptr<VertexBuffer> vertexBuffer;
@@ -34,16 +40,34 @@ namespace Void {
 		
 		VertexBufferLayout bufferLayout;
 		bufferLayout.Push<float>(3); // Position
-		bufferLayout.Push<float>(4); // Color
 		vertexBuffer->SetVertexBufferLayout(bufferLayout);
 		m_VertexArray->AddVertexBuffer(vertexBuffer);
 		
-		uint32_t indices[3] = { 0, 1, 2 };
+		uint32_t indices[36] = { 
+			0, 1, 2, 0, 2, 3,
+			4, 5, 6, 4, 6, 7,
+			3, 2, 6, 2, 6, 7,
+			0, 1, 6, 0, 5, 4,
+			0, 3, 7, 0, 7, 4,
+			1, 2, 6, 1, 6, 5
+		};
 		std::shared_ptr<IndexBuffer> indexBuffer;
 		indexBuffer.reset(IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
 		m_VertexArray->SetIndexBuffer(indexBuffer);
 
 		m_Shader.reset(Shader::Create("Temp/Shaders/VertexShader.glsl", "Temp/Shaders/FragmentShader.glsl"));
+		m_Shader->Bind();
+
+		glm::mat4 projection = glm::perspective(glm::radians(m_CameraController->GetCamera()->GetFOV()), 1280.0f / 720.0f, 0.1f, 100.0f); 
+		glm::mat4 viewMatrix = m_CameraController->GetCamera()->GetView(); 
+		glm::mat4 model = glm::mat4(1.0f); 
+		 
+		model = glm::translate(model, glm::vec3(0.f, 0.f, -7.f)); 
+		model = glm::rotate(model, glm::radians(45.f), glm::vec3(0.f, 1.f, 0.f));
+		 
+		m_Shader->SetMatrix4("projection", projection); 
+		m_Shader->SetMatrix4("view", viewMatrix); 
+		m_Shader->SetMatrix4("model", model); 
 	}
 	
 	Application::~Application()	{ }
@@ -55,6 +79,8 @@ namespace Void {
 	}
 
 	void Application::Run() {
+		/// Temp
+
 		while (m_IsRunning) {
 			
 			Time::Update();
@@ -63,7 +89,7 @@ namespace Void {
 			RenderingCommands::SetClearColor({ .1, .2, .1, 1 });
 			RenderingCommands::Clear();
 
-			RenderingCommands::Draw(m_VertexArray, m_Shader);
+			RenderingCommands::Draw(m_VertexArray, m_Shader, m_CameraController->GetCamera()->GetView());
 
 			m_Window->OnUpdate();
 		}
