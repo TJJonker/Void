@@ -157,6 +157,8 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Void\Platform\OpenGL\Components\RenderingContext\OpenGLRenderingContext.h" />
+    <ClInclude Include="src\Void\Rendering\Components\RenderingContext\RenderingContext.h" />
     <ClInclude Include="src\Void.h" />
     <ClInclude Include="src\Void\Core\Application.h" />
     <ClInclude Include="src\Void\Core\Core.h" />
@@ -169,32 +171,42 @@
     <ClInclude Include="src\Void\Event\WindowEvents.h" />
     <ClInclude Include="src\Void\Platform\OpenGL\Components\IndexBuffer\OpenGLIndexBuffer.h" />
     <ClInclude Include="src\Void\Platform\OpenGL\Components\Renderer\OpenGLRenderer.h" />
+    <ClInclude Include="src\Void\Platform\OpenGL\Components\Shader\OpenGLShader.h" />
     <ClInclude Include="src\Void\Platform\OpenGL\Components\VertexArray\OpenGLVertexArray.h" />
     <ClInclude Include="src\Void\Platform\OpenGL\Components\VertexBuffer\OpenGLVertexBuffer.h" />
     <ClInclude Include="src\Void\Platform\OpenGL\Debugging\OpenGLDebugger.h" />
     <ClInclude Include="src\Void\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="src\Void\Rendering\Components\IndexBuffer\IndexBuffer.h" />
     <ClInclude Include="src\Void\Rendering\Components\Renderer\Renderer.h" />
+    <ClInclude Include="src\Void\Rendering\Components\Renderer\RenderingCommands.h" />
+    <ClInclude Include="src\Void\Rendering\Components\Shader\Shader.h" />
     <ClInclude Include="src\Void\Rendering\Components\VertexArray\VertexArray.h" />
     <ClInclude Include="src\Void\Rendering\Components\VertexBuffer\VertexBuffer.h" />
     <ClInclude Include="src\Void\Rendering\Components\VertexBufferLayout\VertexBufferLayout.h" />
     <ClInclude Include="src\Void\Rendering\Components\VertexBufferLayout\VertexBufferLayoutElement.h" />
+    <ClInclude Include="src\Void\Utils\FileReader.h" />
     <ClInclude Include="src\pch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Void\Platform\OpenGL\Components\RenderingContext\OpenGLRenderingContext.cpp" />
+    <ClCompile Include="src\Void\Rendering\Components\RenderingContext\RenderingContext.cpp" />
     <ClCompile Include="src\Void\Core\Application.cpp" />
     <ClCompile Include="src\Void\Core\Window.cpp" />
     <ClCompile Include="src\Void\Debug\Log.cpp" />
     <ClCompile Include="src\Void\Platform\OpenGL\Components\IndexBuffer\OpenGLIndexBuffer.cpp" />
     <ClCompile Include="src\Void\Platform\OpenGL\Components\Renderer\OpenGLRenderer.cpp" />
+    <ClCompile Include="src\Void\Platform\OpenGL\Components\Shader\OpenGLShader.cpp" />
     <ClCompile Include="src\Void\Platform\OpenGL\Components\VertexArray\OpenGLVertexArray.cpp" />
     <ClCompile Include="src\Void\Platform\OpenGL\Components\VertexBuffer\OpenGLVertexBuffer.cpp" />
     <ClCompile Include="src\Void\Platform\OpenGL\Debugging\OpenGLDebugger.cpp" />
     <ClCompile Include="src\Void\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\Void\Rendering\Components\IndexBuffer\IndexBuffer.cpp" />
     <ClCompile Include="src\Void\Rendering\Components\Renderer\Renderer.cpp" />
+    <ClCompile Include="src\Void\Rendering\Components\Renderer\RenderingCommands.cpp" />
+    <ClCompile Include="src\Void\Rendering\Components\Shader\Shader.cpp" />
     <ClCompile Include="src\Void\Rendering\Components\VertexArray\VertexArray.cpp" />
     <ClCompile Include="src\Void\Rendering\Components\VertexBuffer\VertexBuffer.cpp" />
+    <ClCompile Include="src\Void\Utils\FileReader.cpp" />
     <ClCompile Include="src\pch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
@@ -206,6 +218,10 @@
     <ProjectReference Include="vendor\GLAD\GLAD.vcxproj">
       <Project>{5D4A857C-4981-860D-F26D-6C10DE83020F}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Temp\Shaders\FragmentShader.glsl" />
+    <None Include="Temp\Shaders\VertexShader.glsl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -4,6 +4,7 @@
 #include "Window.h"
 #include <Void/Event/WindowEvents.h>
 #include <Void/Rendering/Components/VertexArray/VertexArray.h>
+#include "Void/Rendering/Components/Shader/Shader.h"
 
 namespace Void {
 
@@ -55,6 +56,8 @@ namespace Void {
 
 		//////////Temporary
 		std::shared_ptr<VertexArray> m_VertexArray;
+
+		std::shared_ptr<Shader> m_Shader;
 	};
 
 	/// <summary>

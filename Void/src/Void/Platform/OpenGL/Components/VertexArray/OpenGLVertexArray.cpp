@@ -4,6 +4,7 @@
 
 namespace Void {
 	OpenGLVertexArray::OpenGLVertexArray()
+		:m_BufferIndex(0)
 	{
 		GLCall(glGenVertexArrays(1, &m_ID));
 	}
@@ -22,9 +23,11 @@ namespace Void {
 		
 		for (const auto& element : vertexBuffer->GetVertexBufferLayout().GetLayoutElements()) {
 			GLCall(glEnableVertexAttribArray(m_BufferIndex));
-			glVertexAttribPointer(m_BufferIndex, element.Count, element.Type, element.Normalized, vertexBuffer->GetVertexBufferLayout().GetStride(), (const void*)element.Offset);
+			GLCall(glVertexAttribPointer(m_BufferIndex, element.Count, element.Type, element.Normalized, vertexBuffer->GetVertexBufferLayout().GetStride(), (const void*)element.Offset));
 			m_BufferIndex++;
 		}
+
+		m_VertexBuffer.push_back(vertexBuffer);
 	}
 
 	void OpenGLVertexArray::SetIndexBuffer(const std::shared_ptr<IndexBuffer>& indexBuffer)

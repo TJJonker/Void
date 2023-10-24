@@ -22,22 +22,22 @@ namespace Void {
 
 		template<>
 		void Push<unsigned int>(unsigned int count) {
-			m_Offset += count;
 			m_Elements.push_back({ GL_UNSIGNED_INT, count, false, m_Offset});
+			m_Offset += count;
 			m_Stride += sizeof(unsigned int) * count;
 		}
 
 		template<>
 		void Push<float>(unsigned int count) {
-			m_Offset += count;
 			m_Elements.push_back({ GL_FLOAT, count, false, m_Offset });
+			m_Offset += count;
 			m_Stride += sizeof(float) * count;
 		}
 
 		template<>
 		void Push<unsigned char>(unsigned int count) {
-			m_Offset += count;
 			m_Elements.push_back({ GL_UNSIGNED_BYTE, count, false, m_Offset });
+			m_Offset += count;
 			m_Stride += sizeof(unsigned int) * count;
 		}
 

@@ -14,6 +14,8 @@ project "Sandbox"
 		"src",
 		solutionDir .. "%{includeDirs.VOID}",
 		solutionDir .. "%{includeDirs.SPDLOG}",
+		solutionDir .. "%{includeDirs.GLM}",
+		solutionDir .. "%{includeDirs.GLAD}"
 	}
 
 	libdirs {

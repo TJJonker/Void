@@ -19,7 +19,7 @@ namespace Void {
 			data = resultStream.str();
 		}
 		catch (std::ifstream::failure e) {
-			VOID_CORE_ERROR("File not read succesfully. File path: {0}", filePath);
+			VOID_CORE_ERROR("File not read succesfully. File path: {0} - {1}", filePath, e.code().value());
 		}
 
 		return data;

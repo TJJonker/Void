@@ -1,6 +1,6 @@
 workspace "Void Engine"
 	architecture "x64"
-	startproject "Chat_Client" 
+	startproject "Sandbox" 
 
 	configurations {
 		"Debug",
