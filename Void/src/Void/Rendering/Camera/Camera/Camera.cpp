@@ -17,6 +17,11 @@ namespace Void {
 
     void Camera::LookCamera(const glm::vec2& position)
     {
+        if (m_FirstMouse) {
+            m_LastMousePosition = position;
+            m_FirstMouse = false;
+        }
+
         glm::vec2 offset = { position.x - m_LastMousePosition.x, m_LastMousePosition.y - position.y }; 
         m_LastMousePosition = position; 
 
