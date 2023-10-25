@@ -1,6 +1,7 @@
 project "Sandbox"
 	kind "ConsoleApp"
 	language "C++"
+	dependson { "Void" }
 
 	targetdir (solutionDir .. "/bin/" .. outputdir .. "/%{prj.name}")
 	objdir (solutionDir .. "/bin-int/" .. outputdir .. "/%{prj.name}")

@@ -80,7 +80,7 @@
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>VOID_PLATFORM_WINDOWS;VOID_BUILD_DLL;VOID_ASSERT_ENABLED;VOID_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\SPDLOG\include;vendor\GLFW\include;vendor\GLAD\include;vendor\GLM;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;vendor\SPDLOG\include;vendor\GLFW\include;vendor\GLAD\include;vendor\GLM;vendor\ASSIMP\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
@@ -90,10 +90,13 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>..;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opengl32.lib;assimp-vc143-mtd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..;vendor\ASSIMP\libs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <ImportLibrary>..\bin\Debug-windows-x86_64\Void\Void.lib</ImportLibrary>
     </Link>
+    <PreBuildEvent>
+      <Command>IF EXIST vendor\ASSIMP\libs\assimp-vc143-mtd.dll\ (xcopy /Q /E /Y /I vendor\ASSIMP\libs\assimp-vc143-mtd.dll $(SolutionDir)\bin\Debug-windows-x86_64\$(ProjectName) &gt; nul) ELSE (xcopy /Q /Y /I vendor\ASSIMP\libs\assimp-vc143-mtd.dll $(SolutionDir)\bin\Debug-windows-x86_64\$(ProjectName) &gt; nul)</Command>
+    </PreBuildEvent>
     <PostBuildEvent>
       <Command>IF EXIST ..\bin\Debug-windows-x86_64\Void\Void.dll\ (xcopy /Q /E /Y /I ..\bin\Debug-windows-x86_64\Void\Void.dll ..\bin\Debug-windows-x86_64\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Debug-windows-x86_64\Void\Void.dll ..\bin\Debug-windows-x86_64\Sandbox &gt; nul)</Command>
     </PostBuildEvent>
@@ -105,7 +108,7 @@
       <WarningLevel>Level3</WarningLevel>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
       <PreprocessorDefinitions>VOID_PLATFORM_WINDOWS;VOID_BUILD_DLL;VOID_ASSERT_ENABLED;VOID_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\SPDLOG\include;vendor\GLFW\include;vendor\GLAD\include;vendor\GLM;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;vendor\SPDLOG\include;vendor\GLFW\include;vendor\GLAD\include;vendor\GLM;vendor\ASSIMP\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -119,10 +122,13 @@
       <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>..;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opengl32.lib;assimp-vc143-mtd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..;vendor\ASSIMP\libs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <ImportLibrary>..\bin\Release-windows-x86_64\Void\Void.lib</ImportLibrary>
     </Link>
+    <PreBuildEvent>
+      <Command>IF EXIST vendor\ASSIMP\libs\assimp-vc143-mtd.dll\ (xcopy /Q /E /Y /I vendor\ASSIMP\libs\assimp-vc143-mtd.dll $(SolutionDir)\bin\Release-windows-x86_64\$(ProjectName) &gt; nul) ELSE (xcopy /Q /Y /I vendor\ASSIMP\libs\assimp-vc143-mtd.dll $(SolutionDir)\bin\Release-windows-x86_64\$(ProjectName) &gt; nul)</Command>
+    </PreBuildEvent>
     <PostBuildEvent>
       <Command>IF EXIST ..\bin\Release-windows-x86_64\Void\Void.dll\ (xcopy /Q /E /Y /I ..\bin\Release-windows-x86_64\Void\Void.dll ..\bin\Release-windows-x86_64\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Release-windows-x86_64\Void\Void.dll ..\bin\Release-windows-x86_64\Sandbox &gt; nul)</Command>
     </PostBuildEvent>
@@ -134,7 +140,7 @@
       <WarningLevel>Level3</WarningLevel>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
       <PreprocessorDefinitions>VOID_PLATFORM_WINDOWS;VOID_BUILD_DLL;VOID_ASSERT_ENABLED;VOID_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\SPDLOG\include;vendor\GLFW\include;vendor\GLAD\include;vendor\GLM;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;vendor\SPDLOG\include;vendor\GLFW\include;vendor\GLAD\include;vendor\GLM;vendor\ASSIMP\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -148,24 +154,23 @@
       <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>..;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opengl32.lib;assimp-vc143-mtd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..;vendor\ASSIMP\libs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <ImportLibrary>..\bin\Dist-windows-x86_64\Void\Void.lib</ImportLibrary>
     </Link>
+    <PreBuildEvent>
+      <Command>IF EXIST vendor\ASSIMP\libs\assimp-vc143-mtd.dll\ (xcopy /Q /E /Y /I vendor\ASSIMP\libs\assimp-vc143-mtd.dll $(SolutionDir)\bin\Dist-windows-x86_64\$(ProjectName) &gt; nul) ELSE (xcopy /Q /Y /I vendor\ASSIMP\libs\assimp-vc143-mtd.dll $(SolutionDir)\bin\Dist-windows-x86_64\$(ProjectName) &gt; nul)</Command>
+    </PreBuildEvent>
     <PostBuildEvent>
       <Command>IF EXIST ..\bin\Dist-windows-x86_64\Void\Void.dll\ (xcopy /Q /E /Y /I ..\bin\Dist-windows-x86_64\Void\Void.dll ..\bin\Dist-windows-x86_64\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Dist-windows-x86_64\Void\Void.dll ..\bin\Dist-windows-x86_64\Sandbox &gt; nul)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="src\Void\Rendering\Camera\CameraController\CameraController.h" />
-    <ClInclude Include="src\Void\Rendering\Camera\Camera\Camera.h" />
-    <ClInclude Include="src\Void\Platform\OpenGL\Components\RenderingContext\OpenGLRenderingContext.h" />
-    <ClInclude Include="src\Void\Core\Input.h" />
-    <ClInclude Include="src\Void\Rendering\Components\RenderingContext\RenderingContext.h" />
     <ClInclude Include="src\Void.h" />
     <ClInclude Include="src\Void\Core\Application.h" />
     <ClInclude Include="src\Void\Core\Core.h" />
     <ClInclude Include="src\Void\Core\EntryPoint.h" />
+    <ClInclude Include="src\Void\Core\Input.h" />
     <ClInclude Include="src\Void\Core\Window.h" />
     <ClInclude Include="src\Void\Debug\Assertion.h" />
     <ClInclude Include="src\Void\Debug\Log.h" />
@@ -174,52 +179,62 @@
     <ClInclude Include="src\Void\Event\WindowEvents.h" />
     <ClInclude Include="src\Void\Platform\OpenGL\Components\IndexBuffer\OpenGLIndexBuffer.h" />
     <ClInclude Include="src\Void\Platform\OpenGL\Components\Renderer\OpenGLRenderer.h" />
+    <ClInclude Include="src\Void\Platform\OpenGL\Components\RenderingContext\OpenGLRenderingContext.h" />
     <ClInclude Include="src\Void\Platform\OpenGL\Components\Shader\OpenGLShader.h" />
+    <ClInclude Include="src\Void\Platform\OpenGL\Components\Texture\OpenGLTexture.h" />
     <ClInclude Include="src\Void\Platform\OpenGL\Components\VertexArray\OpenGLVertexArray.h" />
     <ClInclude Include="src\Void\Platform\OpenGL\Components\VertexBuffer\OpenGLVertexBuffer.h" />
     <ClInclude Include="src\Void\Platform\OpenGL\Debugging\OpenGLDebugger.h" />
+    <ClInclude Include="src\Void\Platform\OpenGL\Input\OpenGLInput.h" />
     <ClInclude Include="src\Void\Platform\OpenGL\Window\OpenGLWindow.h" />
+    <ClInclude Include="src\Void\Rendering\Camera\Camera\Camera.h" />
+    <ClInclude Include="src\Void\Rendering\Camera\CameraController\CameraController.h" />
     <ClInclude Include="src\Void\Rendering\Components\IndexBuffer\IndexBuffer.h" />
     <ClInclude Include="src\Void\Rendering\Components\Renderer\Renderer.h" />
     <ClInclude Include="src\Void\Rendering\Components\Renderer\RenderingCommands.h" />
+    <ClInclude Include="src\Void\Rendering\Components\RenderingContext\RenderingContext.h" />
     <ClInclude Include="src\Void\Rendering\Components\Shader\Shader.h" />
+    <ClInclude Include="src\Void\Rendering\Components\Texture\Texture.h" />
     <ClInclude Include="src\Void\Rendering\Components\VertexArray\VertexArray.h" />
     <ClInclude Include="src\Void\Rendering\Components\VertexBuffer\VertexBuffer.h" />
     <ClInclude Include="src\Void\Rendering\Components\VertexBufferLayout\VertexBufferLayout.h" />
     <ClInclude Include="src\Void\Rendering\Components\VertexBufferLayout\VertexBufferLayoutElement.h" />
     <ClInclude Include="src\Void\Utils\ExternalFiles\FileReader.h" />
-    <ClInclude Include="src\pch.h" />
-    <ClInclude Include="src\Void\Platform\OpenGL\Input\OpenGLInput.h" />
     <ClInclude Include="src\Void\Utils\TimeSteps\Time.h" />
+    <ClInclude Include="src\Void\Vendor\stb_lib\stb_lib.h" />
+    <ClInclude Include="src\pch.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Void\Rendering\Camera\CameraController\CameraController.cpp" />
-    <ClCompile Include="src\Void\Rendering\Camera\Camera\Camera.cpp" />
-    <ClCompile Include="src\Void\Core\Input.cpp" />
-    <ClCompile Include="src\Void\Platform\OpenGL\Components\RenderingContext\OpenGLRenderingContext.cpp" />
-    <ClCompile Include="src\Void\Rendering\Components\RenderingContext\RenderingContext.cpp" />
     <ClCompile Include="src\Void\Core\Application.cpp" />
+    <ClCompile Include="src\Void\Core\Input.cpp" />
     <ClCompile Include="src\Void\Core\Window.cpp" />
     <ClCompile Include="src\Void\Debug\Log.cpp" />
     <ClCompile Include="src\Void\Platform\OpenGL\Components\IndexBuffer\OpenGLIndexBuffer.cpp" />
     <ClCompile Include="src\Void\Platform\OpenGL\Components\Renderer\OpenGLRenderer.cpp" />
+    <ClCompile Include="src\Void\Platform\OpenGL\Components\RenderingContext\OpenGLRenderingContext.cpp" />
     <ClCompile Include="src\Void\Platform\OpenGL\Components\Shader\OpenGLShader.cpp" />
+    <ClCompile Include="src\Void\Platform\OpenGL\Components\Texture\OpenGLTexture.cpp" />
     <ClCompile Include="src\Void\Platform\OpenGL\Components\VertexArray\OpenGLVertexArray.cpp" />
     <ClCompile Include="src\Void\Platform\OpenGL\Components\VertexBuffer\OpenGLVertexBuffer.cpp" />
     <ClCompile Include="src\Void\Platform\OpenGL\Debugging\OpenGLDebugger.cpp" />
+    <ClCompile Include="src\Void\Platform\OpenGL\Input\OpenGLInput.cpp" />
     <ClCompile Include="src\Void\Platform\OpenGL\Window\OpenGLWindow.cpp" />
+    <ClCompile Include="src\Void\Rendering\Camera\Camera\Camera.cpp" />
+    <ClCompile Include="src\Void\Rendering\Camera\CameraController\CameraController.cpp" />
     <ClCompile Include="src\Void\Rendering\Components\IndexBuffer\IndexBuffer.cpp" />
     <ClCompile Include="src\Void\Rendering\Components\Renderer\Renderer.cpp" />
     <ClCompile Include="src\Void\Rendering\Components\Renderer\RenderingCommands.cpp" />
+    <ClCompile Include="src\Void\Rendering\Components\RenderingContext\RenderingContext.cpp" />
     <ClCompile Include="src\Void\Rendering\Components\Shader\Shader.cpp" />
+    <ClCompile Include="src\Void\Rendering\Components\Texture\Texture.cpp" />
     <ClCompile Include="src\Void\Rendering\Components\VertexArray\VertexArray.cpp" />
     <ClCompile Include="src\Void\Rendering\Components\VertexBuffer\VertexBuffer.cpp" />
     <ClCompile Include="src\Void\Utils\ExternalFiles\FileReader.cpp" />
+    <ClCompile Include="src\Void\Utils\TimeSteps\Time.cpp" />
+    <ClCompile Include="src\Void\Vendor\stb_lib\stb_lib.cpp" />
     <ClCompile Include="src\pch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="src\Void\Platform\OpenGL\Input\OpenGLInput.cpp" />
-    <ClCompile Include="src\Void\Utils\TimeSteps\Time.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="vendor\GLFW\GLFW.vcxproj">
@@ -228,10 +243,6 @@
     <ProjectReference Include="vendor\GLAD\GLAD.vcxproj">
       <Project>{5D4A857C-4981-860D-F26D-6C10DE83020F}</Project>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Temp\Shaders\FragmentShader.glsl" />
-    <None Include="Temp\Shaders\VertexShader.glsl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

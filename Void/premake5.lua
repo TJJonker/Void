@@ -18,17 +18,20 @@ project "Void"
 		solutionDir .. "%{includeDirs.SPDLOG}",
 		solutionDir .. "%{includeDirs.GLFW}",
 		solutionDir .. "%{includeDirs.GLAD}",
-		solutionDir .. "%{includeDirs.GLM}"
+		solutionDir .. "%{includeDirs.GLM}",
+		solutionDir .. "%{includeDirs.ASSIMP}"
 	}
 
 	libdirs {
 		solutionDir .. "%{libraryDirs.GLFW}",
+		solutionDir .. "%{libraryDirs.ASSIMP}"
 	}
 
 	links {
 		"GLFW",
 		"opengl32",
-		"GLAD"
+		"GLAD",
+		"assimp-vc143-mtd.lib"
 	}
 
 
@@ -44,8 +47,12 @@ project "Void"
 			"VOID_ASSERT_ENABLED"
 		}
 
+		prebuildcommands {
+			("{COPY} vendor/ASSIMP/libs/assimp-vc143-mtd.dll " .. solutionDir .. "bin/" .. outputdir .. "/%{prj.name}")
+		}
+
 		postbuildcommands {
-			("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Sandbox")
+			("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Sandbox")			
 		}
 
 

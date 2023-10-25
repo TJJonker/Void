@@ -17,8 +17,11 @@ includeDirs["GLFW"] = "Void/vendor/GLFW/include"
 includeDirs["GLM"] = "Void/vendor/GLM"
 includeDirs["SPDLOG"] = "Void/vendor/SPDLOG/include"
 includeDirs["VOID"] = "Void/src"
+includeDirs["ASSIMP"] = "Void/vendor/ASSIMP/include"
+
 
 libraryDirs = {}
+libraryDirs["ASSIMP"] = "Void/vendor/ASSIMP/libs"
 
 include "Void/vendor/GLFW"
 include "Void/vendor/GLAD"
