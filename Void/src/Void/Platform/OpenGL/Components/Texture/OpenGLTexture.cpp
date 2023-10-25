@@ -12,6 +12,8 @@ namespace Void {
             return GL_RGB; 
         return GL_RGBA; 
     }
+    
+    // TODO: Extract to own class
 
     OpenGLTexture::OpenGLTexture(const std::string& path, const char* fileName, TextureType textureType)
         :m_TextureType(textureType)

@@ -215,6 +215,8 @@
       <Filter>Void\Vendor\stb_lib</Filter>
     </ClInclude>
     <ClInclude Include="src\pch.h" />
+    <ClInclude Include="src\Void\Rendering\Components\Model\Model.h" />
+    <ClInclude Include="src\Void\Utils\ExternalFiles\ModelLoader.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Void\Core\Application.cpp">
@@ -299,5 +301,6 @@
       <Filter>Void\Vendor\stb_lib</Filter>
     </ClCompile>
     <ClCompile Include="src\pch.cpp" />
+    <ClCompile Include="src\Void\Utils\ExternalFiles\ModelLoader.cpp" />
   </ItemGroup>
 </Project>

@@ -166,6 +166,7 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Void\Utils\ExternalFiles\ModelLoader.h" />
     <ClInclude Include="src\Void.h" />
     <ClInclude Include="src\Void\Core\Application.h" />
     <ClInclude Include="src\Void\Core\Core.h" />
@@ -190,6 +191,7 @@
     <ClInclude Include="src\Void\Rendering\Camera\Camera\Camera.h" />
     <ClInclude Include="src\Void\Rendering\Camera\CameraController\CameraController.h" />
     <ClInclude Include="src\Void\Rendering\Components\IndexBuffer\IndexBuffer.h" />
+    <ClInclude Include="src\Void\Rendering\Components\Model\Model.h" />
     <ClInclude Include="src\Void\Rendering\Components\Renderer\Renderer.h" />
     <ClInclude Include="src\Void\Rendering\Components\Renderer\RenderingCommands.h" />
     <ClInclude Include="src\Void\Rendering\Components\RenderingContext\RenderingContext.h" />
@@ -205,6 +207,7 @@
     <ClInclude Include="src\pch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Void\Utils\ExternalFiles\ModelLoader.cpp" />
     <ClCompile Include="src\Void\Core\Application.cpp" />
     <ClCompile Include="src\Void\Core\Input.cpp" />
     <ClCompile Include="src\Void\Core\Window.cpp" />

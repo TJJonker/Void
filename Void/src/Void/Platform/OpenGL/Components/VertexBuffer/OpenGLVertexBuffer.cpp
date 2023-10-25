@@ -5,7 +5,7 @@
 
 namespace Void {
     
-    OpenGLVertexBuffer::OpenGLVertexBuffer(const float* vertices, const uint32_t size)
+    OpenGLVertexBuffer::OpenGLVertexBuffer(const void* vertices, const uint32_t size)
         : m_Count(size)
     {
         GLCall(glGenBuffers(1, &m_ID));
