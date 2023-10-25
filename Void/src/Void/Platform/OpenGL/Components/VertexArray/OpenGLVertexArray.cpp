@@ -14,7 +14,7 @@ namespace Void {
 		GLCall(glDeleteVertexArrays(1, &m_ID));
 	}
 
-	void OpenGLVertexArray::AddVertexBuffer(const std::shared_ptr<VertexBuffer>& vertexBuffer)
+	void OpenGLVertexArray::AddVertexBuffer(const std::shared_ptr<VertexBuffer>& vertexBuffer)	
 	{
 		VOID_CORE_ASSERT(vertexBuffer->GetVertexBufferLayout().GetLayoutElements().size(), "VertexBuffer is empty.");
 
@@ -23,7 +23,7 @@ namespace Void {
 		
 		for (const auto& element : vertexBuffer->GetVertexBufferLayout().GetLayoutElements()) {
 			GLCall(glEnableVertexAttribArray(m_BufferIndex));
-			GLCall(glVertexAttribPointer(m_BufferIndex, element.Count, element.Type, element.Normalized, vertexBuffer->GetVertexBufferLayout().GetStride(), (const void*)element.Offset));
+			GLCall(glVertexAttribPointer(m_BufferIndex, element.Count, GL_FLOAT, element.Normalized, vertexBuffer->GetVertexBufferLayout().GetStride(), (const void*)element.Offset));
 			m_BufferIndex++;
 		}
 

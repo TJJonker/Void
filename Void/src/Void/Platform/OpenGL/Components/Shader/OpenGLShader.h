@@ -20,6 +20,7 @@ namespace Void {
 		void Bind() override;
 		void Unbind() override;
 
-		virtual void SetMatrix4(const std::string& name, glm::mat4& v0) override;
+		void SetMatrix4(const std::string& name, glm::mat4& v0) override;
+		void SetVec3(const std::string& name, glm::vec3& v0) override;
 	};
 }

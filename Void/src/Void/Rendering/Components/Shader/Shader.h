@@ -12,5 +12,6 @@ namespace Void {
 		static Shader* Create(const char* vertexShaderPath, const char* fragmentShaderPath);
 
 		virtual void SetMatrix4(const std::string& name, glm::mat4& v0) = 0;
+		virtual void SetVec3(const std::string& name, glm::vec3& v0) = 0;
 	};
 }
