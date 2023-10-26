@@ -7,17 +7,15 @@ namespace Void {
 	{
 	private:
 		unsigned int m_ID;
-		TextureType m_TextureType;
 
 	private:
 		GLenum GetDataFormat(int amountOfChannels) const;
 
 	public:
-		OpenGLTexture(const std::string& path, const char* fileName, TextureType textureType);
+		OpenGLTexture(const std::string& filePath);
 		virtual ~OpenGLTexture();
 
 		virtual void Bind() const override;
 		virtual void Unbind() const override;
-		virtual TextureType GetTextureType() const override { return m_TextureType; }
 	};
 }

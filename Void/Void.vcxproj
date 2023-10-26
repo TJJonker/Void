@@ -166,6 +166,16 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Void\ECS\Systems\RenderingSystem.h" />
+    <ClInclude Include="src\Void\ECS\Core\Scene\ECSScene.h" />
+    <ClInclude Include="src\Void\ECS\Components\RenderingComponent.h" />
+    <ClInclude Include="src\Void\ECS\Components\TranformComponent.h" />
+    <ClInclude Include="src\Void\ECS\Core\Components\ComponentID.h" />
+    <ClInclude Include="src\Void\ECS\Core\Components\ComponentPool.h" />
+    <ClInclude Include="src\Void\ECS\Core\Entity\Entity.h" />
+    <ClInclude Include="src\Void\ECS\Core\Scene\Scene.h" />
+    <ClInclude Include="src\Void\ECS\Core\Scene\SceneView.h" />
+    <ClInclude Include="src\Void\ECS\Core\Systems\ISystem.h" />
     <ClInclude Include="src\Void\Utils\ExternalFiles\ModelLoader.h" />
     <ClInclude Include="src\Void.h" />
     <ClInclude Include="src\Void\Core\Application.h" />
@@ -205,8 +215,13 @@
     <ClInclude Include="src\Void\Utils\TimeSteps\Time.h" />
     <ClInclude Include="src\Void\Vendor\stb_lib\stb_lib.h" />
     <ClInclude Include="src\pch.h" />
+    <ClInclude Include="src\Void\Utils\ExternalFiles\TextureLoader.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Void\ECS\Systems\RenderingSystem.cpp" />
+    <ClCompile Include="src\Void\ECS\Core\Scene\ECSScene.cpp" />
+    <ClCompile Include="src\Void\ECS\Core\Components\ComponentPool.cpp" />
+    <ClCompile Include="src\Void\ECS\Core\Scene\Scene.cpp" />
     <ClCompile Include="src\Void\Utils\ExternalFiles\ModelLoader.cpp" />
     <ClCompile Include="src\Void\Core\Application.cpp" />
     <ClCompile Include="src\Void\Core\Input.cpp" />
@@ -238,6 +253,7 @@
     <ClCompile Include="src\pch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="src\Void\Utils\ExternalFiles\TextureLoader.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="vendor\GLFW\GLFW.vcxproj">

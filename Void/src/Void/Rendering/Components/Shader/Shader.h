@@ -13,5 +13,6 @@ namespace Void {
 
 		virtual void SetMatrix4(const std::string& name, glm::mat4& v0) = 0;
 		virtual void SetVec3(const std::string& name, glm::vec3& v0) = 0;
+		virtual void SetInt(const std::string& name, int v0) = 0;
 	};
 }

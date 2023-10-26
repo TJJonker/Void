@@ -15,14 +15,13 @@ namespace Void {
     
     // TODO: Extract to own class
 
-    OpenGLTexture::OpenGLTexture(const std::string& path, const char* fileName, TextureType textureType)
-        :m_TextureType(textureType)
+    OpenGLTexture::OpenGLTexture(const std::string& filePath)
     {
         GLCall(glGenTextures(1, &m_ID));
+        GLCall(glBindTexture(GL_TEXTURE_2D, m_ID));
 
         int width, height, nrChannels;
-        std::string string = path + "/" + fileName;
-        unsigned char* data = stbi_load(string.c_str(), &width, &height, &nrChannels, 0);
+        unsigned char* data = stbi_load(filePath.c_str(), &width, &height, &nrChannels, 0);
         GLenum dataFormat = GetDataFormat(nrChannels);
         if (data) {
             GLCall(glTexImage2D(GL_TEXTURE_2D, 0, dataFormat, width, height, 0, dataFormat, GL_UNSIGNED_BYTE, data));

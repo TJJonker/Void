@@ -21,6 +21,5 @@ namespace Void {
 		static std::vector<unsigned int> GetIndices(aiMesh* mesh);
 	public:
 		static Model* LoadModel(const std::string& filePath);
-
 	};
 }

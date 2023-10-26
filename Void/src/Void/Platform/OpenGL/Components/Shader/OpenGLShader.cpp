@@ -55,6 +55,11 @@ namespace Void {
 		GLCall(glUniform3fv(GetUniformLocation(name), 1, glm::value_ptr(v0)));
 	}
 
+	void OpenGLShader::SetInt(const std::string& name, int v0)
+	{
+		GLCall(glUniform1i(GetUniformLocation(name), v0));
+	}
+
 	unsigned int OpenGLShader::CompileShader(const char* code, unsigned int type)
 	{
 		unsigned int shaderID = glCreateShader(type);

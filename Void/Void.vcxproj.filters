@@ -217,6 +217,17 @@
     <ClInclude Include="src\pch.h" />
     <ClInclude Include="src\Void\Rendering\Components\Model\Model.h" />
     <ClInclude Include="src\Void\Utils\ExternalFiles\ModelLoader.h" />
+    <ClInclude Include="src\Void\Utils\ExternalFiles\TextureLoader.h" />
+    <ClInclude Include="src\Void\ECS\Components\TranformComponent.h" />
+    <ClInclude Include="src\Void\ECS\Components\RenderingComponent.h" />
+    <ClInclude Include="src\Void\ECS\Core\Components\ComponentID.h" />
+    <ClInclude Include="src\Void\ECS\Core\Components\ComponentPool.h" />
+    <ClInclude Include="src\Void\ECS\Core\Entity\Entity.h" />
+    <ClInclude Include="src\Void\ECS\Core\Scene\Scene.h" />
+    <ClInclude Include="src\Void\ECS\Core\Scene\SceneView.h" />
+    <ClInclude Include="src\Void\ECS\Core\Scene\ECSScene.h" />
+    <ClInclude Include="src\Void\ECS\Core\Systems\ISystem.h" />
+    <ClInclude Include="src\Void\ECS\Systems\RenderingSystem.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Void\Core\Application.cpp">
@@ -302,5 +313,10 @@
     </ClCompile>
     <ClCompile Include="src\pch.cpp" />
     <ClCompile Include="src\Void\Utils\ExternalFiles\ModelLoader.cpp" />
+    <ClCompile Include="src\Void\Utils\ExternalFiles\TextureLoader.cpp" />
+    <ClCompile Include="src\Void\ECS\Core\Components\ComponentPool.cpp" />
+    <ClCompile Include="src\Void\ECS\Core\Scene\Scene.cpp" />
+    <ClCompile Include="src\Void\ECS\Core\Scene\ECSScene.cpp" />
+    <ClCompile Include="src\Void\ECS\Systems\RenderingSystem.cpp" />
   </ItemGroup>
 </Project>
