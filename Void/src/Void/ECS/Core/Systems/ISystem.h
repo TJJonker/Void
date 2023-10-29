@@ -1,10 +1,9 @@
 #pragma once
-#include <Void/ECS/Core/Scene/Scene.h>
-#include <Void/ECS/Core/Scene/SceneView.h>
+#include "Void/Vendor/entt/entt.hpp"
 
 namespace Void {
 	class ISystem {
 	public:
-		virtual void Update(Scene scene) = 0;
+		virtual void Update(entt::registry& registry) = 0;
 	};
 }

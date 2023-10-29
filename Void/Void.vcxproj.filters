@@ -10,6 +10,30 @@
     <Filter Include="Void\Debug">
       <UniqueIdentifier>{EDB5997E-D96D-DBCB-4275-B4272E4C76BC}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Void\ECS">
+      <UniqueIdentifier>{01566B36-ED22-C641-163C-B4E90268FBCF}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Void\ECS\Components">
+      <UniqueIdentifier>{76D809CD-E239-E7DA-6BA7-2D8DD7071E9A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Void\ECS\Core">
+      <UniqueIdentifier>{F962BF92-6523-3BC9-2E5E-84469ADD7FA5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Void\ECS\Core\Components">
+      <UniqueIdentifier>{6EDA0021-5AFF-4FA1-834A-35316FCE4EBF}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Void\ECS\Core\Entity">
+      <UniqueIdentifier>{253D52F0-11CC-DBB9-BAEA-EFB4A658EC5F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Void\ECS\Core\Scene">
+      <UniqueIdentifier>{D6665E84-42C8-3B92-CB35-824437967251}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Void\ECS\Core\Systems">
+      <UniqueIdentifier>{00A2E549-6C0E-A144-3502-39A2A12DC3AC}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Void\ECS\Systems">
+      <UniqueIdentifier>{081DB82B-F415-D77D-1D48-BC0209A0B689}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Void\Event">
       <UniqueIdentifier>{C82CB57E-B4E4-F6CB-1DEC-CF2709C391BC}</UniqueIdentifier>
     </Filter>
@@ -69,6 +93,9 @@
     </Filter>
     <Filter Include="Void\Rendering\Components\IndexBuffer">
       <UniqueIdentifier>{FA3E407E-6603-3F6E-2F69-6F389BECDAA3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Void\Rendering\Components\Model">
+      <UniqueIdentifier>{D97264AF-4556-73EF-4E59-A12BBABB3940}</UniqueIdentifier>
     </Filter>
     <Filter Include="Void\Rendering\Components\Renderer">
       <UniqueIdentifier>{9F92A016-8BCE-A380-F4E0-BB77E03B4C9B}</UniqueIdentifier>
@@ -130,6 +157,18 @@
     <ClInclude Include="src\Void\Debug\Log.h">
       <Filter>Void\Debug</Filter>
     </ClInclude>
+    <ClInclude Include="src\Void\ECS\Components\RenderingComponent.h">
+      <Filter>Void\ECS\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Void\ECS\Components\TranformComponent.h">
+      <Filter>Void\ECS\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Void\ECS\Core\Systems\ISystem.h">
+      <Filter>Void\ECS\Core\Systems</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Void\ECS\Systems\RenderingSystem.h">
+      <Filter>Void\ECS\Systems</Filter>
+    </ClInclude>
     <ClInclude Include="src\Void\Event\Event.h">
       <Filter>Void\Event</Filter>
     </ClInclude>
@@ -178,6 +217,9 @@
     <ClInclude Include="src\Void\Rendering\Components\IndexBuffer\IndexBuffer.h">
       <Filter>Void\Rendering\Components\IndexBuffer</Filter>
     </ClInclude>
+    <ClInclude Include="src\Void\Rendering\Components\Model\Model.h">
+      <Filter>Void\Rendering\Components\Model</Filter>
+    </ClInclude>
     <ClInclude Include="src\Void\Rendering\Components\Renderer\Renderer.h">
       <Filter>Void\Rendering\Components\Renderer</Filter>
     </ClInclude>
@@ -208,6 +250,12 @@
     <ClInclude Include="src\Void\Utils\ExternalFiles\FileReader.h">
       <Filter>Void\Utils\ExternalFiles</Filter>
     </ClInclude>
+    <ClInclude Include="src\Void\Utils\ExternalFiles\ModelLoader.h">
+      <Filter>Void\Utils\ExternalFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Void\Utils\ExternalFiles\TextureLoader.h">
+      <Filter>Void\Utils\ExternalFiles</Filter>
+    </ClInclude>
     <ClInclude Include="src\Void\Utils\TimeSteps\Time.h">
       <Filter>Void\Utils\TimeSteps</Filter>
     </ClInclude>
@@ -215,19 +263,7 @@
       <Filter>Void\Vendor\stb_lib</Filter>
     </ClInclude>
     <ClInclude Include="src\pch.h" />
-    <ClInclude Include="src\Void\Rendering\Components\Model\Model.h" />
-    <ClInclude Include="src\Void\Utils\ExternalFiles\ModelLoader.h" />
-    <ClInclude Include="src\Void\Utils\ExternalFiles\TextureLoader.h" />
-    <ClInclude Include="src\Void\ECS\Components\TranformComponent.h" />
-    <ClInclude Include="src\Void\ECS\Components\RenderingComponent.h" />
-    <ClInclude Include="src\Void\ECS\Core\Components\ComponentID.h" />
-    <ClInclude Include="src\Void\ECS\Core\Components\ComponentPool.h" />
-    <ClInclude Include="src\Void\ECS\Core\Entity\Entity.h" />
     <ClInclude Include="src\Void\ECS\Core\Scene\Scene.h" />
-    <ClInclude Include="src\Void\ECS\Core\Scene\SceneView.h" />
-    <ClInclude Include="src\Void\ECS\Core\Scene\ECSScene.h" />
-    <ClInclude Include="src\Void\ECS\Core\Systems\ISystem.h" />
-    <ClInclude Include="src\Void\ECS\Systems\RenderingSystem.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Void\Core\Application.cpp">
@@ -241,6 +277,9 @@
     </ClCompile>
     <ClCompile Include="src\Void\Debug\Log.cpp">
       <Filter>Void\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Void\ECS\Systems\RenderingSystem.cpp">
+      <Filter>Void\ECS\Systems</Filter>
     </ClCompile>
     <ClCompile Include="src\Void\Platform\OpenGL\Components\IndexBuffer\OpenGLIndexBuffer.cpp">
       <Filter>Void\Platform\OpenGL\Components\IndexBuffer</Filter>
@@ -305,6 +344,12 @@
     <ClCompile Include="src\Void\Utils\ExternalFiles\FileReader.cpp">
       <Filter>Void\Utils\ExternalFiles</Filter>
     </ClCompile>
+    <ClCompile Include="src\Void\Utils\ExternalFiles\ModelLoader.cpp">
+      <Filter>Void\Utils\ExternalFiles</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Void\Utils\ExternalFiles\TextureLoader.cpp">
+      <Filter>Void\Utils\ExternalFiles</Filter>
+    </ClCompile>
     <ClCompile Include="src\Void\Utils\TimeSteps\Time.cpp">
       <Filter>Void\Utils\TimeSteps</Filter>
     </ClCompile>
@@ -312,11 +357,6 @@
       <Filter>Void\Vendor\stb_lib</Filter>
     </ClCompile>
     <ClCompile Include="src\pch.cpp" />
-    <ClCompile Include="src\Void\Utils\ExternalFiles\ModelLoader.cpp" />
-    <ClCompile Include="src\Void\Utils\ExternalFiles\TextureLoader.cpp" />
-    <ClCompile Include="src\Void\ECS\Core\Components\ComponentPool.cpp" />
     <ClCompile Include="src\Void\ECS\Core\Scene\Scene.cpp" />
-    <ClCompile Include="src\Void\ECS\Core\Scene\ECSScene.cpp" />
-    <ClCompile Include="src\Void\ECS\Systems\RenderingSystem.cpp" />
   </ItemGroup>
 </Project>

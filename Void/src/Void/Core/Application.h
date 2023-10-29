@@ -6,7 +6,7 @@
 #include <Void/Rendering/Components/VertexArray/VertexArray.h>
 #include "Void/Rendering/Components/Shader/Shader.h"
 #include "Void/Rendering/Camera/CameraController/CameraController.h"
-#include <Void/ECS/Core/Scene/ECSScene.h>
+#include <Void/ECS/Core/Scene/Scene.h>
 
 
 namespace Void {
@@ -57,7 +57,7 @@ namespace Void {
 
 		CameraController* m_CameraController;
 
-		ECSScene m_Scene;
+		Scene m_Scene;
 	};
 
 	/// <summary>

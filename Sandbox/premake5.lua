@@ -43,7 +43,7 @@ project "Sandbox"
 
 	filter "configurations:Release"
 		defines "VOID_RELEASE"
-		optimize "On"
+		optimize "Off"
 
 	filter "configurations:Dist"
 		defines "VOID_DIST"

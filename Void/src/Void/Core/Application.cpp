@@ -35,7 +35,7 @@ namespace Void {
 		/// Insert code here
 
 
-		EntityID entity1 = m_Scene.CreateEntity();
+		entt::entity entity1 = m_Scene.CreateEntity();
 
 		std::shared_ptr<Shader> shader;
 		shader.reset(Shader::Create("Temp/Shaders/VertexShader.glsl", "Temp/Shaders/FragmentShader.glsl"));
@@ -48,12 +48,12 @@ namespace Void {
 		model1->Submeshes[0]->Shader = shader;
 		model1->Submeshes[0]->Textures.push_back(texture);
 
-		RenderingComponent* rc = m_Scene.AddComponent<RenderingComponent>(entity1);
-		rc->Submeshes = model1->Submeshes;
+		RenderingComponent& rc = m_Scene.AddComponent<RenderingComponent>(entity1);
+		rc.Submeshes = model1->Submeshes;
 
-		TransformComponent* tc = m_Scene.AddComponent<TransformComponent>(entity1);
-		tc->Position = glm::vec3(0, 0, -15);
-		tc->Scale = glm::vec3(0.4, 0.4, 0.4);
+		TransformComponent& tc = m_Scene.AddComponent<TransformComponent>(entity1);
+		tc.Position = glm::vec3(0, 0, -15);
+		tc.Scale = glm::vec3(0.4, 0.4, 0.4);
 	}
 	
 	Application::~Application()	{ }

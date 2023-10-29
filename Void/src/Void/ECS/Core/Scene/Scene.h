@@ -1,75 +1,36 @@
 #pragma once
-#include <queue>
-#include <bitset>
-#include <vector>
-#include "Void/ECS/Core/Entity/Entity.h"
-#include "Void/ECS/Core/Components/ComponentID.h"
-#include "Void/ECS/Core/Components/ComponentPool.h"
+#include <Void/ECS/Core/Systems/ISystem.h>
+#include "Void/Vendor/entt/entt.hpp"
 
-struct TestComponent {
-	float position{ 1.0f };
-	float rotation{ 2.0f };
-};
-
-const int MAX_COMPONENTS = 32;
-typedef std::bitset<MAX_COMPONENTS> ComponentMask;
-
-struct Scene {
-	struct EntityDescription {
-		EntityID id;
-		ComponentMask mask;
-	};
-
-	std::vector<EntityDescription> entities;
-	std::queue<EntityIndex> freeEntities;
-	std::vector<ComponentPool*> componentPools;
-
-	EntityID CreateEntity();
-	void DestroyEntity(EntityID id);
-	bool IsEntityActive(EntityID id);
-
-	template<typename T>
-	T* AddComponent(EntityID id) 
+namespace Void {
+	class Scene
 	{
-		if (!IsEntityActive(id))
-			return nullptr;
+	private:
+		entt::registry m_Registry;
 
-		int componentID = GetComponentID<T>();
+		std::shared_ptr<ISystem> m_RenderingSystem;
+		std::vector<std::shared_ptr<ISystem>> m_Systems;
 
-		if (componentPools.size() <= componentID)
-			componentPools.resize(componentID + 1, new ComponentPool(sizeof(T)));
-		if (componentPools[componentID] == nullptr)
-			componentPools[componentID] = new ComponentPool(sizeof(T));
+	public:
+		entt::entity CreateEntity();
 
-		T* component = new (componentPools[componentID]->Get(GetEntityIndex(id))) T();
+		template<typename T>
+		T& AddComponent(entt::entity entity) {
+			m_Registry.emplace<T>(entity);
+			return m_Registry.get<T>(entity);
+		}
 
-		entities[GetEntityIndex(id)].mask.set(componentID);
-		return component;
-		//return nullptr;
+		template<typename T>
+		T& GetComponent(entt::entity entity) {
+			return m_Registry.get<T>(entity);
+		}
+
+		void AddSystem(std::shared_ptr<Void::ISystem> system) { m_Systems.push_back(system); }
+		void UpdateSystems();
+		void SetRenderingSystem(std::shared_ptr<Void::ISystem> system) { m_RenderingSystem = system; }
+		void UpdateRenderingSystem() { m_RenderingSystem->Update(m_Registry); }
+
+		entt::registry& Registry() { return m_Registry; }
 	};
+}
 
-	template<typename T>
-	void RemoveComponent(EntityID id) {
-		if (!IsEntityActive(id))
-			return;
-
-		int componentID = GetComponentID<T>();
-		entities[GetEntityIndex(id)].mask.set(componentID, false);
-	}
-
-	template<typename T>
-	T* GetComponent(EntityID id) {
-		
-		if (!IsEntityActive(id))
-			return nullptr;
-
-		int componentID = GetComponentID<T>();
-		EntityIndex entityIndex = GetEntityIndex(id);
-
-		if (!entities[entityIndex].mask.test(componentID))
-			return nullptr;
-
-		T* component = static_cast<T*>(componentPools[componentID]->Get(entityIndex));
-		return component;
-	}
-};

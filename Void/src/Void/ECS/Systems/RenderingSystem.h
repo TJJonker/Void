@@ -5,7 +5,7 @@ namespace Void {
 
 	class RenderingSystem : public ISystem
 	{
-		void Update(Scene scene) override;
+		void Update(entt::registry& registry) override;
 	};
 
 }
