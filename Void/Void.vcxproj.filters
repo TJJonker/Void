@@ -264,6 +264,8 @@
     </ClInclude>
     <ClInclude Include="src\pch.h" />
     <ClInclude Include="src\Void\ECS\Core\Scene\Scene.h" />
+    <ClInclude Include="src\Void\ECS\Components\PhysicsComponent.h" />
+    <ClInclude Include="src\Void\ECS\Systems\PhysicsSystem.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Void\Core\Application.cpp">
@@ -358,5 +360,6 @@
     </ClCompile>
     <ClCompile Include="src\pch.cpp" />
     <ClCompile Include="src\Void\ECS\Core\Scene\Scene.cpp" />
+    <ClCompile Include="src\Void\ECS\Systems\PhysicsSystem.cpp" />
   </ItemGroup>
 </Project>

@@ -84,7 +84,7 @@ namespace Void {
 		if (m_UniformMap.find(name) == m_UniformMap.end()) {
 			m_UniformMap.insert({ name, glGetUniformLocation(m_ID, name.c_str()) });
 		}
-		VOID_CORE_TRACE("{0} : {1}", m_UniformMap[name], name);
+		//VOID_CORE_TRACE("{0} : {1}", m_UniformMap[name], name);
 		return m_UniformMap[name];
 	}
 }

@@ -12,6 +12,8 @@
 #include <Void/ECS/Components/TranformComponent.h>
 #include <Void/ECS/Components/RenderingComponent.h>
 #include <Void/ECS/Systems/RenderingSystem.h>
+#include <Void/ECS/Components/PhysicsComponent.h>
+#include <Void/ECS/Systems/PhysicsSystem.h>
 
 namespace Void {
 
@@ -31,9 +33,10 @@ namespace Void {
 		m_Scene.SetRenderingSystem(renderingSystem); 
 
 
+		m_Scene.AddSystem(std::make_shared<PhysicsSystem>());
+
 		////////////////////
 		/// Insert code here
-
 
 		entt::entity entity1 = m_Scene.CreateEntity();
 
@@ -44,7 +47,7 @@ namespace Void {
 		texture.reset(Texture::Create("Temp/Models/SimpleCity_Texture.png"));
 
 
-		Model* model1 = ModelLoader::LoadModel("Temp/Models/Building.obj");
+		Model* model1 = ModelLoader::LoadModel("Temp/Models/Plant.ply");
 		model1->Submeshes[0]->Shader = shader;
 		model1->Submeshes[0]->Textures.push_back(texture);
 
@@ -52,8 +55,12 @@ namespace Void {
 		rc.Submeshes = model1->Submeshes;
 
 		TransformComponent& tc = m_Scene.AddComponent<TransformComponent>(entity1);
-		tc.Position = glm::vec3(0, 0, -15);
-		tc.Scale = glm::vec3(0.4, 0.4, 0.4);
+		tc.Position = glm::vec3(0, 0, -5);
+		tc.Scale = glm::vec3(0.01, 0.01, 0.01);
+
+		PhysicsComponent& pc = m_Scene.AddComponent<PhysicsComponent>(entity1);
+		pc.Mass = 1;
+		pc.Velocity = glm::vec3(2, 8, 0);
 	}
 	
 	Application::~Application()	{ }
@@ -71,11 +78,14 @@ namespace Void {
 
 			m_CameraController->Update();
 
-			RenderingCommands::SetClearColor({ .1, .2, .1, 1 });
+			RenderingCommands::SetClearColor({ .3, .4, .3, 1 });
 			RenderingCommands::Clear();
+
+			m_Scene.UpdateSystems();
 
 			RenderingCommands::BeginDraw(m_CameraController->GetCamera());
 			m_Scene.UpdateRenderingSystem();
+
 
 			m_Window->OnUpdate();
 		}
