@@ -6,6 +6,7 @@
 #include <Void/Rendering/Components/VertexArray/VertexArray.h>
 #include "Void/Rendering/Components/Shader/Shader.h"
 #include "Void/Rendering/Camera/CameraController/CameraController.h"
+#include <Void/ECS/Core/Scene/Scene.h>
 
 
 namespace Void {
@@ -56,10 +57,7 @@ namespace Void {
 
 		CameraController* m_CameraController;
 
-		//////////Temporary
-		std::shared_ptr<VertexArray> m_VertexArray;
-
-		std::shared_ptr<Shader> m_Shader;
+		Scene m_Scene;
 	};
 
 	/// <summary>

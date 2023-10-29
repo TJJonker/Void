@@ -3,15 +3,25 @@
 #include <Void/Rendering/Components/VertexArray/VertexArray.h>
 #include "Renderer.h"
 #include <Void/Rendering/Components/Shader/Shader.h>
+#include <Void/Rendering/Camera/Camera/Camera.h>
 
 namespace Void {
 	class RenderingCommands {
 	private:
+		struct RenderData {
+			glm::mat4 projectionMatrix;
+			glm::mat4 viewMatrix;
+			glm::vec3 viewPosition;
+		};
+
 		static Renderer* m_Renderer;
+		static RenderData* m_RenderData;
 
 	public:
-		static void SetClearColor(const glm::vec4& color);
 		static void Clear();
-		static void Draw(const std::shared_ptr<VertexArray> vertexArray, std::shared_ptr<Shader> shader, glm::mat4 viewMatrix);
+		static void SetClearColor(const glm::vec4& color);
+
+		static void BeginDraw(Camera* camera);
+		static void Draw(const std::shared_ptr<VertexArray> vertexArray, std::shared_ptr<Shader> shader, glm::mat4 modelMatrix);
 	};
 }

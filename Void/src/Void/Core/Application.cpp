@@ -7,6 +7,11 @@
 #include "Input.h"
 #include "Void/Utils/TimeSteps/Time.h"
 #include <glm/gtc/matrix_transform.hpp>
+#include <Void/Rendering/Components/Model/Model.h>
+#include <Void/Utils/ExternalFiles/ModelLoader.h>
+#include <Void/ECS/Components/TranformComponent.h>
+#include <Void/ECS/Components/RenderingComponent.h>
+#include <Void/ECS/Systems/RenderingSystem.h>
 
 namespace Void {
 
@@ -14,60 +19,41 @@ namespace Void {
 
 	Application::Application()
 	{
-		// Create a new window.
+		//// Create a new window.
 		m_Window = Window::Create();
+
 		// Forward the window events to the OnEvent method.
 		m_Window->SetEventCallback(BIND_EVENT_FUNCTION(OnEvent));
 
 		m_CameraController = new CameraController();
 
-		//m_VertexArray = std::make_shared<VertexArray>(VertexArray::Create());
-		m_VertexArray.reset(VertexArray::Create());
+		std::shared_ptr<RenderingSystem> renderingSystem = std::make_shared<RenderingSystem>(); 
+		m_Scene.SetRenderingSystem(renderingSystem); 
 
-		float vertices[24] = {
-			 -0.5f, -0.5f, -0.5f,
-			  0.5f, -0.5f, -0.5f,
-			  0.5f,  0.5f, -0.5f,
-			 -0.5f,  0.5f, -0.5f,
-			 -0.5f, -0.5f,  0.5f,
-			  0.5f, -0.5f,  0.5f,
-			  0.5f,  0.5f,  0.5f,
-			 -0.5f,  0.5f,  0.5f
-		};
 
-		std::shared_ptr<VertexBuffer> vertexBuffer;
-		vertexBuffer.reset(VertexBuffer::Create(vertices, sizeof(vertices)));
-		
-		VertexBufferLayout bufferLayout;
-		bufferLayout.Push<float>(3); // Position
-		vertexBuffer->SetVertexBufferLayout(bufferLayout);
-		m_VertexArray->AddVertexBuffer(vertexBuffer);
-		
-		uint32_t indices[36] = { 
-			0, 1, 2, 0, 2, 3,
-			4, 5, 6, 4, 6, 7,
-			3, 2, 6, 2, 6, 7,
-			0, 1, 6, 0, 5, 4,
-			0, 3, 7, 0, 7, 4,
-			1, 2, 6, 1, 6, 5
-		};
-		std::shared_ptr<IndexBuffer> indexBuffer;
-		indexBuffer.reset(IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
-		m_VertexArray->SetIndexBuffer(indexBuffer);
+		////////////////////
+		/// Insert code here
 
-		m_Shader.reset(Shader::Create("Temp/Shaders/VertexShader.glsl", "Temp/Shaders/FragmentShader.glsl"));
-		m_Shader->Bind();
 
-		glm::mat4 projection = glm::perspective(glm::radians(m_CameraController->GetCamera()->GetFOV()), 1280.0f / 720.0f, 0.1f, 100.0f); 
-		glm::mat4 viewMatrix = m_CameraController->GetCamera()->GetView(); 
-		glm::mat4 model = glm::mat4(1.0f); 
-		 
-		model = glm::translate(model, glm::vec3(0.f, 0.f, -7.f)); 
-		model = glm::rotate(model, glm::radians(45.f), glm::vec3(0.f, 1.f, 0.f));
-		 
-		m_Shader->SetMatrix4("projection", projection); 
-		m_Shader->SetMatrix4("view", viewMatrix); 
-		m_Shader->SetMatrix4("model", model); 
+		entt::entity entity1 = m_Scene.CreateEntity();
+
+		std::shared_ptr<Shader> shader;
+		shader.reset(Shader::Create("Temp/Shaders/VertexShader.glsl", "Temp/Shaders/FragmentShader.glsl"));
+
+		std::shared_ptr<Texture> texture;
+		texture.reset(Texture::Create("Temp/Models/SimpleCity_Texture.png"));
+
+
+		Model* model1 = ModelLoader::LoadModel("Temp/Models/Building.obj");
+		model1->Submeshes[0]->Shader = shader;
+		model1->Submeshes[0]->Textures.push_back(texture);
+
+		RenderingComponent& rc = m_Scene.AddComponent<RenderingComponent>(entity1);
+		rc.Submeshes = model1->Submeshes;
+
+		TransformComponent& tc = m_Scene.AddComponent<TransformComponent>(entity1);
+		tc.Position = glm::vec3(0, 0, -15);
+		tc.Scale = glm::vec3(0.4, 0.4, 0.4);
 	}
 	
 	Application::~Application()	{ }
@@ -79,17 +65,17 @@ namespace Void {
 	}
 
 	void Application::Run() {
-		/// Temp
 
-		while (m_IsRunning) {
-			
+		while (m_IsRunning) {			
 			Time::Update();
+
 			m_CameraController->Update();
 
 			RenderingCommands::SetClearColor({ .1, .2, .1, 1 });
 			RenderingCommands::Clear();
 
-			RenderingCommands::Draw(m_VertexArray, m_Shader, m_CameraController->GetCamera()->GetView());
+			RenderingCommands::BeginDraw(m_CameraController->GetCamera());
+			m_Scene.UpdateRenderingSystem();
 
 			m_Window->OnUpdate();
 		}

@@ -30,7 +30,7 @@ namespace Void {
 		template<>
 		void Push<float>(unsigned int count) {
 			m_Elements.push_back({ GL_FLOAT, count, false, m_Offset });
-			m_Offset += count;
+			m_Offset += sizeof(float) * count;
 			m_Stride += sizeof(float) * count;
 		}
 

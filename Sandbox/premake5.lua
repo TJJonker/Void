@@ -1,6 +1,7 @@
 project "Sandbox"
 	kind "ConsoleApp"
 	language "C++"
+	dependson { "Void" }
 
 	targetdir (solutionDir .. "/bin/" .. outputdir .. "/%{prj.name}")
 	objdir (solutionDir .. "/bin-int/" .. outputdir .. "/%{prj.name}")
@@ -42,7 +43,7 @@ project "Sandbox"
 
 	filter "configurations:Release"
 		defines "VOID_RELEASE"
-		optimize "On"
+		optimize "Off"
 
 	filter "configurations:Dist"
 		defines "VOID_DIST"

@@ -4,7 +4,7 @@
 #include "Void/Platform/OpenGL/Components/VertexBuffer/OpenGLVertexBuffer.h"
 
 namespace Void {
-    VertexBuffer* VertexBuffer::Create(const float* vertices, uint32_t size)
+    VertexBuffer* VertexBuffer::Create(const void* vertices, uint32_t size)
     {
         switch (Renderer::GetAPI()) {
             case Renderer::API::None:     VOID_CORE_ASSERT(false, "API 'NONE' is not supported."); return nullptr;

@@ -50,6 +50,16 @@ namespace Void {
 		GLCall(glUniformMatrix4fv(GetUniformLocation(name), 1, GL_FALSE, glm::value_ptr(v0)));
 	}
 
+	void OpenGLShader::SetVec3(const std::string& name, glm::vec3& v0)
+	{
+		GLCall(glUniform3fv(GetUniformLocation(name), 1, glm::value_ptr(v0)));
+	}
+
+	void OpenGLShader::SetInt(const std::string& name, int v0)
+	{
+		GLCall(glUniform1i(GetUniformLocation(name), v0));
+	}
+
 	unsigned int OpenGLShader::CompileShader(const char* code, unsigned int type)
 	{
 		unsigned int shaderID = glCreateShader(type);
@@ -74,7 +84,7 @@ namespace Void {
 		if (m_UniformMap.find(name) == m_UniformMap.end()) {
 			m_UniformMap.insert({ name, glGetUniformLocation(m_ID, name.c_str()) });
 		}
-
+		VOID_CORE_TRACE("{0} : {1}", m_UniformMap[name], name);
 		return m_UniformMap[name];
 	}
 }

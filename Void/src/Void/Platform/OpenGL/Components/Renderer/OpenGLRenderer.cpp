@@ -5,6 +5,7 @@
 namespace Void {
 	void OpenGLRenderer::Draw(const std::shared_ptr<VertexArray> vertexArray)
 	{
+		glEnable(GL_DEPTH_TEST);
 		GLCall(glDrawElements(GL_TRIANGLES, vertexArray->GetIndexBuffer()->GetCount(), GL_UNSIGNED_INT, nullptr));
 	}
 

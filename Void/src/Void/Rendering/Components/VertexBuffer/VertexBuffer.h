@@ -15,6 +15,6 @@ namespace Void {
 		virtual void SetVertexBufferLayout(VertexBufferLayout& bufferLayout) = 0;
 		virtual const VertexBufferLayout& GetVertexBufferLayout() const = 0;
 
-		static VertexBuffer* Create(const float* vertices, uint32_t size);
+		static VertexBuffer* Create(const void* vertices, uint32_t size);
 	};
 }
