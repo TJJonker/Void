@@ -3,9 +3,48 @@
 #include <Void/ECS/Components/TranformComponent.h>
 #include <Void/ECS/Components/PhysicsComponent.h>
 #include "Void/Utils/TimeSteps/Time.h"
+#include "Void/Physics/Collision.h"
 
 namespace Void {
-	void Void::PhysicsSystem::Update(entt::registry& registry)
+
+	void PhysicsSystem::Update(entt::registry& registry)
+	{
+		ApplyForces(registry);
+		ResolveCollisions(registry);
+	}
+
+	void PhysicsSystem::ResolveCollisions(entt::registry& registry)
+	{
+		std::vector<Collision> collisions;
+		entt::basic_view view = registry.view<PhysicsComponent, TransformComponent>();
+
+		for (entt::entity a : view) {
+
+			auto& [aTransform, aPhysics] = registry.get<TransformComponent, PhysicsComponent>(a);
+
+			for (entt::entity b : view) {
+				if (a == b)
+					break;
+
+				auto& [bTransform, bPhysics] = registry.get<TransformComponent, PhysicsComponent>(b);
+
+				if (!aPhysics.Collider || !aPhysics.Collider)
+					continue;
+				
+				Transform transformA = { aTransform.Position, aTransform.Rotation, aTransform.Scale }; 
+				Transform transformB = { bTransform.Position, bTransform.Rotation, bTransform.Scale };
+				CollisionPoints points = aPhysics.Collider->TestCollision(&transformA, bPhysics.Collider, &transformB);
+
+				if (points.HasCollision)
+					collisions.emplace_back(a, b, points);
+			}
+		}
+
+		for (std::shared_ptr<Solver> solver : m_Solvers)
+			solver->Solve(collisions);
+	}
+
+	void PhysicsSystem::ApplyForces(entt::registry& registry)
 	{
 		for (entt::entity entity : registry.view<PhysicsComponent, TransformComponent>()) {
 			auto& [transform, physics] = registry.get<TransformComponent, PhysicsComponent>(entity);

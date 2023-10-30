@@ -32,8 +32,9 @@ namespace Void {
 		std::shared_ptr<RenderingSystem> renderingSystem = std::make_shared<RenderingSystem>(); 
 		m_Scene.SetRenderingSystem(renderingSystem); 
 
-
-		m_Scene.AddSystem(std::make_shared<PhysicsSystem>());
+		std::shared_ptr<PhysicsSystem> physicsSystem = std::make_shared<PhysicsSystem>();
+		physicsSystem->AddSolver(std::make_shared<>());
+		m_Scene.AddSystem(physicsSystem);
 
 		////////////////////
 		/// Insert code here
