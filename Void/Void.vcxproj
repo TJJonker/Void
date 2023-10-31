@@ -159,6 +159,10 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Void\Physics\Solvers\Position\PositionSolver.h" />
+    <ClInclude Include="src\Void\Physics\Solvers\Impulse\ImpulseSolver.h" />
+    <ClInclude Include="src\Void\Physics\Solvers\Solver.h" />
+    <ClInclude Include="src\Void\Physics\ColissionAlgorithms.h" />
     <ClInclude Include="src\Void\ECS\Systems\PhysicsSystem.h" />
     <ClInclude Include="src\Void\ECS\Components\PhysicsComponent.h" />
     <ClInclude Include="src\Void\ECS\Core\Scene\Scene.h" />
@@ -177,6 +181,12 @@
     <ClInclude Include="src\Void\Event\Event.h" />
     <ClInclude Include="src\Void\Event\MouseEvents.h" />
     <ClInclude Include="src\Void\Event\WindowEvents.h" />
+    <ClInclude Include="src\Void\Physics\Colliders\Collider.h" />
+    <ClInclude Include="src\Void\Physics\Collision.h" />
+    <ClInclude Include="src\Void\Physics\CollisionPoints.h" />
+    <ClInclude Include="src\Void\Physics\Colliders\PlaneCollider.h" />
+    <ClInclude Include="src\Void\Physics\Colliders\SphereCollider.h" />
+    <ClInclude Include="src\Void\Physics\Tranform.h" />
     <ClInclude Include="src\Void\Platform\OpenGL\Components\IndexBuffer\OpenGLIndexBuffer.h" />
     <ClInclude Include="src\Void\Platform\OpenGL\Components\Renderer\OpenGLRenderer.h" />
     <ClInclude Include="src\Void\Platform\OpenGL\Components\RenderingContext\OpenGLRenderingContext.h" />
@@ -208,6 +218,9 @@
     <ClInclude Include="src\pch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Void\Physics\Solvers\Position\PositionSolver.cpp" />
+    <ClCompile Include="src\Void\Physics\Solvers\Impulse\ImpulseSolver.cpp" />
+    <ClCompile Include="src\Void\Physics\ColissionAlgorithms.cpp" />
     <ClCompile Include="src\Void\ECS\Systems\PhysicsSystem.cpp" />
     <ClCompile Include="src\Void\ECS\Core\Scene\Scene.cpp" />
     <ClCompile Include="src\Void\Core\Application.cpp" />
@@ -215,6 +228,8 @@
     <ClCompile Include="src\Void\Core\Window.cpp" />
     <ClCompile Include="src\Void\Debug\Log.cpp" />
     <ClCompile Include="src\Void\ECS\Systems\RenderingSystem.cpp" />
+    <ClCompile Include="src\Void\Physics\Colliders\PlaneCollider.cpp" />
+    <ClCompile Include="src\Void\Physics\Colliders\SphereCollider.cpp" />
     <ClCompile Include="src\Void\Platform\OpenGL\Components\IndexBuffer\OpenGLIndexBuffer.cpp" />
     <ClCompile Include="src\Void\Platform\OpenGL\Components\Renderer\OpenGLRenderer.cpp" />
     <ClCompile Include="src\Void\Platform\OpenGL\Components\RenderingContext\OpenGLRenderingContext.cpp" />
