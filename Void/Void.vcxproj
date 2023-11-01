@@ -98,7 +98,9 @@
       <Command>IF EXIST vendor\ASSIMP\libs\assimp-vc143-mtd.dll\ (xcopy /Q /E /Y /I vendor\ASSIMP\libs\assimp-vc143-mtd.dll $(SolutionDir)\bin\Debug-windows-x86_64\$(ProjectName) &gt; nul) ELSE (xcopy /Q /Y /I vendor\ASSIMP\libs\assimp-vc143-mtd.dll $(SolutionDir)\bin\Debug-windows-x86_64\$(ProjectName) &gt; nul)</Command>
     </PreBuildEvent>
     <PostBuildEvent>
-      <Command>IF EXIST ..\bin\Debug-windows-x86_64\Void\Void.dll\ (xcopy /Q /E /Y /I ..\bin\Debug-windows-x86_64\Void\Void.dll ..\bin\Debug-windows-x86_64\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Debug-windows-x86_64\Void\Void.dll ..\bin\Debug-windows-x86_64\Sandbox &gt; nul)</Command>
+      <Command>call CreateDir.bat ../bin/Debug-windows-x86_64/Sandbox
+IF EXIST ..\bin\Debug-windows-x86_64\Void\Void.dll\ (xcopy /Q /E /Y /I ..\bin\Debug-windows-x86_64\Void\Void.dll ..\bin\Debug-windows-x86_64\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Debug-windows-x86_64\Void\Void.dll ..\bin\Debug-windows-x86_64\Sandbox &gt; nul)
+IF EXIST ..\bin\Debug-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll\ (xcopy /Q /E /Y /I ..\bin\Debug-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll ..\bin\Debug-windows-x86_64\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Debug-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll ..\bin\Debug-windows-x86_64\Sandbox &gt; nul)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -130,7 +132,9 @@
       <Command>IF EXIST vendor\ASSIMP\libs\assimp-vc143-mtd.dll\ (xcopy /Q /E /Y /I vendor\ASSIMP\libs\assimp-vc143-mtd.dll $(SolutionDir)\bin\Release-windows-x86_64\$(ProjectName) &gt; nul) ELSE (xcopy /Q /Y /I vendor\ASSIMP\libs\assimp-vc143-mtd.dll $(SolutionDir)\bin\Release-windows-x86_64\$(ProjectName) &gt; nul)</Command>
     </PreBuildEvent>
     <PostBuildEvent>
-      <Command>IF EXIST ..\bin\Release-windows-x86_64\Void\Void.dll\ (xcopy /Q /E /Y /I ..\bin\Release-windows-x86_64\Void\Void.dll ..\bin\Release-windows-x86_64\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Release-windows-x86_64\Void\Void.dll ..\bin\Release-windows-x86_64\Sandbox &gt; nul)</Command>
+      <Command>call CreateDir.bat ../bin/Release-windows-x86_64/Sandbox
+IF EXIST ..\bin\Release-windows-x86_64\Void\Void.dll\ (xcopy /Q /E /Y /I ..\bin\Release-windows-x86_64\Void\Void.dll ..\bin\Release-windows-x86_64\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Release-windows-x86_64\Void\Void.dll ..\bin\Release-windows-x86_64\Sandbox &gt; nul)
+IF EXIST ..\bin\Release-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll\ (xcopy /Q /E /Y /I ..\bin\Release-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll ..\bin\Release-windows-x86_64\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Release-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll ..\bin\Release-windows-x86_64\Sandbox &gt; nul)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">
@@ -162,7 +166,9 @@
       <Command>IF EXIST vendor\ASSIMP\libs\assimp-vc143-mtd.dll\ (xcopy /Q /E /Y /I vendor\ASSIMP\libs\assimp-vc143-mtd.dll $(SolutionDir)\bin\Dist-windows-x86_64\$(ProjectName) &gt; nul) ELSE (xcopy /Q /Y /I vendor\ASSIMP\libs\assimp-vc143-mtd.dll $(SolutionDir)\bin\Dist-windows-x86_64\$(ProjectName) &gt; nul)</Command>
     </PreBuildEvent>
     <PostBuildEvent>
-      <Command>IF EXIST ..\bin\Dist-windows-x86_64\Void\Void.dll\ (xcopy /Q /E /Y /I ..\bin\Dist-windows-x86_64\Void\Void.dll ..\bin\Dist-windows-x86_64\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Dist-windows-x86_64\Void\Void.dll ..\bin\Dist-windows-x86_64\Sandbox &gt; nul)</Command>
+      <Command>call CreateDir.bat ../bin/Dist-windows-x86_64/Sandbox
+IF EXIST ..\bin\Dist-windows-x86_64\Void\Void.dll\ (xcopy /Q /E /Y /I ..\bin\Dist-windows-x86_64\Void\Void.dll ..\bin\Dist-windows-x86_64\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Dist-windows-x86_64\Void\Void.dll ..\bin\Dist-windows-x86_64\Sandbox &gt; nul)
+IF EXIST ..\bin\Dist-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll\ (xcopy /Q /E /Y /I ..\bin\Dist-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll ..\bin\Dist-windows-x86_64\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Dist-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll ..\bin\Dist-windows-x86_64\Sandbox &gt; nul)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>

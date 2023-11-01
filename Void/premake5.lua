@@ -52,7 +52,9 @@ project "Void"
 		}
 
 		postbuildcommands {
-			("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Sandbox")			
+			"call CreateDir.bat ../bin/" .. outputdir .. "/Sandbox",
+			("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Sandbox"),			
+			("{COPY} ../bin/" .. outputdir .. "/%{prj.name}/assimp-vc143-mtd.dll ../bin/" .. outputdir .. "/Sandbox")		
 		}
 
 
