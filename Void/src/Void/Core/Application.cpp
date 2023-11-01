@@ -27,15 +27,17 @@ namespace Void {
 
 		m_CameraController = new CameraController();
 
+		m_Scene = new Scene();
+
 		std::shared_ptr<RenderingSystem> renderingSystem = std::make_shared<RenderingSystem>(); 
-		m_Scene.SetRenderingSystem(renderingSystem); 
+		m_Scene->SetRenderingSystem(renderingSystem); 
 
 
 		////////////////////
 		/// Insert code here
 
 
-		entt::entity entity1 = m_Scene.CreateEntity();
+		entt::entity entity1 = m_Scene->CreateEntity();
 
 		std::shared_ptr<Shader> shader;
 		shader.reset(Shader::Create("Temp/Shaders/VertexShader.glsl", "Temp/Shaders/FragmentShader.glsl"));
@@ -48,10 +50,10 @@ namespace Void {
 		model1->Submeshes[0]->Shader = shader;
 		model1->Submeshes[0]->Textures.push_back(texture);
 
-		RenderingComponent& rc = m_Scene.AddComponent<RenderingComponent>(entity1);
+		RenderingComponent& rc = m_Scene->AddComponent<RenderingComponent>(entity1);
 		rc.Submeshes = model1->Submeshes;
 
-		TransformComponent& tc = m_Scene.AddComponent<TransformComponent>(entity1);
+		TransformComponent& tc = m_Scene->AddComponent<TransformComponent>(entity1);
 		tc.Position = glm::vec3(0, 0, -15);
 		tc.Scale = glm::vec3(0.4, 0.4, 0.4);
 	}
@@ -75,7 +77,7 @@ namespace Void {
 			RenderingCommands::Clear();
 
 			RenderingCommands::BeginDraw(m_CameraController->GetCamera());
-			m_Scene.UpdateRenderingSystem();
+			m_Scene->UpdateRenderingSystem();
 
 			m_Window->OnUpdate();
 		}

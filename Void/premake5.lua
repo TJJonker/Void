@@ -52,7 +52,9 @@ project "Void"
 		}
 
 		postbuildcommands {
-			("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Sandbox")			
+			"call CreateDir.bat ../bin/" .. outputdir .. "/Sandbox",
+			("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Sandbox"),			
+			("{COPY} ../bin/" .. outputdir .. "/%{prj.name}/assimp-vc143-mtd.dll ../bin/" .. outputdir .. "/Sandbox")		
 		}
 
 
@@ -62,7 +64,7 @@ project "Void"
 
 	filter "configurations:Release"
 		defines "VOID_RELEASE"
-		optimize "Off"
+		optimize "On"
 
 	filter "configurations:Dist"
 		defines "VOID_DIST"

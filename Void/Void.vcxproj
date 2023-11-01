@@ -61,7 +61,7 @@
     <TargetExt>.dll</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <LinkIncremental>true</LinkIncremental>
+    <LinkIncremental>false</LinkIncremental>
     <OutDir>..\bin\Release-windows-x86_64\Void\</OutDir>
     <IntDir>..\bin-int\Release-windows-x86_64\Void\</IntDir>
     <TargetName>Void</TargetName>
@@ -98,7 +98,9 @@
       <Command>IF EXIST vendor\ASSIMP\libs\assimp-vc143-mtd.dll\ (xcopy /Q /E /Y /I vendor\ASSIMP\libs\assimp-vc143-mtd.dll $(SolutionDir)\bin\Debug-windows-x86_64\$(ProjectName) &gt; nul) ELSE (xcopy /Q /Y /I vendor\ASSIMP\libs\assimp-vc143-mtd.dll $(SolutionDir)\bin\Debug-windows-x86_64\$(ProjectName) &gt; nul)</Command>
     </PreBuildEvent>
     <PostBuildEvent>
-      <Command>IF EXIST ..\bin\Debug-windows-x86_64\Void\Void.dll\ (xcopy /Q /E /Y /I ..\bin\Debug-windows-x86_64\Void\Void.dll ..\bin\Debug-windows-x86_64\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Debug-windows-x86_64\Void\Void.dll ..\bin\Debug-windows-x86_64\Sandbox &gt; nul)</Command>
+      <Command>call CreateDir.bat ../bin/Debug-windows-x86_64/Sandbox
+IF EXIST ..\bin\Debug-windows-x86_64\Void\Void.dll\ (xcopy /Q /E /Y /I ..\bin\Debug-windows-x86_64\Void\Void.dll ..\bin\Debug-windows-x86_64\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Debug-windows-x86_64\Void\Void.dll ..\bin\Debug-windows-x86_64\Sandbox &gt; nul)
+IF EXIST ..\bin\Debug-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll\ (xcopy /Q /E /Y /I ..\bin\Debug-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll ..\bin\Debug-windows-x86_64\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Debug-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll ..\bin\Debug-windows-x86_64\Sandbox &gt; nul)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -106,15 +108,22 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
       <PreprocessorDefinitions>VOID_PLATFORM_WINDOWS;VOID_BUILD_DLL;VOID_ASSERT_ENABLED;VOID_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>src;vendor\SPDLOG\include;vendor\GLFW\include;vendor\GLAD\include;vendor\GLM;vendor\ASSIMP\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <Optimization>Disabled</Optimization>
+      <Optimization>Full</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <StringPooling>true</StringPooling>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
       <AdditionalDependencies>opengl32.lib;assimp-vc143-mtd.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>..;vendor\ASSIMP\libs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <ImportLibrary>..\bin\Release-windows-x86_64\Void\Void.lib</ImportLibrary>
@@ -123,7 +132,9 @@
       <Command>IF EXIST vendor\ASSIMP\libs\assimp-vc143-mtd.dll\ (xcopy /Q /E /Y /I vendor\ASSIMP\libs\assimp-vc143-mtd.dll $(SolutionDir)\bin\Release-windows-x86_64\$(ProjectName) &gt; nul) ELSE (xcopy /Q /Y /I vendor\ASSIMP\libs\assimp-vc143-mtd.dll $(SolutionDir)\bin\Release-windows-x86_64\$(ProjectName) &gt; nul)</Command>
     </PreBuildEvent>
     <PostBuildEvent>
-      <Command>IF EXIST ..\bin\Release-windows-x86_64\Void\Void.dll\ (xcopy /Q /E /Y /I ..\bin\Release-windows-x86_64\Void\Void.dll ..\bin\Release-windows-x86_64\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Release-windows-x86_64\Void\Void.dll ..\bin\Release-windows-x86_64\Sandbox &gt; nul)</Command>
+      <Command>call CreateDir.bat ../bin/Release-windows-x86_64/Sandbox
+IF EXIST ..\bin\Release-windows-x86_64\Void\Void.dll\ (xcopy /Q /E /Y /I ..\bin\Release-windows-x86_64\Void\Void.dll ..\bin\Release-windows-x86_64\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Release-windows-x86_64\Void\Void.dll ..\bin\Release-windows-x86_64\Sandbox &gt; nul)
+IF EXIST ..\bin\Release-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll\ (xcopy /Q /E /Y /I ..\bin\Release-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll ..\bin\Release-windows-x86_64\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Release-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll ..\bin\Release-windows-x86_64\Sandbox &gt; nul)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">
@@ -155,11 +166,12 @@
       <Command>IF EXIST vendor\ASSIMP\libs\assimp-vc143-mtd.dll\ (xcopy /Q /E /Y /I vendor\ASSIMP\libs\assimp-vc143-mtd.dll $(SolutionDir)\bin\Dist-windows-x86_64\$(ProjectName) &gt; nul) ELSE (xcopy /Q /Y /I vendor\ASSIMP\libs\assimp-vc143-mtd.dll $(SolutionDir)\bin\Dist-windows-x86_64\$(ProjectName) &gt; nul)</Command>
     </PreBuildEvent>
     <PostBuildEvent>
-      <Command>IF EXIST ..\bin\Dist-windows-x86_64\Void\Void.dll\ (xcopy /Q /E /Y /I ..\bin\Dist-windows-x86_64\Void\Void.dll ..\bin\Dist-windows-x86_64\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Dist-windows-x86_64\Void\Void.dll ..\bin\Dist-windows-x86_64\Sandbox &gt; nul)</Command>
+      <Command>call CreateDir.bat ../bin/Dist-windows-x86_64/Sandbox
+IF EXIST ..\bin\Dist-windows-x86_64\Void\Void.dll\ (xcopy /Q /E /Y /I ..\bin\Dist-windows-x86_64\Void\Void.dll ..\bin\Dist-windows-x86_64\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Dist-windows-x86_64\Void\Void.dll ..\bin\Dist-windows-x86_64\Sandbox &gt; nul)
+IF EXIST ..\bin\Dist-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll\ (xcopy /Q /E /Y /I ..\bin\Dist-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll ..\bin\Dist-windows-x86_64\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Dist-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll ..\bin\Dist-windows-x86_64\Sandbox &gt; nul)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="src\Void\ECS\Core\Scene\Scene.h" />
     <ClInclude Include="src\Void.h" />
     <ClInclude Include="src\Void\Core\Application.h" />
     <ClInclude Include="src\Void\Core\Core.h" />
@@ -170,6 +182,7 @@
     <ClInclude Include="src\Void\Debug\Log.h" />
     <ClInclude Include="src\Void\ECS\Components\RenderingComponent.h" />
     <ClInclude Include="src\Void\ECS\Components\TranformComponent.h" />
+    <ClInclude Include="src\Void\ECS\Core\Scene\Scene.h" />
     <ClInclude Include="src\Void\ECS\Core\Systems\ISystem.h" />
     <ClInclude Include="src\Void\ECS\Systems\RenderingSystem.h" />
     <ClInclude Include="src\Void\Event\Event.h" />
@@ -206,11 +219,11 @@
     <ClInclude Include="src\pch.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Void\ECS\Core\Scene\Scene.cpp" />
     <ClCompile Include="src\Void\Core\Application.cpp" />
     <ClCompile Include="src\Void\Core\Input.cpp" />
     <ClCompile Include="src\Void\Core\Window.cpp" />
     <ClCompile Include="src\Void\Debug\Log.cpp" />
+    <ClCompile Include="src\Void\ECS\Core\Scene\Scene.cpp" />
     <ClCompile Include="src\Void\ECS\Systems\RenderingSystem.cpp" />
     <ClCompile Include="src\Void\Platform\OpenGL\Components\IndexBuffer\OpenGLIndexBuffer.cpp" />
     <ClCompile Include="src\Void\Platform\OpenGL\Components\Renderer\OpenGLRenderer.cpp" />
