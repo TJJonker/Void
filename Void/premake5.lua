@@ -62,7 +62,7 @@ project "Void"
 
 	filter "configurations:Release"
 		defines "VOID_RELEASE"
-		optimize "Off"
+		optimize "On"
 
 	filter "configurations:Dist"
 		defines "VOID_DIST"

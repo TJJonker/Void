@@ -46,7 +46,7 @@ namespace Void {
 		/// <summary>
 		/// Whether the application is running or not.
 		/// </summary>
-		bool m_IsRunning;
+		bool m_IsRunning = true;
 
 		/// <summary>
 		/// Closes the application. Can only be addressed with an event.
@@ -57,7 +57,7 @@ namespace Void {
 
 		CameraController* m_CameraController;
 
-		Scene m_Scene;
+		Scene* m_Scene;
 	};
 
 	/// <summary>
