@@ -34,9 +34,6 @@ namespace Void {
 
 		m_Scene = new Scene();
 
-		m_ImGuiManager = new ImGuiManager();
-		m_ImGuiManager->Intialize();
-
 		std::shared_ptr<RenderingSystem> renderingSystem = std::make_shared<RenderingSystem>(); 
 		m_Scene->SetRenderingSystem(renderingSystem); 
 
@@ -72,6 +69,12 @@ namespace Void {
 	{
 		EventDelegator delegator(e);
 		delegator.Delegate<WindowCloseEvent>(BIND_EVENT_FUNCTION(CloseApplication));
+
+		for (Layer* layer : m_LayerStack) {
+			layer->OnEvent(e);
+			if (e.Consumed)
+				break;
+		}
 	}
 
 	void Application::PushLayer(Layer* layer)

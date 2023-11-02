@@ -23,6 +23,7 @@ virtual EventType GetEventType() const override { return GetStaticType(); }
 	class Event {
 	public:
 		~Event() = default;
+		bool Consumed = false;
 
 		virtual EventType GetEventType() const = 0;
 
@@ -58,7 +59,7 @@ virtual EventType GetEventType() const override { return GetStaticType(); }
 		void Delegate(const F& function) {
 			if (m_Event.GetEventType() == T::GetStaticType()) {
 				// Run the given function and forward the event.
-				function(static_cast<T&>(m_Event));
+				m_Event.Consumed |= function(static_cast<T&>(m_Event));
 			}
 		}
 	};
