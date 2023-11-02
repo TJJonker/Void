@@ -14,7 +14,7 @@ virtual EventType GetEventType() const override { return GetStaticType(); }
 	enum class EventType {
 		None,
 		WindowClose,
-		MouseMoved
+		MouseMoved, MouseButtonPressed, MouseButtonReleased
 	};
 
 	/// <summary>

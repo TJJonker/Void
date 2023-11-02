@@ -172,8 +172,10 @@ IF EXIST ..\bin\Dist-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll\ (xcopy 
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="src\Void\Layers\Layer.h" />
-    <ClInclude Include="src\Void\Layers\LayerStack.h" />
+    <ClInclude Include="src\Void\Event\KeyEvents.h" />
+    <ClInclude Include="src\Void\Layers\ImGuiLayer.h" />
+    <ClInclude Include="src\Void\Layers\Core\Layer.h" />
+    <ClInclude Include="src\Void\Layers\Core\LayerStack.h" />
     <ClInclude Include="src\Void.h" />
     <ClInclude Include="src\Void\Core\Application.h" />
     <ClInclude Include="src\Void\Core\Core.h" />
@@ -190,7 +192,6 @@ IF EXIST ..\bin\Dist-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll\ (xcopy 
     <ClInclude Include="src\Void\Event\Event.h" />
     <ClInclude Include="src\Void\Event\MouseEvents.h" />
     <ClInclude Include="src\Void\Event\WindowEvents.h" />
-    <ClInclude Include="src\Void\ImGui\ImGuiManager.h" />
     <ClInclude Include="src\Void\Platform\OpenGL\Components\IndexBuffer\OpenGLIndexBuffer.h" />
     <ClInclude Include="src\Void\Platform\OpenGL\Components\Renderer\OpenGLRenderer.h" />
     <ClInclude Include="src\Void\Platform\OpenGL\Components\RenderingContext\OpenGLRenderingContext.h" />
@@ -223,15 +224,15 @@ IF EXIST ..\bin\Dist-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll\ (xcopy 
     <ClInclude Include="src\pch.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Void\Layers\Layer.cpp" />
-    <ClCompile Include="src\Void\Layers\LayerStack.cpp" />
+    <ClCompile Include="src\Void\Layers\ImGuiLayer.cpp" />
+    <ClCompile Include="src\Void\Layers\Core\Layer.cpp" />
+    <ClCompile Include="src\Void\Layers\Core\LayerStack.cpp" />
     <ClCompile Include="src\Void\Core\Application.cpp" />
     <ClCompile Include="src\Void\Core\Input.cpp" />
     <ClCompile Include="src\Void\Core\Window.cpp" />
     <ClCompile Include="src\Void\Debug\Log.cpp" />
     <ClCompile Include="src\Void\ECS\Core\Scene\Scene.cpp" />
     <ClCompile Include="src\Void\ECS\Systems\RenderingSystem.cpp" />
-    <ClCompile Include="src\Void\ImGui\ImGuiManager.cpp" />
     <ClCompile Include="src\Void\Platform\OpenGL\Components\IndexBuffer\OpenGLIndexBuffer.cpp" />
     <ClCompile Include="src\Void\Platform\OpenGL\Components\Renderer\OpenGLRenderer.cpp" />
     <ClCompile Include="src\Void\Platform\OpenGL\Components\RenderingContext\OpenGLRenderingContext.cpp" />

@@ -181,9 +181,6 @@
     <ClInclude Include="src\Void\Event\WindowEvents.h">
       <Filter>Void\Event</Filter>
     </ClInclude>
-    <ClInclude Include="src\Void\ImGui\ImGuiManager.h">
-      <Filter>Void\ImGui</Filter>
-    </ClInclude>
     <ClInclude Include="src\Void\Platform\OpenGL\Components\IndexBuffer\OpenGLIndexBuffer.h">
       <Filter>Void\Platform\OpenGL\Components\IndexBuffer</Filter>
     </ClInclude>
@@ -270,8 +267,10 @@
     </ClInclude>
     <ClInclude Include="src\pch.h" />
     <ClInclude Include="src\Void\Platform\OpenGL\ImGui\OpenGLImGuiRenderer.h" />
-    <ClInclude Include="src\Void\Layers\LayerStack.h" />
-    <ClInclude Include="src\Void\Layers\Layer.h" />
+    <ClInclude Include="src\Void\Layers\Core\LayerStack.h" />
+    <ClInclude Include="src\Void\Layers\Core\Layer.h" />
+    <ClInclude Include="src\Void\Layers\ImGuiLayer.h" />
+    <ClInclude Include="src\Void\Event\KeyEvents.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Void\Core\Application.cpp">
@@ -291,9 +290,6 @@
     </ClCompile>
     <ClCompile Include="src\Void\ECS\Systems\RenderingSystem.cpp">
       <Filter>Void\ECS\Systems</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Void\ImGui\ImGuiManager.cpp">
-      <Filter>Void\ImGui</Filter>
     </ClCompile>
     <ClCompile Include="src\Void\Platform\OpenGL\Components\IndexBuffer\OpenGLIndexBuffer.cpp">
       <Filter>Void\Platform\OpenGL\Components\IndexBuffer</Filter>
@@ -372,7 +368,8 @@
     </ClCompile>
     <ClCompile Include="src\pch.cpp" />
     <ClCompile Include="src\Void\Platform\OpenGL\ImGui\OpenGLImGuiRenderer.cpp" />
-    <ClCompile Include="src\Void\Layers\LayerStack.cpp" />
-    <ClCompile Include="src\Void\Layers\Layer.cpp" />
+    <ClCompile Include="src\Void\Layers\Core\LayerStack.cpp" />
+    <ClCompile Include="src\Void\Layers\Core\Layer.cpp" />
+    <ClCompile Include="src\Void\Layers\ImGuiLayer.cpp" />
   </ItemGroup>
 </Project>

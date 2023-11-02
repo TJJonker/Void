@@ -7,7 +7,6 @@
 #include "Void/Rendering/Components/Shader/Shader.h"
 #include "Void/Rendering/Camera/CameraController/CameraController.h"
 #include <Void/ECS/Core/Scene/Scene.h>
-#include <Void/ImGui/ImGuiManager.h>
 #include <Void/Layers/Core/Layer.h>
 #include <Void/Layers/Core/LayerStack.h>
 

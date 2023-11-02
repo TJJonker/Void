@@ -62,13 +62,27 @@ namespace Void {
 	{
 		EventDelegator delegator(event);
 		delegator.Delegate<MouseMovedEvent>(BIND_EVENT_FUNCTION(ImGuiLayer::OnMouseMoved));
+		delegator.Delegate<MouseButtonPressedEvent>(BIND_EVENT_FUNCTION(ImGuiLayer::OnMouseButtonPressed));
+		delegator.Delegate<MouseButtonReleasedEvent>(BIND_EVENT_FUNCTION(ImGuiLayer::OnMouseButtonReleased));
 	}
 
-	bool ImGuiLayer::OnMouseMoved(MouseMovedEvent& mouseMovedEvent)
+	bool ImGuiLayer::OnMouseMoved(MouseMovedEvent& event)
 	{
 		ImGuiIO& io = ImGui::GetIO();
-		io.MousePos = ImVec2(mouseMovedEvent.GetX(), mouseMovedEvent.GetY());
+		io.MousePos = ImVec2(event.GetX(), event.GetY());
 
+		return false;
+	}
+	bool ImGuiLayer::OnMouseButtonPressed(MouseButtonPressedEvent& event)
+	{
+		ImGuiIO& io = ImGui::GetIO();
+		io.MouseDown[event.GetButton()] = true;
+		return false;
+	}
+	bool ImGuiLayer::OnMouseButtonReleased(MouseButtonReleasedEvent& event)
+	{
+		ImGuiIO& io = ImGui::GetIO();
+		io.MouseDown[event.GetButton()] = false;
 		return false;
 	}
 }
