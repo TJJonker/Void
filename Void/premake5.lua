@@ -19,11 +19,11 @@ project "Void"
 		solutionDir .. "%{includeDirs.GLFW}",
 		solutionDir .. "%{includeDirs.GLAD}",
 		solutionDir .. "%{includeDirs.GLM}",
-		solutionDir .. "%{includeDirs.ASSIMP}"
+		solutionDir .. "%{includeDirs.ASSIMP}",
+		solutionDir .. "%{includeDirs.IMGUI}"
 	}
 
 	libdirs {
-		solutionDir .. "%{libraryDirs.GLFW}",
 		solutionDir .. "%{libraryDirs.ASSIMP}"
 	}
 
@@ -31,7 +31,8 @@ project "Void"
 		"GLFW",
 		"opengl32",
 		"GLAD",
-		"assimp-vc143-mtd.lib"
+		"assimp-vc143-mtd.lib",
+		"ImGui"
 	}
 
 

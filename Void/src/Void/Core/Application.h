@@ -7,6 +7,7 @@
 #include "Void/Rendering/Components/Shader/Shader.h"
 #include "Void/Rendering/Camera/CameraController/CameraController.h"
 #include <Void/ECS/Core/Scene/Scene.h>
+#include <Void/ImGui/ImGuiManager.h>
 
 
 namespace Void {
@@ -41,7 +42,7 @@ namespace Void {
 		/// <summary>
 		/// Pointer to the created window.
 		/// </summary>
-		std::unique_ptr<Window> m_Window;
+		Window* m_Window;
 
 		/// <summary>
 		/// Whether the application is running or not.
@@ -58,6 +59,13 @@ namespace Void {
 		CameraController* m_CameraController;
 
 		Scene* m_Scene;
+
+		ImGuiManager* m_ImGuiManager;
+
+		static Application* application;
+	public:
+		static Application& Get();
+		Window* GetWindow();
 	};
 
 	/// <summary>

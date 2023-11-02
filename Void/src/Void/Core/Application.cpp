@@ -17,8 +17,13 @@ namespace Void {
 
 #define BIND_EVENT_FUNCTION(x) std::bind(&Application::x, this, std::placeholders::_1)
 
+	Application* Application::application = nullptr;
+
 	Application::Application()
 	{
+		VOID_CORE_ASSERT(!application, "Application already exists.");
+		application = this;
+
 		//// Create a new window.
 		m_Window = Window::Create();
 
@@ -28,6 +33,9 @@ namespace Void {
 		m_CameraController = new CameraController();
 
 		m_Scene = new Scene();
+
+		m_ImGuiManager = new ImGuiManager();
+		m_ImGuiManager->Intialize();
 
 		std::shared_ptr<RenderingSystem> renderingSystem = std::make_shared<RenderingSystem>(); 
 		m_Scene->SetRenderingSystem(renderingSystem); 
@@ -79,6 +87,8 @@ namespace Void {
 			RenderingCommands::BeginDraw(m_CameraController->GetCamera());
 			m_Scene->UpdateRenderingSystem();
 
+			m_ImGuiManager->Update();
+
 			m_Window->OnUpdate();
 		}
 	}
@@ -87,6 +97,16 @@ namespace Void {
 	{
 		m_IsRunning = false;
 		return true;
+	}
+
+	Application& Application::Get()
+	{
+		return *application;
+	}
+
+	Window* Application::GetWindow()
+	{
+		return m_Window;
 	}
 }
 

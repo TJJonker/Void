@@ -31,6 +31,9 @@
     <Filter Include="Void\Event">
       <UniqueIdentifier>{C82CB57E-B4E4-F6CB-1DEC-CF2709C391BC}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Void\ImGui">
+      <UniqueIdentifier>{A120F87E-8DD8-39CC-F6DF-1228E2B6D4BC}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Void\Platform">
       <UniqueIdentifier>{6B484333-D708-BF69-A043-08E70CC30346}</UniqueIdentifier>
     </Filter>
@@ -63,6 +66,9 @@
     </Filter>
     <Filter Include="Void\Platform\OpenGL\Debugging">
       <UniqueIdentifier>{BAE38583-A609-50EA-8F4F-D5B57B1475B6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Void\Platform\OpenGL\ImGui">
+      <UniqueIdentifier>{A993847B-95A3-304C-FE5C-956AEA8B1FE5}</UniqueIdentifier>
     </Filter>
     <Filter Include="Void\Platform\OpenGL\Input">
       <UniqueIdentifier>{7ECE857B-6ADE-314C-D397-966ABFC620E5}</UniqueIdentifier>
@@ -175,6 +181,9 @@
     <ClInclude Include="src\Void\Event\WindowEvents.h">
       <Filter>Void\Event</Filter>
     </ClInclude>
+    <ClInclude Include="src\Void\ImGui\ImGuiManager.h">
+      <Filter>Void\ImGui</Filter>
+    </ClInclude>
     <ClInclude Include="src\Void\Platform\OpenGL\Components\IndexBuffer\OpenGLIndexBuffer.h">
       <Filter>Void\Platform\OpenGL\Components\IndexBuffer</Filter>
     </ClInclude>
@@ -260,6 +269,7 @@
       <Filter>Void\Vendor\stb_lib</Filter>
     </ClInclude>
     <ClInclude Include="src\pch.h" />
+    <ClInclude Include="src\Void\Platform\OpenGL\ImGui\OpenGLImGuiRenderer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Void\Core\Application.cpp">
@@ -279,6 +289,9 @@
     </ClCompile>
     <ClCompile Include="src\Void\ECS\Systems\RenderingSystem.cpp">
       <Filter>Void\ECS\Systems</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Void\ImGui\ImGuiManager.cpp">
+      <Filter>Void\ImGui</Filter>
     </ClCompile>
     <ClCompile Include="src\Void\Platform\OpenGL\Components\IndexBuffer\OpenGLIndexBuffer.cpp">
       <Filter>Void\Platform\OpenGL\Components\IndexBuffer</Filter>
@@ -356,5 +369,6 @@
       <Filter>Void\Vendor\stb_lib</Filter>
     </ClCompile>
     <ClCompile Include="src\pch.cpp" />
+    <ClCompile Include="src\Void\Platform\OpenGL\ImGui\OpenGLImGuiRenderer.cpp" />
   </ItemGroup>
 </Project>

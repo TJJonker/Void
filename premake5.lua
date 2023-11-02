@@ -18,12 +18,13 @@ includeDirs["GLM"] = "Void/vendor/GLM"
 includeDirs["SPDLOG"] = "Void/vendor/SPDLOG/include"
 includeDirs["VOID"] = "Void/src"
 includeDirs["ASSIMP"] = "Void/vendor/ASSIMP/include"
-
+includeDirs["IMGUI"] = "Void/vendor/IMGUI"
 
 libraryDirs = {}
 libraryDirs["ASSIMP"] = "Void/vendor/ASSIMP/libs"
 
 include "Void/vendor/GLFW"
 include "Void/vendor/GLAD"
+include "Void/vendor/IMGUI"
 include "Void"
 include "Sandbox"

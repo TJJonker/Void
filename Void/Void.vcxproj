@@ -80,7 +80,7 @@
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>VOID_PLATFORM_WINDOWS;VOID_BUILD_DLL;VOID_ASSERT_ENABLED;VOID_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\SPDLOG\include;vendor\GLFW\include;vendor\GLAD\include;vendor\GLM;vendor\ASSIMP\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;vendor\SPDLOG\include;vendor\GLFW\include;vendor\GLAD\include;vendor\GLM;vendor\ASSIMP\include;vendor\IMGUI;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
@@ -91,7 +91,7 @@
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>opengl32.lib;assimp-vc143-mtd.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>..;vendor\ASSIMP\libs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>vendor\ASSIMP\libs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <ImportLibrary>..\bin\Debug-windows-x86_64\Void\Void.lib</ImportLibrary>
     </Link>
     <PreBuildEvent>
@@ -110,7 +110,7 @@ IF EXIST ..\bin\Debug-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll\ (xcopy
       <WarningLevel>Level3</WarningLevel>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
       <PreprocessorDefinitions>VOID_PLATFORM_WINDOWS;VOID_BUILD_DLL;VOID_ASSERT_ENABLED;VOID_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\SPDLOG\include;vendor\GLFW\include;vendor\GLAD\include;vendor\GLM;vendor\ASSIMP\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;vendor\SPDLOG\include;vendor\GLFW\include;vendor\GLAD\include;vendor\GLM;vendor\ASSIMP\include;vendor\IMGUI;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -125,7 +125,7 @@ IF EXIST ..\bin\Debug-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll\ (xcopy
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalDependencies>opengl32.lib;assimp-vc143-mtd.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>..;vendor\ASSIMP\libs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>vendor\ASSIMP\libs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <ImportLibrary>..\bin\Release-windows-x86_64\Void\Void.lib</ImportLibrary>
     </Link>
     <PreBuildEvent>
@@ -144,7 +144,7 @@ IF EXIST ..\bin\Release-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll\ (xco
       <WarningLevel>Level3</WarningLevel>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
       <PreprocessorDefinitions>VOID_PLATFORM_WINDOWS;VOID_BUILD_DLL;VOID_ASSERT_ENABLED;VOID_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\SPDLOG\include;vendor\GLFW\include;vendor\GLAD\include;vendor\GLM;vendor\ASSIMP\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;vendor\SPDLOG\include;vendor\GLFW\include;vendor\GLAD\include;vendor\GLM;vendor\ASSIMP\include;vendor\IMGUI;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -159,7 +159,7 @@ IF EXIST ..\bin\Release-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll\ (xco
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalDependencies>opengl32.lib;assimp-vc143-mtd.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>..;vendor\ASSIMP\libs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>vendor\ASSIMP\libs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <ImportLibrary>..\bin\Dist-windows-x86_64\Void\Void.lib</ImportLibrary>
     </Link>
     <PreBuildEvent>
@@ -188,6 +188,7 @@ IF EXIST ..\bin\Dist-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll\ (xcopy 
     <ClInclude Include="src\Void\Event\Event.h" />
     <ClInclude Include="src\Void\Event\MouseEvents.h" />
     <ClInclude Include="src\Void\Event\WindowEvents.h" />
+    <ClInclude Include="src\Void\ImGui\ImGuiManager.h" />
     <ClInclude Include="src\Void\Platform\OpenGL\Components\IndexBuffer\OpenGLIndexBuffer.h" />
     <ClInclude Include="src\Void\Platform\OpenGL\Components\Renderer\OpenGLRenderer.h" />
     <ClInclude Include="src\Void\Platform\OpenGL\Components\RenderingContext\OpenGLRenderingContext.h" />
@@ -196,6 +197,7 @@ IF EXIST ..\bin\Dist-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll\ (xcopy 
     <ClInclude Include="src\Void\Platform\OpenGL\Components\VertexArray\OpenGLVertexArray.h" />
     <ClInclude Include="src\Void\Platform\OpenGL\Components\VertexBuffer\OpenGLVertexBuffer.h" />
     <ClInclude Include="src\Void\Platform\OpenGL\Debugging\OpenGLDebugger.h" />
+    <ClInclude Include="src\Void\Platform\OpenGL\ImGui\OpenGLImGuiRenderer.h" />
     <ClInclude Include="src\Void\Platform\OpenGL\Input\OpenGLInput.h" />
     <ClInclude Include="src\Void\Platform\OpenGL\Window\OpenGLWindow.h" />
     <ClInclude Include="src\Void\Rendering\Camera\Camera\Camera.h" />
@@ -225,6 +227,7 @@ IF EXIST ..\bin\Dist-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll\ (xcopy 
     <ClCompile Include="src\Void\Debug\Log.cpp" />
     <ClCompile Include="src\Void\ECS\Core\Scene\Scene.cpp" />
     <ClCompile Include="src\Void\ECS\Systems\RenderingSystem.cpp" />
+    <ClCompile Include="src\Void\ImGui\ImGuiManager.cpp" />
     <ClCompile Include="src\Void\Platform\OpenGL\Components\IndexBuffer\OpenGLIndexBuffer.cpp" />
     <ClCompile Include="src\Void\Platform\OpenGL\Components\Renderer\OpenGLRenderer.cpp" />
     <ClCompile Include="src\Void\Platform\OpenGL\Components\RenderingContext\OpenGLRenderingContext.cpp" />
@@ -233,6 +236,7 @@ IF EXIST ..\bin\Dist-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll\ (xcopy 
     <ClCompile Include="src\Void\Platform\OpenGL\Components\VertexArray\OpenGLVertexArray.cpp" />
     <ClCompile Include="src\Void\Platform\OpenGL\Components\VertexBuffer\OpenGLVertexBuffer.cpp" />
     <ClCompile Include="src\Void\Platform\OpenGL\Debugging\OpenGLDebugger.cpp" />
+    <ClCompile Include="src\Void\Platform\OpenGL\ImGui\OpenGLImGuiRenderer.cpp" />
     <ClCompile Include="src\Void\Platform\OpenGL\Input\OpenGLInput.cpp" />
     <ClCompile Include="src\Void\Platform\OpenGL\Window\OpenGLWindow.cpp" />
     <ClCompile Include="src\Void\Rendering\Camera\Camera\Camera.cpp" />
@@ -260,6 +264,9 @@ IF EXIST ..\bin\Dist-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll\ (xcopy 
     </ProjectReference>
     <ProjectReference Include="vendor\GLAD\GLAD.vcxproj">
       <Project>{5D4A857C-4981-860D-F26D-6C10DE83020F}</Project>
+    </ProjectReference>
+    <ProjectReference Include="vendor\IMGUI\ImGui.vcxproj">
+      <Project>{C0FF640D-2C14-8DBE-F595-301E616989EF}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
