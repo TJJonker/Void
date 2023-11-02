@@ -74,6 +74,16 @@ namespace Void {
 		delegator.Delegate<WindowCloseEvent>(BIND_EVENT_FUNCTION(CloseApplication));
 	}
 
+	void Application::PushLayer(Layer* layer)
+	{
+		m_LayerStack.PushLayer(layer);
+	}
+
+	void Application::PushOverlay(Layer* layer)
+	{
+		m_LayerStack.PushLayer(layer);
+	}
+
 	void Application::Run() {
 
 		while (m_IsRunning) {			
@@ -84,10 +94,11 @@ namespace Void {
 			RenderingCommands::SetClearColor({ .1, .2, .1, 1 });
 			RenderingCommands::Clear();
 
+			for (Layer* layer : m_LayerStack)
+				layer->OnUpdate();
+
 			RenderingCommands::BeginDraw(m_CameraController->GetCamera());
 			m_Scene->UpdateRenderingSystem();
-
-			m_ImGuiManager->Update();
 
 			m_Window->OnUpdate();
 		}

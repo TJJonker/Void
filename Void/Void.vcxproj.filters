@@ -270,6 +270,8 @@
     </ClInclude>
     <ClInclude Include="src\pch.h" />
     <ClInclude Include="src\Void\Platform\OpenGL\ImGui\OpenGLImGuiRenderer.h" />
+    <ClInclude Include="src\Void\Layers\LayerStack.h" />
+    <ClInclude Include="src\Void\Layers\Layer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Void\Core\Application.cpp">
@@ -370,5 +372,7 @@
     </ClCompile>
     <ClCompile Include="src\pch.cpp" />
     <ClCompile Include="src\Void\Platform\OpenGL\ImGui\OpenGLImGuiRenderer.cpp" />
+    <ClCompile Include="src\Void\Layers\LayerStack.cpp" />
+    <ClCompile Include="src\Void\Layers\Layer.cpp" />
   </ItemGroup>
 </Project>

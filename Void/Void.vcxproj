@@ -172,6 +172,8 @@ IF EXIST ..\bin\Dist-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll\ (xcopy 
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Void\Layers\Layer.h" />
+    <ClInclude Include="src\Void\Layers\LayerStack.h" />
     <ClInclude Include="src\Void.h" />
     <ClInclude Include="src\Void\Core\Application.h" />
     <ClInclude Include="src\Void\Core\Core.h" />
@@ -221,6 +223,8 @@ IF EXIST ..\bin\Dist-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll\ (xcopy 
     <ClInclude Include="src\pch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Void\Layers\Layer.cpp" />
+    <ClCompile Include="src\Void\Layers\LayerStack.cpp" />
     <ClCompile Include="src\Void\Core\Application.cpp" />
     <ClCompile Include="src\Void\Core\Input.cpp" />
     <ClCompile Include="src\Void\Core\Window.cpp" />
