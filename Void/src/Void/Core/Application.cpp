@@ -41,7 +41,6 @@ namespace Void {
 		////////////////////
 		/// Insert code here
 
-
 		entt::entity entity1 = m_Scene->CreateEntity();
 
 		std::shared_ptr<Shader> shader;
@@ -80,11 +79,13 @@ namespace Void {
 	void Application::PushLayer(Layer* layer)
 	{
 		m_LayerStack.PushLayer(layer);
+		layer->OnAdded();
 	}
 
 	void Application::PushOverlay(Layer* layer)
 	{
 		m_LayerStack.PushLayer(layer);
+		layer->OnAdded();
 	}
 
 	void Application::Run() {
@@ -111,16 +112,6 @@ namespace Void {
 	{
 		m_IsRunning = false;
 		return true;
-	}
-
-	Application& Application::Get()
-	{
-		return *application;
-	}
-
-	Window* Application::GetWindow()
-	{
-		return m_Window;
 	}
 }
 

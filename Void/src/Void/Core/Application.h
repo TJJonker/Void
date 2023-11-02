@@ -8,8 +8,8 @@
 #include "Void/Rendering/Camera/CameraController/CameraController.h"
 #include <Void/ECS/Core/Scene/Scene.h>
 #include <Void/ImGui/ImGuiManager.h>
-#include <Void/Layers/Layer.h>
-#include <Void/Layers/LayerStack.h>
+#include <Void/Layers/Core/Layer.h>
+#include <Void/Layers/Core/LayerStack.h>
 
 
 namespace Void {
@@ -57,9 +57,9 @@ namespace Void {
 		/// </summary>
 		virtual ~Application();
 
-		static Application& Get();
+		static Application& Get() { return *application; }
 
-		Window* GetWindow();
+		Window* GetWindow() { return m_Window; }
 
 		/// <summary>
 		/// Function receiving and running event related methods.

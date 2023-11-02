@@ -1,20 +1,21 @@
 #include "pch.h"
-
-#include "ImGuiManager.h"
+#include "ImGuiLayer.h"
 #include "Void/Platform/OpenGL/ImGui/OpenGLImGuiRenderer.h"
 #include <Void/Core/Application.h>
-
 #include "Void/Utils/TimeSteps/Time.h"
 
 namespace Void {
-	void ImGuiManager::Intialize()
+
+#define BIND_EVENT_FUNCTION(x) std::bind(&x, this, std::placeholders::_1)
+
+	void ImGuiLayer::OnAdded()
 	{
 		ImGui::CreateContext();
 		ImGui::StyleColorsDark();
-		
+
 		ImGuiIO& io = ImGui::GetIO();
 		io.BackendFlags |= ImGuiBackendFlags_HasMouseCursors;
-		io.BackendFlags |= ImGuiBackendFlags_HasSetMousePos;		
+		io.BackendFlags |= ImGuiBackendFlags_HasSetMousePos;
 
 		io.KeyMap[ImGuiKey_Tab] = GLFW_KEY_TAB;
 		io.KeyMap[ImGuiKey_LeftArrow] = GLFW_KEY_LEFT;
@@ -41,7 +42,7 @@ namespace Void {
 		ImGui_ImplOpenGL3_Init("#version 330");
 	}
 
-	void ImGuiManager::Update()
+	void ImGuiLayer::OnUpdate()
 	{
 		ImGuiIO& io = ImGui::GetIO();
 		Application& app = Application::Get();
@@ -50,10 +51,24 @@ namespace Void {
 		ImGui_ImplOpenGL3_NewFrame();
 		ImGui::NewFrame();
 
-		static bool show = true;	
+		static bool show = true;
 		ImGui::ShowDemoWindow(&show);
 
-		ImGui::Render();
-		ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+		ImGui::Render(); 
+		ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData()); 
+	}
+
+	void ImGuiLayer::OnEvent(Event& event)
+	{
+		EventDelegator delegator(event);
+		delegator.Delegate<MouseMovedEvent>(BIND_EVENT_FUNCTION(ImGuiLayer::OnMouseMoved));
+	}
+
+	bool ImGuiLayer::OnMouseMoved(MouseMovedEvent& mouseMovedEvent)
+	{
+		ImGuiIO& io = ImGui::GetIO();
+		io.MousePos = ImVec2(mouseMovedEvent.GetX(), mouseMovedEvent.GetY());
+
+		return false;
 	}
 }
