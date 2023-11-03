@@ -18,4 +18,32 @@ namespace Void {
 	private:
 		uint16_t x, y;
 	};
+
+	
+	class MouseButtonPressedEvent : public Event {
+	private:
+		int m_Button;
+	
+	public:
+		MouseButtonPressedEvent(int button)
+			: m_Button(button) { }
+
+		int GetButton() const { return m_Button; }
+
+		EVENT_CLASS_TYPE(EventType::MouseButtonPressed);
+	};
+
+
+	class MouseButtonReleasedEvent : public Event {
+	private:
+		int m_Button;
+
+	public:
+		MouseButtonReleasedEvent(int button)
+			: m_Button(button) { }
+
+		int GetButton() const { return m_Button; }
+
+		EVENT_CLASS_TYPE(EventType::MouseButtonReleased);
+	};
 }

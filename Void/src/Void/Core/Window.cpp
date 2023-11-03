@@ -7,9 +7,9 @@
 
 namespace Void {
 
-	Scope<Window> Window::Create(const WindowProps& props) {
+	Window* Window::Create(const WindowProps& props) {
 #ifdef VOID_PLATFORM_WINDOWS
-		return CreateScope<OpenGLWindow>(props);
+		return new OpenGLWindow(props);
 #else
 		VOID_CORE_ASSERT(false, "Unknown platform...");
 		return nullptr;
