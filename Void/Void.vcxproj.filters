@@ -31,8 +31,11 @@
     <Filter Include="Void\Event">
       <UniqueIdentifier>{C82CB57E-B4E4-F6CB-1DEC-CF2709C391BC}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Void\ImGui">
-      <UniqueIdentifier>{A120F87E-8DD8-39CC-F6DF-1228E2B6D4BC}</UniqueIdentifier>
+    <Filter Include="Void\Layers">
+      <UniqueIdentifier>{16B13D64-8266-B659-0B5B-B030770FAD5D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Void\Layers\Core">
+      <UniqueIdentifier>{2EF33EAA-1AEC-5DFC-431E-43812F763D08}</UniqueIdentifier>
     </Filter>
     <Filter Include="Void\Platform">
       <UniqueIdentifier>{6B484333-D708-BF69-A043-08E70CC30346}</UniqueIdentifier>
@@ -175,11 +178,23 @@
     <ClInclude Include="src\Void\Event\Event.h">
       <Filter>Void\Event</Filter>
     </ClInclude>
+    <ClInclude Include="src\Void\Event\KeyEvents.h">
+      <Filter>Void\Event</Filter>
+    </ClInclude>
     <ClInclude Include="src\Void\Event\MouseEvents.h">
       <Filter>Void\Event</Filter>
     </ClInclude>
     <ClInclude Include="src\Void\Event\WindowEvents.h">
       <Filter>Void\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Void\Layers\Core\Layer.h">
+      <Filter>Void\Layers\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Void\Layers\Core\LayerStack.h">
+      <Filter>Void\Layers\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Void\Layers\ImGuiLayer.h">
+      <Filter>Void\Layers</Filter>
     </ClInclude>
     <ClInclude Include="src\Void\Platform\OpenGL\Components\IndexBuffer\OpenGLIndexBuffer.h">
       <Filter>Void\Platform\OpenGL\Components\IndexBuffer</Filter>
@@ -266,11 +281,6 @@
       <Filter>Void\Vendor\stb_lib</Filter>
     </ClInclude>
     <ClInclude Include="src\pch.h" />
-    <ClInclude Include="src\Void\Platform\OpenGL\ImGui\OpenGLImGuiRenderer.h" />
-    <ClInclude Include="src\Void\Layers\Core\LayerStack.h" />
-    <ClInclude Include="src\Void\Layers\Core\Layer.h" />
-    <ClInclude Include="src\Void\Layers\ImGuiLayer.h" />
-    <ClInclude Include="src\Void\Event\KeyEvents.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Void\Core\Application.cpp">
@@ -290,6 +300,15 @@
     </ClCompile>
     <ClCompile Include="src\Void\ECS\Systems\RenderingSystem.cpp">
       <Filter>Void\ECS\Systems</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Void\Layers\Core\Layer.cpp">
+      <Filter>Void\Layers\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Void\Layers\Core\LayerStack.cpp">
+      <Filter>Void\Layers\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Void\Layers\ImGuiLayer.cpp">
+      <Filter>Void\Layers</Filter>
     </ClCompile>
     <ClCompile Include="src\Void\Platform\OpenGL\Components\IndexBuffer\OpenGLIndexBuffer.cpp">
       <Filter>Void\Platform\OpenGL\Components\IndexBuffer</Filter>
@@ -314,6 +333,9 @@
     </ClCompile>
     <ClCompile Include="src\Void\Platform\OpenGL\Debugging\OpenGLDebugger.cpp">
       <Filter>Void\Platform\OpenGL\Debugging</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Void\Platform\OpenGL\ImGui\ImGuiBuilder.cpp">
+      <Filter>Void\Platform\OpenGL\ImGui</Filter>
     </ClCompile>
     <ClCompile Include="src\Void\Platform\OpenGL\Input\OpenGLInput.cpp">
       <Filter>Void\Platform\OpenGL\Input</Filter>
@@ -367,9 +389,5 @@
       <Filter>Void\Vendor\stb_lib</Filter>
     </ClCompile>
     <ClCompile Include="src\pch.cpp" />
-    <ClCompile Include="src\Void\Platform\OpenGL\ImGui\OpenGLImGuiRenderer.cpp" />
-    <ClCompile Include="src\Void\Layers\Core\LayerStack.cpp" />
-    <ClCompile Include="src\Void\Layers\Core\Layer.cpp" />
-    <ClCompile Include="src\Void\Layers\ImGuiLayer.cpp" />
   </ItemGroup>
 </Project>

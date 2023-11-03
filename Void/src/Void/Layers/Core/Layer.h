@@ -10,5 +10,7 @@ namespace Void {
 
 		virtual void OnUpdate() {}
 		virtual void OnEvent(Event& event) {}
+
+		virtual void OnGuiRender() {}
 	};
 }

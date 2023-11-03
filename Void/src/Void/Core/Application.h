@@ -9,6 +9,8 @@
 #include <Void/ECS/Core/Scene/Scene.h>
 #include <Void/Layers/Core/Layer.h>
 #include <Void/Layers/Core/LayerStack.h>
+#include "Void/Layers/ImGuiLayer.h"
+
 
 
 namespace Void {
@@ -24,6 +26,8 @@ namespace Void {
 		Scene* m_Scene; 
 
 		LayerStack m_LayerStack;
+
+		ImGuiLayer* m_ImGuiLayer;
 
 		/// <summary>
 		/// Pointer to the created window.

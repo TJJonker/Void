@@ -12,7 +12,6 @@
 #include <Void/ECS/Components/TranformComponent.h>
 #include <Void/ECS/Components/RenderingComponent.h>
 #include <Void/ECS/Systems/RenderingSystem.h>
-#include "Void/Layers/ImGuiLayer.h"
 
 namespace Void {
 
@@ -35,10 +34,12 @@ namespace Void {
 
 		m_Scene = new Scene();
 
+		m_ImGuiLayer = new ImGuiLayer();
+		PushLayer(m_ImGuiLayer);
+
 		std::shared_ptr<RenderingSystem> renderingSystem = std::make_shared<RenderingSystem>(); 
 		m_Scene->SetRenderingSystem(renderingSystem); 
 
-		PushLayer(new ImGuiLayer());
 
 		////////////////////
 		/// Insert code here
@@ -107,6 +108,11 @@ namespace Void {
 
 			for (Layer* layer : m_LayerStack)
 				layer->OnUpdate();
+
+			m_ImGuiLayer->StartRendering();
+			for (Layer* layer : m_LayerStack)
+				layer->OnGuiRender();
+			m_ImGuiLayer->EndRendering();
 
 			m_Window->OnUpdate();
 		}
