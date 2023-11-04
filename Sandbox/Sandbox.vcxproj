@@ -134,12 +134,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\MainLayer.cpp" />
     <ClCompile Include="src\SandboxApplication.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Void\Void.vcxproj">
       <Project>{371E8E7C-2355-8F0D-CC41-7510B8570B0F}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\MainLayer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

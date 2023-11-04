@@ -2,7 +2,7 @@
 #include "Void/Rendering/Camera/Camera/Camera.h"
 
 namespace Void {
-	class CameraController
+	class VOID_API CameraController
 	{
 	private:
 		Camera* m_Camera;

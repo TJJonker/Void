@@ -6,7 +6,7 @@
 #include <Void/Rendering/Camera/Camera/Camera.h>
 
 namespace Void {
-	class RenderingCommands {
+	class VOID_API RenderingCommands {
 	private:
 		struct RenderData {
 			glm::mat4 projectionMatrix;

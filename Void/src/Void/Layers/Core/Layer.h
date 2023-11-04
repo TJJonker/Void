@@ -2,7 +2,7 @@
 #include <Void/Event/Event.h>
 
 namespace Void {
-	class Layer
+	class VOID_API Layer
 	{
 	public:
 		virtual void OnAdded() {}
