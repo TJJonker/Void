@@ -5,7 +5,7 @@
 #include "Void/Platform/OpenGL/Debugging/OpenGLDebugger.h"
 #include <glm/gtc/type_ptr.hpp>
 
-namespace Void {
+namespace Void::Rendering {
 	OpenGLShader::OpenGLShader(const char* vertexShaderPath, const char* fragmentShaderPath)
 	{
 		unsigned int vertexShader = CompileShader(FileReader::ReadFile(vertexShaderPath).c_str(), GL_VERTEX_SHADER);

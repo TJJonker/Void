@@ -1,7 +1,7 @@
 #pragma once
 #include "Void/ECS/Core/Systems/ISystem.h"
 
-namespace Void {
+namespace Void::Rendering {
 
 	class RenderingSystem : public ISystem
 	{

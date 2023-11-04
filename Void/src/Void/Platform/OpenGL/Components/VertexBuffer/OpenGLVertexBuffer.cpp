@@ -3,7 +3,7 @@
 #include "OpenGLVertexBuffer.h"
 #include "Void/Platform/OpenGL/Debugging/OpenGLDebugger.h"
 
-namespace Void {
+namespace Void::Rendering {
     
     OpenGLVertexBuffer::OpenGLVertexBuffer(const void* vertices, const uint32_t size)
         : m_Count(size)

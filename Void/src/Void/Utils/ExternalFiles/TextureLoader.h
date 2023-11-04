@@ -7,6 +7,6 @@ namespace Void {
 	private:
 
 	public:
-		static Texture* LoadTexture(const std::string& filePath);
+		static Rendering::Texture* LoadTexture(const std::string& filePath);
 	};
 }

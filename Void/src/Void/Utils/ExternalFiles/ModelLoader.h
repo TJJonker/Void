@@ -2,7 +2,7 @@
 #include <Void/Rendering/Components/Model/Model.h>
 #include <assimp/scene.h>
 
-namespace Void {
+namespace Void::Rendering {
 	class ModelLoader
 	{
 	private:

@@ -2,7 +2,7 @@
 #include "OpenGLRenderer.h"
 #include <Void/Platform/OpenGL/Debugging/OpenGLDebugger.h>
 
-namespace Void {
+namespace Void::Rendering {
 	void OpenGLRenderer::Draw(const std::shared_ptr<VertexArray> vertexArray)
 	{
 		glEnable(GL_DEPTH_TEST);

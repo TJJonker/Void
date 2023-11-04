@@ -1,7 +1,7 @@
 #pragma once
 #include "Void/Rendering/Components/IndexBuffer/IndexBuffer.h"
 
-namespace Void {
+namespace Void::Rendering {
 
 	class OpenGLIndexBuffer : public IndexBuffer
 	{

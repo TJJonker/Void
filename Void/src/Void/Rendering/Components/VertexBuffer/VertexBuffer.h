@@ -1,7 +1,7 @@
 #pragma once
 #include <Void/Rendering/Components/VertexBufferLayout/VertexBufferLayout.h>
 
-namespace Void {
+namespace Void::Rendering {
 	class VertexBuffer
 	{
 	public:

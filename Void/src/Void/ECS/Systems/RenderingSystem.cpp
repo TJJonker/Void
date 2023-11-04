@@ -5,7 +5,7 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <Void/Rendering/Components/Renderer/RenderingCommands.h>
 
-namespace Void {
+namespace Void::Rendering {
 	void RenderingSystem::Update(entt::registry& registry)
 	{
 		for (entt::entity ent : registry.view<TransformComponent, RenderingComponent>()) {
@@ -21,14 +21,14 @@ namespace Void {
 			if (rendering.Submeshes.size()) {
 				std::shared_ptr<Shader> shader = rendering.Submeshes[0]->Shader;
 				std::shared_ptr<Texture> texture = rendering.Submeshes[0]->Textures[0];
-				std::shared_ptr<VertexArray> vertexArray = rendering.Submeshes[0]->VertexArray;
+				std::shared_ptr<Rendering::VertexArray> vertexArray = rendering.Submeshes[0]->VertexArray;
 
 				shader->Bind();
 				shader->SetInt("texture1", 0);
 				glActiveTexture(GL_TEXTURE0);
 				texture->Bind();
 
-				RenderingCommands::Draw(vertexArray, shader, model);
+				Rendering::RenderingCommands::Draw(vertexArray, shader, model);
 			}
 		}
 	}

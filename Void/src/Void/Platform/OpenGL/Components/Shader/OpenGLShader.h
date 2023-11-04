@@ -2,7 +2,7 @@
 #include "Void/Rendering/Components/Shader/Shader.h"
 #include <map>
 
-namespace Void {
+namespace Void::Rendering {
 	class OpenGLShader : public Shader
 	{
 	private:

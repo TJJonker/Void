@@ -5,7 +5,7 @@
 #include "assimp/postprocess.h"
 
 
-namespace Void {
+namespace Void::Rendering {
 
 	Model* ModelLoader::LoadModel(const std::string& filePath)
 	{

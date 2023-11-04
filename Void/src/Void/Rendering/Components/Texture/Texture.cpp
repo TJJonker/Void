@@ -3,7 +3,7 @@
 #include "Void/Rendering/Components/Renderer/Renderer.h"
 #include "Void/Platform/OpenGL/Components/Texture/OpenGLTexture.h"
 
-namespace Void {
+namespace Void::Rendering {
 	Texture* Texture::Create(const std::string& filePath)
 	{
 		switch (Renderer::GetAPI()) {

@@ -4,6 +4,6 @@
 
 namespace Void {
 	struct RenderingComponent {
-		std::vector<std::shared_ptr<Submesh>> Submeshes;
+		std::vector<std::shared_ptr<Rendering::Submesh>> Submeshes;
 	};
 }

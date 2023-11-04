@@ -1,6 +1,6 @@
 #pragma once
 
-namespace Void {
+namespace Void::Rendering {
 	class IndexBuffer
 	{
 	public:

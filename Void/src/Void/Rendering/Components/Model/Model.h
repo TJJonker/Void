@@ -3,7 +3,7 @@
 #include <Void/Rendering/Components/Texture/Texture.h>
 #include <Void/Rendering/Components/Shader/Shader.h>
 
-namespace Void {
+namespace Void::Rendering {
 	struct Submesh {
 		std::shared_ptr<VertexArray> VertexArray;
 		std::vector<std::shared_ptr<Texture>> Textures;

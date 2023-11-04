@@ -5,7 +5,7 @@
 #include <Void/Rendering/Components/Shader/Shader.h>
 #include <Void/Rendering/Camera/Camera/Camera.h>
 
-namespace Void {
+namespace Void::Rendering {
 	class VOID_API RenderingCommands {
 	private:
 		struct RenderData {

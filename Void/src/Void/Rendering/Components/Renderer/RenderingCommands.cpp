@@ -2,7 +2,7 @@
 #include "RenderingCommands.h"
 #include <glm/gtc/matrix_transform.hpp>
 
-namespace Void {
+namespace Void::Rendering {
 
 	RenderingCommands::RenderData* RenderingCommands::m_RenderData = new RenderingCommands::RenderData();
 

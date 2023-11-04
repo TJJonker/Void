@@ -37,7 +37,7 @@ namespace Void {
 		m_ImGuiLayer = new ImGuiLayer();
 		PushLayer(m_ImGuiLayer);
 
-		std::shared_ptr<RenderingSystem> renderingSystem = std::make_shared<RenderingSystem>(); 
+		std::shared_ptr<Rendering::RenderingSystem> renderingSystem = std::make_shared<Rendering::RenderingSystem>(); 
 		m_Scene->SetRenderingSystem(renderingSystem); 
 	}
 	
@@ -72,11 +72,11 @@ namespace Void {
 		while (m_IsRunning) {			
 			Time::Update();
 
-			RenderingCommands::SetClearColor({ .1, .2, .1, 1 });
-			RenderingCommands::Clear();
+			Rendering::RenderingCommands::SetClearColor({ .1, .2, .1, 1 });
+			Rendering::RenderingCommands::Clear();
 			
 			m_CameraController->Update();
-			Void::RenderingCommands::BeginDraw(m_CameraController->GetCamera());
+			Rendering::RenderingCommands::BeginDraw(m_CameraController->GetCamera());
 
 			m_Scene->UpdateRenderingSystem();
 
