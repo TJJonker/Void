@@ -54,8 +54,13 @@ project "Void"
 
 		postbuildcommands {
 			"call CreateDir.bat ../bin/" .. outputdir .. "/Sandbox",
+			"call CreateDir.bat ../bin/" .. outputdir .. "/Nebula",
+			
 			("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Sandbox"),			
-			("{COPY} ../bin/" .. outputdir .. "/%{prj.name}/assimp-vc143-mtd.dll ../bin/" .. outputdir .. "/Sandbox")		
+			("{COPY} ../bin/" .. outputdir .. "/%{prj.name}/assimp-vc143-mtd.dll ../bin/" .. outputdir .. "/Sandbox"),	
+
+			("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Nebula"),			
+			("{COPY} ../bin/" .. outputdir .. "/%{prj.name}/assimp-vc143-mtd.dll ../bin/" .. outputdir .. "/Nebula")	
 		}
 
 

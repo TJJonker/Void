@@ -5,6 +5,8 @@ namespace Void {
 	class VOID_API Layer
 	{
 	public:
+		virtual ~Layer() = default;
+
 		virtual void OnAdded() {}
 		virtual void OnRemoved() {}
 

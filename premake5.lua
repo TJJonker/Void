@@ -1,6 +1,6 @@
 workspace "Void Engine"
 	architecture "x64"
-	startproject "Sandbox" 
+	startproject "Nebula" 
 
 	configurations {
 		"Debug",
@@ -27,4 +27,5 @@ include "Void/vendor/GLFW"
 include "Void/vendor/GLAD"
 include "Void/vendor/IMGUI"
 include "Void"
+include "Nebula"
 include "Sandbox"

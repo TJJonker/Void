@@ -46,6 +46,9 @@
     <Filter Include="Void\Platform\OpenGL\Components">
       <UniqueIdentifier>{F4EA2A36-60CE-3976-69D1-67B2D53300C7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Void\Platform\OpenGL\Components\FrameBuffer">
+      <UniqueIdentifier>{08168747-747B-1ACE-FD53-BCA669B80F3D}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Void\Platform\OpenGL\Components\IndexBuffer">
       <UniqueIdentifier>{951F6C79-0185-FFFF-8A5D-A1D8F6C1F46E}</UniqueIdentifier>
     </Filter>
@@ -93,6 +96,9 @@
     </Filter>
     <Filter Include="Void\Rendering\Components">
       <UniqueIdentifier>{D90AD5E9-45CD-0874-8E7D-9700FA7EE151}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Void\Rendering\Components\FrameBuffer">
+      <UniqueIdentifier>{6D355B4C-D9F9-593C-A25F-8A060EE3F571}</UniqueIdentifier>
     </Filter>
     <Filter Include="Void\Rendering\Components\IndexBuffer">
       <UniqueIdentifier>{FA3E407E-6603-3F6E-2F69-6F389BECDAA3}</UniqueIdentifier>
@@ -196,6 +202,9 @@
     <ClInclude Include="src\Void\Layers\ImGuiLayer.h">
       <Filter>Void\Layers</Filter>
     </ClInclude>
+    <ClInclude Include="src\Void\Platform\OpenGL\Components\FrameBuffer\OpenGLFrameBuffer.h">
+      <Filter>Void\Platform\OpenGL\Components\FrameBuffer</Filter>
+    </ClInclude>
     <ClInclude Include="src\Void\Platform\OpenGL\Components\IndexBuffer\OpenGLIndexBuffer.h">
       <Filter>Void\Platform\OpenGL\Components\IndexBuffer</Filter>
     </ClInclude>
@@ -231,6 +240,12 @@
     </ClInclude>
     <ClInclude Include="src\Void\Rendering\Camera\CameraController\CameraController.h">
       <Filter>Void\Rendering\Camera\CameraController</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Void\Rendering\Components\FrameBuffer\FrameBuffer.h">
+      <Filter>Void\Rendering\Components\FrameBuffer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Void\Rendering\Components\FrameBuffer\FrameBufferConfig.h">
+      <Filter>Void\Rendering\Components\FrameBuffer</Filter>
     </ClInclude>
     <ClInclude Include="src\Void\Rendering\Components\IndexBuffer\IndexBuffer.h">
       <Filter>Void\Rendering\Components\IndexBuffer</Filter>
@@ -281,9 +296,6 @@
       <Filter>Void\Vendor\stb_lib</Filter>
     </ClInclude>
     <ClInclude Include="src\pch.h" />
-    <ClInclude Include="src\Void\Rendering\Components\FrameBuffer\FrameBuffer.h" />
-    <ClInclude Include="src\Void\Platform\OpenGL\Components\FrameBuffer\OpenGLFrameBuffer.h" />
-    <ClInclude Include="src\Void\Rendering\Components\FrameBuffer\FrameBufferConfig.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Void\Core\Application.cpp">
@@ -312,6 +324,9 @@
     </ClCompile>
     <ClCompile Include="src\Void\Layers\ImGuiLayer.cpp">
       <Filter>Void\Layers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Void\Platform\OpenGL\Components\FrameBuffer\OpenGLFrameBuffer.cpp">
+      <Filter>Void\Platform\OpenGL\Components\FrameBuffer</Filter>
     </ClCompile>
     <ClCompile Include="src\Void\Platform\OpenGL\Components\IndexBuffer\OpenGLIndexBuffer.cpp">
       <Filter>Void\Platform\OpenGL\Components\IndexBuffer</Filter>
@@ -351,6 +366,9 @@
     </ClCompile>
     <ClCompile Include="src\Void\Rendering\Camera\CameraController\CameraController.cpp">
       <Filter>Void\Rendering\Camera\CameraController</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Void\Rendering\Components\FrameBuffer\FrameBuffer.cpp">
+      <Filter>Void\Rendering\Components\FrameBuffer</Filter>
     </ClCompile>
     <ClCompile Include="src\Void\Rendering\Components\IndexBuffer\IndexBuffer.cpp">
       <Filter>Void\Rendering\Components\IndexBuffer</Filter>
@@ -392,7 +410,5 @@
       <Filter>Void\Vendor\stb_lib</Filter>
     </ClCompile>
     <ClCompile Include="src\pch.cpp" />
-    <ClCompile Include="src\Void\Rendering\Components\FrameBuffer\FrameBuffer.cpp" />
-    <ClCompile Include="src\Void\Platform\OpenGL\Components\FrameBuffer\OpenGLFrameBuffer.cpp" />
   </ItemGroup>
 </Project>
