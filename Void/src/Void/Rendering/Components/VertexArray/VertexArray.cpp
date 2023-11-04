@@ -3,7 +3,7 @@
 #include "Void/Rendering/Components/Renderer/Renderer.h"
 #include "Void/Platform/OpenGL/Components/VertexArray/OpenGLVertexArray.h"
 
-namespace Void {
+namespace Void::Rendering {
     VertexArray* VertexArray::Create()
     {
         switch (Renderer::GetAPI()) {

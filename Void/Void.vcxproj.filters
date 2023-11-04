@@ -281,6 +281,9 @@
       <Filter>Void\Vendor\stb_lib</Filter>
     </ClInclude>
     <ClInclude Include="src\pch.h" />
+    <ClInclude Include="src\Void\Rendering\Components\FrameBuffer\FrameBuffer.h" />
+    <ClInclude Include="src\Void\Platform\OpenGL\Components\FrameBuffer\OpenGLFrameBuffer.h" />
+    <ClInclude Include="src\Void\Rendering\Components\FrameBuffer\FrameBufferConfig.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Void\Core\Application.cpp">
@@ -389,5 +392,7 @@
       <Filter>Void\Vendor\stb_lib</Filter>
     </ClCompile>
     <ClCompile Include="src\pch.cpp" />
+    <ClCompile Include="src\Void\Rendering\Components\FrameBuffer\FrameBuffer.cpp" />
+    <ClCompile Include="src\Void\Platform\OpenGL\Components\FrameBuffer\OpenGLFrameBuffer.cpp" />
   </ItemGroup>
 </Project>
