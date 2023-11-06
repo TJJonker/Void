@@ -7,8 +7,13 @@ namespace Nebula::Editor {
 	private:
 		Void::Rendering::FrameBuffer* m_FrameBuffer;
 
+		Void::Scene* m_Scene;
+
+		Void::CameraController* m_CameraController;
+
 	public:
 		void OnAdded() override;
+		void OnUpdate() override;
 		void OnGuiRender() override;
 	};
 }

@@ -8,6 +8,7 @@ namespace Void::Rendering {
 	private:
 		unsigned int m_ID = 0;
 		unsigned int m_TextureID = 0;
+		unsigned int m_DepthTextureID = 0;
 		FrameBufferConfig m_Config;
 
 	public:

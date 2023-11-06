@@ -30,36 +30,8 @@ namespace Void {
 		// Forward the window events to the OnEvent method.
 		m_Window->SetEventCallback(BIND_EVENT_FUNCTION(OnEvent));
 
-		m_Scene = new Scene();
-
-		m_CameraController = new Void::CameraController();
-
 		m_ImGuiLayer = new ImGuiLayer();
 		PushLayer(m_ImGuiLayer);
-
-		std::shared_ptr<Rendering::RenderingSystem> renderingSystem = std::make_shared<Rendering::RenderingSystem>(); 
-		m_Scene->SetRenderingSystem(renderingSystem); 
-
-		////////////////////
-		//Insert code here
-		entt::entity entity1 = m_Scene->CreateEntity();
-
-		std::shared_ptr<Rendering::Shader> shader;
-		shader.reset(Rendering::Shader::Create("Temp/Shaders/VertexShader.glsl", "Temp/Shaders/FragmentShader.glsl"));
-
-		std::shared_ptr<Rendering::Texture> texture;
-		texture.reset(Rendering::Texture::Create("Temp/Models/SimpleCity_Texture.png"));
-
-		Rendering::Model* model1 = ModelLoader::LoadModel("Temp/Models/Building.obj");
-		model1->Submeshes[0]->Shader = shader;
-		model1->Submeshes[0]->Textures.push_back(texture);
-
-		RenderingComponent& rc = m_Scene->AddComponent<RenderingComponent>(entity1);
-		rc.Submeshes = model1->Submeshes;
-
-		TransformComponent& tc = m_Scene->AddComponent<TransformComponent>(entity1);
-		tc.Position = glm::vec3(0, 0, -15);
-		tc.Scale = glm::vec3(0.4, 0.4, 0.4);
 	}
 	
 	Application::~Application()	{ }
@@ -92,14 +64,6 @@ namespace Void {
 
 		while (m_IsRunning) {			
 			Time::Update();
-
-			Rendering::RenderingCommands::SetClearColor({ .1, .2, .1, 1 });
-			Rendering::RenderingCommands::Clear();
-			
-			m_CameraController->Update();
-			Rendering::RenderingCommands::BeginDraw(m_CameraController->GetCamera());
-
-			m_Scene->UpdateRenderingSystem();
 
 			for (Layer* layer : m_LayerStack)
 				layer->OnUpdate();

@@ -9,7 +9,47 @@ namespace Nebula::Editor {
         config.width = 1280;
         config.height = 720;
         m_FrameBuffer = Void::Rendering::FrameBuffer::Create(config);
+
+        m_Scene = new Void::Scene();
+        m_CameraController = new Void::CameraController();
+
+        std::shared_ptr<Void::Rendering::RenderingSystem> renderingSystem = std::make_shared<Void::Rendering::RenderingSystem>();
+        m_Scene->SetRenderingSystem(renderingSystem);
+
+
+        ////////////////////
+        //Insert code here
+        entt::entity entity1 = m_Scene->CreateEntity();
+
+        std::shared_ptr<Void::Rendering::Shader> shader;
+        shader.reset(Void::Rendering::Shader::Create("Temp/Shaders/VertexShader.glsl", "Temp/Shaders/FragmentShader.glsl"));
+
+        std::shared_ptr<Void::Rendering::Texture> texture;
+        texture.reset(Void::Rendering::Texture::Create("Temp/Models/SimpleCity_Texture.png"));
+
+        Void::Rendering::Model* model1 = Void::ModelLoader::LoadModel("Temp/Models/Building.obj");
+        model1->Submeshes[0]->Shader = shader;
+        model1->Submeshes[0]->Textures.push_back(texture);
+
+        Void::RenderingComponent& rc = m_Scene->AddComponent<Void::RenderingComponent>(entity1);
+        rc.Submeshes = model1->Submeshes;
+
+        Void::TransformComponent& tc = m_Scene->AddComponent<Void::TransformComponent>(entity1);
+        tc.Position = glm::vec3(0, 0, -15);
+        tc.Scale = glm::vec3(0.4, 0.4, 0.4);
 	}
+
+    void EditorLayer::OnUpdate()
+    {
+        m_CameraController->Update(); 
+        Void::Rendering::RenderingCommands::BeginDraw(m_CameraController->GetCamera()); 
+
+        m_FrameBuffer->Bind();
+        Void::Rendering::RenderingCommands::SetClearColor({ .1, .2, .1, 1 });
+        Void::Rendering::RenderingCommands::Clear();
+        m_Scene->UpdateRenderingSystem();
+        m_FrameBuffer->UnBind();
+    } 
 
 	void EditorLayer::OnGuiRender()
 	{

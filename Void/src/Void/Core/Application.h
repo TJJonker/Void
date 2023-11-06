@@ -20,13 +20,10 @@ namespace Void {
 	/// </summary>
 	class VOID_API Application {
 	private:
-		Scene* m_Scene; 
 
 		LayerStack m_LayerStack;
 
 		ImGuiLayer* m_ImGuiLayer;
-
-		CameraController* m_CameraController;
 
 		/// <summary>
 		/// Pointer to the created window.

@@ -17,7 +17,8 @@ project "Nebula"
 		solutionDir .. "%{includeDirs.SPDLOG}",
 		solutionDir .. "%{includeDirs.GLM}",
 		solutionDir .. "%{includeDirs.GLAD}",
-		solutionDir .. "%{includeDirs.IMGUI}"
+		solutionDir .. "%{includeDirs.IMGUI}",
+		solutionDir .. "%{includeDirs.ASSIMP}"
 	}
 
 	libdirs {
