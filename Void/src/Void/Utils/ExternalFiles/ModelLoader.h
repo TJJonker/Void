@@ -2,7 +2,7 @@
 #include <Void/Rendering/Components/Model/Model.h>
 #include <assimp/scene.h>
 
-namespace Void::Rendering {
+namespace Void {
 	class ModelLoader
 	{
 	private:
@@ -15,11 +15,11 @@ namespace Void::Rendering {
 	private:
 		std::string m_Directory;
 
-		static void ProcessNode(aiNode* node, const aiScene* scene, Model* model);
-		static std::shared_ptr<VertexArray> ProcessMesh(aiMesh* mesh, const aiScene* scene);
+		static void ProcessNode(aiNode* node, const aiScene* scene, Rendering::Model* model);
+		static std::shared_ptr<Rendering::VertexArray> ProcessMesh(aiMesh* mesh, const aiScene* scene);
 		static std::vector<Vertex> GetVertexInformation(aiMesh* mesh);
 		static std::vector<unsigned int> GetIndices(aiMesh* mesh);
 	public:
-		static Model* LoadModel(const std::string& filePath);
+		static Rendering::Model* LoadModel(const std::string& filePath);
 	};
 }

@@ -5,11 +5,11 @@
 #include "assimp/postprocess.h"
 
 
-namespace Void::Rendering {
+namespace Void {
 
-	Model* ModelLoader::LoadModel(const std::string& filePath)
+	Rendering::Model* ModelLoader::LoadModel(const std::string& filePath)
 	{
-		Model* model = new Model();
+		Rendering::Model* model = new Rendering::Model();
 
 		// Loadinig file into memory
 		std::string data = FileReader::ReadFile(filePath.c_str());
@@ -37,15 +37,15 @@ namespace Void::Rendering {
 	}
 
 
-	void ModelLoader::ProcessNode(aiNode* node, const aiScene* scene, Model* model)
+	void ModelLoader::ProcessNode(aiNode* node, const aiScene* scene, Rendering::Model* model)
 	{
 		// Iterate over current Node's meshes and process the meshes
 		for (unsigned int i = 0; i < node->mNumMeshes; ++i) {
-			Submesh submesh;
+			Rendering::Submesh submesh;
 			submesh.VertexArray = ProcessMesh(scene->mMeshes[node->mMeshes[i]], scene);
 			// TODO: submesh->Textures = GetTexture();
 
-			model->Submeshes.push_back(std::make_shared<Submesh>(submesh));
+			model->Submeshes.push_back(std::make_shared<Rendering::Submesh>(submesh));
 		}
 
 		// Check if the current Node has more child Nodes and recursively call this function.
@@ -54,16 +54,16 @@ namespace Void::Rendering {
 		}
 	}
 
-	std::shared_ptr<VertexArray> ModelLoader::ProcessMesh(aiMesh* mesh, const aiScene* scene)
+	std::shared_ptr<Rendering::VertexArray> ModelLoader::ProcessMesh(aiMesh* mesh, const aiScene* scene)
 	{
-		std::shared_ptr<VertexArray> vertexArray;
-		vertexArray.reset(VertexArray::Create());
+		std::shared_ptr<Rendering::VertexArray> vertexArray;
+		vertexArray.reset(Rendering::VertexArray::Create());
 		
 		// VertexBuffer Related stuff
 		std::vector<Vertex> vertices = GetVertexInformation(mesh);
 
-		std::shared_ptr<VertexBuffer> vertexBuffer; 
-		vertexBuffer.reset(VertexBuffer::Create(vertices.data(), vertices.size() * sizeof(float) * 8));
+		std::shared_ptr<Rendering::VertexBuffer> vertexBuffer; 
+		vertexBuffer.reset(Rendering::VertexBuffer::Create(vertices.data(), vertices.size() * sizeof(float) * 8));
 
 		VertexBufferLayout vertexBufferLayout;
 		vertexBufferLayout.Push<float>(3); // Position
@@ -74,8 +74,8 @@ namespace Void::Rendering {
 
 		std::vector<unsigned int> indices = GetIndices(mesh);
 
-		std::shared_ptr<IndexBuffer> indexBuffer;
-		indexBuffer.reset(IndexBuffer::Create(indices.data(), indices.size()));
+		std::shared_ptr<Rendering::IndexBuffer> indexBuffer;
+		indexBuffer.reset(Rendering::IndexBuffer::Create(indices.data(), indices.size()));
 
 		vertexArray->SetIndexBuffer(indexBuffer);
 
