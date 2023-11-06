@@ -1,5 +1,6 @@
 #include <Void.h>
 #include "EditorLayer.h"
+#include "Void/Core/EntryPoint.h"
 
 namespace Nebula {
 	class Nebula : public Void::Application {

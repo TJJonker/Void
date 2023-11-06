@@ -13,6 +13,8 @@ namespace Void::Rendering {
 		virtual void Generate() = 0;
 		virtual void Resize(uint16_t width, uint16_t height) = 0;
 
+		virtual unsigned int GetRenderingID() const = 0;
+
 		static FrameBuffer* Create(const FrameBufferConfig& config);
 	};
 }

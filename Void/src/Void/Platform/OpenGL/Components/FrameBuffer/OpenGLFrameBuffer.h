@@ -19,5 +19,7 @@ namespace Void::Rendering {
 
 		void Generate() override;
 		void Resize(uint16_t width, uint16_t height) override;
+
+		unsigned int GetRenderingID() const override { return m_ID; }
 	};
 }

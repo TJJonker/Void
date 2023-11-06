@@ -1,13 +1,13 @@
 #pragma once
-#include "Void/Layers/Core/Layer.h"
+#include "Void.h"
 
 namespace Nebula::Editor {
 	class EditorLayer : public Void::Layer
 	{
-	public:
-		EditorLayer();
-		virtual ~EditorLayer();
+	private:
+		Void::Rendering::FrameBuffer* m_FrameBuffer;
 
+	public:
 		void OnAdded() override;
 		void OnGuiRender() override;
 	};
