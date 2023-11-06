@@ -1,5 +1,5 @@
 project "Void"
-	kind "SharedLib"
+	kind "StaticLib"
 	language "C++"
 
 	targetdir (solutionDir .. "/bin/" .. outputdir .. "/%{prj.name}")
@@ -39,7 +39,7 @@ project "Void"
 	filter "system:windows"
 		cppdialect "C++17"
 		systemversion "latest"
-		staticruntime "off"
+		staticruntime "on"
 		runtime "Debug"
 
 		defines {

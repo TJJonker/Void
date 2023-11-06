@@ -7,6 +7,9 @@ namespace Nebula::Editor {
 	public:
 		EditorLayer();
 		virtual ~EditorLayer();
+
+		void OnAdded() override;
+		void OnGuiRender() override;
 	};
 }
 

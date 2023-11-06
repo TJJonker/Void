@@ -63,7 +63,7 @@ namespace Void {
 
 	void Application::PushOverlay(Layer* layer)
 	{
-		m_LayerStack.PushLayer(layer);
+		m_LayerStack.PushOverlay(layer);
 		layer->OnAdded();
 	}
 

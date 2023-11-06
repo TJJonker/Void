@@ -17,13 +17,16 @@ project "Nebula"
 		solutionDir .. "%{includeDirs.SPDLOG}",
 		solutionDir .. "%{includeDirs.GLM}",
 		solutionDir .. "%{includeDirs.GLAD}",
+		solutionDir .. "%{includeDirs.IMGUI}"
 	}
 
 	libdirs {
+		solutionDir .. "/bin/" .. outputdir .. "/%{prj.name}"
 	}
 
 	links {
-		"Void"
+		"Void",
+		"ImGui"
 	}
 
 	defines { }

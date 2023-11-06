@@ -1,5 +1,6 @@
 project "GLAD"
 	kind "StaticLib"
+	staticruntime "On"
 	language "C"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
@@ -18,5 +19,5 @@ project "GLAD"
 
 	filter "system:windows"
 		systemversion "latest"
-		staticruntime "On"
+		
 	

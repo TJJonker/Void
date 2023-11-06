@@ -5,7 +5,7 @@
 
 namespace Void {
 
-	class ImGuiLayer : public Layer
+	class VOID_API ImGuiLayer : public Layer
 	{
 	public:
 		void OnAdded() override;
