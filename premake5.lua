@@ -19,6 +19,7 @@ includeDirs["SPDLOG"] = "Void/vendor/SPDLOG/include"
 includeDirs["VOID"] = "Void/src"
 includeDirs["ASSIMP"] = "Void/vendor/ASSIMP/include"
 includeDirs["IMGUI"] = "Void/vendor/IMGUI"
+includeDirs["NLOHMANN"] = "Void/vendor/NLOHMANN/single_include"
 
 libraryDirs = {}
 libraryDirs["ASSIMP"] = "Void/vendor/ASSIMP/libs"

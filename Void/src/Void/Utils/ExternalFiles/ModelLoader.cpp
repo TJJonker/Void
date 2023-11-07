@@ -1,6 +1,6 @@
 #include "pch.h"
 #include "ModelLoader.h"
-#include "Void/Utils/ExternalFiles/FileReader.h"
+#include "Void/Utils/ExternalFiles/File.h"
 #include "assimp/Importer.hpp"
 #include "assimp/postprocess.h"
 
@@ -12,7 +12,7 @@ namespace Void {
 		Rendering::Model* model = new Rendering::Model();
 
 		// Loadinig file into memory
-		std::string data = FileReader::ReadFile(filePath.c_str());
+		std::string data = File::Read(filePath.c_str());
 
 		// Read file
 		Assimp::Importer importer;
