@@ -1,9 +1,9 @@
 #pragma once
 #include "Void/Rendering/Components/Model/Model.h"
-#include <memory>
+#include "Void/Utils/Parser/Serializable.h"
 
 namespace Void {
-	struct RenderingComponent {
+	struct RenderingComponent : public Serializable {
 		std::vector<std::shared_ptr<Rendering::Submesh>> Submeshes;
 	};
 }

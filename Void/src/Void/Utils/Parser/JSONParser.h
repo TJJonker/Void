@@ -7,6 +7,7 @@ namespace Void {
 	{
 	public:
 		static std::string Serialize(const Serializable& data);
+		static std::string Serialize(const std::vector<Serializable>& data);
 		static bool Deserialize(const char* data);
 	};
 }

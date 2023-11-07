@@ -9,6 +9,7 @@ namespace Void {
 		glm::vec3 Scale;
 
 		TransformComponent() {
+			AddMetaTitle("TransformComponent");
 			AddMetaData({ "Position", MetaData::DataType::VEC3, &Position });
 			AddMetaData({ "Rotation", MetaData::DataType::VEC3, &Rotation });
 			AddMetaData({ "Scale", MetaData::DataType::VEC3, &Scale });
