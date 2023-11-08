@@ -38,7 +38,7 @@ namespace Nebula::Editor {
         tc.Scale = glm::vec3(0.4, 0.4, 0.4);
 
 
-        std::string result = Void::JSONParser::Serialize({tc, tc});
+        std::string result = Void::JSONParser::Serialize(tc);
 
         // TODO: Fix path files, they give errors.
         Void::File::Write("test.json", result.c_str());

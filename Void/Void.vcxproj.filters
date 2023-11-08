@@ -178,6 +178,9 @@
     <ClInclude Include="src\Void\ECS\Core\Scene\Scene.h">
       <Filter>Void\ECS\Core\Scene</Filter>
     </ClInclude>
+    <ClInclude Include="src\Void\ECS\Core\Scene\SceneManager.h">
+      <Filter>Void\ECS\Core\Scene</Filter>
+    </ClInclude>
     <ClInclude Include="src\Void\ECS\Core\Systems\ISystem.h">
       <Filter>Void\ECS\Core\Systems</Filter>
     </ClInclude>
@@ -292,13 +295,10 @@
     <ClInclude Include="src\Void\Utils\ExternalFiles\TextureLoader.h">
       <Filter>Void\Utils\ExternalFiles</Filter>
     </ClInclude>
+    <ClInclude Include="src\Void\Utils\Parser\ISerializable.h">
+      <Filter>Void\Utils\Parser</Filter>
+    </ClInclude>
     <ClInclude Include="src\Void\Utils\Parser\JSONParser.h">
-      <Filter>Void\Utils\Parser</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Void\Utils\Parser\MetaData.h">
-      <Filter>Void\Utils\Parser</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Void\Utils\Parser\Serializable.h">
       <Filter>Void\Utils\Parser</Filter>
     </ClInclude>
     <ClInclude Include="src\Void\Utils\TimeSteps\Time.h">
@@ -323,6 +323,9 @@
       <Filter>Void\Debug</Filter>
     </ClCompile>
     <ClCompile Include="src\Void\ECS\Core\Scene\Scene.cpp">
+      <Filter>Void\ECS\Core\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Void\ECS\Core\Scene\SceneManager.cpp">
       <Filter>Void\ECS\Core\Scene</Filter>
     </ClCompile>
     <ClCompile Include="src\Void\ECS\Systems\RenderingSystem.cpp">
@@ -416,9 +419,6 @@
       <Filter>Void\Utils\ExternalFiles</Filter>
     </ClCompile>
     <ClCompile Include="src\Void\Utils\Parser\JSONParser.cpp">
-      <Filter>Void\Utils\Parser</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Void\Utils\Parser\Serializable.cpp">
       <Filter>Void\Utils\Parser</Filter>
     </ClCompile>
     <ClCompile Include="src\Void\Utils\TimeSteps\Time.cpp">

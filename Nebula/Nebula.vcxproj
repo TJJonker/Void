@@ -79,7 +79,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>VOID_PLATFORM_WINDOWS;VOID_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;..\Void\src;..\Void\vendor\SPDLOG\include;..\Void\vendor\GLM;..\Void\vendor\GLAD\include;..\Void\vendor\IMGUI;..\Void\vendor\ASSIMP\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;..\Void\src;..\Void\vendor\SPDLOG\include;..\Void\vendor\GLM;..\Void\vendor\GLAD\include;..\Void\vendor\IMGUI;..\Void\vendor\ASSIMP\include;..\Void\vendor\NLOHMANN\single_include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -97,7 +97,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>VOID_PLATFORM_WINDOWS;VOID_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;..\Void\src;..\Void\vendor\SPDLOG\include;..\Void\vendor\GLM;..\Void\vendor\GLAD\include;..\Void\vendor\IMGUI;..\Void\vendor\ASSIMP\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;..\Void\src;..\Void\vendor\SPDLOG\include;..\Void\vendor\GLM;..\Void\vendor\GLAD\include;..\Void\vendor\IMGUI;..\Void\vendor\ASSIMP\include;..\Void\vendor\NLOHMANN\single_include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -119,7 +119,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>VOID_PLATFORM_WINDOWS;VOID_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;..\Void\src;..\Void\vendor\SPDLOG\include;..\Void\vendor\GLM;..\Void\vendor\GLAD\include;..\Void\vendor\IMGUI;..\Void\vendor\ASSIMP\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;..\Void\src;..\Void\vendor\SPDLOG\include;..\Void\vendor\GLM;..\Void\vendor\GLAD\include;..\Void\vendor\IMGUI;..\Void\vendor\ASSIMP\include;..\Void\vendor\NLOHMANN\single_include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
