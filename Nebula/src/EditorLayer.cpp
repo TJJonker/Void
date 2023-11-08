@@ -16,7 +16,6 @@ namespace Nebula::Editor {
         std::shared_ptr<Void::Rendering::RenderingSystem> renderingSystem = std::make_shared<Void::Rendering::RenderingSystem>();
         m_Scene->SetRenderingSystem(renderingSystem);
 
-
         ////////////////////
         //Insert code here
         entt::entity entity1 = m_Scene->CreateEntity();
@@ -37,6 +36,12 @@ namespace Nebula::Editor {
         Void::TransformComponent& tc = m_Scene->AddComponent<Void::TransformComponent>(entity1);
         tc.Position = glm::vec3(0, 0, -15);
         tc.Scale = glm::vec3(0.4, 0.4, 0.4);
+
+
+        std::string result = Void::JSONParser::Serialize(tc);
+
+        // TODO: Fix path files, they give errors.
+        Void::File::Write("test.json", result.c_str());
 	}
 
     void EditorLayer::OnUpdate()

@@ -1,6 +1,6 @@
 #include "pch.h"
 #include "OpenGLShader.h"
-#include "Void/Utils/ExternalFiles/FileReader.h"
+#include "Void/Utils/ExternalFiles/File.h"
 #include <glad/glad.h>
 #include "Void/Platform/OpenGL/Debugging/OpenGLDebugger.h"
 #include <glm/gtc/type_ptr.hpp>
@@ -8,8 +8,8 @@
 namespace Void::Rendering {
 	OpenGLShader::OpenGLShader(const char* vertexShaderPath, const char* fragmentShaderPath)
 	{
-		unsigned int vertexShader = CompileShader(FileReader::ReadFile(vertexShaderPath).c_str(), GL_VERTEX_SHADER);
-		unsigned int fragmentShader = CompileShader(FileReader::ReadFile(fragmentShaderPath).c_str(), GL_FRAGMENT_SHADER);
+		unsigned int vertexShader = CompileShader(File::Read(vertexShaderPath).c_str(), GL_VERTEX_SHADER);
+		unsigned int fragmentShader = CompileShader(File::Read(fragmentShaderPath).c_str(), GL_FRAGMENT_SHADER);
 
 		m_ID = glCreateProgram();
 		GLCall(glAttachShader(m_ID, vertexShader));

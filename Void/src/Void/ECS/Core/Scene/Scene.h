@@ -30,6 +30,8 @@ namespace Void {
 		void SetRenderingSystem(std::shared_ptr<Void::ISystem> system) { m_RenderingSystem = system; }
 		void UpdateRenderingSystem() { m_RenderingSystem->Update(m_Registry); }
 
+		std::vector<entt::entity> GetAllEntities() const;
+
 		entt::registry& Registry() { return m_Registry; }
 	};
 }

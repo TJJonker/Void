@@ -20,7 +20,8 @@ project "Void"
 		solutionDir .. "%{includeDirs.GLAD}",
 		solutionDir .. "%{includeDirs.GLM}",
 		solutionDir .. "%{includeDirs.ASSIMP}",
-		solutionDir .. "%{includeDirs.IMGUI}"
+		solutionDir .. "%{includeDirs.IMGUI}",
+		solutionDir .. "%{includeDirs.NLOHMANN}"
 	}
 
 	libdirs {

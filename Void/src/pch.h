@@ -16,4 +16,7 @@
 #include "Void/Core/Core.h"
 #include "Void/Debug/Assertion.h"
 
+#include "Void/Utils/ExternalFiles/File.h"
+
 #include <glm/glm.hpp>
+#include <nlohmann/json.hpp>

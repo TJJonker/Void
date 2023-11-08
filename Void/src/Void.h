@@ -14,8 +14,11 @@
 
 // External
 #include "Void/Utils/ExternalFiles/ModelLoader.h"
-#include "Void/Utils/ExternalFiles/FileReader.h"
+#include "Void/Utils/ExternalFiles/File.h"
 #include "Void/Utils/ExternalFiles/TextureLoader.h"
+
+// Parsing
+#include "Void/Utils/Parser/JSONParser.h"
 
 // Rendering Pipeline
 #include "Void/Rendering/Components/Renderer/RenderingCommands.h"

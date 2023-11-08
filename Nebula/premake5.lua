@@ -18,7 +18,8 @@ project "Nebula"
 		solutionDir .. "%{includeDirs.GLM}",
 		solutionDir .. "%{includeDirs.GLAD}",
 		solutionDir .. "%{includeDirs.IMGUI}",
-		solutionDir .. "%{includeDirs.ASSIMP}"
+		solutionDir .. "%{includeDirs.ASSIMP}",
+		solutionDir .. "%{includeDirs.NLOHMANN}"
 	}
 
 	libdirs {

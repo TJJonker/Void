@@ -77,7 +77,7 @@
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>VOID_PLATFORM_WINDOWS;VOID_BUILD_DLL;VOID_ASSERT_ENABLED;VOID_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\SPDLOG\include;vendor\GLFW\include;vendor\GLAD\include;vendor\GLM;vendor\ASSIMP\include;vendor\IMGUI;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;vendor\SPDLOG\include;vendor\GLFW\include;vendor\GLAD\include;vendor\GLM;vendor\ASSIMP\include;vendor\IMGUI;vendor\NLOHMANN\single_include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -111,7 +111,7 @@ IF EXIST ..\bin\Debug-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll\ (xcopy
       <WarningLevel>Level3</WarningLevel>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
       <PreprocessorDefinitions>VOID_PLATFORM_WINDOWS;VOID_BUILD_DLL;VOID_ASSERT_ENABLED;VOID_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\SPDLOG\include;vendor\GLFW\include;vendor\GLAD\include;vendor\GLM;vendor\ASSIMP\include;vendor\IMGUI;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;vendor\SPDLOG\include;vendor\GLFW\include;vendor\GLAD\include;vendor\GLM;vendor\ASSIMP\include;vendor\IMGUI;vendor\NLOHMANN\single_include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -149,7 +149,7 @@ IF EXIST ..\bin\Release-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll\ (xco
       <WarningLevel>Level3</WarningLevel>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
       <PreprocessorDefinitions>VOID_PLATFORM_WINDOWS;VOID_BUILD_DLL;VOID_ASSERT_ENABLED;VOID_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\SPDLOG\include;vendor\GLFW\include;vendor\GLAD\include;vendor\GLM;vendor\ASSIMP\include;vendor\IMGUI;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;vendor\SPDLOG\include;vendor\GLFW\include;vendor\GLAD\include;vendor\GLM;vendor\ASSIMP\include;vendor\IMGUI;vendor\NLOHMANN\single_include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -192,6 +192,7 @@ IF EXIST ..\bin\Dist-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll\ (xcopy 
     <ClInclude Include="src\Void\ECS\Components\RenderingComponent.h" />
     <ClInclude Include="src\Void\ECS\Components\TranformComponent.h" />
     <ClInclude Include="src\Void\ECS\Core\Scene\Scene.h" />
+    <ClInclude Include="src\Void\ECS\Core\Scene\SceneManager.h" />
     <ClInclude Include="src\Void\ECS\Core\Systems\ISystem.h" />
     <ClInclude Include="src\Void\ECS\Systems\RenderingSystem.h" />
     <ClInclude Include="src\Void\Event\Event.h" />
@@ -227,9 +228,11 @@ IF EXIST ..\bin\Dist-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll\ (xcopy 
     <ClInclude Include="src\Void\Rendering\Components\VertexBuffer\VertexBuffer.h" />
     <ClInclude Include="src\Void\Rendering\Components\VertexBufferLayout\VertexBufferLayout.h" />
     <ClInclude Include="src\Void\Rendering\Components\VertexBufferLayout\VertexBufferLayoutElement.h" />
-    <ClInclude Include="src\Void\Utils\ExternalFiles\FileReader.h" />
+    <ClInclude Include="src\Void\Utils\ExternalFiles\File.h" />
     <ClInclude Include="src\Void\Utils\ExternalFiles\ModelLoader.h" />
     <ClInclude Include="src\Void\Utils\ExternalFiles\TextureLoader.h" />
+    <ClInclude Include="src\Void\Utils\Parser\ISerializable.h" />
+    <ClInclude Include="src\Void\Utils\Parser\JSONParser.h" />
     <ClInclude Include="src\Void\Utils\TimeSteps\Time.h" />
     <ClInclude Include="src\Void\Vendor\stb_lib\stb_lib.h" />
     <ClInclude Include="src\pch.h" />
@@ -240,6 +243,7 @@ IF EXIST ..\bin\Dist-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll\ (xcopy 
     <ClCompile Include="src\Void\Core\Window.cpp" />
     <ClCompile Include="src\Void\Debug\Log.cpp" />
     <ClCompile Include="src\Void\ECS\Core\Scene\Scene.cpp" />
+    <ClCompile Include="src\Void\ECS\Core\Scene\SceneManager.cpp" />
     <ClCompile Include="src\Void\ECS\Systems\RenderingSystem.cpp" />
     <ClCompile Include="src\Void\Layers\Core\Layer.cpp" />
     <ClCompile Include="src\Void\Layers\Core\LayerStack.cpp" />
@@ -267,9 +271,10 @@ IF EXIST ..\bin\Dist-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll\ (xcopy 
     <ClCompile Include="src\Void\Rendering\Components\Texture\Texture.cpp" />
     <ClCompile Include="src\Void\Rendering\Components\VertexArray\VertexArray.cpp" />
     <ClCompile Include="src\Void\Rendering\Components\VertexBuffer\VertexBuffer.cpp" />
-    <ClCompile Include="src\Void\Utils\ExternalFiles\FileReader.cpp" />
+    <ClCompile Include="src\Void\Utils\ExternalFiles\File.cpp" />
     <ClCompile Include="src\Void\Utils\ExternalFiles\ModelLoader.cpp" />
     <ClCompile Include="src\Void\Utils\ExternalFiles\TextureLoader.cpp" />
+    <ClCompile Include="src\Void\Utils\Parser\JSONParser.cpp" />
     <ClCompile Include="src\Void\Utils\TimeSteps\Time.cpp" />
     <ClCompile Include="src\Void\Vendor\stb_lib\stb_lib.cpp" />
     <ClCompile Include="src\pch.cpp">

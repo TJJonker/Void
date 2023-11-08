@@ -1,6 +1,5 @@
 #pragma once
 #include "Void/Rendering/Components/Model/Model.h"
-#include <memory>
 
 namespace Void {
 	struct RenderingComponent {
