@@ -1,8 +1,19 @@
 #pragma once
-#include "Void/Rendering/Components/Model/Model.h"
+#include "Void/Rendering/Components/Model/Submesh.h"
 
 namespace Void {
-	struct RenderingComponent {
-		std::vector<std::shared_ptr<Rendering::Submesh>> Submeshes;
+	struct RenderingComponent : public ISerializable {
+		std::vector<Rendering::Submesh> Submeshes;
+
+		nlohmann::json ToJSON() const override {
+			nlohmann::json json;
+			for (Rendering::Submesh submesh : Submeshes)
+				json.push_back(submesh.ToJSON());			
+			return json;
+		}
+
+		void FromJSON(nlohmann::json) override {
+
+		}
 	};
 }

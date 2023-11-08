@@ -22,9 +22,7 @@ namespace Void {
 			json["Scale"]["Y"] = Scale.y;
 			json["Scale"]["Z"] = Scale.z;
 
-			nlohmann::json jsonObject;
-			jsonObject["TransformComponent"] = json;
-			return jsonObject;
+			return json;
 		}
 
 		void FromJSON(nlohmann::json) override { 

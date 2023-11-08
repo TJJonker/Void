@@ -1,17 +1,7 @@
 #include "pch.h"
 #include "Application.h"
 #include "Window.h"
-#include <Void/Rendering/Components/VertexBuffer/VertexBuffer.h>
-#include "Void/Rendering/Components/VertexBufferLayout/VertexBufferLayout.h"
-#include "Void/Rendering/Components/Renderer/RenderingCommands.h"
-#include "Input.h"
 #include "Void/Utils/TimeSteps/Time.h"
-#include <glm/gtc/matrix_transform.hpp>
-#include <Void/Rendering/Components/Model/Model.h>
-#include <Void/Utils/ExternalFiles/ModelLoader.h>
-#include <Void/ECS/Components/TranformComponent.h>
-#include <Void/ECS/Components/RenderingComponent.h>
-#include <Void/ECS/Systems/RenderingSystem.h>
 
 namespace Void {
 

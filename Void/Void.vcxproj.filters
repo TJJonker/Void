@@ -256,7 +256,7 @@
     <ClInclude Include="src\Void\Rendering\Components\IndexBuffer\IndexBuffer.h">
       <Filter>Void\Rendering\Components\IndexBuffer</Filter>
     </ClInclude>
-    <ClInclude Include="src\Void\Rendering\Components\Model\Model.h">
+    <ClInclude Include="src\Void\Rendering\Components\Model\Submesh.h">
       <Filter>Void\Rendering\Components\Model</Filter>
     </ClInclude>
     <ClInclude Include="src\Void\Rendering\Components\Renderer\Renderer.h">

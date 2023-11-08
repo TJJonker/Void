@@ -218,7 +218,7 @@ IF EXIST ..\bin\Dist-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll\ (xcopy 
     <ClInclude Include="src\Void\Rendering\Components\FrameBuffer\FrameBuffer.h" />
     <ClInclude Include="src\Void\Rendering\Components\FrameBuffer\FrameBufferConfig.h" />
     <ClInclude Include="src\Void\Rendering\Components\IndexBuffer\IndexBuffer.h" />
-    <ClInclude Include="src\Void\Rendering\Components\Model\Model.h" />
+    <ClInclude Include="src\Void\Rendering\Components\Model\Submesh.h" />
     <ClInclude Include="src\Void\Rendering\Components\Renderer\Renderer.h" />
     <ClInclude Include="src\Void\Rendering\Components\Renderer\RenderingCommands.h" />
     <ClInclude Include="src\Void\Rendering\Components\RenderingContext\RenderingContext.h" />

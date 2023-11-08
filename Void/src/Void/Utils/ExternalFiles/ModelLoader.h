@@ -1,5 +1,5 @@
 #pragma once
-#include <Void/Rendering/Components/Model/Model.h>
+#include <Void/Rendering/Components/Model/Submesh.h>
 #include <assimp/scene.h>
 
 namespace Void {
@@ -15,11 +15,11 @@ namespace Void {
 	private:
 		std::string m_Directory;
 
-		static void ProcessNode(aiNode* node, const aiScene* scene, Rendering::Model* model);
-		static std::shared_ptr<Rendering::VertexArray> ProcessMesh(aiMesh* mesh, const aiScene* scene);
-		static std::vector<Vertex> GetVertexInformation(aiMesh* mesh);
-		static std::vector<unsigned int> GetIndices(aiMesh* mesh);
+		//static void ProcessNode(aiNode* node, const aiScene* scene, Rendering::Model* model);
+		//static std::shared_ptr<Rendering::VertexArray> ProcessMesh(aiMesh* mesh, const aiScene* scene);
+		//static std::vector<Vertex> GetVertexInformation(aiMesh* mesh);
+		//static std::vector<unsigned int> GetIndices(aiMesh* mesh);
 	public:
-		static Rendering::Model* LoadModel(const std::string& filePath);
+		//static Rendering::Model* LoadModel(const std::string& filePath);
 	};
 }

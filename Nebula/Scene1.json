@@ -1,0 +1,91 @@
+{
+    "Entities": [
+        {
+            "Name": "Entity_0",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": -15.0
+                        },
+                        "Rotation": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 0.4000000059604645,
+                            "Y": 0.4000000059604645,
+                            "Z": 0.4000000059604645
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": [
+                        {
+                            "Model": "Horse",
+                            "Shader": "HorseShador",
+                            "Texture": [
+                                "HorseDiffuse",
+                                "HorseSpecular",
+                                "HorseBump"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "Name": "Entity_1",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": 102.0,
+                            "Y": 35.0,
+                            "Z": 2.0
+                        },
+                        "Rotation": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 0.6000000238418579,
+                            "Y": 0.6000000238418579,
+                            "Z": 1.0
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": [
+                        {
+                            "Model": "Croissant",
+                            "Shader": "CroissantShador",
+                            "Texture": [
+                                "CroissantDiffuse",
+                                "CroissantSpecular",
+                                "CroissantBump"
+                            ]
+                        },
+                        {
+                            "Model": "Baguette",
+                            "Shader": "BaguetteShador",
+                            "Texture": [
+                                "BaguetteDiffuse",
+                                "BaguetteSpecular",
+                                "BaguetteBump"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

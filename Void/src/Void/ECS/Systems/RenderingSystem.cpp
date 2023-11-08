@@ -18,7 +18,7 @@ namespace Void::Rendering {
 			//model = glm::rotate(model, glm::radians(45.f), glm::vec3(0.f, 1.f, 0.f));
 			model = glm::scale(model, transform.Scale);
 
-			if (rendering.Submeshes.size()) {
+			/*if (rendering.Submeshes.size()) {
 				std::shared_ptr<Shader> shader = rendering.Submeshes[0]->Shader;
 				std::shared_ptr<Texture> texture = rendering.Submeshes[0]->Textures[0];
 				std::shared_ptr<Rendering::VertexArray> vertexArray = rendering.Submeshes[0]->VertexArray;
@@ -29,7 +29,7 @@ namespace Void::Rendering {
 				texture->Bind();
 
 				Rendering::RenderingCommands::Draw(vertexArray, shader, model);
-			}
+			}*/
 		}
 	}
 }

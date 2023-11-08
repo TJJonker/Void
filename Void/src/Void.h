@@ -3,6 +3,7 @@
 // Core
 #include "Void/Core/Application.h"
 #include "Void/Layers/Core/Layer.h"
+#include "Void/ECS/Core/Scene/SceneManager.h"
 
 // Debug
 #include "Void/Debug/Log.h"
