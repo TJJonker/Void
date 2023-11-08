@@ -181,6 +181,9 @@ IF EXIST ..\bin\Dist-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll\ (xcopy 
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Void\Rendering\Components\Mesh\Mesh.h" />
+    <ClInclude Include="src\Void\Rendering\Libraries\Mesh\MeshLibrary.h" />
+    <ClInclude Include="src\Void\Rendering\Libraries\Shader\ShaderLibrary.h" />
     <ClInclude Include="src\Void.h" />
     <ClInclude Include="src\Void\Core\Application.h" />
     <ClInclude Include="src\Void\Core\Core.h" />
@@ -218,7 +221,6 @@ IF EXIST ..\bin\Dist-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll\ (xcopy 
     <ClInclude Include="src\Void\Rendering\Components\FrameBuffer\FrameBuffer.h" />
     <ClInclude Include="src\Void\Rendering\Components\FrameBuffer\FrameBufferConfig.h" />
     <ClInclude Include="src\Void\Rendering\Components\IndexBuffer\IndexBuffer.h" />
-    <ClInclude Include="src\Void\Rendering\Components\Model\Submesh.h" />
     <ClInclude Include="src\Void\Rendering\Components\Renderer\Renderer.h" />
     <ClInclude Include="src\Void\Rendering\Components\Renderer\RenderingCommands.h" />
     <ClInclude Include="src\Void\Rendering\Components\RenderingContext\RenderingContext.h" />
@@ -228,16 +230,19 @@ IF EXIST ..\bin\Dist-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll\ (xcopy 
     <ClInclude Include="src\Void\Rendering\Components\VertexBuffer\VertexBuffer.h" />
     <ClInclude Include="src\Void\Rendering\Components\VertexBufferLayout\VertexBufferLayout.h" />
     <ClInclude Include="src\Void\Rendering\Components\VertexBufferLayout\VertexBufferLayoutElement.h" />
-    <ClInclude Include="src\Void\Utils\ExternalFiles\File.h" />
-    <ClInclude Include="src\Void\Utils\ExternalFiles\ModelLoader.h" />
+    <ClInclude Include="src\Void\Utils\ExternalFiles\File\File.h" />
+    <ClInclude Include="src\Void\Utils\ExternalFiles\MeshLoader\MeshLoader.h" />
     <ClInclude Include="src\Void\Utils\ExternalFiles\TextureLoader.h" />
     <ClInclude Include="src\Void\Utils\Parser\ISerializable.h" />
     <ClInclude Include="src\Void\Utils\Parser\JSONParser.h" />
     <ClInclude Include="src\Void\Utils\TimeSteps\Time.h" />
     <ClInclude Include="src\Void\Vendor\stb_lib\stb_lib.h" />
     <ClInclude Include="src\pch.h" />
+    <ClInclude Include="src\Void\Rendering\Libraries\Texture\TextureLibrary.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Void\Rendering\Libraries\Mesh\MeshLibrary.cpp" />
+    <ClCompile Include="src\Void\Rendering\Libraries\Shader\ShaderLibrary.cpp" />
     <ClCompile Include="src\Void\Core\Application.cpp" />
     <ClCompile Include="src\Void\Core\Input.cpp" />
     <ClCompile Include="src\Void\Core\Window.cpp" />
@@ -271,8 +276,8 @@ IF EXIST ..\bin\Dist-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll\ (xcopy 
     <ClCompile Include="src\Void\Rendering\Components\Texture\Texture.cpp" />
     <ClCompile Include="src\Void\Rendering\Components\VertexArray\VertexArray.cpp" />
     <ClCompile Include="src\Void\Rendering\Components\VertexBuffer\VertexBuffer.cpp" />
-    <ClCompile Include="src\Void\Utils\ExternalFiles\File.cpp" />
-    <ClCompile Include="src\Void\Utils\ExternalFiles\ModelLoader.cpp" />
+    <ClCompile Include="src\Void\Utils\ExternalFiles\File\File.cpp" />
+    <ClCompile Include="src\Void\Utils\ExternalFiles\MeshLoader\MeshLoader.cpp" />
     <ClCompile Include="src\Void\Utils\ExternalFiles\TextureLoader.cpp" />
     <ClCompile Include="src\Void\Utils\Parser\JSONParser.cpp" />
     <ClCompile Include="src\Void\Utils\TimeSteps\Time.cpp" />
@@ -280,6 +285,7 @@ IF EXIST ..\bin\Dist-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll\ (xcopy 
     <ClCompile Include="src\pch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="src\Void\Rendering\Libraries\Texture\TextureLibrary.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="vendor\GLFW\GLFW.vcxproj">

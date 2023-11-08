@@ -256,9 +256,6 @@
     <ClInclude Include="src\Void\Rendering\Components\IndexBuffer\IndexBuffer.h">
       <Filter>Void\Rendering\Components\IndexBuffer</Filter>
     </ClInclude>
-    <ClInclude Include="src\Void\Rendering\Components\Model\Submesh.h">
-      <Filter>Void\Rendering\Components\Model</Filter>
-    </ClInclude>
     <ClInclude Include="src\Void\Rendering\Components\Renderer\Renderer.h">
       <Filter>Void\Rendering\Components\Renderer</Filter>
     </ClInclude>
@@ -286,7 +283,7 @@
     <ClInclude Include="src\Void\Rendering\Components\VertexBufferLayout\VertexBufferLayoutElement.h">
       <Filter>Void\Rendering\Components\VertexBufferLayout</Filter>
     </ClInclude>
-    <ClInclude Include="src\Void\Utils\ExternalFiles\File.h">
+    <ClInclude Include="src\Void\Utils\ExternalFiles\File\File.h">
       <Filter>Void\Utils\ExternalFiles</Filter>
     </ClInclude>
     <ClInclude Include="src\Void\Utils\ExternalFiles\ModelLoader.h">
@@ -308,6 +305,10 @@
       <Filter>Void\Vendor\stb_lib</Filter>
     </ClInclude>
     <ClInclude Include="src\pch.h" />
+    <ClInclude Include="src\Void\Rendering\Libraries\Mesh\MeshLibrary.h" />
+    <ClInclude Include="src\Void\Rendering\Libraries\Shader\ShaderLibrary.h" />
+    <ClInclude Include="src\Void\Rendering\Libraries\Texture\TextureLibrary.h" />
+    <ClInclude Include="src\Void\Rendering\Components\Mesh\Mesh.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Void\Core\Application.cpp">
@@ -409,7 +410,7 @@
     <ClCompile Include="src\Void\Rendering\Components\VertexBuffer\VertexBuffer.cpp">
       <Filter>Void\Rendering\Components\VertexBuffer</Filter>
     </ClCompile>
-    <ClCompile Include="src\Void\Utils\ExternalFiles\File.cpp">
+    <ClCompile Include="src\Void\Utils\ExternalFiles\File\File.cpp">
       <Filter>Void\Utils\ExternalFiles</Filter>
     </ClCompile>
     <ClCompile Include="src\Void\Utils\ExternalFiles\ModelLoader.cpp">
@@ -428,5 +429,8 @@
       <Filter>Void\Vendor\stb_lib</Filter>
     </ClCompile>
     <ClCompile Include="src\pch.cpp" />
+    <ClCompile Include="src\Void\Rendering\Libraries\Mesh\MeshLibrary.cpp" />
+    <ClCompile Include="src\Void\Rendering\Libraries\Shader\ShaderLibrary.cpp" />
+    <ClCompile Include="src\Void\Rendering\Libraries\Texture\TextureLibrary.cpp" />
   </ItemGroup>
 </Project>
