@@ -22,6 +22,6 @@ namespace Void::Rendering {
 		static void SetClearColor(const glm::vec4& color);
 
 		static void BeginDraw(Camera* camera);
-		static void Draw(const std::shared_ptr<VertexArray> vertexArray, std::shared_ptr<Shader> shader, glm::mat4 modelMatrix);
+		static void Draw(VertexArray* vertexArray, Shader* shader, glm::mat4 modelMatrix);
 	};
 }

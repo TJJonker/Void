@@ -6,10 +6,40 @@
 namespace Void {
 	void SceneManager::LoadScene(const char* filePath)
 	{
+		Scene* scene = new Scene();
+
 		// Get Scene Data
 		std::string data = File::Read(filePath);
 		// Go through entities 
+		nlohmann::ordered_json sceneJson = nlohmann::json::parse(data);
 		
+		const nlohmann::json& entitiesArray = sceneJson["Entities"];
+
+		for (const auto& entity : entitiesArray) {
+
+			entt::entity ent = scene->CreateEntity();
+
+			const nlohmann::json& components = entity["Components"];
+			
+			for (const auto& component : components) {
+					
+				const std::string& type = component["Type"];
+				if (type == "TransformComponent") {
+					TransformComponent& tc = scene->AddComponent<TransformComponent>(ent);
+					tc.FromJSON(component["Data"]);
+					continue;
+				}
+				
+				if (type == "RenderingComponent") {
+					RenderingComponent& rc = scene->AddComponent<RenderingComponent>(ent);
+					rc.FromJSON(component["Data"]);
+					continue;
+				}
+
+			}
+		}
+
+		m_CurrentScene = scene;
 			// Get Entity name 
 
 			// Get Components
@@ -24,7 +54,7 @@ namespace Void {
 		std::vector<entt::entity> entities = m_CurrentScene->GetAllEntities();
 		entt::registry& reg = m_CurrentScene->Registry();
 
-		// TODO: Remove this
+		// TODO: Remove this when entities have a name
 		unsigned int index = 0;
 
 		std::vector<entt::entity>::const_reverse_iterator it;  

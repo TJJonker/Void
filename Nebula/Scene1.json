@@ -8,7 +8,7 @@
                     "Data": {
                         "Position": {
                             "X": 0.0,
-                            "Y": 0.0,
+                            "Y": -2.0,
                             "Z": -15.0
                         },
                         "Rotation": {
@@ -17,9 +17,9 @@
                             "Z": 0.0
                         },
                         "Scale": {
-                            "X": 0.4000000059604645,
-                            "Y": 0.4000000059604645,
-                            "Z": 0.4000000059604645
+                            "X": 0.4,
+                            "Y": 0.4,
+                            "Z": 0.4
                         }
                     }
                 },
@@ -27,12 +27,10 @@
                     "Type": "RenderingComponent",
                     "Data": [
                         {
-                            "Model": "Horse",
-                            "Shader": "HorseShador",
+                            "Model": "Temp/Models/Building.obj",
+                            "Shader": "DefaultShader",
                             "Texture": [
-                                "HorseDiffuse",
-                                "HorseSpecular",
-                                "HorseBump"
+                                "Temp/Models/SimpleCity_Texture.png"
                             ]
                         }
                     ]
@@ -46,9 +44,9 @@
                     "Type": "TransformComponent",
                     "Data": {
                         "Position": {
-                            "X": 102.0,
-                            "Y": 35.0,
-                            "Z": 2.0
+                            "X": 15.0,
+                            "Y": -2.0,
+                            "Z": -15.0
                         },
                         "Rotation": {
                             "X": 0.0,
@@ -56,9 +54,9 @@
                             "Z": 0.0
                         },
                         "Scale": {
-                            "X": 0.6000000238418579,
-                            "Y": 0.6000000238418579,
-                            "Z": 1.0
+                            "X": 0.4,
+                            "Y": 0.4,
+                            "Z": 0.4
                         }
                     }
                 },
@@ -66,21 +64,47 @@
                     "Type": "RenderingComponent",
                     "Data": [
                         {
-                            "Model": "Croissant",
-                            "Shader": "CroissantShador",
+                            "Model": "Temp/Models/SC_Bld_04_Bright.obj",
+                            "Shader": "DefaultShader",
                             "Texture": [
-                                "CroissantDiffuse",
-                                "CroissantSpecular",
-                                "CroissantBump"
+                                "Temp/Models/SimpleCity_Texture.png"
                             ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "Name": "Entity_2",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": -10.0,
+                            "Y": -2.0,
+                            "Z": -15.0
                         },
+                        "Rotation": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 0.4,
+                            "Y": 0.4,
+                            "Z": 0.4
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": [
                         {
-                            "Model": "Baguette",
-                            "Shader": "BaguetteShador",
+                            "Model": "Temp/Models/SC_Bld_09_Dark.obj",
+                            "Shader": "DefaultShader",
                             "Texture": [
-                                "BaguetteDiffuse",
-                                "BaguetteSpecular",
-                                "BaguetteBump"
+                                "Temp/Models/SimpleCity_Texture.png"
                             ]
                         }
                     ]

@@ -25,8 +25,18 @@ namespace Void {
 			return json;
 		}
 
-		void FromJSON(nlohmann::json) override { 
-			
+		void FromJSON(const nlohmann::json& json) override { 
+			Position.x = json["Position"]["X"];
+			Position.y = json["Position"]["Y"];
+			Position.z = json["Position"]["Z"];
+
+			Rotation.x = json["Rotation"]["X"];
+			Rotation.y = json["Rotation"]["Y"];
+			Rotation.z = json["Rotation"]["Z"];
+
+			Scale.x = json["Scale"]["X"];
+			Scale.y = json["Scale"]["Y"];
+			Scale.z = json["Scale"]["Z"];
 		}
 	};
 }

@@ -1,5 +1,6 @@
 #pragma once
 #include "Void.h"
+#include "Void/ECS/Core/Scene/SceneManager.h"
 
 namespace Nebula::Editor {
 	class EditorLayer : public Void::Layer
@@ -7,7 +8,7 @@ namespace Nebula::Editor {
 	private:
 		Void::Rendering::FrameBuffer* m_FrameBuffer;
 
-		Void::Scene* m_Scene;
+		Void::SceneManager* m_SceneManager;
 
 		Void::CameraController* m_CameraController;
 

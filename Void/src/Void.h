@@ -14,8 +14,8 @@
 #include "Void/Rendering/Components/Texture/Texture.h"
 
 // External
-#include "Void/Utils/ExternalFiles/ModelLoader.h"
-#include "Void/Utils/ExternalFiles/File.h"
+#include "Void/Utils/ExternalFiles/MeshLoader/MeshLoader.h"
+#include "Void/Utils/ExternalFiles/File/File.h"
 #include "Void/Utils/ExternalFiles/TextureLoader.h"
 
 // Parsing
@@ -23,6 +23,11 @@
 
 // Rendering Pipeline
 #include "Void/Rendering/Components/Renderer/RenderingCommands.h"
+
+// Libraries
+#include "Void/Rendering/Libraries/Mesh/MeshLibrary.h"
+#include "Void/Rendering/Libraries/Shader/ShaderLibrary.h"
+#include "Void/Rendering/Libraries/Texture/TextureLibrary.h"
 
 // Built in Systems
 #include "Void/ECS/Systems/RenderingSystem.h"

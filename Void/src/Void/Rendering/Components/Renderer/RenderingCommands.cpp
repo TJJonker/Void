@@ -23,7 +23,7 @@ namespace Void::Rendering {
 		m_RenderData->viewPosition = camera->GetPosition();
 	}
 
-	void RenderingCommands::Draw(const std::shared_ptr<VertexArray> vertexArray, const std::shared_ptr<Shader> shader, glm::mat4 modelMatrix)
+	void RenderingCommands::Draw(VertexArray* vertexArray, Shader* shader, glm::mat4 modelMatrix)
 	{
 		shader->Bind();
 		shader->SetMatrix4("viewMatrix", m_RenderData->viewMatrix);

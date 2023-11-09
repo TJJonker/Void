@@ -24,8 +24,11 @@ namespace Void {
 				return json;
 			}
 
-			void FromJSON(nlohmann::json) override {
-
+			void FromJSON(const nlohmann::json& json) override {
+				Model = json["Model"];
+				for (const std::string& texture : json["Texture"])
+					Textures.push_back(texture);
+				Shader = json["Shader"];
 			}
 		};
 
@@ -42,8 +45,12 @@ namespace Void {
 			return json;
 		}
 
-		void FromJSON(nlohmann::json) override {
-
+		void FromJSON(const nlohmann::json& json) override {
+			for (const auto& sm : json) {
+				Submesh submesh;
+				submesh.FromJSON(sm);
+				Submeshes.push_back(submesh);
+			}
 		}
 	};
 }

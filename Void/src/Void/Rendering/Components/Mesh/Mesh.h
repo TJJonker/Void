@@ -4,6 +4,6 @@
 
 namespace Void::Rendering {
 	struct Mesh {
-		std::vector<std::unique_ptr<VertexArray>> Submeshes;
+		std::vector<VertexArray*> Submeshes;
 	};
 }

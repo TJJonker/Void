@@ -10,74 +10,27 @@ namespace Nebula::Editor {
         config.height = 720;
         m_FrameBuffer = Void::Rendering::FrameBuffer::Create(config);
 
-        m_Scene = new Void::Scene();
+
+        // Temp
+        // Shader lib
+        Void::ShaderLibrary::GetInstance()->Load("Temp/Shaders/VertexShader.glsl", "Temp/Shaders/FragmentShader.glsl", "DefaultShader");
+
+        // Mesh lib
+        Void::MeshLibrary::GetInstance()->Load("Temp/Models/Building.obj");
+        Void::MeshLibrary::GetInstance()->Load("Temp/Models/SC_Bld_04_Bright.obj");
+        Void::MeshLibrary::GetInstance()->Load("Temp/Models/SC_Bld_09_Dark.obj");
+
+        // Texture lib
+        Void::TextureLibrary::GetInstance()->Load("Temp/Models/SimpleCity_Texture.png");
+
+
+        m_SceneManager = new Void::SceneManager();
+        m_SceneManager->LoadScene("Scene1.json");
+        
         m_CameraController = new Void::CameraController();
 
         std::shared_ptr<Void::Rendering::RenderingSystem> renderingSystem = std::make_shared<Void::Rendering::RenderingSystem>();
-        m_Scene->SetRenderingSystem(renderingSystem);
-
-        ////////////////////
-        //Insert code here
-        {
-            entt::entity entity1 = m_Scene->CreateEntity();
-
-            std::shared_ptr<Void::Rendering::Shader> shader;
-            shader.reset(Void::Rendering::Shader::Create("Temp/Shaders/VertexShader.glsl", "Temp/Shaders/FragmentShader.glsl"));
-
-            std::shared_ptr<Void::Rendering::Texture> texture;
-            texture.reset(Void::Rendering::Texture::Create("Temp/Models/SimpleCity_Texture.png"));
-
-            //Void::Rendering::Model* model1 = Void::ModelLoader::LoadModel("Temp/Models/Building.obj");
-            //model1->Submeshes[0]->Shader = shader;
-            //model1->Submeshes[0]->Textures.push_back(texture);
-
-            Void::RenderingComponent& rc = m_Scene->AddComponent<Void::RenderingComponent>(entity1);
-            Void::Rendering::Submesh submesh;
-            submesh.Model = "Horse";
-            submesh.Shader = "HorseShador";
-            submesh.Textures.push_back("HorseDiffuse");
-            submesh.Textures.push_back("HorseSpecular");
-            submesh.Textures.push_back("HorseBump");
-            rc.Submeshes.push_back(submesh);
-
-            Void::TransformComponent& tc = m_Scene->AddComponent<Void::TransformComponent>(entity1);
-            tc.Position = glm::vec3(0, 0, -15);
-            tc.Scale = glm::vec3(0.4, 0.4, 0.4);
-        }
-        {
-            entt::entity entity1 = m_Scene->CreateEntity();
-
-            Void::RenderingComponent& rc = m_Scene->AddComponent<Void::RenderingComponent>(entity1);
-            {
-                Void::Rendering::Submesh submesh;
-                submesh.Model = "Croissant";
-                submesh.Shader = "CroissantShador";
-                submesh.Textures.push_back("CroissantDiffuse");
-                submesh.Textures.push_back("CroissantSpecular");
-                submesh.Textures.push_back("CroissantBump");
-                rc.Submeshes.push_back(submesh);
-            }
-
-            {
-                Void::Rendering::Submesh submesh;
-                submesh.Model = "Baguette";
-                submesh.Shader = "BaguetteShador";
-                submesh.Textures.push_back("BaguetteDiffuse");
-                submesh.Textures.push_back("BaguetteSpecular");
-                submesh.Textures.push_back("BaguetteBump");
-                rc.Submeshes.push_back(submesh);
-            }
-
-            Void::TransformComponent& tc = m_Scene->AddComponent<Void::TransformComponent>(entity1);
-            tc.Position = glm::vec3(102, 35, 2);
-            tc.Scale = glm::vec3(0.6, 0.6, 1);
-        }
-
-
-        Void::SceneManager sceneManager;
-        sceneManager.SetScene(m_Scene);
-        sceneManager.SaveScene("Scene1.json");
-
+        m_SceneManager->GetCurrentScene()->SetRenderingSystem(renderingSystem);
 	}
 
     void EditorLayer::OnUpdate()
@@ -88,7 +41,7 @@ namespace Nebula::Editor {
         m_FrameBuffer->Bind();
         Void::Rendering::RenderingCommands::SetClearColor({ .1, .2, .1, 1 });
         Void::Rendering::RenderingCommands::Clear();
-        m_Scene->UpdateRenderingSystem();
+        m_SceneManager->GetCurrentScene()->UpdateRenderingSystem();
         m_FrameBuffer->UnBind();
     } 
 

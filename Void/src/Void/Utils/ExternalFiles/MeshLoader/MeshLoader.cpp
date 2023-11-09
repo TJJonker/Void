@@ -41,8 +41,7 @@ namespace Void {
 	{
 		// Iterate over current Node's meshes and process the meshes
 		for (unsigned int i = 0; i < node->mNumMeshes; ++i) {
-			Rendering::VertexArray* va = ProcessMesh(scene->mMeshes[node->mMeshes[i]], scene);
-			mesh->Submeshes.push_back(std::make_unique<Rendering::VertexArray>(va));
+			mesh->Submeshes.push_back(ProcessMesh(scene->mMeshes[node->mMeshes[i]], scene));
 		}
 
 		// Check if the current Node has more child Nodes and recursively call this function.

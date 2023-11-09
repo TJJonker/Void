@@ -1,11 +1,12 @@
 #include "pch.h"
 #include "OpenGLShader.h"
-#include "Void/Utils/ExternalFiles/File.h"
 #include <glad/glad.h>
 #include "Void/Platform/OpenGL/Debugging/OpenGLDebugger.h"
+#include "Void/Utils/ExternalFiles/File/File.h"
 #include <glm/gtc/type_ptr.hpp>
 
 namespace Void::Rendering {
+	//TODO: Seperate loading and managing
 	OpenGLShader::OpenGLShader(const char* vertexShaderPath, const char* fragmentShaderPath)
 	{
 		unsigned int vertexShader = CompileShader(File::Read(vertexShaderPath).c_str(), GL_VERTEX_SHADER);

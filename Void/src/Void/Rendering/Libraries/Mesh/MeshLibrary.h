@@ -10,12 +10,13 @@ namespace Void {
 	private:
 		static std::unique_ptr<MeshLibrary> m_Instance;
 
-		std::unordered_map<std::string, std::unique_ptr<Rendering::Mesh>> m_Library;
+		std::unordered_map<std::string, Rendering::Mesh*> m_Library;
 
 	public:
 		static MeshLibrary* GetInstance() { return m_Instance.get(); }
 
-		void				Load(const char* filePath, const char* alias = "");
-		Rendering::Mesh*	Get(const char* title);
+		void				Load(const char* filePath);
+		Rendering::Mesh*	Get(const char* filePath);
+		bool				IsLoaded(const char* filePath);
 	};
 }
