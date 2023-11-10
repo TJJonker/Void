@@ -7,6 +7,29 @@
 
 namespace Void::Rendering {
 	class VOID_API RenderingCommands {
+	public:
+		struct PointLightData {
+			glm::vec3 Position = glm::vec3(0);
+			float Constant = 1.0f;
+			float Linear = 0.09f;
+			float Quadratic = 0.032f;
+			glm::vec3 Ambient = glm::vec3(0);
+			glm::vec3 Diffuse = glm::vec3(0);
+		};
+
+		struct SpotLightData {
+			glm::vec3 Position = glm::vec3(0); 
+			glm::vec3 Direction = normalize(glm::vec3(0.0, -1.0, 0.0));
+			float CutOff = glm::radians(15.0);
+			float OuterCutOff = glm::radians(30.0);
+			float Constant = 1.0;
+			float Linear = 0.09;
+			float Quadratic = 0.032;
+			glm::vec3 Ambient = glm::vec3(0.2, 0.2, 0.2);
+			glm::vec3 Diffuse = glm::vec3(0.8, 0.8, 0.6);
+			glm::vec3 Specular = glm::vec3(1.0, 1.0, 1.0);
+		};
+
 	private:
 		struct RenderData {
 			glm::mat4 projectionMatrix;
@@ -16,10 +39,15 @@ namespace Void::Rendering {
 
 		static Renderer* m_Renderer;
 		static RenderData* m_RenderData;
+		static std::vector<PointLightData> m_PointLightData;
+		static std::vector<SpotLightData> m_SpotLightData;
 
 	public:
 		static void Clear();
 		static void SetClearColor(const glm::vec4& color);
+
+		static void AddPointLight(PointLightData pointLightData);
+		static void AddSpotLight(SpotLightData spotLightData);
 
 		static void BeginDraw(Camera* camera);
 		static void Draw(VertexArray* vertexArray, Shader* shader, glm::mat4 modelMatrix);

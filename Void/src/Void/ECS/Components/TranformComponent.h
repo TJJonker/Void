@@ -8,8 +8,8 @@ namespace Void {
 		glm::vec3 Rotation;
 		glm::vec3 Scale;
 
-		nlohmann::json ToJSON() const override {  
-			nlohmann::json json; 
+		nlohmann::ordered_json ToJSON() const override {  
+			nlohmann::ordered_json json;
 			json["Position"]["X"] = Position.x;
 			json["Position"]["Y"] = Position.y;
 			json["Position"]["Z"] = Position.z;

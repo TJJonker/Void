@@ -2,6 +2,8 @@
 #include "SceneManager.h"
 #include <Void/ECS/Components/TranformComponent.h>
 #include <Void/ECS/Components/RenderingComponent.h>
+#include <Void/ECS/Components/LightComponent.h>
+#include <Void/ECS/Components/SpotLightComponent.h>
 
 namespace Void {
 	void SceneManager::LoadScene(const char* filePath)
@@ -32,6 +34,18 @@ namespace Void {
 				
 				if (type == "RenderingComponent") {
 					RenderingComponent& rc = scene->AddComponent<RenderingComponent>(ent);
+					rc.FromJSON(component["Data"]);
+					continue;
+				}
+
+				if (type == "LightComponent") {
+					LightComponent& rc = scene->AddComponent<LightComponent>(ent);
+					rc.FromJSON(component["Data"]);
+					continue;
+				}
+
+				if (type == "SpotLightComponent") {
+					SpotLightComponent& rc = scene->AddComponent<SpotLightComponent>(ent);
 					rc.FromJSON(component["Data"]);
 					continue;
 				}
@@ -82,6 +96,26 @@ namespace Void {
 
 				RenderingComponent& rendering = m_CurrentScene->GetComponent<RenderingComponent>(entity);
 				componentJson["Type"] = "RenderingComponent";
+				componentJson["Data"] = rendering.ToJSON();
+
+				entityJson["Components"].push_back(componentJson);
+			}
+
+			if (m_CurrentScene->HasComponent<LightComponent>(entity)) {
+				nlohmann::ordered_json componentJson;
+
+				LightComponent& rendering = m_CurrentScene->GetComponent<LightComponent>(entity);
+				componentJson["Type"] = "LightComponent";
+				componentJson["Data"] = rendering.ToJSON();
+
+				entityJson["Components"].push_back(componentJson);
+			}
+
+			if (m_CurrentScene->HasComponent<SpotLightComponent>(entity)) {
+				nlohmann::ordered_json componentJson;
+
+				SpotLightComponent& rendering = m_CurrentScene->GetComponent<SpotLightComponent>(entity);
+				componentJson["Type"] = "SpotLightComponent";
 				componentJson["Data"] = rendering.ToJSON();
 
 				entityJson["Components"].push_back(componentJson);

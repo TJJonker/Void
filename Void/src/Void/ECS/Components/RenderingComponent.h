@@ -11,8 +11,8 @@ namespace Void {
 			std::vector<std::string> Textures;
 			std::string Shader;
 
-			nlohmann::json ToJSON() const override {
-				nlohmann::json json;
+			nlohmann::ordered_json ToJSON() const override {
+				nlohmann::ordered_json json;
 
 				json["Model"] = Model;
 
@@ -39,8 +39,8 @@ namespace Void {
 		std::vector<Submesh> Submeshes;
 		bool DrawWireframe = false;
 
-		nlohmann::json ToJSON() const override {
-			nlohmann::json json;
+		nlohmann::ordered_json ToJSON() const override {
+			nlohmann::ordered_json json;
 			json["DrawWireframe"] = DrawWireframe;
 			for (Submesh submesh : Submeshes)
 				json["Submeshes"].push_back(submesh.ToJSON());

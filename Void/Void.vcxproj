@@ -187,11 +187,13 @@ IF EXIST ..\bin\Dist-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll\ (xcopy 
     <ClInclude Include="src\Void\Core\Window.h" />
     <ClInclude Include="src\Void\Debug\Assertion.h" />
     <ClInclude Include="src\Void\Debug\Log.h" />
+    <ClInclude Include="src\Void\ECS\Components\LightComponent.h" />
     <ClInclude Include="src\Void\ECS\Components\RenderingComponent.h" />
     <ClInclude Include="src\Void\ECS\Components\TranformComponent.h" />
     <ClInclude Include="src\Void\ECS\Core\Scene\Scene.h" />
     <ClInclude Include="src\Void\ECS\Core\Scene\SceneManager.h" />
     <ClInclude Include="src\Void\ECS\Core\Systems\ISystem.h" />
+    <ClInclude Include="src\Void\ECS\Components\SpotLightComponent.h" />
     <ClInclude Include="src\Void\ECS\Systems\RenderingSystem.h" />
     <ClInclude Include="src\Void\Event\Event.h" />
     <ClInclude Include="src\Void\Event\KeyEvents.h" />

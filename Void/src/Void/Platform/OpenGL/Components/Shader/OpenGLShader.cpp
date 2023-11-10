@@ -61,6 +61,11 @@ namespace Void::Rendering {
 		GLCall(glUniform1i(GetUniformLocation(name), v0));
 	}
 
+	void OpenGLShader::SetFloat(const std::string& name, float v0)
+	{
+		GLCall(glUniform1f(GetUniformLocation(name), v0));
+	}
+
 	unsigned int OpenGLShader::CompileShader(const char* code, unsigned int type)
 	{
 		unsigned int shaderID = glCreateShader(type);
