@@ -55,7 +55,7 @@ namespace Void {
 		glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3); // Set major and minor version so it matches version 3.3
 		glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
 		glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE); // Switch to Core profile instead of Immediate mode
-		
+
 		// Create the window.
 		m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);
 		// Make the window the current context.
@@ -67,7 +67,7 @@ namespace Void {
 		Input::Create(m_Window);
 
 		// TODO: (Re)move this.
-		glfwSetInputMode(m_Window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+		//glfwSetInputMode(m_Window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 
 
 
@@ -88,6 +88,18 @@ namespace Void {
 			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
 			MouseMovedEvent event(x, y);
 			data.EventCallback(event);
+			});
+
+		glfwSetMouseButtonCallback(m_Window, [](GLFWwindow* window, int button, int action, int mods) {
+			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
+			if (action == GLFW_PRESS) {
+				MouseButtonPressedEvent event(button);
+				data.EventCallback(event);
+			}
+			else if (action == GLFW_RELEASE) {
+				MouseButtonReleasedEvent event(button);
+				data.EventCallback(event);
+			}
 			});
 	}
 

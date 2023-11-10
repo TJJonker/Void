@@ -32,7 +32,7 @@ namespace Void {
 		/// </summary>
 		/// <param name="props">Properties of the window.</param>
 		/// <returns>A scoped version of the window.</returns>
-		static Scope<Window> Create(const WindowProps& props = WindowProps());
+		static Window* Create(const WindowProps& props = WindowProps());
 
 		/// <summary>
 		/// 

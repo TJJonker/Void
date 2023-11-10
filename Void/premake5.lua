@@ -19,11 +19,11 @@ project "Void"
 		solutionDir .. "%{includeDirs.GLFW}",
 		solutionDir .. "%{includeDirs.GLAD}",
 		solutionDir .. "%{includeDirs.GLM}",
-		solutionDir .. "%{includeDirs.ASSIMP}"
+		solutionDir .. "%{includeDirs.ASSIMP}",
+		solutionDir .. "%{includeDirs.IMGUI}"
 	}
 
 	libdirs {
-		solutionDir .. "%{libraryDirs.GLFW}",
 		solutionDir .. "%{libraryDirs.ASSIMP}"
 	}
 
@@ -31,7 +31,8 @@ project "Void"
 		"GLFW",
 		"opengl32",
 		"GLAD",
-		"assimp-vc143-mtd.lib"
+		"assimp-vc143-mtd.lib",
+		"ImGui"
 	}
 
 
@@ -52,7 +53,9 @@ project "Void"
 		}
 
 		postbuildcommands {
-			("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Sandbox")			
+			"call CreateDir.bat ../bin/" .. outputdir .. "/Sandbox",
+			("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Sandbox"),			
+			("{COPY} ../bin/" .. outputdir .. "/%{prj.name}/assimp-vc143-mtd.dll ../bin/" .. outputdir .. "/Sandbox")		
 		}
 
 
@@ -62,7 +65,7 @@ project "Void"
 
 	filter "configurations:Release"
 		defines "VOID_RELEASE"
-		optimize "Off"
+		optimize "On"
 
 	filter "configurations:Dist"
 		defines "VOID_DIST"

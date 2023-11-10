@@ -19,12 +19,6 @@
     <Filter Include="Void\ECS\Core">
       <UniqueIdentifier>{F962BF92-6523-3BC9-2E5E-84469ADD7FA5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Void\ECS\Core\Components">
-      <UniqueIdentifier>{6EDA0021-5AFF-4FA1-834A-35316FCE4EBF}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Void\ECS\Core\Entity">
-      <UniqueIdentifier>{253D52F0-11CC-DBB9-BAEA-EFB4A658EC5F}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Void\ECS\Core\Scene">
       <UniqueIdentifier>{D6665E84-42C8-3B92-CB35-824437967251}</UniqueIdentifier>
     </Filter>
@@ -36,6 +30,12 @@
     </Filter>
     <Filter Include="Void\Event">
       <UniqueIdentifier>{C82CB57E-B4E4-F6CB-1DEC-CF2709C391BC}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Void\Layers">
+      <UniqueIdentifier>{16B13D64-8266-B659-0B5B-B030770FAD5D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Void\Layers\Core">
+      <UniqueIdentifier>{2EF33EAA-1AEC-5DFC-431E-43812F763D08}</UniqueIdentifier>
     </Filter>
     <Filter Include="Void\Platform">
       <UniqueIdentifier>{6B484333-D708-BF69-A043-08E70CC30346}</UniqueIdentifier>
@@ -69,6 +69,9 @@
     </Filter>
     <Filter Include="Void\Platform\OpenGL\Debugging">
       <UniqueIdentifier>{BAE38583-A609-50EA-8F4F-D5B57B1475B6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Void\Platform\OpenGL\ImGui">
+      <UniqueIdentifier>{A993847B-95A3-304C-FE5C-956AEA8B1FE5}</UniqueIdentifier>
     </Filter>
     <Filter Include="Void\Platform\OpenGL\Input">
       <UniqueIdentifier>{7ECE857B-6ADE-314C-D397-966ABFC620E5}</UniqueIdentifier>
@@ -163,6 +166,9 @@
     <ClInclude Include="src\Void\ECS\Components\TranformComponent.h">
       <Filter>Void\ECS\Components</Filter>
     </ClInclude>
+    <ClInclude Include="src\Void\ECS\Core\Scene\Scene.h">
+      <Filter>Void\ECS\Core\Scene</Filter>
+    </ClInclude>
     <ClInclude Include="src\Void\ECS\Core\Systems\ISystem.h">
       <Filter>Void\ECS\Core\Systems</Filter>
     </ClInclude>
@@ -172,11 +178,23 @@
     <ClInclude Include="src\Void\Event\Event.h">
       <Filter>Void\Event</Filter>
     </ClInclude>
+    <ClInclude Include="src\Void\Event\KeyEvents.h">
+      <Filter>Void\Event</Filter>
+    </ClInclude>
     <ClInclude Include="src\Void\Event\MouseEvents.h">
       <Filter>Void\Event</Filter>
     </ClInclude>
     <ClInclude Include="src\Void\Event\WindowEvents.h">
       <Filter>Void\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Void\Layers\Core\Layer.h">
+      <Filter>Void\Layers\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Void\Layers\Core\LayerStack.h">
+      <Filter>Void\Layers\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Void\Layers\ImGuiLayer.h">
+      <Filter>Void\Layers</Filter>
     </ClInclude>
     <ClInclude Include="src\Void\Platform\OpenGL\Components\IndexBuffer\OpenGLIndexBuffer.h">
       <Filter>Void\Platform\OpenGL\Components\IndexBuffer</Filter>
@@ -263,19 +281,6 @@
       <Filter>Void\Vendor\stb_lib</Filter>
     </ClInclude>
     <ClInclude Include="src\pch.h" />
-    <ClInclude Include="src\Void\ECS\Core\Scene\Scene.h" />
-    <ClInclude Include="src\Void\ECS\Components\PhysicsComponent.h" />
-    <ClInclude Include="src\Void\ECS\Systems\PhysicsSystem.h" />
-    <ClInclude Include="src\Void\Physics\Colliders\Collider.h" />
-    <ClInclude Include="src\Void\Physics\Colliders\SphereCollider.h" />
-    <ClInclude Include="src\Void\Physics\Colliders\PlaneCollider.h" />
-    <ClInclude Include="src\Void\Physics\CollisionPoints.h" />
-    <ClInclude Include="src\Void\Physics\Tranform.h" />
-    <ClInclude Include="src\Void\Physics\ColissionAlgorithms.h" />
-    <ClInclude Include="src\Void\Physics\Collision.h" />
-    <ClInclude Include="src\Void\Physics\Solvers\Solver.h" />
-    <ClInclude Include="src\Void\Physics\Solvers\Impulse\ImpulseSolver.h" />
-    <ClInclude Include="src\Void\Physics\Solvers\Position\PositionSolver.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Void\Core\Application.cpp">
@@ -290,8 +295,20 @@
     <ClCompile Include="src\Void\Debug\Log.cpp">
       <Filter>Void\Debug</Filter>
     </ClCompile>
+    <ClCompile Include="src\Void\ECS\Core\Scene\Scene.cpp">
+      <Filter>Void\ECS\Core\Scene</Filter>
+    </ClCompile>
     <ClCompile Include="src\Void\ECS\Systems\RenderingSystem.cpp">
       <Filter>Void\ECS\Systems</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Void\Layers\Core\Layer.cpp">
+      <Filter>Void\Layers\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Void\Layers\Core\LayerStack.cpp">
+      <Filter>Void\Layers\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Void\Layers\ImGuiLayer.cpp">
+      <Filter>Void\Layers</Filter>
     </ClCompile>
     <ClCompile Include="src\Void\Platform\OpenGL\Components\IndexBuffer\OpenGLIndexBuffer.cpp">
       <Filter>Void\Platform\OpenGL\Components\IndexBuffer</Filter>
@@ -316,6 +333,9 @@
     </ClCompile>
     <ClCompile Include="src\Void\Platform\OpenGL\Debugging\OpenGLDebugger.cpp">
       <Filter>Void\Platform\OpenGL\Debugging</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Void\Platform\OpenGL\ImGui\ImGuiBuilder.cpp">
+      <Filter>Void\Platform\OpenGL\ImGui</Filter>
     </ClCompile>
     <ClCompile Include="src\Void\Platform\OpenGL\Input\OpenGLInput.cpp">
       <Filter>Void\Platform\OpenGL\Input</Filter>
@@ -369,12 +389,5 @@
       <Filter>Void\Vendor\stb_lib</Filter>
     </ClCompile>
     <ClCompile Include="src\pch.cpp" />
-    <ClCompile Include="src\Void\ECS\Core\Scene\Scene.cpp" />
-    <ClCompile Include="src\Void\ECS\Systems\PhysicsSystem.cpp" />
-    <ClCompile Include="src\Void\Physics\Colliders\PlaneCollider.cpp" />
-    <ClCompile Include="src\Void\Physics\Colliders\SphereCollider.cpp" />
-    <ClCompile Include="src\Void\Physics\ColissionAlgorithms.cpp" />
-    <ClCompile Include="src\Void\Physics\Solvers\Impulse\ImpulseSolver.cpp" />
-    <ClCompile Include="src\Void\Physics\Solvers\Position\PositionSolver.cpp" />
   </ItemGroup>
 </Project>
