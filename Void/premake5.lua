@@ -41,7 +41,6 @@ project "Void"
 		cppdialect "C++17"
 		systemversion "latest"
 		staticruntime "on"
-		runtime "Debug"
 
 		defines {
 			"VOID_PLATFORM_WINDOWS",

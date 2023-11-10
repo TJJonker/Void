@@ -19,7 +19,7 @@ namespace Void::Rendering {
 			glm::mat4 model = glm::mat4(1.0f);
 
 			model = glm::translate(model, transform.Position);
-			//model = glm::rotate(model, glm::radians(45.f), glm::vec3(0.f, 1.f, 0.f));
+			model = glm::rotate(model, glm::radians(transform.Rotation.y), glm::vec3(0.f, 1.f, 0.f));
 			model = glm::scale(model, transform.Scale);
 
 			// TODO: expand so multiple submeshes can be rendered

@@ -103,8 +103,8 @@
     <Filter Include="Void\Rendering\Components\IndexBuffer">
       <UniqueIdentifier>{FA3E407E-6603-3F6E-2F69-6F389BECDAA3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Void\Rendering\Components\Model">
-      <UniqueIdentifier>{D97264AF-4556-73EF-4E59-A12BBABB3940}</UniqueIdentifier>
+    <Filter Include="Void\Rendering\Components\Mesh">
+      <UniqueIdentifier>{353039A8-2156-030F-0A9C-88DAF66028DB}</UniqueIdentifier>
     </Filter>
     <Filter Include="Void\Rendering\Components\Renderer">
       <UniqueIdentifier>{9F92A016-8BCE-A380-F4E0-BB77E03B4C9B}</UniqueIdentifier>
@@ -127,11 +127,29 @@
     <Filter Include="Void\Rendering\Components\VertexBufferLayout">
       <UniqueIdentifier>{7EB4DCA6-6AC7-DCFF-13B1-B9ECFFA2794D}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Void\Rendering\Libraries">
+      <UniqueIdentifier>{B0F04D1C-9C15-9D9C-C560-822CB1E49BBA}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Void\Rendering\Libraries\Mesh">
+      <UniqueIdentifier>{6C548E48-D86C-7572-A119-050C0DF1090C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Void\Rendering\Libraries\Shader">
+      <UniqueIdentifier>{567AA0B3-C25D-AFF3-CB60-DD2F37C37544}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Void\Rendering\Libraries\Texture">
+      <UniqueIdentifier>{10C6536F-FC16-3FB1-257B-2D73112BD21A}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Void\Utils">
       <UniqueIdentifier>{D7ACD57F-C364-17CD-2C6C-F0281843B2BD}</UniqueIdentifier>
     </Filter>
     <Filter Include="Void\Utils\ExternalFiles">
       <UniqueIdentifier>{7C3A99FC-685F-E87C-91AA-CD0C7D2EE79A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Void\Utils\ExternalFiles\File">
+      <UniqueIdentifier>{2BD72734-97EF-0E5E-609C-9EF7CC73A3F7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Void\Utils\ExternalFiles\MeshLoader">
+      <UniqueIdentifier>{0F9FE0EC-7B58-4B97-04B8-657170700107}</UniqueIdentifier>
     </Filter>
     <Filter Include="Void\Utils\Parser">
       <UniqueIdentifier>{73912F48-DFA7-2DDE-281F-B9FF9474FE65}</UniqueIdentifier>
@@ -256,6 +274,9 @@
     <ClInclude Include="src\Void\Rendering\Components\IndexBuffer\IndexBuffer.h">
       <Filter>Void\Rendering\Components\IndexBuffer</Filter>
     </ClInclude>
+    <ClInclude Include="src\Void\Rendering\Components\Mesh\Mesh.h">
+      <Filter>Void\Rendering\Components\Mesh</Filter>
+    </ClInclude>
     <ClInclude Include="src\Void\Rendering\Components\Renderer\Renderer.h">
       <Filter>Void\Rendering\Components\Renderer</Filter>
     </ClInclude>
@@ -283,11 +304,20 @@
     <ClInclude Include="src\Void\Rendering\Components\VertexBufferLayout\VertexBufferLayoutElement.h">
       <Filter>Void\Rendering\Components\VertexBufferLayout</Filter>
     </ClInclude>
-    <ClInclude Include="src\Void\Utils\ExternalFiles\File\File.h">
-      <Filter>Void\Utils\ExternalFiles</Filter>
+    <ClInclude Include="src\Void\Rendering\Libraries\Mesh\MeshLibrary.h">
+      <Filter>Void\Rendering\Libraries\Mesh</Filter>
     </ClInclude>
-    <ClInclude Include="src\Void\Utils\ExternalFiles\ModelLoader.h">
-      <Filter>Void\Utils\ExternalFiles</Filter>
+    <ClInclude Include="src\Void\Rendering\Libraries\Shader\ShaderLibrary.h">
+      <Filter>Void\Rendering\Libraries\Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Void\Rendering\Libraries\Texture\TextureLibrary.h">
+      <Filter>Void\Rendering\Libraries\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Void\Utils\ExternalFiles\File\File.h">
+      <Filter>Void\Utils\ExternalFiles\File</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Void\Utils\ExternalFiles\MeshLoader\MeshLoader.h">
+      <Filter>Void\Utils\ExternalFiles\MeshLoader</Filter>
     </ClInclude>
     <ClInclude Include="src\Void\Utils\ExternalFiles\TextureLoader.h">
       <Filter>Void\Utils\ExternalFiles</Filter>
@@ -305,10 +335,6 @@
       <Filter>Void\Vendor\stb_lib</Filter>
     </ClInclude>
     <ClInclude Include="src\pch.h" />
-    <ClInclude Include="src\Void\Rendering\Libraries\Mesh\MeshLibrary.h" />
-    <ClInclude Include="src\Void\Rendering\Libraries\Shader\ShaderLibrary.h" />
-    <ClInclude Include="src\Void\Rendering\Libraries\Texture\TextureLibrary.h" />
-    <ClInclude Include="src\Void\Rendering\Components\Mesh\Mesh.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Void\Core\Application.cpp">
@@ -410,11 +436,20 @@
     <ClCompile Include="src\Void\Rendering\Components\VertexBuffer\VertexBuffer.cpp">
       <Filter>Void\Rendering\Components\VertexBuffer</Filter>
     </ClCompile>
-    <ClCompile Include="src\Void\Utils\ExternalFiles\File\File.cpp">
-      <Filter>Void\Utils\ExternalFiles</Filter>
+    <ClCompile Include="src\Void\Rendering\Libraries\Mesh\MeshLibrary.cpp">
+      <Filter>Void\Rendering\Libraries\Mesh</Filter>
     </ClCompile>
-    <ClCompile Include="src\Void\Utils\ExternalFiles\ModelLoader.cpp">
-      <Filter>Void\Utils\ExternalFiles</Filter>
+    <ClCompile Include="src\Void\Rendering\Libraries\Shader\ShaderLibrary.cpp">
+      <Filter>Void\Rendering\Libraries\Shader</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Void\Rendering\Libraries\Texture\TextureLibrary.cpp">
+      <Filter>Void\Rendering\Libraries\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Void\Utils\ExternalFiles\File\File.cpp">
+      <Filter>Void\Utils\ExternalFiles\File</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Void\Utils\ExternalFiles\MeshLoader\MeshLoader.cpp">
+      <Filter>Void\Utils\ExternalFiles\MeshLoader</Filter>
     </ClCompile>
     <ClCompile Include="src\Void\Utils\ExternalFiles\TextureLoader.cpp">
       <Filter>Void\Utils\ExternalFiles</Filter>
@@ -429,8 +464,5 @@
       <Filter>Void\Vendor\stb_lib</Filter>
     </ClCompile>
     <ClCompile Include="src\pch.cpp" />
-    <ClCompile Include="src\Void\Rendering\Libraries\Mesh\MeshLibrary.cpp" />
-    <ClCompile Include="src\Void\Rendering\Libraries\Shader\ShaderLibrary.cpp" />
-    <ClCompile Include="src\Void\Rendering\Libraries\Texture\TextureLibrary.cpp" />
   </ItemGroup>
 </Project>

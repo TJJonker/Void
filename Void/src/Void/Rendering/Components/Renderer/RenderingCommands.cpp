@@ -32,7 +32,7 @@ namespace Void::Rendering {
 		shader->SetVec3("viewPosition", m_RenderData->viewPosition);
 
 		/// TEMP
-		glm::vec3 lightDirection = { 1.f, 0.f, 0.2f };
+		glm::vec3 lightDirection = { .2f, 0.f, -1.f };
 		glm::vec3 ambientColor = { .3f, .3f, .3f };
 		glm::vec3 diffuseColor = { .7f, .7f, .7f };
 		glm::vec3 specularColor = { 1.f, 1.f, 1.f };

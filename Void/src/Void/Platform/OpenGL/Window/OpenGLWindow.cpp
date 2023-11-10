@@ -67,7 +67,7 @@ namespace Void {
 		Input::Create(m_Window);
 
 		// TODO: (Re)move this.
-		//glfwSetInputMode(m_Window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+		glfwSetInputMode(m_Window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 
 
 
