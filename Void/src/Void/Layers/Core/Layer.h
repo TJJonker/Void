@@ -2,9 +2,11 @@
 #include <Void/Event/Event.h>
 
 namespace Void {
-	class Layer
+	class VOID_API Layer
 	{
 	public:
+		virtual ~Layer() = default;
+
 		virtual void OnAdded() {}
 		virtual void OnRemoved() {}
 

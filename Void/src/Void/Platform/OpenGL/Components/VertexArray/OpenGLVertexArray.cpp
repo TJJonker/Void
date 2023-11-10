@@ -2,7 +2,7 @@
 #include "OpenGLVertexArray.h"
 #include <Void/Platform/OpenGL/Debugging/OpenGLDebugger.h>
 
-namespace Void {
+namespace Void::Rendering {
 	OpenGLVertexArray::OpenGLVertexArray()
 		:m_BufferIndex(0)
 	{

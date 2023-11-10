@@ -1,7 +1,7 @@
 #pragma once
 #include "Void/Rendering/Components/VertexArray/VertexArray.h"
 
-namespace Void {
+namespace Void::Rendering {
 	class OpenGLVertexArray : public VertexArray
 	{
 	private:

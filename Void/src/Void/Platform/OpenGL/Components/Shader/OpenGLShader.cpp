@@ -1,15 +1,16 @@
 #include "pch.h"
 #include "OpenGLShader.h"
-#include "Void/Utils/ExternalFiles/FileReader.h"
 #include <glad/glad.h>
 #include "Void/Platform/OpenGL/Debugging/OpenGLDebugger.h"
+#include "Void/Utils/ExternalFiles/File/File.h"
 #include <glm/gtc/type_ptr.hpp>
 
-namespace Void {
+namespace Void::Rendering {
+	//TODO: Seperate loading and managing
 	OpenGLShader::OpenGLShader(const char* vertexShaderPath, const char* fragmentShaderPath)
 	{
-		unsigned int vertexShader = CompileShader(FileReader::ReadFile(vertexShaderPath).c_str(), GL_VERTEX_SHADER);
-		unsigned int fragmentShader = CompileShader(FileReader::ReadFile(fragmentShaderPath).c_str(), GL_FRAGMENT_SHADER);
+		unsigned int vertexShader = CompileShader(File::Read(vertexShaderPath).c_str(), GL_VERTEX_SHADER);
+		unsigned int fragmentShader = CompileShader(File::Read(fragmentShaderPath).c_str(), GL_FRAGMENT_SHADER);
 
 		m_ID = glCreateProgram();
 		GLCall(glAttachShader(m_ID, vertexShader));
@@ -58,6 +59,11 @@ namespace Void {
 	void OpenGLShader::SetInt(const std::string& name, int v0)
 	{
 		GLCall(glUniform1i(GetUniformLocation(name), v0));
+	}
+
+	void OpenGLShader::SetFloat(const std::string& name, float v0)
+	{
+		GLCall(glUniform1f(GetUniformLocation(name), v0));
 	}
 
 	unsigned int OpenGLShader::CompileShader(const char* code, unsigned int type)

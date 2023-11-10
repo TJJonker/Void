@@ -2,11 +2,12 @@
 
 /// DLL and Platform specific settings.
 #ifdef VOID_PLATFORM_WINDOWS
-	#ifdef VOID_BUILD_DLL
-		#define VOID_API __declspec(dllexport)
-	#else
-		#define VOID_API __declspec(dllimport)
-	#endif
+	//#ifdef VOID_BUILD_DLL
+	//	#define VOID_API __declspec(dllexport)
+	//#else
+	//	#define VOID_API __declspec(dllimport)
+	//#endif
+#define VOID_API
 #else
 	#error Void only supports windows!
 #endif

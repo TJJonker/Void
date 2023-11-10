@@ -4,9 +4,7 @@
 namespace Void {
 	class TextureLoader
 	{
-	private:
-
 	public:
-		static Texture* LoadTexture(const std::string& filePath);
+		static Rendering::Texture* Load(const std::string& filePath);
 	};
 }

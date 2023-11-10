@@ -24,7 +24,7 @@ namespace Void {
 		glm::vec2 m_LastMousePosition;
 
 		const float m_Sensitivity = 0.1f;
-		const float m_CameraSpeed = 2.5f;
+		const float m_CameraSpeed = 8.f;
 
 	public:
 		glm::mat4 GetView() const;

@@ -2,7 +2,7 @@
 #include "Void/Rendering/Components/VertexBuffer/VertexBuffer.h"
 #include <Void/Rendering/Components/IndexBuffer/IndexBuffer.h>
 
-namespace Void {
+namespace Void::Rendering {
 	class VertexArray
 	{
 	public:

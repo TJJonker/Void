@@ -3,7 +3,7 @@
 #include <glad/glad.h>
 #include "Void/Platform/OpenGL/Debugging/OpenGLDebugger.h"
 
-namespace Void{
+namespace Void::Rendering {
 
 	OpenGLIndexBuffer::OpenGLIndexBuffer(const uint32_t* vertices, const uint32_t size)
 		: m_Count(size)

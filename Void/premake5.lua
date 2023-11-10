@@ -1,5 +1,5 @@
 project "Void"
-	kind "SharedLib"
+	kind "StaticLib"
 	language "C++"
 
 	targetdir (solutionDir .. "/bin/" .. outputdir .. "/%{prj.name}")
@@ -20,7 +20,8 @@ project "Void"
 		solutionDir .. "%{includeDirs.GLAD}",
 		solutionDir .. "%{includeDirs.GLM}",
 		solutionDir .. "%{includeDirs.ASSIMP}",
-		solutionDir .. "%{includeDirs.IMGUI}"
+		solutionDir .. "%{includeDirs.IMGUI}",
+		solutionDir .. "%{includeDirs.NLOHMANN}"
 	}
 
 	libdirs {
@@ -39,8 +40,7 @@ project "Void"
 	filter "system:windows"
 		cppdialect "C++17"
 		systemversion "latest"
-		staticruntime "off"
-		runtime "Debug"
+		staticruntime "on"
 
 		defines {
 			"VOID_PLATFORM_WINDOWS",
@@ -54,8 +54,13 @@ project "Void"
 
 		postbuildcommands {
 			"call CreateDir.bat ../bin/" .. outputdir .. "/Sandbox",
+			"call CreateDir.bat ../bin/" .. outputdir .. "/Nebula",
+			
 			("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Sandbox"),			
-			("{COPY} ../bin/" .. outputdir .. "/%{prj.name}/assimp-vc143-mtd.dll ../bin/" .. outputdir .. "/Sandbox")		
+			("{COPY} ../bin/" .. outputdir .. "/%{prj.name}/assimp-vc143-mtd.dll ../bin/" .. outputdir .. "/Sandbox"),	
+
+			("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Nebula"),			
+			("{COPY} ../bin/" .. outputdir .. "/%{prj.name}/assimp-vc143-mtd.dll ../bin/" .. outputdir .. "/Nebula")	
 		}
 
 

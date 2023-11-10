@@ -1,6 +1,6 @@
 #pragma once
 
-namespace Void {
+namespace Void::Rendering {
 	class Shader
 	{
 	public:
@@ -14,5 +14,6 @@ namespace Void {
 		virtual void SetMatrix4(const std::string& name, glm::mat4& v0) = 0;
 		virtual void SetVec3(const std::string& name, glm::vec3& v0) = 0;
 		virtual void SetInt(const std::string& name, int v0) = 0;
+		virtual void SetFloat(const std::string& name, float v0) = 0;
 	};
 }

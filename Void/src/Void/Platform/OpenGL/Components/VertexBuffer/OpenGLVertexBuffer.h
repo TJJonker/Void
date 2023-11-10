@@ -1,7 +1,7 @@
 #pragma once
 #include "Void/Rendering/Components/VertexBuffer/VertexBuffer.h"
 
-namespace Void {
+namespace Void::Rendering {
 	class OpenGLVertexBuffer : public VertexBuffer
 	{
 	private:

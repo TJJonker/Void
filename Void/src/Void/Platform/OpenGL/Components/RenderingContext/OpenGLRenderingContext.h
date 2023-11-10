@@ -1,7 +1,7 @@
 #pragma once
 #include "Void/Rendering/Components/RenderingContext/RenderingContext.h"
 
-namespace Void {
+namespace Void::Rendering {
 	class OpenGLRenderingContext : public RenderingContext
 	{
 	public:
