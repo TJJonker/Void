@@ -2,8 +2,8 @@
 #include "OpenGLRenderer.h"
 #include <Void/Platform/OpenGL/Debugging/OpenGLDebugger.h>
 
-namespace Void {
-	void OpenGLRenderer::Draw(const std::shared_ptr<VertexArray> vertexArray)
+namespace Void::Rendering {
+	void OpenGLRenderer::Draw(VertexArray* vertexArray)
 	{
 		glEnable(GL_DEPTH_TEST);
 		GLCall(glDrawElements(GL_TRIANGLES, vertexArray->GetIndexBuffer()->GetCount(), GL_UNSIGNED_INT, nullptr));

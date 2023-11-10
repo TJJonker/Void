@@ -46,6 +46,9 @@
     <Filter Include="Void\Platform\OpenGL\Components">
       <UniqueIdentifier>{F4EA2A36-60CE-3976-69D1-67B2D53300C7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Void\Platform\OpenGL\Components\FrameBuffer">
+      <UniqueIdentifier>{08168747-747B-1ACE-FD53-BCA669B80F3D}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Void\Platform\OpenGL\Components\IndexBuffer">
       <UniqueIdentifier>{951F6C79-0185-FFFF-8A5D-A1D8F6C1F46E}</UniqueIdentifier>
     </Filter>
@@ -94,11 +97,14 @@
     <Filter Include="Void\Rendering\Components">
       <UniqueIdentifier>{D90AD5E9-45CD-0874-8E7D-9700FA7EE151}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Void\Rendering\Components\FrameBuffer">
+      <UniqueIdentifier>{6D355B4C-D9F9-593C-A25F-8A060EE3F571}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Void\Rendering\Components\IndexBuffer">
       <UniqueIdentifier>{FA3E407E-6603-3F6E-2F69-6F389BECDAA3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Void\Rendering\Components\Model">
-      <UniqueIdentifier>{D97264AF-4556-73EF-4E59-A12BBABB3940}</UniqueIdentifier>
+    <Filter Include="Void\Rendering\Components\Mesh">
+      <UniqueIdentifier>{353039A8-2156-030F-0A9C-88DAF66028DB}</UniqueIdentifier>
     </Filter>
     <Filter Include="Void\Rendering\Components\Renderer">
       <UniqueIdentifier>{9F92A016-8BCE-A380-F4E0-BB77E03B4C9B}</UniqueIdentifier>
@@ -121,11 +127,32 @@
     <Filter Include="Void\Rendering\Components\VertexBufferLayout">
       <UniqueIdentifier>{7EB4DCA6-6AC7-DCFF-13B1-B9ECFFA2794D}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Void\Rendering\Libraries">
+      <UniqueIdentifier>{B0F04D1C-9C15-9D9C-C560-822CB1E49BBA}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Void\Rendering\Libraries\Mesh">
+      <UniqueIdentifier>{6C548E48-D86C-7572-A119-050C0DF1090C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Void\Rendering\Libraries\Shader">
+      <UniqueIdentifier>{567AA0B3-C25D-AFF3-CB60-DD2F37C37544}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Void\Rendering\Libraries\Texture">
+      <UniqueIdentifier>{10C6536F-FC16-3FB1-257B-2D73112BD21A}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Void\Utils">
       <UniqueIdentifier>{D7ACD57F-C364-17CD-2C6C-F0281843B2BD}</UniqueIdentifier>
     </Filter>
     <Filter Include="Void\Utils\ExternalFiles">
       <UniqueIdentifier>{7C3A99FC-685F-E87C-91AA-CD0C7D2EE79A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Void\Utils\ExternalFiles\File">
+      <UniqueIdentifier>{2BD72734-97EF-0E5E-609C-9EF7CC73A3F7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Void\Utils\ExternalFiles\MeshLoader">
+      <UniqueIdentifier>{0F9FE0EC-7B58-4B97-04B8-657170700107}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Void\Utils\Parser">
+      <UniqueIdentifier>{73912F48-DFA7-2DDE-281F-B9FF9474FE65}</UniqueIdentifier>
     </Filter>
     <Filter Include="Void\Utils\TimeSteps">
       <UniqueIdentifier>{441FC3EE-30AE-4CB8-D9CC-60B3C53A5D5E}</UniqueIdentifier>
@@ -169,6 +196,9 @@
     <ClInclude Include="src\Void\ECS\Core\Scene\Scene.h">
       <Filter>Void\ECS\Core\Scene</Filter>
     </ClInclude>
+    <ClInclude Include="src\Void\ECS\Core\Scene\SceneManager.h">
+      <Filter>Void\ECS\Core\Scene</Filter>
+    </ClInclude>
     <ClInclude Include="src\Void\ECS\Core\Systems\ISystem.h">
       <Filter>Void\ECS\Core\Systems</Filter>
     </ClInclude>
@@ -195,6 +225,9 @@
     </ClInclude>
     <ClInclude Include="src\Void\Layers\ImGuiLayer.h">
       <Filter>Void\Layers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Void\Platform\OpenGL\Components\FrameBuffer\OpenGLFrameBuffer.h">
+      <Filter>Void\Platform\OpenGL\Components\FrameBuffer</Filter>
     </ClInclude>
     <ClInclude Include="src\Void\Platform\OpenGL\Components\IndexBuffer\OpenGLIndexBuffer.h">
       <Filter>Void\Platform\OpenGL\Components\IndexBuffer</Filter>
@@ -232,11 +265,17 @@
     <ClInclude Include="src\Void\Rendering\Camera\CameraController\CameraController.h">
       <Filter>Void\Rendering\Camera\CameraController</Filter>
     </ClInclude>
+    <ClInclude Include="src\Void\Rendering\Components\FrameBuffer\FrameBuffer.h">
+      <Filter>Void\Rendering\Components\FrameBuffer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Void\Rendering\Components\FrameBuffer\FrameBufferConfig.h">
+      <Filter>Void\Rendering\Components\FrameBuffer</Filter>
+    </ClInclude>
     <ClInclude Include="src\Void\Rendering\Components\IndexBuffer\IndexBuffer.h">
       <Filter>Void\Rendering\Components\IndexBuffer</Filter>
     </ClInclude>
-    <ClInclude Include="src\Void\Rendering\Components\Model\Model.h">
-      <Filter>Void\Rendering\Components\Model</Filter>
+    <ClInclude Include="src\Void\Rendering\Components\Mesh\Mesh.h">
+      <Filter>Void\Rendering\Components\Mesh</Filter>
     </ClInclude>
     <ClInclude Include="src\Void\Rendering\Components\Renderer\Renderer.h">
       <Filter>Void\Rendering\Components\Renderer</Filter>
@@ -265,14 +304,29 @@
     <ClInclude Include="src\Void\Rendering\Components\VertexBufferLayout\VertexBufferLayoutElement.h">
       <Filter>Void\Rendering\Components\VertexBufferLayout</Filter>
     </ClInclude>
-    <ClInclude Include="src\Void\Utils\ExternalFiles\FileReader.h">
-      <Filter>Void\Utils\ExternalFiles</Filter>
+    <ClInclude Include="src\Void\Rendering\Libraries\Mesh\MeshLibrary.h">
+      <Filter>Void\Rendering\Libraries\Mesh</Filter>
     </ClInclude>
-    <ClInclude Include="src\Void\Utils\ExternalFiles\ModelLoader.h">
-      <Filter>Void\Utils\ExternalFiles</Filter>
+    <ClInclude Include="src\Void\Rendering\Libraries\Shader\ShaderLibrary.h">
+      <Filter>Void\Rendering\Libraries\Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Void\Rendering\Libraries\Texture\TextureLibrary.h">
+      <Filter>Void\Rendering\Libraries\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Void\Utils\ExternalFiles\File\File.h">
+      <Filter>Void\Utils\ExternalFiles\File</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Void\Utils\ExternalFiles\MeshLoader\MeshLoader.h">
+      <Filter>Void\Utils\ExternalFiles\MeshLoader</Filter>
     </ClInclude>
     <ClInclude Include="src\Void\Utils\ExternalFiles\TextureLoader.h">
       <Filter>Void\Utils\ExternalFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Void\Utils\Parser\ISerializable.h">
+      <Filter>Void\Utils\Parser</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Void\Utils\Parser\JSONParser.h">
+      <Filter>Void\Utils\Parser</Filter>
     </ClInclude>
     <ClInclude Include="src\Void\Utils\TimeSteps\Time.h">
       <Filter>Void\Utils\TimeSteps</Filter>
@@ -281,6 +335,8 @@
       <Filter>Void\Vendor\stb_lib</Filter>
     </ClInclude>
     <ClInclude Include="src\pch.h" />
+    <ClInclude Include="src\Void\ECS\Components\LightComponent.h" />
+    <ClInclude Include="src\Void\ECS\Components\SpotLightComponent.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Void\Core\Application.cpp">
@@ -298,6 +354,9 @@
     <ClCompile Include="src\Void\ECS\Core\Scene\Scene.cpp">
       <Filter>Void\ECS\Core\Scene</Filter>
     </ClCompile>
+    <ClCompile Include="src\Void\ECS\Core\Scene\SceneManager.cpp">
+      <Filter>Void\ECS\Core\Scene</Filter>
+    </ClCompile>
     <ClCompile Include="src\Void\ECS\Systems\RenderingSystem.cpp">
       <Filter>Void\ECS\Systems</Filter>
     </ClCompile>
@@ -309,6 +368,9 @@
     </ClCompile>
     <ClCompile Include="src\Void\Layers\ImGuiLayer.cpp">
       <Filter>Void\Layers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Void\Platform\OpenGL\Components\FrameBuffer\OpenGLFrameBuffer.cpp">
+      <Filter>Void\Platform\OpenGL\Components\FrameBuffer</Filter>
     </ClCompile>
     <ClCompile Include="src\Void\Platform\OpenGL\Components\IndexBuffer\OpenGLIndexBuffer.cpp">
       <Filter>Void\Platform\OpenGL\Components\IndexBuffer</Filter>
@@ -349,6 +411,9 @@
     <ClCompile Include="src\Void\Rendering\Camera\CameraController\CameraController.cpp">
       <Filter>Void\Rendering\Camera\CameraController</Filter>
     </ClCompile>
+    <ClCompile Include="src\Void\Rendering\Components\FrameBuffer\FrameBuffer.cpp">
+      <Filter>Void\Rendering\Components\FrameBuffer</Filter>
+    </ClCompile>
     <ClCompile Include="src\Void\Rendering\Components\IndexBuffer\IndexBuffer.cpp">
       <Filter>Void\Rendering\Components\IndexBuffer</Filter>
     </ClCompile>
@@ -373,14 +438,26 @@
     <ClCompile Include="src\Void\Rendering\Components\VertexBuffer\VertexBuffer.cpp">
       <Filter>Void\Rendering\Components\VertexBuffer</Filter>
     </ClCompile>
-    <ClCompile Include="src\Void\Utils\ExternalFiles\FileReader.cpp">
-      <Filter>Void\Utils\ExternalFiles</Filter>
+    <ClCompile Include="src\Void\Rendering\Libraries\Mesh\MeshLibrary.cpp">
+      <Filter>Void\Rendering\Libraries\Mesh</Filter>
     </ClCompile>
-    <ClCompile Include="src\Void\Utils\ExternalFiles\ModelLoader.cpp">
-      <Filter>Void\Utils\ExternalFiles</Filter>
+    <ClCompile Include="src\Void\Rendering\Libraries\Shader\ShaderLibrary.cpp">
+      <Filter>Void\Rendering\Libraries\Shader</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Void\Rendering\Libraries\Texture\TextureLibrary.cpp">
+      <Filter>Void\Rendering\Libraries\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Void\Utils\ExternalFiles\File\File.cpp">
+      <Filter>Void\Utils\ExternalFiles\File</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Void\Utils\ExternalFiles\MeshLoader\MeshLoader.cpp">
+      <Filter>Void\Utils\ExternalFiles\MeshLoader</Filter>
     </ClCompile>
     <ClCompile Include="src\Void\Utils\ExternalFiles\TextureLoader.cpp">
       <Filter>Void\Utils\ExternalFiles</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Void\Utils\Parser\JSONParser.cpp">
+      <Filter>Void\Utils\Parser</Filter>
     </ClCompile>
     <ClCompile Include="src\Void\Utils\TimeSteps\Time.cpp">
       <Filter>Void\Utils\TimeSteps</Filter>

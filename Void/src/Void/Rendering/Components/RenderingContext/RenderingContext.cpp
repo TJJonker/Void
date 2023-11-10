@@ -3,7 +3,7 @@
 #include "Void/Rendering/Components/Renderer/Renderer.h"
 #include "Void/Platform/OpenGL/Components/RenderingContext/OpenGLRenderingContext.h"
 
-namespace Void {
+namespace Void::Rendering {
     RenderingContext* RenderingContext::Create()
     {
         switch (Renderer::GetAPI()) {

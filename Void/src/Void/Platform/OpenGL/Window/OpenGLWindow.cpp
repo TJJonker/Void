@@ -61,13 +61,13 @@ namespace Void {
 		// Make the window the current context.
 		glfwMakeContextCurrent(m_Window);
 
-		m_RenderingContext.reset(RenderingContext::Create());
+		m_RenderingContext.reset(Rendering::RenderingContext::Create());
 		m_RenderingContext->Init();
 
 		Input::Create(m_Window);
 
 		// TODO: (Re)move this.
-		//glfwSetInputMode(m_Window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+		glfwSetInputMode(m_Window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 
 
 

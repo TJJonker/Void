@@ -2,7 +2,7 @@
 #include "Void/Rendering/Components/Texture/Texture.h"
 #include <glad/glad.h>
 
-namespace Void {
+namespace Void::Rendering {
 	class OpenGLTexture : public Texture
 	{
 	private:

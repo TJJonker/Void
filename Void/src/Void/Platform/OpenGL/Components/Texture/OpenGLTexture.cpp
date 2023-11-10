@@ -3,7 +3,7 @@
 #include <Void/Platform/OpenGL/Debugging/OpenGLDebugger.h>
 #include <Void/Vendor/stb_lib/stb_lib.h>
 
-namespace Void {
+namespace Void::Rendering {
     GLenum OpenGLTexture::GetDataFormat(int amountOfChannels) const
     {
         if (amountOfChannels == 1) 

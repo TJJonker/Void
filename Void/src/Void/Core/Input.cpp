@@ -8,9 +8,9 @@ namespace Void {
 
 	void Input::Create(void* window)
 	{
-		switch (Renderer::GetAPI()) {
-			case Renderer::API::None:		VOID_CORE_ASSERT(false, "API 'NONE' is not supported.");
-			case Renderer::API::OpenGL:	    Input::m_Input = new OpenGLInput(window);
+		switch (Rendering::Renderer::GetAPI()) {
+			case Rendering::Renderer::API::None:		VOID_CORE_ASSERT(false, "API 'NONE' is not supported.");
+			case Rendering::Renderer::API::OpenGL:	    Input::m_Input = new OpenGLInput(window);
 		}
 	}
 }

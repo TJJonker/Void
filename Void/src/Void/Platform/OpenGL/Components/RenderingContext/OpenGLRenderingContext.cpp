@@ -4,7 +4,7 @@
 #include <GLFW/glfw3.h>
 #include <Void/Platform/OpenGL/Debugging/OpenGLDebugger.h>
 
-namespace Void {
+namespace Void::Rendering {
 	OpenGLRenderingContext::OpenGLRenderingContext() { }
 
 	void OpenGLRenderingContext::Init()

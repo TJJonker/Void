@@ -3,7 +3,7 @@
 #include "Void/Rendering/Components/Renderer/Renderer.h"
 #include "Void/Platform/OpenGL/Components/Shader/OpenGLShader.h"
 
-namespace Void {
+namespace Void::Rendering {
 	Shader* Shader::Create(const char* vertexShaderPath, const char* fragmentShaderPath)
 	{
         switch (Renderer::GetAPI()) {

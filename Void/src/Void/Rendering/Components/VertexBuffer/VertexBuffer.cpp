@@ -3,7 +3,7 @@
 #include "Void/Rendering/Components/Renderer/Renderer.h"
 #include "Void/Platform/OpenGL/Components/VertexBuffer/OpenGLVertexBuffer.h"
 
-namespace Void {
+namespace Void::Rendering {
     VertexBuffer* VertexBuffer::Create(const void* vertices, uint32_t size)
     {
         switch (Renderer::GetAPI()) {

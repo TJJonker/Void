@@ -23,7 +23,7 @@ namespace Void {
 		};
 
 		WindowData m_Data;
-		std::shared_ptr<RenderingContext> m_RenderingContext;
+		std::shared_ptr<Rendering::RenderingContext> m_RenderingContext;
 
 	public:
 		OpenGLWindow(const WindowProps& props);

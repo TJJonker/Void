@@ -25,10 +25,17 @@ namespace Void {
 			return m_Registry.get<T>(entity);
 		}
 
+		template<typename T>
+		bool HasComponent(entt::entity entity) {
+			return m_Registry.any_of<T>(entity);
+		}
+
 		void AddSystem(std::shared_ptr<Void::ISystem> system) { m_Systems.push_back(system); }
 		void UpdateSystems();
 		void SetRenderingSystem(std::shared_ptr<Void::ISystem> system) { m_RenderingSystem = system; }
 		void UpdateRenderingSystem() { m_RenderingSystem->Update(m_Registry); }
+
+		std::vector<entt::entity> GetAllEntities() const;
 
 		entt::registry& Registry() { return m_Registry; }
 	};
