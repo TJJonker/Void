@@ -36,8 +36,9 @@ namespace Nebula::Editor {
 
 
         m_SceneManager = new Void::SceneManager();
-        m_SceneManager->LoadScene("Scene1.json");
+        m_SceneManager->LoadScene("Scene2.json");
         
+
         m_CameraController = new Void::CameraController();
 
         std::shared_ptr<Void::Rendering::RenderingSystem> renderingSystem = std::make_shared<Void::Rendering::RenderingSystem>();

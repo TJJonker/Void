@@ -37,16 +37,19 @@ namespace Void {
 		// RenderingComponent
 
 		std::vector<Submesh> Submeshes;
+		bool DrawWireframe = false;
 
 		nlohmann::json ToJSON() const override {
 			nlohmann::json json;
+			json["DrawWireframe"] = DrawWireframe;
 			for (Submesh submesh : Submeshes)
-				json.push_back(submesh.ToJSON());			
+				json["Submeshes"].push_back(submesh.ToJSON());
 			return json;
 		}
 
 		void FromJSON(const nlohmann::json& json) override {
-			for (const auto& sm : json) {
+			DrawWireframe = json["DrawWireframe"];
+			for (const auto& sm : json["Submeshes"]) {
 				Submesh submesh;
 				submesh.FromJSON(sm);
 				Submeshes.push_back(submesh);

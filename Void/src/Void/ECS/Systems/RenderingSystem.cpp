@@ -40,6 +40,13 @@ namespace Void::Rendering {
 				glActiveTexture(GL_TEXTURE0);
 				texture->Bind();
 
+
+				// Remove as well
+				if(rendering.DrawWireframe)
+					glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+				else 
+					glPolygonMode(GL_FRONT_AND_BACK, GL_FILL); 
+
 				Rendering::RenderingCommands::Draw(vertexArray, shader, model);
 			}
 		}
