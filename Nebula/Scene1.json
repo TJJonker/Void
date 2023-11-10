@@ -667,14 +667,14 @@
             ]
         },
         {
-            "Name": "Entity_9",
+            "Name": "Floor Plane",
             "Components": [
                 {
                     "Type": "TransformComponent",
                     "Data": {
                         "Position": {
                             "X": -8.0,
-                            "Y": -2.0,
+                            "Y": -1.99,
                             "Z": -8.0
                         },
                         "Rotation": {
@@ -683,9 +683,9 @@
                             "Z": 0.0
                         },
                         "Scale": {
-                            "X": 0.4,
-                            "Y": 0.4,
-                            "Z": 0.4
+                            "X": 50.0,
+                            "Y": 1.0,
+                            "Z": 50.0
                         }
                     }
                 },
@@ -693,10 +693,10 @@
                     "Type": "RenderingComponent",
                     "Data": [
                         {
-                            "Model": "Temp/Models/SC_Prop_Garden_Tree.obj",
+                            "Model": "Temp/Models/Plane.obj",
                             "Shader": "DefaultShader",
                             "Texture": [
-                                "Temp/Models/SimpleCity_Texture.png"
+                                "Temp/Models/StreetTexture.png"
                             ]
                         }
                     ]

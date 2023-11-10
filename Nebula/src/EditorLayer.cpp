@@ -28,9 +28,11 @@ namespace Nebula::Editor {
         Void::MeshLibrary::GetInstance()->Load("Temp/Models/SC_Prop_Construction_Crane.obj");
         Void::MeshLibrary::GetInstance()->Load("Temp/Models/SC_Prop_Construction_Scaffolding.obj");
         Void::MeshLibrary::GetInstance()->Load("Temp/Models/SC_Prop_Garden_Chair.obj");
+        Void::MeshLibrary::GetInstance()->Load("Temp/Models/Plane.obj");
 
         // Texture lib
         Void::TextureLibrary::GetInstance()->Load("Temp/Models/SimpleCity_Texture.png");
+        Void::TextureLibrary::GetInstance()->Load("Temp/Models/StreetTexture.png");
 
 
         m_SceneManager = new Void::SceneManager();
@@ -48,7 +50,7 @@ namespace Nebula::Editor {
         Void::Rendering::RenderingCommands::BeginDraw(m_CameraController->GetCamera()); 
 
         //m_FrameBuffer->Bind();
-        Void::Rendering::RenderingCommands::SetClearColor({ .1, .2, .1, 1 });
+        Void::Rendering::RenderingCommands::SetClearColor({ .03, .03, .05, 1 });
         Void::Rendering::RenderingCommands::Clear();
         m_SceneManager->GetCurrentScene()->UpdateRenderingSystem();
         //m_FrameBuffer->UnBind();
