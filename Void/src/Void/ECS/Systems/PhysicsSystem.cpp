@@ -28,15 +28,21 @@ namespace Void {
 
 				auto& [bTransform, bPhysics] = registry.get<TransformComponent, PhysicsComponent>(b);
 
-				if (!aPhysics.Collider || !aPhysics.Collider)
+				if (!aPhysics.Collider || !bPhysics.Collider)
 					continue;
 				
 				Transform transformA = { aTransform.Position, aTransform.Rotation, aTransform.Scale }; 
 				Transform transformB = { bTransform.Position, bTransform.Rotation, bTransform.Scale };
 				CollisionPoints points = aPhysics.Collider->TestCollision(&transformA, bPhysics.Collider, &transformB);
 
-				if (points.HasCollision)
-					collisions.emplace_back(a, b, points);
+				if (points.HasCollision) {
+					Collision collision;
+					collision.aPhysics = &aPhysics;
+					collision.aTransform = &aTransform;
+					collision.bPhysics = &bPhysics;
+					collision.bTransform = &bTransform;
+					collisions.emplace_back(collision);
+				}
 			}
 		}
 

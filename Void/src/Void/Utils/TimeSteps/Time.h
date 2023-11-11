@@ -13,6 +13,6 @@ namespace Void {
 	public:
 		static float DeltaTime() { return m_DeltaTime; };
 		static void Update();
-		static float TimeSinceStartup() { return glfwGetTime(); };
+		static float TimeSinceStartup() { return (float)glfwGetTime(); };
 	};
 }

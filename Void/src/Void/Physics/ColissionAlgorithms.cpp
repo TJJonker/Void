@@ -8,7 +8,7 @@ namespace Void {
             CollisionPoints result;
 
             // Calculate the distance between the centers of the two spheres
-            glm::vec3 delta = tb->Position + b->Center - (ta->Position + a->Center);
+            glm::vec3 delta = tb->Position + b->Offset - (ta->Position + a->Offset);
             float distance = glm::length(delta);
 
             // Check for collision by comparing the distance to the sum of the radii
@@ -18,8 +18,8 @@ namespace Void {
                 float penetrationDepth = (a->Radius + b->Radius) - distance;
 
                 // Fill in the CollisionPoints struct
-                result.A = ta->Position + a->Center + a->Radius * collisionNormal;
-                result.B = tb->Position + b->Center + b->Radius * collisionNormal;
+                result.A = ta->Position + a->Offset + a->Radius * collisionNormal;
+                result.B = tb->Position + b->Offset + b->Radius * collisionNormal;
                 result.Normal = collisionNormal;
                 result.Depth = penetrationDepth;
                 result.HasCollision = true;

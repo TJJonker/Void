@@ -6,11 +6,11 @@
 
 namespace Void {
 	struct Collision {
-		TransformComponent& aTransform;
-		PhysicsComponent& aPhysics;
+		TransformComponent* aTransform;
+		PhysicsComponent* aPhysics;
 
-		TransformComponent& bTransform;
-		PhysicsComponent& bPhysics;
+		TransformComponent* bTransform;
+		PhysicsComponent* bPhysics;
 
 		CollisionPoints* CollisionPoints;
 	};

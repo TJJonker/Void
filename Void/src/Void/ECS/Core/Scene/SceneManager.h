@@ -1,6 +1,6 @@
 #pragma once
 #include "Scene.h"
-
+#include "Void/Utils/Parser/ISerializable.h"
 
 namespace Void {
 	class SceneManager
@@ -9,12 +9,13 @@ namespace Void {
 		// Temp raw pointer, should be unique
 		Scene* m_CurrentScene;
 
+	private:
+		ISerializable* DeserializeComponent(std::string componentName, Scene* scene, entt::entity entity);
+
+
 	public:
 		void LoadScene(const char* filePath);
 		void SaveScene(const char* filePath);
-
-		// Temp
-		void SetScene(Scene* scene) { m_CurrentScene = scene; }
 
 		Scene* GetCurrentScene() { return m_CurrentScene; }
 	};

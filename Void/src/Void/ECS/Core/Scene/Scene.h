@@ -9,6 +9,7 @@ namespace Void {
 		entt::registry m_Registry;
 
 		std::shared_ptr<ISystem> m_RenderingSystem;
+		std::shared_ptr<ISystem> m_PhysicsSystem;
 		std::vector<std::shared_ptr<ISystem>> m_Systems;
 
 	public:
@@ -33,7 +34,9 @@ namespace Void {
 		void AddSystem(std::shared_ptr<Void::ISystem> system) { m_Systems.push_back(system); }
 		void UpdateSystems();
 		void SetRenderingSystem(std::shared_ptr<Void::ISystem> system) { m_RenderingSystem = system; }
+		void SetPhysicsSystem(std::shared_ptr<Void::ISystem> system) { m_PhysicsSystem = system; }
 		void UpdateRenderingSystem() { m_RenderingSystem->Update(m_Registry); }
+		void UpdatePhysicsSystem() { m_PhysicsSystem->Update(m_Registry); }
 
 		std::vector<entt::entity> GetAllEntities() const;
 

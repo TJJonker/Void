@@ -1,0 +1,1267 @@
+{
+    "Entities": [
+        {
+            "Name": "Entity_0",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": 0.0,
+                            "Y": -2.0,
+                            "Z": -15.0
+                        },
+                        "Rotation": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 0.4000000059604645,
+                            "Y": 0.4000000059604645,
+                            "Z": 0.4000000059604645
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Temp/Models/Building.obj",
+                                "Texture": [
+                                    "Temp/Models/SimpleCity_Texture.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Entity_1",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": 10.0,
+                            "Y": -2.0,
+                            "Z": -15.0
+                        },
+                        "Rotation": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 0.4000000059604645,
+                            "Y": 0.4000000059604645,
+                            "Z": 0.4000000059604645
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Temp/Models/SC_Bld_04_Bright.obj",
+                                "Texture": [
+                                    "Temp/Models/SimpleCity_Texture.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Entity_2",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": -10.0,
+                            "Y": -2.0,
+                            "Z": -15.0
+                        },
+                        "Rotation": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 0.4000000059604645,
+                            "Y": 0.4000000059604645,
+                            "Z": 0.4000000059604645
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Temp/Models/SC_Bld_09_Dark.obj",
+                                "Texture": [
+                                    "Temp/Models/SimpleCity_Texture.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Entity_3",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": 10.0,
+                            "Y": -2.0,
+                            "Z": -8.0
+                        },
+                        "Rotation": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 0.4000000059604645,
+                            "Y": 0.4000000059604645,
+                            "Z": 0.4000000059604645
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Temp/Models/SC_Prop_Garden_Tree.obj",
+                                "Texture": [
+                                    "Temp/Models/SimpleCity_Texture.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Entity_4",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": 7.0,
+                            "Y": -2.0,
+                            "Z": -8.0
+                        },
+                        "Rotation": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 0.4000000059604645,
+                            "Y": 0.4000000059604645,
+                            "Z": 0.4000000059604645
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Temp/Models/SC_Prop_Garden_Tree.obj",
+                                "Texture": [
+                                    "Temp/Models/SimpleCity_Texture.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Entity_5",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": 4.0,
+                            "Y": -2.0,
+                            "Z": -8.0
+                        },
+                        "Rotation": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 0.4000000059604645,
+                            "Y": 0.4000000059604645,
+                            "Z": 0.4000000059604645
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Temp/Models/SC_Prop_Garden_Tree.obj",
+                                "Texture": [
+                                    "Temp/Models/SimpleCity_Texture.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Entity_6",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": 1.0,
+                            "Y": -2.0,
+                            "Z": -8.0
+                        },
+                        "Rotation": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 0.4000000059604645,
+                            "Y": 0.4000000059604645,
+                            "Z": 0.4000000059604645
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Temp/Models/SC_Prop_Garden_Tree.obj",
+                                "Texture": [
+                                    "Temp/Models/SimpleCity_Texture.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Entity_7",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": -2.0,
+                            "Y": -2.0,
+                            "Z": -8.0
+                        },
+                        "Rotation": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 0.4000000059604645,
+                            "Y": 0.4000000059604645,
+                            "Z": 0.4000000059604645
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Temp/Models/SC_Prop_Garden_Tree.obj",
+                                "Texture": [
+                                    "Temp/Models/SimpleCity_Texture.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Entity_8",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": -5.0,
+                            "Y": -2.0,
+                            "Z": -8.0
+                        },
+                        "Rotation": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 0.4000000059604645,
+                            "Y": 0.4000000059604645,
+                            "Z": 0.4000000059604645
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Temp/Models/SC_Prop_Garden_Tree.obj",
+                                "Texture": [
+                                    "Temp/Models/SimpleCity_Texture.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Entity_9",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": -8.0,
+                            "Y": -2.0,
+                            "Z": -8.0
+                        },
+                        "Rotation": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 0.4000000059604645,
+                            "Y": 0.4000000059604645,
+                            "Z": 0.4000000059604645
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Temp/Models/SC_Prop_Garden_Tree.obj",
+                                "Texture": [
+                                    "Temp/Models/SimpleCity_Texture.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Entity_10",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": -20.0,
+                            "Y": -2.0,
+                            "Z": -3.0
+                        },
+                        "Rotation": {
+                            "X": 0.0,
+                            "Y": 90.0,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 0.4000000059604645,
+                            "Y": 0.4000000059604645,
+                            "Z": 0.4000000059604645
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Temp/Models/SC_Bld_WashingtonMonument.obj",
+                                "Texture": [
+                                    "Temp/Models/SimpleCity_Texture.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Entity_11",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": 0.5,
+                            "Y": -2.0,
+                            "Z": -8.0
+                        },
+                        "Rotation": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 0.4000000059604645,
+                            "Y": 0.4000000059604645,
+                            "Z": 0.4000000059604645
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Temp/Models/SC_Prop_AmericanFlag.obj",
+                                "Texture": [
+                                    "Temp/Models/SimpleCity_Texture.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Entity_12",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": -8.0,
+                            "Y": -2.0,
+                            "Z": 4.0
+                        },
+                        "Rotation": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 0.4000000059604645,
+                            "Y": 0.4000000059604645,
+                            "Z": 0.4000000059604645
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Temp/Models/SC_Prop_BasketballCourt.obj",
+                                "Texture": [
+                                    "Temp/Models/SimpleCity_Texture.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Entity_13",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": -7.0,
+                            "Y": -2.0,
+                            "Z": 1.0
+                        },
+                        "Rotation": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 0.4000000059604645,
+                            "Y": 0.4000000059604645,
+                            "Z": 0.4000000059604645
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Temp/Models/SC_Prop_Garden_Chair.obj",
+                                "Texture": [
+                                    "Temp/Models/SimpleCity_Texture.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Entity_14",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": -9.0,
+                            "Y": -2.0,
+                            "Z": 1.0
+                        },
+                        "Rotation": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 0.4000000059604645,
+                            "Y": 0.4000000059604645,
+                            "Z": 0.4000000059604645
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Temp/Models/SC_Prop_Garden_Chair.obj",
+                                "Texture": [
+                                    "Temp/Models/SimpleCity_Texture.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Entity_15",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": -20.0,
+                            "Y": -2.0,
+                            "Z": -15.0
+                        },
+                        "Rotation": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 0.4000000059604645,
+                            "Y": 0.4000000059604645,
+                            "Z": 0.4000000059604645
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Temp/Models/SC_Prop_Construction_Crane.obj",
+                                "Texture": [
+                                    "Temp/Models/SimpleCity_Texture.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Entity_16",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": -16.0,
+                            "Y": -2.0,
+                            "Z": -15.0
+                        },
+                        "Rotation": {
+                            "X": 0.0,
+                            "Y": 45.0,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 0.4000000059604645,
+                            "Y": 0.4000000059604645,
+                            "Z": 0.4000000059604645
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Temp/Models/SC_Prop_Construction_Beams.obj",
+                                "Texture": [
+                                    "Temp/Models/SimpleCity_Texture.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Entity_17",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": -12.0,
+                            "Y": -2.0,
+                            "Z": -11.0
+                        },
+                        "Rotation": {
+                            "X": 0.0,
+                            "Y": 90.0,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 0.4000000059604645,
+                            "Y": 0.4000000059604645,
+                            "Z": 0.4000000059604645
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Temp/Models/SC_Prop_Construction_Scaffolding.obj",
+                                "Texture": [
+                                    "Temp/Models/SimpleCity_Texture.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Entity_18",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": -8.0,
+                            "Y": -1.9900000095367432,
+                            "Z": -8.0
+                        },
+                        "Rotation": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 50.0,
+                            "Y": 1.0,
+                            "Z": 50.0
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Temp/Models/Plane.obj",
+                                "Texture": [
+                                    "Temp/Models/StreetTexture.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Entity_19",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": -24.0,
+                            "Y": 25.0,
+                            "Z": -15.0
+                        },
+                        "Rotation": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 0.009999999776482582,
+                            "Y": 0.009999999776482582,
+                            "Z": 0.009999999776482582
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Temp/Models/LowPoly_Sphere_12.stl",
+                                "Texture": [
+                                    "Temp/Models/StreetTexture.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "Type": "LightComponent",
+                    "Data": {
+                        "Constant": 1.0,
+                        "Linear": 0.10000000149011612,
+                        "Quadratic": 0.6000000238418579,
+                        "Ambient": {
+                            "R": 1.0,
+                            "G": 0.0,
+                            "B": 0.0
+                        },
+                        "Diffuse": {
+                            "R": 0.0,
+                            "G": 0.0,
+                            "B": 0.0
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Entity_20",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": -9.199999809265137,
+                            "Y": 20.799999237060547,
+                            "Z": -15.0
+                        },
+                        "Rotation": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 0.009999999776482582,
+                            "Y": 0.009999999776482582,
+                            "Z": 0.009999999776482582
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Temp/Models/LowPoly_Sphere_12.stl",
+                                "Texture": [
+                                    "Temp/Models/StreetTexture.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "Type": "LightComponent",
+                    "Data": {
+                        "Constant": 1.0,
+                        "Linear": 0.10000000149011612,
+                        "Quadratic": 0.6000000238418579,
+                        "Ambient": {
+                            "R": 1.0,
+                            "G": 0.0,
+                            "B": 0.0
+                        },
+                        "Diffuse": {
+                            "R": 0.0,
+                            "G": 0.0,
+                            "B": 0.0
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Entity_21",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": -30.799999237060547,
+                            "Y": 20.100000381469727,
+                            "Z": -13.800000190734863
+                        },
+                        "Rotation": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 0.009999999776482582,
+                            "Y": 0.009999999776482582,
+                            "Z": 0.009999999776482582
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Temp/Models/LowPoly_Sphere_12.stl",
+                                "Texture": [
+                                    "Temp/Models/StreetTexture.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "Type": "LightComponent",
+                    "Data": {
+                        "Constant": 1.0,
+                        "Linear": 0.10000000149011612,
+                        "Quadratic": 0.6000000238418579,
+                        "Ambient": {
+                            "R": 1.0,
+                            "G": 0.0,
+                            "B": 0.0
+                        },
+                        "Diffuse": {
+                            "R": 0.0,
+                            "G": 0.0,
+                            "B": 0.0
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Entity_22",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": -20.0,
+                            "Y": 23.0,
+                            "Z": -3.0
+                        },
+                        "Rotation": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 0.009999999776482582,
+                            "Y": 0.009999999776482582,
+                            "Z": 0.009999999776482582
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Temp/Models/LowPoly_Sphere_12.stl",
+                                "Texture": [
+                                    "Temp/Models/StreetTexture.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "Type": "LightComponent",
+                    "Data": {
+                        "Constant": 1.0,
+                        "Linear": 0.10000000149011612,
+                        "Quadratic": 0.6000000238418579,
+                        "Ambient": {
+                            "R": 1.0,
+                            "G": 1.0,
+                            "B": 1.0
+                        },
+                        "Diffuse": {
+                            "R": 0.0,
+                            "G": 0.0,
+                            "B": 0.0
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Entity_23",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": -16.100000381469727,
+                            "Y": -1.7999999523162842,
+                            "Z": 1.100000023841858
+                        },
+                        "Rotation": {
+                            "X": -65.0,
+                            "Y": 225.0,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 0.009999999776482582,
+                            "Y": 0.009999999776482582,
+                            "Z": 0.009999999776482582
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Temp/Models/SM_Icon_Light_Spotlight_01.obj",
+                                "Texture": [
+                                    "Temp/Models/PolygonPrototype_Texture_06.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Entity_24",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": -16.100000381469727,
+                            "Y": -1.7999999523162842,
+                            "Z": 1.100000023841858
+                        },
+                        "Rotation": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        }
+                    }
+                },
+                {
+                    "Type": "SpotLightComponent",
+                    "Data": {
+                        "Direction": {
+                            "X": -35.0,
+                            "Y": 225.0,
+                            "Z": -35.0
+                        },
+                        "CutOff": 20.0,
+                        "OuterCutOff": 25.0,
+                        "Constant": 0.5,
+                        "Linear": 0.009999999776482582,
+                        "Quadratic": 0.009999999776482582,
+                        "Ambient": {
+                            "R": 0.20000000298023224,
+                            "G": 0.20000000298023224,
+                            "B": 0.20000000298023224
+                        },
+                        "Diffuse": {
+                            "R": 0.800000011920929,
+                            "G": 0.800000011920929,
+                            "B": 0.6000000238418579
+                        },
+                        "Specular": {
+                            "R": 1.0,
+                            "G": 1.0,
+                            "B": 1.0
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Entity_25",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": -16.100000381469727,
+                            "Y": -1.7999999523162842,
+                            "Z": -6.5
+                        },
+                        "Rotation": {
+                            "X": -65.0,
+                            "Y": 315.0,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 0.009999999776482582,
+                            "Y": 0.009999999776482582,
+                            "Z": 0.009999999776482582
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Temp/Models/SM_Icon_Light_Spotlight_01.obj",
+                                "Texture": [
+                                    "Temp/Models/PolygonPrototype_Texture_06.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Entity_26",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": -16.100000381469727,
+                            "Y": -1.7999999523162842,
+                            "Z": -6.5
+                        },
+                        "Rotation": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        }
+                    }
+                },
+                {
+                    "Type": "SpotLightComponent",
+                    "Data": {
+                        "Direction": {
+                            "X": -35.0,
+                            "Y": 225.0,
+                            "Z": 35.0
+                        },
+                        "CutOff": 20.0,
+                        "OuterCutOff": 25.0,
+                        "Constant": 0.5,
+                        "Linear": 0.009999999776482582,
+                        "Quadratic": 0.009999999776482582,
+                        "Ambient": {
+                            "R": 0.20000000298023224,
+                            "G": 0.20000000298023224,
+                            "B": 0.20000000298023224
+                        },
+                        "Diffuse": {
+                            "R": 0.800000011920929,
+                            "G": 0.800000011920929,
+                            "B": 0.6000000238418579
+                        },
+                        "Specular": {
+                            "R": 1.0,
+                            "G": 1.0,
+                            "B": 1.0
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Entity_27",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": -18.700000762939453,
+                            "Y": 15.0,
+                            "Z": -2.799999952316284
+                        },
+                        "Rotation": {
+                            "X": -10.0,
+                            "Y": -90.0,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 0.004999999888241291,
+                            "Y": 0.004999999888241291,
+                            "Z": 0.004999999888241291
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Temp/Models/SM_Pawn_LadderClimb_Male_01.obj",
+                                "Texture": [
+                                    "Temp/Models/PolygonPrototype_Texture_06.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Entity_28",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Rotation": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        }
+                    }
+                },
+                {
+                    "Type": "PhysicsComponent",
+                    "Data": {
+                        "Mass": 1.0,
+                        "IsStatic": false,
+                        "Type": "Sphere",
+                        "Data": {
+                            "Offset": {
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Radius": 0.0
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}

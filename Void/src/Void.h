@@ -31,10 +31,15 @@
 
 // Built in Systems
 #include "Void/ECS/Systems/RenderingSystem.h"
+#include <Void/ECS/Systems/PhysicsSystem.h>
 
 // Built in Components
 #include "Void/ECS/Components/RenderingComponent.h"
 #include "Void/ECS/Components/TranformComponent.h"
+#include <Void/ECS/Components/LightComponent.h>
+#include <Void/ECS/Components/SpotLightComponent.h>
+
+#include "Void/Physics/CollisionPoints.h"
 
 // Vendor
 #include "assimp/scene.h"

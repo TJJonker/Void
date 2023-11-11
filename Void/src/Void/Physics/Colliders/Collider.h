@@ -1,10 +1,14 @@
 #pragma once
 #include <Void/Physics/CollisionPoints.h>
 #include <Void/Physics/Tranform.h>
-#include "PlaneCollider.h"
+#include "Void/Utils/Parser/ISerializable.h"
 
 namespace Void {
-	struct Collider {
+
+	struct SphereCollider;
+	struct PlaneCollider;
+
+	struct Collider : public ISerializable {
 	public:
 		virtual CollisionPoints TestCollision(
 			const Transform* transform,
@@ -20,5 +24,8 @@ namespace Void {
 			const Transform* transform,
 			const PlaneCollider* plane,
 			const Transform* planeTransform) const = 0;
+
+		virtual nlohmann::ordered_json ToJSON() const = 0;
+		virtual void FromJSON(const nlohmann::json& json) = 0;
 	};
 }
