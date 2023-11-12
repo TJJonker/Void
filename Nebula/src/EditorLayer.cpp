@@ -40,14 +40,12 @@ namespace Nebula::Editor {
 
 
         m_SceneManager = new Void::SceneManager();
-        m_SceneManager->LoadScene("Scene4.json");
+        m_SceneManager->LoadScene("Scene6.json");
 
-        entt::entity en = m_SceneManager->GetCurrentScene()->CreateEntity();
-        m_SceneManager->GetCurrentScene()->AddComponent<Void::TransformComponent>(en);
-        Void::PhysicsComponent& pc = m_SceneManager->GetCurrentScene()->AddComponent<Void::PhysicsComponent>(en);
-        pc.Collider = new Void::SphereCollider();
-
-        m_SceneManager->SaveScene("Scene5.json");
+        //entt::entity en = m_SceneManager->GetCurrentScene()->CreateEntity();
+        //m_SceneManager->GetCurrentScene()->AddComponent<Void::TransformComponent>(en);
+        //Void::PhysicsComponent& pc = m_SceneManager->GetCurrentScene()->AddComponent<Void::PhysicsComponent>(en);
+        //pc.Collider = new Void::SphereCollider();
 
         m_CameraController = new Void::CameraController();
 
@@ -56,6 +54,8 @@ namespace Nebula::Editor {
 
         std::shared_ptr<Void::PhysicsSystem> physicsSystem = std::make_shared<Void::PhysicsSystem>();
         m_SceneManager->GetCurrentScene()->SetPhysicsSystem(physicsSystem);
+        //physicsSystem->AddSolver(std::make_shared<Void::PositionSolver>());
+        physicsSystem->AddSolver(std::make_shared<Void::ImpulseSolver>());
 	}
 
     void EditorLayer::OnUpdate()

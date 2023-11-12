@@ -6,11 +6,11 @@ namespace Void {
 	struct SpotLightComponent : public ISerializable {
 
 		glm::vec3 Direction = glm::normalize(glm::vec3(0.0, -1.0, 0.0));
-		float CutOff = 15.0;
-		float OuterCutOff = 30.0;
-		float Constant = 1.0;
-		float Linear = 0.09;
-		float Quadratic = 0.032;
+		float CutOff = 15.0f;
+		float OuterCutOff = 30.0f;
+		float Constant = 1.0f;
+		float Linear = 0.09f;
+		float Quadratic = 0.032f;
 		glm::vec3 Ambient = glm::vec3(0.2, 0.2, 0.2);
 		glm::vec3 Diffuse = glm::vec3(0.8, 0.8, 0.6);
 		glm::vec3 Specular = glm::vec3(1.0, 1.0, 1.0);

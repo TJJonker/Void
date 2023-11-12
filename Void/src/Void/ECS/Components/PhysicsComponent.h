@@ -4,6 +4,7 @@
 #include "Void/Utils/Parser/ISerializable.h"
 #include "Void/Physics/Colliders/PlaneCollider.h"
 #include "Void/Physics/Colliders/SphereCollider.h"
+#include "Void/Physics/Colliders/MeshCollider.h"
 
 namespace Void {
 	struct PhysicsComponent : public ISerializable {
@@ -31,6 +32,11 @@ namespace Void {
 				json["Data"] = collider->ToJSON();
 			}
 
+			if (MeshCollider* collider = dynamic_cast<MeshCollider*>(Collider)) {
+				json["Type"] = "Mesh";
+				json["Data"] = collider->ToJSON();
+			}
+
 			return json;
 		}
 
@@ -46,6 +52,11 @@ namespace Void {
 
 			if (type == "Sphere") {
 				Collider = new SphereCollider();
+				Collider->FromJSON(json["Data"]);
+			}
+
+			if (type == "Mesh") {
+				Collider = new MeshCollider();
 				Collider->FromJSON(json["Data"]);
 			}
 		}

@@ -86,7 +86,7 @@ namespace Void {
 		// Register for the window's mouse moved event callback.
 		glfwSetCursorPosCallback(m_Window, [](GLFWwindow* window, double x, double y) {
 			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
-			MouseMovedEvent event(x, y);
+			MouseMovedEvent event((uint16_t)x, (uint16_t)y);
 			data.EventCallback(event);
 			});
 

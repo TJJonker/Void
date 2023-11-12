@@ -1,0 +1,111 @@
+{
+    "Entities": [
+        {
+            "Name": "Entity_0",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": 0.0,
+                            "Y": -2.0,
+                            "Z": 0.0
+                        },
+                        "Rotation": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 5.0,
+                            "Y": 1.0,
+                            "Z": 5.0
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Temp/Models/Plane.obj",
+                                "Texture": [
+                                    "Temp/Models/StreetTexture.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "Type": "PhysicsComponent",
+                    "Data": {
+                        "Mass": 1.0,
+                        "IsStatic": true,
+                        "Type": "Mesh",
+                        "Data": {
+                            "MeshName": "Temp/Models/Plane.obj"
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Entity_1",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": 0.0,
+                            "Y": 15.0,
+                            "Z": 0.0
+                        },
+                        "Rotation": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 0.1,
+                            "Y": 0.1,
+                            "Z": 0.1
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Temp/Models/LowPoly_Sphere_12.stl",
+                                "Texture": [
+                                    "Temp/Models/StreetTexture.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "Type": "PhysicsComponent",
+                    "Data": {
+                        "Mass": 1.0,
+                        "IsStatic": false,
+                        "Type": "Sphere",
+                        "Data": {
+                            "Offset": {
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Radius": 1
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}

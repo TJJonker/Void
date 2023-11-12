@@ -33,15 +33,18 @@ namespace Void {
 				
 				Transform transformA = { aTransform.Position, aTransform.Rotation, aTransform.Scale }; 
 				Transform transformB = { bTransform.Position, bTransform.Rotation, bTransform.Scale };
-				CollisionPoints points = aPhysics.Collider->TestCollision(&transformA, bPhysics.Collider, &transformB);
+				std::vector<CollisionPoint> points = aPhysics.Collider->TestCollision(&transformA, bPhysics.Collider, &transformB);
 
-				if (points.HasCollision) {
-					Collision collision;
-					collision.aPhysics = &aPhysics;
-					collision.aTransform = &aTransform;
-					collision.bPhysics = &bPhysics;
-					collision.bTransform = &bTransform;
-					collisions.emplace_back(collision);
+				for (CollisionPoint cp : points) {
+					if (cp.HasCollision) {
+						Collision collision;
+						collision.aPhysics = &aPhysics;
+						collision.aTransform = &aTransform;
+						collision.bPhysics = &bPhysics;
+						collision.bTransform = &bTransform;
+						collision.CollisionPoint = cp;
+						collisions.emplace_back(collision);
+					}
 				}
 			}
 		}
@@ -55,7 +58,8 @@ namespace Void {
 		for (entt::entity entity : registry.view<PhysicsComponent, TransformComponent>()) {
 			auto& [transform, physics] = registry.get<TransformComponent, PhysicsComponent>(entity);
 
-			physics.Force += physics.Mass * glm::vec3(0, -5, 0); // apply a force
+			if(!physics.IsStatic)
+				physics.Force += physics.Mass * glm::vec3(0, -5, 0); // apply a force
 
 			physics.Velocity += physics.Force / physics.Mass * Time::DeltaTime();
 			transform.Position += physics.Velocity * Time::DeltaTime();

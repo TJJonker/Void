@@ -179,6 +179,7 @@ IF EXIST ..\bin\Dist-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll\ (xcopy 
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Void\Physics\Colliders\MeshCollider.h" />
     <ClInclude Include="src\Void.h" />
     <ClInclude Include="src\Void\Core\Application.h" />
     <ClInclude Include="src\Void\Core\Core.h" />
@@ -245,7 +246,7 @@ IF EXIST ..\bin\Dist-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll\ (xcopy 
     <ClInclude Include="src\Void\Rendering\Libraries\Texture\TextureLibrary.h" />
     <ClInclude Include="src\Void\Utils\ExternalFiles\File\File.h" />
     <ClInclude Include="src\Void\Utils\ExternalFiles\MeshLoader\MeshLoader.h" />
-    <ClInclude Include="src\Void\Utils\ExternalFiles\TextureLoader.h" />
+    <ClInclude Include="src\Void\Utils\ExternalFiles\TextureLoader\TextureLoader.h" />
     <ClInclude Include="src\Void\Utils\Parser\ISerializable.h" />
     <ClInclude Include="src\Void\Utils\Parser\JSONParser.h" />
     <ClInclude Include="src\Void\Utils\TimeSteps\Time.h" />
@@ -253,6 +254,7 @@ IF EXIST ..\bin\Dist-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll\ (xcopy 
     <ClInclude Include="src\pch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Void\Physics\Colliders\MeshCollider.cpp" />
     <ClCompile Include="src\Void\Core\Application.cpp" />
     <ClCompile Include="src\Void\Core\Input.cpp" />
     <ClCompile Include="src\Void\Core\Window.cpp" />
@@ -297,7 +299,7 @@ IF EXIST ..\bin\Dist-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll\ (xcopy 
     <ClCompile Include="src\Void\Rendering\Libraries\Texture\TextureLibrary.cpp" />
     <ClCompile Include="src\Void\Utils\ExternalFiles\File\File.cpp" />
     <ClCompile Include="src\Void\Utils\ExternalFiles\MeshLoader\MeshLoader.cpp" />
-    <ClCompile Include="src\Void\Utils\ExternalFiles\TextureLoader.cpp" />
+    <ClCompile Include="src\Void\Utils\ExternalFiles\TextureLoader\TextureLoader.cpp" />
     <ClCompile Include="src\Void\Utils\Parser\JSONParser.cpp" />
     <ClCompile Include="src\Void\Utils\TimeSteps\Time.cpp" />
     <ClCompile Include="src\Void\Vendor\stb_lib\stb_lib.cpp" />

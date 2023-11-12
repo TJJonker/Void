@@ -12,6 +12,6 @@ namespace Void {
 		TransformComponent* bTransform;
 		PhysicsComponent* bPhysics;
 
-		CollisionPoints* CollisionPoints;
+		CollisionPoint CollisionPoint;
 	};
 }

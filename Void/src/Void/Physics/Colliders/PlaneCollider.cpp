@@ -3,27 +3,23 @@
 #include "Void/Physics/ColissionAlgorithms.h"
 
 namespace Void {
-    CollisionPoints PlaneCollider::TestCollision(
-        const Transform* transform, 
-        const Collider* collider, 
-        const Transform* colliderTransform) const
+    std::vector<CollisionPoint> PlaneCollider::TestCollision(const Transform* transform, const Collider* collider, const Transform* colliderTransform) const
     {
         return collider->TestCollision(colliderTransform, this, transform);
     }
 
-    CollisionPoints PlaneCollider::TestCollision(
-        const Transform* transform, 
-        const SphereCollider* sphere, 
-        const Transform* sphereTransform) const
+    std::vector<CollisionPoint> PlaneCollider::TestCollision(const Transform* transform, const SphereCollider* sphere, const Transform* sphereTransform) const
     {
-        return CollisionAlgorithms::FindPlaneSphereCollisionPoints(
-            this, transform, sphere, sphereTransform);
+        return CollisionAlgorithms::FindSpherePlaneCollisionPoints(sphere, sphereTransform, this, transform);
     }
 
-    CollisionPoints PlaneCollider::TestCollision(
-        const Transform* transform, 
-        const PlaneCollider* plane, 
-        const Transform* planeTransform) const
+    std::vector<CollisionPoint> PlaneCollider::TestCollision(const Transform* transform, const PlaneCollider* plane, const Transform* planeTransform) const
+    {
+        VOID_ASSERT(false, "Not implemented yet");
+        return { };
+    }
+
+    std::vector<CollisionPoint> PlaneCollider::TestCollision(const Transform* transform, const MeshCollider* mesh, const Transform* meshTransform) const
     {
         VOID_ASSERT(false, "Not implemented yet");
         return { };
@@ -40,9 +36,9 @@ namespace Void {
         json["Normal"]["Y"] = Normal.y;
         json["Normal"]["Z"] = Normal.z;
 
-        json["Extents"]["X"] = Extents.x;
-        json["Extents"]["Y"] = Extents.y;
-        json["Extents"]["Z"] = Extents.z;
+        json["HalfExtents"]["X"] = HalfExtents.x;
+        json["HalfExtents"]["Y"] = HalfExtents.y;
+        json["HalfExtents"]["Z"] = HalfExtents.z;
         return json;
     }
 
@@ -56,8 +52,9 @@ namespace Void {
         Normal.y = json["Normal"]["Y"];
         Normal.z = json["Normal"]["Z"];
 
-        Extents.x = json["Extents"]["X"];
-        Extents.y = json["Extents"]["Y"];
-        Extents.z = json["Extents"]["Z"];
+        HalfExtents.x = json["HalfExtents"]["X"];
+        HalfExtents.y = json["HalfExtents"]["Y"];
+        HalfExtents.z = json["HalfExtents"]["Z"];
     }
+
 }

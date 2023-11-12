@@ -2,11 +2,10 @@
 #include <glm/glm.hpp>
 
 namespace Void {
-	struct CollisionPoints {
-		glm::vec3 A;
-		glm::vec3 B;
+	struct CollisionPoint {
+		glm::vec3 CollisionPosition;
 		glm::vec3 Normal;
 		float Depth;
-		bool HasCollision;
+		bool HasCollision = false;
 	};
 }

@@ -16,7 +16,7 @@
 // External
 #include "Void/Utils/ExternalFiles/MeshLoader/MeshLoader.h"
 #include "Void/Utils/ExternalFiles/File/File.h"
-#include "Void/Utils/ExternalFiles/TextureLoader.h"
+#include "Void/Utils/ExternalFiles/TextureLoader/TextureLoader.h"
 
 // Parsing
 #include "Void/Utils/Parser/JSONParser.h"
@@ -43,3 +43,7 @@
 
 // Vendor
 #include "assimp/scene.h"
+
+// Physics Solvers
+#include "Void/Physics/Solvers/Position/PositionSolver.h"
+#include "Void/Physics/Solvers/Impulse/ImpulseSolver.h"

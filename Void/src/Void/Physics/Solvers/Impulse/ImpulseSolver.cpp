@@ -12,10 +12,10 @@ namespace Void {
 			glm::vec3& bVel = !bPhysics->IsStatic ? bPhysics->Velocity : glm::vec3(0.0f);
 
 			glm::vec3 rVel = bVel - aVel;
-			float nSpd = glm::dot(rVel, collision.CollisionPoints->Normal);
+			float nSpd = glm::dot(rVel, collision.CollisionPoint.Normal);
 
-			float aInvMass = !aPhysics->IsStatic ? 1/aPhysics->Mass : 1.0f;
-			float bInvMass = !bPhysics->IsStatic ? 1/bPhysics->Mass : 1.0f;
+			float aInvMass = !aPhysics->IsStatic ? 1/aPhysics->Mass : 0.0f;
+			float bInvMass = !bPhysics->IsStatic ? 1/bPhysics->Mass : 0.0f;
 
 			// Impulse
 
@@ -26,15 +26,16 @@ namespace Void {
 
 			float j = -(1.0f) * nSpd / (aInvMass + bInvMass);
 
-			glm::vec3 impluse = j * collision.CollisionPoints->Normal;
+			glm::vec3 impluse = j * collision.CollisionPoint.Normal * 2.f;
 
 			if (!aPhysics->IsStatic) {
-				aVel -= impluse * aInvMass;
+				aPhysics->Velocity -= impluse * aInvMass;
 			}
 
 			if (!bPhysics->IsStatic) {
-				bVel += impluse * bInvMass;
+				bPhysics->Velocity += impluse * bInvMass;
 			}
+			int i = 0;
 		}
 	}
 }
