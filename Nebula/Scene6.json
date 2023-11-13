@@ -13,12 +13,12 @@
                         },
                         "Rotation": {
                             "X": 0.0,
-                            "Y": 70.0,
-                            "Z": 45.0
+                            "Y": 0.0,
+                            "Z": 0.0
                         },
                         "Scale": {
                             "X": 5.0,
-                            "Y": 1.0,
+                            "Y": 5.0,
                             "Z": 5.0
                         }
                     }
@@ -29,9 +29,9 @@
                         "DrawWireframe": false,
                         "Submeshes": [
                             {
-                                "Model": "Temp/Models/Plane.obj",
+                                "Model": "Temp/Models/Simple_pooltable.obj",
                                 "Texture": [
-                                    "Temp/Models/StreetTexture.png"
+                                    "Temp/Models/SimpleCity_Texture.png"
                                 ],
                                 "Shader": "DefaultShader"
                             }
@@ -45,7 +45,7 @@
                         "IsStatic": true,
                         "Type": "Mesh",
                         "Data": {
-                            "MeshName": "Temp/Models/Plane.obj"
+                            "MeshName": "Temp/Models/Simple_pooltable.obj"
                         }
                     }
                 }
@@ -58,8 +58,8 @@
                     "Type": "TransformComponent",
                     "Data": {
                         "Position": {
-                            "X": 0.0,
-                            "Y": 30.0,
+                            "X": 0.1,
+                            "Y": 15.0,
                             "Z": 0.0
                         },
                         "Rotation": {
@@ -68,9 +68,9 @@
                             "Z": 0.0
                         },
                         "Scale": {
-                            "X": 0.1,
-                            "Y": 0.1,
-                            "Z": 0.1
+                            "X": 0.025,
+                            "Y": 0.025,
+                            "Z": 0.025
                         }
                     }
                 },
@@ -101,7 +101,7 @@
                                 "Y": 0.0,
                                 "Z": 0.0
                             },
-                            "Radius": 1
+                            "Radius": 0.25
                         }
                     }
                 }

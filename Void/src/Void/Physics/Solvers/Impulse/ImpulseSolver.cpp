@@ -21,19 +21,21 @@ namespace Void {
 
 			// This is important for convergence
 			// a negitive impulse would drive the objects closer together
-			if (nSpd <= 0)
+			if (nSpd >= 0)
 				continue;
 
 			float j = -(1.0f) * nSpd / (aInvMass + bInvMass);
 
-			glm::vec3 impluse = j * collision.CollisionPoint.Normal * 2.f;
+			glm::vec3 impluse = j * collision.CollisionPoint.Normal;
 
 			if (!aPhysics->IsStatic) {
-				aPhysics->Velocity -= impluse * aInvMass;
+				glm::vec3 force = impluse * aInvMass;
+				aPhysics->Velocity -= force + force * .5f;
 			}
 
 			if (!bPhysics->IsStatic) {
-				bPhysics->Velocity += impluse * bInvMass;
+				glm::vec3 force = impluse * bInvMass;
+				bPhysics->Velocity += force + force * .5f;
 			}
 			int i = 0;
 		}

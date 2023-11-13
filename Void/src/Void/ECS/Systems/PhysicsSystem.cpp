@@ -59,7 +59,7 @@ namespace Void {
 			auto& [transform, physics] = registry.get<TransformComponent, PhysicsComponent>(entity);
 
 			if(!physics.IsStatic)
-				physics.Force += physics.Mass * glm::vec3(0, -10, 0); // apply a force
+				physics.Force += physics.Mass * glm::vec3(0, -5, 0); // apply a force
 
 			physics.Velocity += physics.Force / physics.Mass * Time::DeltaTime();
 			transform.Position += physics.Velocity * Time::DeltaTime();

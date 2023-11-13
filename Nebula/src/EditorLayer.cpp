@@ -32,12 +32,12 @@ namespace Nebula::Editor {
         Void::MeshLibrary::GetInstance()->Load("Temp/Models/LowPoly_Sphere_12.stl");
         Void::MeshLibrary::GetInstance()->Load("Temp/Models/SM_Icon_Light_Spotlight_01.obj");
         Void::MeshLibrary::GetInstance()->Load("Temp/Models/SM_Pawn_LadderClimb_Male_01.obj");
+        Void::MeshLibrary::GetInstance()->Load("Temp/Models/Simple_pooltable.obj");
 
         // Texture lib
         Void::TextureLibrary::GetInstance()->Load("Temp/Models/SimpleCity_Texture.png");
         Void::TextureLibrary::GetInstance()->Load("Temp/Models/StreetTexture.png");
         Void::TextureLibrary::GetInstance()->Load("Temp/Models/PolygonPrototype_Texture_06.png");
-
 
         m_SceneManager = new Void::SceneManager();
         m_SceneManager->LoadScene("Scene6.json");
@@ -54,7 +54,7 @@ namespace Nebula::Editor {
 
         std::shared_ptr<Void::PhysicsSystem> physicsSystem = std::make_shared<Void::PhysicsSystem>();
         m_SceneManager->GetCurrentScene()->SetPhysicsSystem(physicsSystem);
-        //physicsSystem->AddSolver(std::make_shared<Void::PositionSolver>());
+        physicsSystem->AddSolver(std::make_shared<Void::PositionSolver>());
         physicsSystem->AddSolver(std::make_shared<Void::ImpulseSolver>());
 	}
 
@@ -66,7 +66,7 @@ namespace Nebula::Editor {
         m_SceneManager->GetCurrentScene()->UpdatePhysicsSystem();
 
         //m_FrameBuffer->Bind();
-        Void::Rendering::RenderingCommands::SetClearColor({ .03, .03, .05, 1 });
+        Void::Rendering::RenderingCommands::SetClearColor({ .1, .2, .1, 1 });
         Void::Rendering::RenderingCommands::Clear();
         m_SceneManager->GetCurrentScene()->UpdateRenderingSystem();
         //m_FrameBuffer->UnBind();

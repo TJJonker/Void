@@ -132,8 +132,10 @@ namespace Void::CollisionAlgorithms {
 
          // Check if the closest point is inside the triangle
          result = PointInTriangle(closestPoint, triangleWorldSpace);
-         if (result.HasCollision) 
+         if (result.HasCollision) {
+             result.Depth = sphereRadius - distance;
              return result;
+         }
 
          //// Check if the sphere intersects with any triangle edge
          //result = SphereTriangleEdgeIntersect(sphereWorldSpacePosition, sphereRadius, v0, v1);
@@ -171,42 +173,39 @@ namespace Void::CollisionAlgorithms {
 
             // Calculate the normal vector of the triangle
             result.Normal = triangleWorldSpace.Normal;
-
-            // Calculate the depth of penetration (distance from the point to the triangle)
-            result.Depth = glm::length(pointWorldSpace - result.CollisionPosition);
         }
 
         return result;
     }
 
-    //CollisionPoint SphereTriangleEdgeIntersect(const glm::vec3& sphereCenter, float sphereRadius, const glm::vec3& v0, const glm::vec3& v1)
-    //{
-    //    CollisionPoint result;
+    CollisionPoint SphereTriangleEdgeIntersect(const glm::vec3& sphereCenter, float sphereRadius, const glm::vec3& v0, const glm::vec3& v1)
+    {
+        CollisionPoint result;
 
-    //    // Calculate the closest point on the edge to the sphere center
-    //    glm::vec3 edgeDirection = glm::normalize(v1 - v0);
-    //    glm::vec3 edgeToPoint = sphereCenter - v0;
-    //    float t = glm::dot(edgeToPoint, edgeDirection);
-    //    glm::vec3 closestPoint;
+        // Calculate the closest point on the edge to the sphere center
+        glm::vec3 edgeDirection = glm::normalize(v1 - v0);
+        glm::vec3 edgeToPoint = sphereCenter - v0;
+        float t = glm::dot(edgeToPoint, edgeDirection);
+        glm::vec3 closestPoint;
 
-    //    if (t < 0.0f)
-    //        closestPoint = v0;
-    //    else if (t > glm::length(v1 - v0))
-    //        closestPoint = v1;
-    //    else
-    //        closestPoint = v0 + t * edgeDirection;
+        if (t < 0.0f)
+            closestPoint = v0;
+        else if (t > glm::length(v1 - v0))
+            closestPoint = v1;
+        else
+            closestPoint = v0 + t * edgeDirection;
 
-    //    // Check if the closest point is within the sphere
-    //    bool hasCollision = glm::length2(sphereCenter - closestPoint) <= (sphereRadius * sphereRadius);
+        // Check if the closest point is within the sphere
+        bool hasCollision = glm::length2(sphereCenter - closestPoint) <= (sphereRadius * sphereRadius);
 
-    //    // Fill in the CollisionPoint struct
-    //    result.HasCollision = hasCollision;
-    //    result.CollisionPosition = closestPoint;
-    //    result.Normal = glm::normalize(sphereCenter - closestPoint);
-    //    result.Depth = hasCollision ? (sphereRadius - glm::length(sphereCenter - closestPoint)) : 0.0f;
+        // Fill in the CollisionPoint struct
+        result.HasCollision = hasCollision;
+        result.CollisionPosition = closestPoint;
+        result.Normal = glm::normalize(sphereCenter - closestPoint);
+        result.Depth = hasCollision ? (sphereRadius - glm::length(sphereCenter - closestPoint)) : 0.0f;
 
-    //    return result;
-    //}
+        return result;
+    }
 
 
 
