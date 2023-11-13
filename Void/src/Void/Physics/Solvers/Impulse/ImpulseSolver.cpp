@@ -21,7 +21,7 @@ namespace Void {
 
 			// This is important for convergence
 			// a negitive impulse would drive the objects closer together
-			if (nSpd >= 0)
+			if (nSpd <= 0)
 				continue;
 
 			float j = -(1.0f) * nSpd / (aInvMass + bInvMass);

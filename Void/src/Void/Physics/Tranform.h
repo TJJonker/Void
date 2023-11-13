@@ -8,21 +8,16 @@ namespace Void {
 		glm::vec3 Rotation;
 		glm::vec3 Scale;
 
-	public:
 		glm::mat4 GetTransformMatrix() const {
-			glm::mat4 transform = glm::mat4(1.0f); // Identity matrix
+			glm::mat4 translationMatrix = glm::translate(glm::mat4(1.0f), Position);
+			glm::mat4 rotationMatrix =
+				glm::rotate(glm::mat4(1.0f), glm::radians(Rotation.x), glm::vec3(1.0f, 0.0f, 0.0f)) *
+				glm::rotate(glm::mat4(1.0f), glm::radians(Rotation.y), glm::vec3(0.0f, 1.0f, 0.0f)) *
+				glm::rotate(glm::mat4(1.0f), glm::radians(Rotation.z), glm::vec3(0.0f, 0.0f, 1.0f));
+			glm::mat4 scaleMatrix = glm::scale(glm::mat4(1.0f), Scale);
 
-			// Apply translation
-			transform = glm::translate(transform, Position);
-
-			// Apply rotation
-			transform = glm::rotate(transform, glm::radians(Rotation.x), glm::vec3(1.0f, 0.0f, 0.0f));
-			transform = glm::rotate(transform, glm::radians(Rotation.y), glm::vec3(0.0f, 1.0f, 0.0f));
-			transform = glm::rotate(transform, glm::radians(Rotation.z), glm::vec3(0.0f, 0.0f, 1.0f));
-
-			// Apply scale
-			transform = glm::scale(transform, Scale);
-			return transform;
+			//return scaleMatrix * rotationMatrix * translationMatrix;
+			return translationMatrix * rotationMatrix * scaleMatrix;
 		}
 	};
 }

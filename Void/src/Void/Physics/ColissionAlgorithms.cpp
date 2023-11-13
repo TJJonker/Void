@@ -64,21 +64,19 @@ namespace Void::CollisionAlgorithms {
     {
         std::vector<CollisionPoint> collisionPoints;
 
-        glm::vec3 aPosition = ta->Position + a->Offset;
+        glm::vec3 sphereCenterWorldSpace = ta->Position + a->Offset;
 
+        // Retrieve mesh data.
         Rendering::Mesh* mesh = MeshLibrary::GetInstance()->Get(b->MeshName.c_str());
-        
         const Rendering::VertexBuffer* vertexBuffer = mesh->Submeshes[0]->getVertexBuffers()[0].get();
         const Rendering::IndexBuffer* indexBuffer = mesh->Submeshes[0]->GetIndexBuffer().get();
-
         unsigned int stride = vertexBuffer->GetVertexBufferLayout().GetStride();
         const char* vertices = vertexBuffer->GetData();
-
         const uint32_t* indices = indexBuffer->GetIndices();
-        
-        // We assume the first element of the bufferlayout is the vertexPosition
-        std::vector<Triangle> triangles;
 
+        // Create triangles
+        // We assume the first element of the buffer layout is the vertex position
+        std::vector<Triangle> triangles;
         for (uint32_t i = 0; i < indexBuffer->GetCount(); i += 3) {
             Triangle triangle;
             for (int j = 0; j < 3; j++) {
@@ -86,17 +84,24 @@ namespace Void::CollisionAlgorithms {
                 float x = *(float*)&vertices[(index * stride) + (0 * sizeof(float))];
                 float y = *(float*)&vertices[(index * stride) + (1 * sizeof(float))];
                 float z = *(float*)&vertices[(index * stride) + (2 * sizeof(float))];
-                glm::vec3 vertexPosition = glm::vec3(x, y, z) * tb->Scale + tb->Position;
-                triangle.positions[j] = glm::vec3(x, y, z);
+
+                glm::vec4 local_position(x, y, z, 1.0f);
+                glm::mat4 tm = tb->GetTransformMatrix();
+                glm::vec4 world_position = tm * local_position;
+                triangle.Positions[j] = glm::vec3(world_position);
             }
+
+            // Calculate the normal of the scaled triangle
+            glm::vec3 edge1 = triangle.Positions[1] - triangle.Positions[0];
+            glm::vec3 edge2 = triangle.Positions[2] - triangle.Positions[0];
+            triangle.Normal = glm::normalize(glm::cross(edge1, edge2));
+
             triangles.push_back(triangle);
         }
 
+        // Iterate over every triangle an determine collision
         for (const Triangle& triangle : triangles) {
-            
-            glm::vec3 spherePositionMeshSpace = glm::vec3(glm::inverse(tb->GetTransformMatrix()) * glm::vec4(aPosition, 1.0f));
-
-            CollisionPoint collisionPoint = FindSphereTriangleCollisionPoints(spherePositionMeshSpace, a->Radius, triangle);
+            CollisionPoint collisionPoint = FindSphereTriangleCollisionPoints(sphereCenterWorldSpace, a->Radius, triangle);
             if (collisionPoint.HasCollision) {
                 collisionPoints.push_back(collisionPoint);
             }
@@ -105,112 +110,119 @@ namespace Void::CollisionAlgorithms {
         return collisionPoints;
     }
 
-    CollisionPoint FindSphereTriangleCollisionPoints(const glm::vec3 SpherePositionInMeshSpace, const float radius, const Triangle& triangle) {
+    CollisionPoint FindSphereTriangleCollisionPoints(const glm::vec3 sphereWorldSpacePosition, const float sphereRadius, const Triangle& triangleWorldSpace)
+    {
         CollisionPoint result;
 
-        glm::vec3 v0 = triangle.positions[0];
-        glm::vec3 v1 = triangle.positions[1];
-        glm::vec3 v2 = triangle.positions[2];
-
-        glm::vec3 normal = glm::normalize(glm::cross(v1 - v0, v2 - v0));
+        glm::vec3 v0 = triangleWorldSpace.Positions[0];
+        glm::vec3 v1 = triangleWorldSpace.Positions[1];
+        glm::vec3 v2 = triangleWorldSpace.Positions[2];
 
         // Project the sphere center onto the plane of the triangle
-        float d = glm::dot(normal, v0);
-        float distance = glm::dot(normal, SpherePositionInMeshSpace) - d;
-            
+        float d = glm::dot(triangleWorldSpace.Normal, v0);
+        float distance = glm::dot(triangleWorldSpace.Normal, sphereWorldSpacePosition) - d;
 
-        if (glm::abs(distance) > radius) {
+        if (glm::abs(distance) > sphereRadius) {
             result.HasCollision = false;
             return result;
         }
 
-        // Calculate the point on the triangle closest to the sphere center
-        glm::vec3 closestPoint = SpherePositionInMeshSpace - distance * normal;
+         // Calculate the point on the triangle closest to the sphere center
+         glm::vec3 closestPoint = sphereWorldSpacePosition - distance * triangleWorldSpace.Normal;
 
-        // Check if the closest point is inside the triangle
-        result = PointInTriangle(closestPoint, triangle);
-        if (result.HasCollision)
-            return result;
+         // Check if the closest point is inside the triangle
+         result = PointInTriangle(closestPoint, triangleWorldSpace);
+         if (result.HasCollision) 
+             return result;
 
+         //// Check if the sphere intersects with any triangle edge
+         //result = SphereTriangleEdgeIntersect(sphereWorldSpacePosition, sphereRadius, v0, v1);
+         //if (result.HasCollision)
+         //    return result;
 
-        // Check if the sphere intersects with any triangle edge
-        result = SphereTriangleEdgeIntersect(SpherePositionInMeshSpace, radius, v0, v1);
-        if (result.HasCollision)
-            return result;
+         //result = SphereTriangleEdgeIntersect(sphereWorldSpacePosition, sphereRadius, v1, v2);
+         //if (result.HasCollision)
+         //    return result;
 
-        result = SphereTriangleEdgeIntersect(SpherePositionInMeshSpace, radius, v1, v2);
-        if (result.HasCollision)
-            return result;
+         //result = SphereTriangleEdgeIntersect(sphereWorldSpacePosition, sphereRadius, v2, v0);
+         //if (result.HasCollision)
+         //    return result;
 
-        result = SphereTriangleEdgeIntersect(SpherePositionInMeshSpace, radius, v2, v0);
-        if (result.HasCollision)
-            return result;
-
-        return { };
+            return {};
     }
 
-    CollisionPoint PointInTriangle(const glm::vec3& point, const Triangle& triangle)
+    CollisionPoint PointInTriangle(const glm::vec3& pointWorldSpace, const Triangle& triangleWorldSpace)
     {
         CollisionPoint result;
 
-        glm::vec3 v0 = triangle.positions[0];
-        glm::vec3 v1 = triangle.positions[1];
-        glm::vec3 v2 = triangle.positions[2];
+        glm::vec3 v0 = triangleWorldSpace.Positions[0];
+        glm::vec3 v1 = triangleWorldSpace.Positions[1];
+        glm::vec3 v2 = triangleWorldSpace.Positions[2];
 
-        // Check if the point is inside the triangle using barycentric coordinates
-        float d00 = glm::dot(v1 - v0, v1 - v0);
-        float d01 = glm::dot(v1 - v0, v2 - v0);
-        float d11 = glm::dot(v2 - v0, v2 - v0);
-        float d20 = glm::dot(point - v0, v2 - v0);
-        float d21 = glm::dot(point - v0, v2 - v1);
-
-        float invDenom = 1.0f / (d00 * d11 - d01 * d01);
-        float u = (d11 * d20 - d01 * d21) * invDenom;
-        float v = (d00 * d21 - d01 * d20) * invDenom;
+        glm::vec3 barycentric = Barycentric(pointWorldSpace, v0, v1, v2);
 
         // Check if the barycentric coordinates are within the valid range for a point inside the triangle
-        result.HasCollision = (u >= 0.0f) && (v >= 0.0f) && (u + v <= 1.0f);
+        result.HasCollision = (barycentric.x >= 0.0f && barycentric.y >= 0.0f && barycentric.z >= 0.0f &&
+            barycentric.x <= 1.0f && barycentric.y <= 1.0f && barycentric.z <= 1.0f);
 
         if (result.HasCollision) {
             // Calculate the collision position using barycentric coordinates
-            result.CollisionPosition = v0 + u * (v1 - v0) + v * (v2 - v0);
+            result.CollisionPosition = barycentric.x * v0 + barycentric.y * v1 + barycentric.z * v2;
 
             // Calculate the normal vector of the triangle
-            result.Normal = glm::normalize(glm::cross(v1 - v0, v2 - v0));
+            result.Normal = triangleWorldSpace.Normal;
 
             // Calculate the depth of penetration (distance from the point to the triangle)
-            result.Depth = glm::length(point - result.CollisionPosition);
+            result.Depth = glm::length(pointWorldSpace - result.CollisionPosition);
         }
 
         return result;
     }
 
-    CollisionPoint SphereTriangleEdgeIntersect(const glm::vec3& sphereCenter, float sphereRadius, const glm::vec3& v0, const glm::vec3& v1)
+    //CollisionPoint SphereTriangleEdgeIntersect(const glm::vec3& sphereCenter, float sphereRadius, const glm::vec3& v0, const glm::vec3& v1)
+    //{
+    //    CollisionPoint result;
+
+    //    // Calculate the closest point on the edge to the sphere center
+    //    glm::vec3 edgeDirection = glm::normalize(v1 - v0);
+    //    glm::vec3 edgeToPoint = sphereCenter - v0;
+    //    float t = glm::dot(edgeToPoint, edgeDirection);
+    //    glm::vec3 closestPoint;
+
+    //    if (t < 0.0f)
+    //        closestPoint = v0;
+    //    else if (t > glm::length(v1 - v0))
+    //        closestPoint = v1;
+    //    else
+    //        closestPoint = v0 + t * edgeDirection;
+
+    //    // Check if the closest point is within the sphere
+    //    bool hasCollision = glm::length2(sphereCenter - closestPoint) <= (sphereRadius * sphereRadius);
+
+    //    // Fill in the CollisionPoint struct
+    //    result.HasCollision = hasCollision;
+    //    result.CollisionPosition = closestPoint;
+    //    result.Normal = glm::normalize(sphereCenter - closestPoint);
+    //    result.Depth = hasCollision ? (sphereRadius - glm::length(sphereCenter - closestPoint)) : 0.0f;
+
+    //    return result;
+    //}
+
+
+
+glm::vec3 Barycentric(const glm::vec3& p, const glm::vec3& a, const glm::vec3& b, const glm::vec3& c)
     {
-        CollisionPoint result;
-
-        // Calculate the closest point on the edge to the sphere center
-        glm::vec3 edgeDirection = glm::normalize(v1 - v0);
-        glm::vec3 edgeToPoint = sphereCenter - v0;
-        float t = glm::dot(edgeToPoint, edgeDirection);
-        glm::vec3 closestPoint;
-
-        if (t < 0.0f)
-            closestPoint = v0;
-        else if (t > glm::length(v1 - v0))
-            closestPoint = v1;
-        else
-            closestPoint = v0 + t * edgeDirection;
-
-        // Check if the closest point is within the sphere
-        bool hasCollision = glm::length2(sphereCenter - closestPoint) <= (sphereRadius * sphereRadius);
-
-        // Fill in the CollisionPoint struct
-        result.HasCollision = hasCollision;
-        result.CollisionPosition = closestPoint;
-        result.Normal = glm::normalize(sphereCenter - closestPoint);
-        result.Depth = hasCollision ? (sphereRadius - glm::length(sphereCenter - closestPoint)) : 0.0f;
-
+        glm::vec3 v0 = b - a, v1 = c - a, v2 = p - a;
+        float d00 = glm::dot(v0, v0);
+        float d01 = glm::dot(v0, v1);
+        float d11 = glm::dot(v1, v1);
+        float d20 = glm::dot(v2, v0);
+        float d21 = glm::dot(v2, v1);
+        float denom = d00 * d11 - d01 * d01;
+        glm::vec3 result;
+        result.y = (d11 * d20 - d01 * d21) / denom;
+        result.z = (d00 * d21 - d01 * d20) / denom;
+        result.x = 1.0f - result.y - result.z;
         return result;
     }
 }

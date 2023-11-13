@@ -16,13 +16,6 @@ namespace Void::Rendering {
 			RenderingComponent& rendering = registry.get<RenderingComponent>(ent);
 			TransformComponent& transform = registry.get<TransformComponent>(ent);
 
-			glm::mat4 model = glm::mat4(1.0f);
-
-			model = glm::translate(model, transform.Position);
-			model = glm::rotate(model, glm::radians(transform.Rotation.y), glm::vec3(0.f, 1.f, 0.f));
-			model = glm::rotate(model, glm::radians(transform.Rotation.x), glm::vec3(1.f, 0.f, 0.f));
-			model = glm::scale(model, transform.Scale);
-
 			// TODO: expand so multiple submeshes can be rendered
 			// TODO: Pass the strings so the Rendering Pipeline can load everything
 			if (rendering.Submeshes.size()) {
@@ -48,7 +41,7 @@ namespace Void::Rendering {
 				else 
 					glPolygonMode(GL_FRONT_AND_BACK, GL_FILL); 
 
-				Rendering::RenderingCommands::Draw(vertexArray, shader, model);
+				Rendering::RenderingCommands::Draw(vertexArray, shader, transform.GetTransformMatrix());
 			}
 		}
 	}
