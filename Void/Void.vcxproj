@@ -191,6 +191,7 @@ IF EXIST ..\bin\Dist-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll\ (xcopy 
     <ClInclude Include="src\Void\ECS\Components\PhysicsComponent.h" />
     <ClInclude Include="src\Void\ECS\Components\RenderingComponent.h" />
     <ClInclude Include="src\Void\ECS\Components\SpotLightComponent.h" />
+    <ClInclude Include="src\Void\ECS\Components\TagComponent.h" />
     <ClInclude Include="src\Void\ECS\Components\TranformComponent.h" />
     <ClInclude Include="src\Void\ECS\Core\Scene\Scene.h" />
     <ClInclude Include="src\Void\ECS\Core\Scene\SceneManager.h" />

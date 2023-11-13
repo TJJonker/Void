@@ -1,0 +1,924 @@
+{
+    "Entities": [
+        {
+            "Name": "Entity_0",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": 0.0,
+                            "Y": -3.0,
+                            "Z": 0.0
+                        },
+                        "Rotation": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 5.0,
+                            "Y": 5.0,
+                            "Z": 5.0
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Temp/Models/Simple_pooltable.obj",
+                                "Texture": [
+                                    "Temp/Models/SimpleCity_Texture.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "Type": "PhysicsComponent",
+                    "Data": {
+                        "Mass": 1.0,
+                        "IsStatic": true,
+                        "Velocity": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Type": "Mesh",
+                        "Data": {
+                            "MeshName": "Temp/Models/Simple_pooltable.obj"
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Entity_11",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": 0.0,
+                            "Y": -2.75,
+                            "Z": 0.0
+                        },
+                        "Rotation": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 1.000000037252903,
+                            "Y": 1.000000037252903,
+                            "Z": 1.000000037252903
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Temp/Models/Slider.obj",
+                                "Texture": [
+                                    "Temp/Models/PolygonPrototype_Texture_06.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "Type": "PhysicsComponent",
+                    "Data": {
+                        "Mass": 1.0,
+                        "IsStatic": true,
+                        "Velocity": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Type": "Mesh",
+                        "Data": {
+                            "MeshName": "Temp/Models/Slider.obj"
+                        }
+                    }
+                },
+                {
+                    "Type": "TagComponent",
+                    "Data": {
+                        "Tag": "Slider"
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Entity_11",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": 2.0,
+                            "Y": -2.75,
+                            "Z": 2.0
+                        },
+                        "Rotation": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 0.500000037252903,
+                            "Y": 3.500000037252903,
+                            "Z": 0.500000037252903
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Temp/Models/Slider.obj",
+                                "Texture": [
+                                    "Temp/Models/PolygonPrototype_Texture_06.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "Type": "PhysicsComponent",
+                    "Data": {
+                        "Mass": 1.0,
+                        "IsStatic": true,
+                        "Velocity": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Type": "Mesh",
+                        "Data": {
+                            "MeshName": "Temp/Models/Slider.obj"
+                        }
+                    }
+                },
+                {
+                    "Type": "TagComponent",
+                    "Data": {
+                        "Tag": "Slider2"
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Entity_11",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": -2.0,
+                            "Y": -2.75,
+                            "Z": -2.0
+                        },
+                        "Rotation": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 0.500000037252903,
+                            "Y": 3.500000037252903,
+                            "Z": 0.500000037252903
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Temp/Models/Slider.obj",
+                                "Texture": [
+                                    "Temp/Models/PolygonPrototype_Texture_06.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "Type": "PhysicsComponent",
+                    "Data": {
+                        "Mass": 1.0,
+                        "IsStatic": true,
+                        "Velocity": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Type": "Mesh",
+                        "Data": {
+                            "MeshName": "Temp/Models/Slider.obj"
+                        }
+                    }
+                },
+                {
+                    "Type": "TagComponent",
+                    "Data": {
+                        "Tag": "Slider2"
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Entity_1",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": 0.0,
+                            "Y": 1.0,
+                            "Z": 0.0
+                        },
+                        "Rotation": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 0.02500000037252903,
+                            "Y": 0.02500000037252903,
+                            "Z": 0.02500000037252903
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Temp/Models/LowPoly_Sphere_12.stl",
+                                "Texture": [
+                                    "Temp/Models/StreetTexture.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "Type": "PhysicsComponent",
+                    "Data": {
+                        "Mass": 1.0,
+                        "IsStatic": false,
+                        "Velocity": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Type": "Sphere",
+                        "Data": {
+                            "Offset": {
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Radius": 0.25
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Entity_2",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": -0.25,
+                            "Y": 1.0,
+                            "Z": -0.43299999833106995
+                        },
+                        "Rotation": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 0.02500000037252903,
+                            "Y": 0.02500000037252903,
+                            "Z": 0.02500000037252903
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Temp/Models/LowPoly_Sphere_12.stl",
+                                "Texture": [
+                                    "Temp/Models/StreetTexture.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "Type": "PhysicsComponent",
+                    "Data": {
+                        "Mass": 1.0,
+                        "IsStatic": false,
+                        "Velocity": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Type": "Sphere",
+                        "Data": {
+                            "Offset": {
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Radius": 0.25
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Entity_3",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": 0.25,
+                            "Y": 1.0,
+                            "Z": -0.43299999833106995
+                        },
+                        "Rotation": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 0.02500000037252903,
+                            "Y": 0.02500000037252903,
+                            "Z": 0.02500000037252903
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Temp/Models/LowPoly_Sphere_12.stl",
+                                "Texture": [
+                                    "Temp/Models/StreetTexture.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "Type": "PhysicsComponent",
+                    "Data": {
+                        "Mass": 1.0,
+                        "IsStatic": false,
+                        "Velocity": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Type": "Sphere",
+                        "Data": {
+                            "Offset": {
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Radius": 0.25
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Entity_4",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": -0.5,
+                            "Y": 1.0,
+                            "Z": -0.8659999966621399
+                        },
+                        "Rotation": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 0.02500000037252903,
+                            "Y": 0.02500000037252903,
+                            "Z": 0.02500000037252903
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Temp/Models/LowPoly_Sphere_12.stl",
+                                "Texture": [
+                                    "Temp/Models/StreetTexture.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "Type": "PhysicsComponent",
+                    "Data": {
+                        "Mass": 1.0,
+                        "IsStatic": false,
+                        "Velocity": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Type": "Sphere",
+                        "Data": {
+                            "Offset": {
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Radius": 0.25
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Entity_5",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": 0.0,
+                            "Y": 1.0,
+                            "Z": -0.8659999966621399
+                        },
+                        "Rotation": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 0.02500000037252903,
+                            "Y": 0.02500000037252903,
+                            "Z": 0.02500000037252903
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Temp/Models/LowPoly_Sphere_12.stl",
+                                "Texture": [
+                                    "Temp/Models/StreetTexture.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "Type": "PhysicsComponent",
+                    "Data": {
+                        "Mass": 1.0,
+                        "IsStatic": false,
+                        "Velocity": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Type": "Sphere",
+                        "Data": {
+                            "Offset": {
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Radius": 0.25
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Entity_6",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": 0.5,
+                            "Y": 1.0,
+                            "Z": -0.8659999966621399
+                        },
+                        "Rotation": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 0.02500000037252903,
+                            "Y": 0.02500000037252903,
+                            "Z": 0.02500000037252903
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Temp/Models/LowPoly_Sphere_12.stl",
+                                "Texture": [
+                                    "Temp/Models/StreetTexture.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "Type": "PhysicsComponent",
+                    "Data": {
+                        "Mass": 1.0,
+                        "IsStatic": false,
+                        "Velocity": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Type": "Sphere",
+                        "Data": {
+                            "Offset": {
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Radius": 0.25
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Entity_7",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": -0.75,
+                            "Y": 1.0,
+                            "Z": -1.2990000247955322
+                        },
+                        "Rotation": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 0.02500000037252903,
+                            "Y": 0.02500000037252903,
+                            "Z": 0.02500000037252903
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Temp/Models/LowPoly_Sphere_12.stl",
+                                "Texture": [
+                                    "Temp/Models/StreetTexture.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "Type": "PhysicsComponent",
+                    "Data": {
+                        "Mass": 1.0,
+                        "IsStatic": false,
+                        "Velocity": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Type": "Sphere",
+                        "Data": {
+                            "Offset": {
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Radius": 0.25
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Entity_8",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": -0.25,
+                            "Y": 1.0,
+                            "Z": -1.2990000247955322
+                        },
+                        "Rotation": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 0.02500000037252903,
+                            "Y": 0.02500000037252903,
+                            "Z": 0.02500000037252903
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Temp/Models/LowPoly_Sphere_12.stl",
+                                "Texture": [
+                                    "Temp/Models/StreetTexture.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "Type": "PhysicsComponent",
+                    "Data": {
+                        "Mass": 1.0,
+                        "IsStatic": false,
+                        "Velocity": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Type": "Sphere",
+                        "Data": {
+                            "Offset": {
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Radius": 0.25
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Entity_9",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": 0.25,
+                            "Y": 1.0,
+                            "Z": -1.2990000247955322
+                        },
+                        "Rotation": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 0.02500000037252903,
+                            "Y": 0.02500000037252903,
+                            "Z": 0.02500000037252903
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Temp/Models/LowPoly_Sphere_12.stl",
+                                "Texture": [
+                                    "Temp/Models/StreetTexture.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "Type": "PhysicsComponent",
+                    "Data": {
+                        "Mass": 1.0,
+                        "IsStatic": false,
+                        "Velocity": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Type": "Sphere",
+                        "Data": {
+                            "Offset": {
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Radius": 0.25
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Entity_10",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": 0.75,
+                            "Y": 1.0,
+                            "Z": -1.2990000247955322
+                        },
+                        "Rotation": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 0.02500000037252903,
+                            "Y": 0.02500000037252903,
+                            "Z": 0.02500000037252903
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Temp/Models/LowPoly_Sphere_12.stl",
+                                "Texture": [
+                                    "Temp/Models/StreetTexture.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "Type": "PhysicsComponent",
+                    "Data": {
+                        "Mass": 1.0,
+                        "IsStatic": false,
+                        "Velocity": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Type": "Sphere",
+                        "Data": {
+                            "Offset": {
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Radius": 0.25
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Entity_11",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": 0.0,
+                            "Y": -2.5,
+                            "Z": 3.0
+                        },
+                        "Rotation": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 0.02500000037252903,
+                            "Y": 0.02500000037252903,
+                            "Z": 0.02500000037252903
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": true,
+                        "Submeshes": [
+                            {
+                                "Model": "Temp/Models/LowPoly_Sphere_12.stl",
+                                "Texture": [
+                                    "Temp/Models/PolygonPrototype_Texture_06.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "Type": "PhysicsComponent",
+                    "Data": {
+                        "Mass": 1.0,
+                        "IsStatic": true,
+                        "Velocity": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Type": "Sphere",
+                        "Data": {
+                            "Offset": {
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Radius": 0.25
+                        }
+                    }
+                },
+                {
+                    "Type": "TagComponent",
+                    "Data": {
+                        "Tag": "Player"
+                    }
+                }
+            ]
+        }
+
+    ]
+}

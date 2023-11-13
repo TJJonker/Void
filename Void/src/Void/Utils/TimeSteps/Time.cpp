@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "Time.h"
+#include <GLFW/glfw3.h>
 
 namespace Void {
 
@@ -23,5 +24,10 @@ namespace Void {
 
 		m_DeltaTime = glfwGetTime() - m_LastFrameTimestamp;
 		m_LastFrameTimestamp = glfwGetTime();
+	}
+
+	float Time::TimeSinceStartup()
+	{
+		return (float)glfwGetTime();
 	}
 }

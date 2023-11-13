@@ -1,5 +1,7 @@
 #include "EditorLayer.h"
 #include "imgui.h"
+#include <PlayerSystem.h>
+
 
 
 namespace Nebula::Editor {
@@ -33,6 +35,7 @@ namespace Nebula::Editor {
         Void::MeshLibrary::GetInstance()->Load("Temp/Models/SM_Icon_Light_Spotlight_01.obj");
         Void::MeshLibrary::GetInstance()->Load("Temp/Models/SM_Pawn_LadderClimb_Male_01.obj");
         Void::MeshLibrary::GetInstance()->Load("Temp/Models/Simple_pooltable.obj");
+        Void::MeshLibrary::GetInstance()->Load("Temp/Models/Slider.obj");
 
         // Texture lib
         Void::TextureLibrary::GetInstance()->Load("Temp/Models/SimpleCity_Texture.png");
@@ -40,12 +43,15 @@ namespace Nebula::Editor {
         Void::TextureLibrary::GetInstance()->Load("Temp/Models/PolygonPrototype_Texture_06.png");
 
         m_SceneManager = new Void::SceneManager();
-        m_SceneManager->LoadScene("Scene6.json");
+        m_SceneManager->LoadScene("Scene7.json");
 
         //entt::entity en = m_SceneManager->GetCurrentScene()->CreateEntity();
         //m_SceneManager->GetCurrentScene()->AddComponent<Void::TransformComponent>(en);
         //Void::PhysicsComponent& pc = m_SceneManager->GetCurrentScene()->AddComponent<Void::PhysicsComponent>(en);
         //pc.Collider = new Void::SphereCollider();
+        //Void::TagComponent& tag = m_SceneManager->GetCurrentScene()->AddComponent<Void::TagComponent>(en);
+        //tag.Tag = "Player";
+        //m_SceneManager->SaveScene("Scene7.json");
 
         m_CameraController = new Void::CameraController();
 
@@ -56,6 +62,8 @@ namespace Nebula::Editor {
         m_SceneManager->GetCurrentScene()->SetPhysicsSystem(physicsSystem);
         physicsSystem->AddSolver(std::make_shared<Void::PositionSolver>());
         physicsSystem->AddSolver(std::make_shared<Void::ImpulseSolver>());
+
+        m_SceneManager->GetCurrentScene()->AddSystem(std::make_shared<PlayerSystem>());
 	}
 
     void EditorLayer::OnUpdate()
@@ -63,6 +71,7 @@ namespace Nebula::Editor {
         m_CameraController->Update(); 
         Void::Rendering::RenderingCommands::BeginDraw(m_CameraController->GetCamera()); 
 
+        m_SceneManager->GetCurrentScene()->UpdateSystems();
         m_SceneManager->GetCurrentScene()->UpdatePhysicsSystem();
 
         //m_FrameBuffer->Bind();

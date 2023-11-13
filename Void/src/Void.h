@@ -4,6 +4,8 @@
 #include "Void/Core/Application.h"
 #include "Void/Layers/Core/Layer.h"
 #include "Void/ECS/Core/Scene/SceneManager.h"
+#include "Void/Core/Input.h"
+#include "Void/Utils/TimeSteps/Time.h"
 
 // Debug
 #include "Void/Debug/Log.h"
@@ -38,6 +40,7 @@
 #include "Void/ECS/Components/TranformComponent.h"
 #include <Void/ECS/Components/LightComponent.h>
 #include <Void/ECS/Components/SpotLightComponent.h>
+#include <Void/ECS/Components/TagComponent.h>
 
 #include "Void/Physics/CollisionPoints.h"
 

@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "MeshCollider.h"
+#include "Void/Physics/ColissionAlgorithms.h"
 
 namespace Void {
 	std::vector<CollisionPoint> Void::MeshCollider::TestCollision(const Transform* transform, const Collider* collider, const Transform* colliderTransform) const
@@ -15,13 +16,13 @@ namespace Void {
 
 	std::vector<CollisionPoint> Void::MeshCollider::TestCollision(const Transform* transform, const PlaneCollider* plane, const Transform* planeTransform) const
 	{
-		VOID_ASSERT(false, "Not implemented");
+		//VOID_ASSERT(false, "Not implemented");
 		return { CollisionPoint() };
 	}
 
 	std::vector<CollisionPoint> Void::MeshCollider::TestCollision(const Transform* transform, const MeshCollider* mesh, const Transform* meshTransform) const
 	{
-		VOID_ASSERT(false, "Not implemented");
+		//VOID_ASSERT(false, "Not implemented");
 		return { CollisionPoint() };
 	}
 

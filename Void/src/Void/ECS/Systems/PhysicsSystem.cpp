@@ -60,8 +60,10 @@ namespace Void {
 		for (entt::entity entity : registry.view<PhysicsComponent, TransformComponent>()) {
 			auto& [transform, physics] = registry.get<TransformComponent, PhysicsComponent>(entity);
 
-			if(!physics.IsStatic)
-				physics.Force += physics.Mass * glm::vec3(0, -2.5, 0); // apply a force
+			if (physics.IsStatic)
+				continue;
+
+			physics.Force += physics.Mass * glm::vec3(0, -2.5, 0); // apply a force
 
 			physics.Velocity += physics.Force / physics.Mass * (Time::DeltaTime() / m_Substeps);
 			transform.Position += physics.Velocity * (Time::DeltaTime() / m_Substeps);
