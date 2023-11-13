@@ -4,40 +4,45 @@
 namespace Void {
 	void ImpulseSolver::Solve(std::vector<Collision>& collisions)
 	{
-		for (Collision collision : collisions) {
-			PhysicsComponent* aPhysics = collision.aPhysics;
-			PhysicsComponent* bPhysics = collision.bPhysics;
+		for (Collision& collision : collisions) {
+			
+			float aStatic = (float)collision.aPhysics->IsStatic;
+			float bStatic = (float)collision.bPhysics->IsStatic;
 
-			glm::vec3& aVel = !aPhysics->IsStatic ? aPhysics->Velocity : glm::vec3(0.0f);
-			glm::vec3& bVel = !bPhysics->IsStatic ? bPhysics->Velocity : glm::vec3(0.0f);
+			glm::vec3 aVelocity = collision.aPhysics->Velocity;
+			glm::vec3 bVelocity = collision.bPhysics->Velocity;
+			glm::vec3 rVelocity = bVelocity - aVelocity;
+			float nSpd = glm::dot(rVelocity, collision.CollisionPoint.Normal);
 
-			glm::vec3 rVel = bVel - aVel;
-			float nSpd = glm::dot(rVel, collision.CollisionPoint.Normal);
+			float aInvMass = !aStatic ? 1 / collision.aPhysics->Mass : 0.f;
+			float bInvMass = !bStatic ? 1 / collision.bPhysics->Mass : 0.f;
 
-			float aInvMass = !aPhysics->IsStatic ? 1/aPhysics->Mass : 0.0f;
-			float bInvMass = !bPhysics->IsStatic ? 1/bPhysics->Mass : 0.0f;
-
-			// Impulse
-
-			// This is important for convergence
-			// a negitive impulse would drive the objects closer together
 			if (nSpd >= 0)
 				continue;
 
-			float j = -(1.0f) * nSpd / (aInvMass + bInvMass);
+			float bounciness = (/*!aStatic ? collision.aPhysics.bounciness : */0.7f) *
+				(/*!bStatic ? collision.bPhysics.bounciness : */0.7f);
 
-			glm::vec3 impluse = j * collision.CollisionPoint.Normal;
+			float scale = -(1.0f + bounciness) * nSpd / (aInvMass + bInvMass);
+			glm::vec3 impulse = scale * collision.CollisionPoint.Normal;
 
-			if (!aPhysics->IsStatic) {
-				glm::vec3 force = impluse * aInvMass;
-				aPhysics->Velocity -= force + force * .5f;
-			}
 
-			if (!bPhysics->IsStatic) {
-				glm::vec3 force = impluse * bInvMass;
-				bPhysics->Velocity += force + force * .5f;
-			}
-			int i = 0;
+
+			//VOID_CORE_WARN("Impulse Solver");
+
+			glm::vec3 ova = collision.aPhysics->Velocity;
+			//VOID_CORE_TRACE("Old velocity object A: {0}, {1}, {2}", ova.x, ova.y, ova.z);
+			if (!aStatic)
+				collision.aPhysics->Velocity -= impulse * aInvMass;
+			glm::vec3 nva = collision.aPhysics->Velocity;
+			//VOID_CORE_TRACE("New velocity object A: {0}, {1}, {2}", nva.x, nva.y, nva.z);
+
+			glm::vec3 ovb = collision.bPhysics->Velocity;
+			//VOID_CORE_TRACE("Old velocity object B: {0}, {1}, {2}", ovb.x, ovb.y, ovb.z);
+			if (!bStatic)
+				collision.bPhysics->Velocity += impulse * bInvMass;
+			glm::vec3 nvb = collision.bPhysics->Velocity;
+			//VOID_CORE_TRACE("New velocity object B: {0}, {1}, {2} \n", nvb.x, nvb.y, nvb.z);
 		}
 	}
 }

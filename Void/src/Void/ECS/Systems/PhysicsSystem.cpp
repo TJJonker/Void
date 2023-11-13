@@ -9,8 +9,10 @@ namespace Void {
 
 	void PhysicsSystem::Update(entt::registry& registry)
 	{
-		ApplyForces(registry);
-		ResolveCollisions(registry);
+		for (int i = 0; i < m_Substeps; i++) {
+			ApplyForces(registry);
+			ResolveCollisions(registry);
+		}
 	}
 
 	void PhysicsSystem::ResolveCollisions(entt::registry& registry)
@@ -59,10 +61,10 @@ namespace Void {
 			auto& [transform, physics] = registry.get<TransformComponent, PhysicsComponent>(entity);
 
 			if(!physics.IsStatic)
-				physics.Force += physics.Mass * glm::vec3(0, -5, 0); // apply a force
+				physics.Force += physics.Mass * glm::vec3(0, -2.5, 0); // apply a force
 
-			physics.Velocity += physics.Force / physics.Mass * Time::DeltaTime();
-			transform.Position += physics.Velocity * Time::DeltaTime();
+			physics.Velocity += physics.Force / physics.Mass * (Time::DeltaTime() / m_Substeps);
+			transform.Position += physics.Velocity * (Time::DeltaTime() / m_Substeps);
 
 			physics.Force = glm::vec3(0, 0, 0); // reset net force at the end
 		}

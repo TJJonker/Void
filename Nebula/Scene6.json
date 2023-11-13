@@ -8,7 +8,7 @@
                     "Data": {
                         "Position": {
                             "X": 0.0,
-                            "Y": -2.0,
+                            "Y": -3.0,
                             "Z": 0.0
                         },
                         "Rotation": {
@@ -43,6 +43,11 @@
                     "Data": {
                         "Mass": 1.0,
                         "IsStatic": true,
+                        "Velocity": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
                         "Type": "Mesh",
                         "Data": {
                             "MeshName": "Temp/Models/Simple_pooltable.obj"
@@ -52,15 +57,15 @@
             ]
         },
         {
-            "Name": "Entity_1",
+            "Name": "Ball_1",
             "Components": [
                 {
                     "Type": "TransformComponent",
                     "Data": {
                         "Position": {
-                            "X": 0.1,
-                            "Y": 15.0,
-                            "Z": 0.0
+                            "X": -0.25,
+                            "Y": -0.0,
+                            "Z": -0.433
                         },
                         "Rotation": {
                             "X": 0.0,
@@ -95,6 +100,133 @@
                         "Mass": 1.0,
                         "IsStatic": false,
                         "Type": "Sphere",
+                        "Velocity": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": -2.0
+                        },
+                        "Data": {
+                            "Offset": {
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Radius": 0.25
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Ball_1",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": -0.25,
+                            "Y": 3.0,
+                            "Z": -0.433
+                        },
+                        "Rotation": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 0.025,
+                            "Y": 0.025,
+                            "Z": 0.025
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Temp/Models/LowPoly_Sphere_12.stl",
+                                "Texture": [
+                                    "Temp/Models/StreetTexture.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "Type": "PhysicsComponent",
+                    "Data": {
+                        "Mass": 1.0,
+                        "IsStatic": false,
+                        "Type": "Sphere",
+                        "Velocity": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Data": {
+                            "Offset": {
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Radius": 0.25
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Ball_1",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": -0.25,
+                            "Y": 1.0,
+                            "Z": -0.433
+                        },
+                        "Rotation": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 0.025,
+                            "Y": 0.025,
+                            "Z": 0.025
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Temp/Models/LowPoly_Sphere_12.stl",
+                                "Texture": [
+                                    "Temp/Models/StreetTexture.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "Type": "PhysicsComponent",
+                    "Data": {
+                        "Mass": 1.0,
+                        "IsStatic": false,
+                        "Type": "Sphere",
+                        "Velocity": {
+                            "X": 1.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
                         "Data": {
                             "Offset": {
                                 "X": 0.0,

@@ -10,20 +10,27 @@ namespace Void::CollisionAlgorithms {
         CollisionPoint result;
 
         // Calculate the distance between the centers of the two spheres
-        glm::vec3 delta = tb->Position + b->Offset - (ta->Position + a->Offset);
+        glm::vec3 delta = tb->Position - ta->Position;
         float distance = glm::length(delta);
 
         // Check for collision by comparing the distance to the sum of the radii
-        if (distance <= (a->Radius + b->Radius)) {
+        if (distance < (a->Radius + b->Radius)) {
             // Calculate the collision normal and depth
             glm::vec3 collisionNormal = glm::normalize(delta);
             float penetrationDepth = (a->Radius + b->Radius) - distance;
 
             // Fill in the CollisionPoints struct
             result.CollisionPosition = (ta->Position + a->Offset) + (collisionNormal * a->Radius);
-            result.Normal = collisionNormal;
+            result.Normal = -collisionNormal;
             result.Depth = penetrationDepth;
             result.HasCollision = true;
+
+            VOID_CORE_WARN("Sphere Collision");
+            VOID_CORE_TRACE("APosition: {0}, {1}, {2}", ta->Position.x, ta->Position.y, ta->Position.z);
+            VOID_CORE_TRACE("BPosition: {0}, {1}, {2}", tb->Position.x, tb->Position.y, tb->Position.z);
+            VOID_CORE_TRACE("Distance betweem: {0}", distance);
+            VOID_CORE_TRACE("Normal {0}, {1}, {2}", -collisionNormal.x, -collisionNormal.y, -collisionNormal.z);
+            VOID_CORE_TRACE("Penetration depth: {0}", penetrationDepth);
         }
         else {
             // No collision
@@ -137,18 +144,18 @@ namespace Void::CollisionAlgorithms {
              return result;
          }
 
-         //// Check if the sphere intersects with any triangle edge
-         //result = SphereTriangleEdgeIntersect(sphereWorldSpacePosition, sphereRadius, v0, v1);
-         //if (result.HasCollision)
-         //    return result;
+         // Check if the sphere intersects with any triangle edge
+         result = SphereTriangleEdgeIntersect(sphereWorldSpacePosition, sphereRadius, v0, v1);
+         if (result.HasCollision)
+             return result;
 
-         //result = SphereTriangleEdgeIntersect(sphereWorldSpacePosition, sphereRadius, v1, v2);
-         //if (result.HasCollision)
-         //    return result;
+         result = SphereTriangleEdgeIntersect(sphereWorldSpacePosition, sphereRadius, v1, v2);
+         if (result.HasCollision)
+             return result;
 
-         //result = SphereTriangleEdgeIntersect(sphereWorldSpacePosition, sphereRadius, v2, v0);
-         //if (result.HasCollision)
-         //    return result;
+         result = SphereTriangleEdgeIntersect(sphereWorldSpacePosition, sphereRadius, v2, v0);
+         if (result.HasCollision)
+             return result;
 
             return {};
     }
