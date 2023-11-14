@@ -1,10 +1,16 @@
 #include "PlayerSystem.h"
 #include <Void.h>
+#include <Void/ECS/Components/TagComponent.h>
+#include <Void/ECS/Components/TranformComponent.h>
+#include <Void/ECS/Components/PhysicsComponent.h>
 
-void PlayerSystem::Update(entt::registry& registry)
+void PlayerSystem::Update(Void::Scene* scene)
 {
-	for (entt::entity entity : registry.view<Void::TagComponent, Void::TransformComponent, Void::PhysicsComponent>()) {
-		auto& [tag, transform, physics] = registry.get<Void::TagComponent, Void::TransformComponent, Void::PhysicsComponent>(entity);
+	for (Void::Entity* entity : scene->GetAllEntitesWith<Void::TagComponent, Void::TransformComponent, Void::PhysicsComponent>()) {
+
+		Void::TagComponent& tag = entity->GetComponent<Void::TagComponent>();
+		Void::TransformComponent& transform = entity->GetComponent<Void::TransformComponent>();
+		Void::PhysicsComponent& physics = entity->GetComponent<Void::PhysicsComponent>();
 
 		if (tag.Tag == "Player") {
 			glm::vec3 lastPosition = transform.Position;

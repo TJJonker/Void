@@ -1,17 +1,11 @@
 #pragma once
-#include <Void/Vendor/entt/entt.hpp>
 #include "Void/Physics/CollisionPoints.h"
-#include <Void/ECS/Components/TranformComponent.h>
-#include <Void/ECS/Components/PhysicsComponent.h>
+#include <Void/ECS/Core/Entity/Entity.h>
 
 namespace Void {
 	struct Collision {
-		TransformComponent* aTransform;
-		PhysicsComponent* aPhysics;
-
-		TransformComponent* bTransform;
-		PhysicsComponent* bPhysics;
-
+		Entity* A;
+		Entity* B;			
 		CollisionPoint CollisionPoint;
 	};
 }

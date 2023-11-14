@@ -1,46 +1,52 @@
 #pragma once
 #include <Void/ECS/Core/Systems/ISystem.h>
-#include "Void/Vendor/entt/entt.hpp"
+#include <Void/ECS/Core/Entity/Entity.h>
 
 namespace Void {
 	class Scene
 	{
 	private:
 		entt::registry m_Registry;
+		std::map<entt::entity, Entity*> m_Entities;
 
 		std::shared_ptr<ISystem> m_RenderingSystem;
 		std::shared_ptr<ISystem> m_PhysicsSystem;
 		std::vector<std::shared_ptr<ISystem>> m_Systems;
 
 	public:
-		entt::entity CreateEntity();
+		Entity* CreateEntity();
 
-		template<typename T>
-		T& AddComponent(entt::entity entity) {
-			m_Registry.emplace<T>(entity);
-			return m_Registry.get<T>(entity);
-		}
 
-		template<typename T>
-		T& GetComponent(entt::entity entity) {
-			return m_Registry.get<T>(entity);
-		}
-
-		template<typename T>
-		bool HasComponent(entt::entity entity) {
-			return m_Registry.any_of<T>(entity);
-		}
+		~Scene();
 
 		void AddSystem(std::shared_ptr<Void::ISystem> system) { m_Systems.push_back(system); }
 		void UpdateSystems();
+
 		void SetRenderingSystem(std::shared_ptr<Void::ISystem> system) { m_RenderingSystem = system; }
+		void UpdateRenderingSystem() { m_RenderingSystem->Update(this); }
+
 		void SetPhysicsSystem(std::shared_ptr<Void::ISystem> system) { m_PhysicsSystem = system; }
-		void UpdateRenderingSystem() { m_RenderingSystem->Update(m_Registry); }
-		void UpdatePhysicsSystem() { m_PhysicsSystem->Update(m_Registry); }
+		void UpdatePhysicsSystem() { m_PhysicsSystem->Update(this); }
 
-		std::vector<entt::entity> GetAllEntities() const;
+		std::vector<Entity*> GetAllEntities() const;
+		
+		Entity* GetEntity(const entt::entity& id);
 
-		entt::registry& Registry() { return m_Registry; }
+		void RemoveEntity(const entt::entity& id);
+
+		template<typename... T>
+		std::vector<Entity*> GetAllEntitesWith() {
+			entt::basic_view view = m_Registry.view<T...>();
+			std::vector<Entity*> entities;
+
+			for (entt::entity ent : view) {
+				entities.push_back(GetEntity(ent));
+			}
+
+			return entities;
+		}
+
+		//entt::registry& Registry() { return m_Registry; }
 	};
 }
 

@@ -1,8 +1,8 @@
 #pragma once
-#include "Void/ECS/Core/Systems/ISystem.h"
+#include <Void/ECS/Core/Scene/Scene.h>
 
 class PlayerSystem : public Void::ISystem
 {
-	void Update(entt::registry& registry) override;
+	void Update(Void::Scene* scene) override;
 };
 

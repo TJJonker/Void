@@ -5,9 +5,9 @@
 
 namespace Void {
 	struct TransformComponent : public ISerializable {
-		glm::vec3 Position;
-		glm::vec3 Rotation;
-		glm::vec3 Scale;
+		glm::vec3 Position = glm::vec3(0);
+		glm::vec3 Rotation = glm::vec3(0);
+		glm::vec3 Scale = glm::vec3(1);
 
 		glm::mat4 GetTransformMatrix() const {
 			glm::mat4 translationMatrix = glm::translate(glm::mat4(1.0f), Position);

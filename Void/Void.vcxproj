@@ -193,6 +193,7 @@ IF EXIST ..\bin\Dist-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll\ (xcopy 
     <ClInclude Include="src\Void\ECS\Components\SpotLightComponent.h" />
     <ClInclude Include="src\Void\ECS\Components\TagComponent.h" />
     <ClInclude Include="src\Void\ECS\Components\TranformComponent.h" />
+    <ClInclude Include="src\Void\ECS\Core\Entity\Entity.h" />
     <ClInclude Include="src\Void\ECS\Core\Scene\Scene.h" />
     <ClInclude Include="src\Void\ECS\Core\Scene\SceneManager.h" />
     <ClInclude Include="src\Void\ECS\Core\Systems\ISystem.h" />
@@ -259,6 +260,7 @@ IF EXIST ..\bin\Dist-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll\ (xcopy 
     <ClCompile Include="src\Void\Core\Input.cpp" />
     <ClCompile Include="src\Void\Core\Window.cpp" />
     <ClCompile Include="src\Void\Debug\Log.cpp" />
+    <ClCompile Include="src\Void\ECS\Core\Entity\Entity.cpp" />
     <ClCompile Include="src\Void\ECS\Core\Scene\Scene.cpp" />
     <ClCompile Include="src\Void\ECS\Core\Scene\SceneManager.cpp" />
     <ClCompile Include="src\Void\ECS\Systems\PhysicsSystem.cpp" />

@@ -10,7 +10,7 @@ namespace Void {
 		Scene* m_CurrentScene;
 
 	private:
-		ISerializable* DeserializeComponent(std::string componentName, Scene* scene, entt::entity entity);
+		ISerializable* DeserializeComponent(std::string componentName, Entity* entity);
 
 
 	public:

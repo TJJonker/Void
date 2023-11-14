@@ -4,31 +4,34 @@
 #include <Void/ECS/Components/PhysicsComponent.h>
 #include "Void/Utils/TimeSteps/Time.h"
 #include "Void/Physics/Collision.h"
+#include "Void/ECS/Core/Scene/Scene.h"
 
 namespace Void {
 
-	void PhysicsSystem::Update(entt::registry& registry)
+	void PhysicsSystem::Update(Scene* scene)
 	{
-		for (int i = 0; i < m_Substeps; i++) {
-			ApplyForces(registry);
-			ResolveCollisions(registry);
+		for (unsigned int i = 0; i < m_Substeps; i++) {
+			ApplyForces(scene);
+			ResolveCollisions(scene);
 		}
 	}
 
-	void PhysicsSystem::ResolveCollisions(entt::registry& registry)
+	void PhysicsSystem::ResolveCollisions(Scene* scene)
 	{
 		std::vector<Collision> collisions;
-		entt::basic_view view = registry.view<PhysicsComponent, TransformComponent>();
+		std::vector<Entity*> entities = scene->GetAllEntitesWith<PhysicsComponent, TransformComponent>();
 
-		for (entt::entity a : view) {
+		for (Entity* a : entities) {
 
-			auto& [aTransform, aPhysics] = registry.get<TransformComponent, PhysicsComponent>(a);
+			TransformComponent& aTransform = a->GetComponent<TransformComponent>();
+			PhysicsComponent& aPhysics = a->GetComponent<PhysicsComponent>();
 
-			for (entt::entity b : view) {
+			for (Entity* b : entities) {
 				if (a == b)
 					break;
 
-				auto& [bTransform, bPhysics] = registry.get<TransformComponent, PhysicsComponent>(b);
+				TransformComponent& bTransform = b->GetComponent<TransformComponent>();
+				PhysicsComponent& bPhysics = b->GetComponent<PhysicsComponent>();
 
 				if (!aPhysics.Collider || !bPhysics.Collider)
 					continue;
@@ -37,15 +40,17 @@ namespace Void {
 				Transform transformB = { bTransform.Position, bTransform.Rotation, bTransform.Scale };
 				std::vector<CollisionPoint> points = aPhysics.Collider->TestCollision(&transformA, bPhysics.Collider, &transformB);
 
-				for (CollisionPoint cp : points) {
+				for (const CollisionPoint& cp : points) {
 					if (cp.HasCollision) {
-						Collision collision;
-						collision.aPhysics = &aPhysics;
-						collision.aTransform = &aTransform;
-						collision.bPhysics = &bPhysics;
-						collision.bTransform = &bTransform;
-						collision.CollisionPoint = cp;
-						collisions.emplace_back(collision);
+						Collision collision{ a, b, cp };
+
+						if (aPhysics.collisionCallback)
+							aPhysics.collisionCallback(collision);
+
+						if (bPhysics.collisionCallback)
+							bPhysics.collisionCallback(collision);
+
+						collisions.push_back(collision);
 					}
 				}
 			}
@@ -55,10 +60,11 @@ namespace Void {
 			solver->Solve(collisions);
 	}
 
-	void PhysicsSystem::ApplyForces(entt::registry& registry)
+	void PhysicsSystem::ApplyForces(Scene* scene)
 	{
-		for (entt::entity entity : registry.view<PhysicsComponent, TransformComponent>()) {
-			auto& [transform, physics] = registry.get<TransformComponent, PhysicsComponent>(entity);
+		for (const Entity* entity : scene->GetAllEntitesWith<PhysicsComponent, TransformComponent>()) {
+			TransformComponent& transform = entity->GetComponent<TransformComponent>();
+			PhysicsComponent& physics = entity->GetComponent<PhysicsComponent>();
 
 			if (physics.IsStatic)
 				continue;

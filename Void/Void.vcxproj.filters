@@ -399,6 +399,7 @@
     </ClInclude>
     <ClInclude Include="src\pch.h" />
     <ClInclude Include="src\Void\ECS\Components\TagComponent.h" />
+    <ClInclude Include="src\Void\ECS\Core\Entity\Entity.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Void\Core\Application.cpp">
@@ -549,5 +550,6 @@
       <Filter>Void\Vendor\stb_lib</Filter>
     </ClCompile>
     <ClCompile Include="src\pch.cpp" />
+    <ClCompile Include="src\Void\ECS\Core\Entity\Entity.cpp" />
   </ItemGroup>
 </Project>

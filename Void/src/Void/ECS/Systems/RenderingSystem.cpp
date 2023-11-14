@@ -8,13 +8,14 @@
 #include <Void/Rendering/Libraries/Texture/TextureLibrary.h>
 #include <Void/Rendering/Libraries/Mesh/MeshLibrary.h>
 #include <Void/Rendering/Libraries/Shader/ShaderLibrary.h>
+#include "Void/ECS/Core/Scene/Scene.h"
 
 namespace Void::Rendering {
-	void RenderingSystem::Update(entt::registry& registry)
+	void RenderingSystem::Update(Scene* scene)
 	{
-		for (entt::entity ent : registry.view<TransformComponent, RenderingComponent>()) {
-			RenderingComponent& rendering = registry.get<RenderingComponent>(ent);
-			TransformComponent& transform = registry.get<TransformComponent>(ent);
+		for (Entity* ent : scene->GetAllEntitesWith<TransformComponent, RenderingComponent>()) {
+			RenderingComponent& rendering = ent->GetComponent<RenderingComponent>();
+			TransformComponent& transform = ent->GetComponent<TransformComponent>();
 
 			// TODO: expand so multiple submeshes can be rendered
 			// TODO: Pass the strings so the Rendering Pipeline can load everything

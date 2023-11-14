@@ -5,16 +5,24 @@
 #include "Void/Physics/Colliders/PlaneCollider.h"
 #include "Void/Physics/Colliders/SphereCollider.h"
 #include "Void/Physics/Colliders/MeshCollider.h"
+#include "Void/Physics/Collision.h"
 
 namespace Void {
 	struct PhysicsComponent : public ISerializable {
+
+		using CollisionCallback = std::function<void(const Collision&)>;
+
+
 		float Mass = 1;
 		bool IsStatic = false;
 
 		glm::vec3 Velocity = glm::vec3(0);
 		glm::vec3 Force = glm::vec3(0);
 
+		CollisionCallback collisionCallback;
+
 		Collider* Collider = nullptr;
+
 
 		nlohmann::ordered_json ToJSON() const override {
 			nlohmann::ordered_json json;

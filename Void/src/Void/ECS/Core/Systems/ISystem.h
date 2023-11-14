@@ -1,9 +1,11 @@
 #pragma once
-#include "Void/Vendor/entt/entt.hpp"
 
 namespace Void {
+	// Forward declaration
+	class Scene;
+
 	class ISystem {
 	public:
-		virtual void Update(entt::registry& registry) = 0;
+		virtual void Update(Scene* scene) = 0;
 	};
 }
