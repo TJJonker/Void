@@ -17,6 +17,9 @@ namespace Void::Rendering {
 		GLCall(glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_ID));
 		// Fill buffer.
 		GLCall(glBufferData(GL_ELEMENT_ARRAY_BUFFER, size * sizeof(uint32_t), vertices, GL_STATIC_DRAW));
+
+		m_Indices = new uint32_t[size];
+		std::memcpy(m_Indices, vertices, size * sizeof(uint32_t));
 	}
 
 	OpenGLIndexBuffer::~OpenGLIndexBuffer()

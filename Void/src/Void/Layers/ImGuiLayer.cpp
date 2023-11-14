@@ -7,6 +7,7 @@
 
 #include <Void/Core/Application.h>
 #include "Void/Utils/TimeSteps/Time.h"
+#include "GLFW/glfw3.h"
 
 namespace Void {
 

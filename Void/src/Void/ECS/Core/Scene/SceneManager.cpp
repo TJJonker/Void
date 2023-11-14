@@ -4,8 +4,11 @@
 #include <Void/ECS/Components/RenderingComponent.h>
 #include <Void/ECS/Components/LightComponent.h>
 #include <Void/ECS/Components/SpotLightComponent.h>
+#include <Void/ECS/Components/PhysicsComponent.h>
+#include <Void/ECS/Components/TagComponent.h>
 
 namespace Void {
+
 	void SceneManager::LoadScene(const char* filePath)
 	{
 		Scene* scene = new Scene();
@@ -19,103 +22,92 @@ namespace Void {
 
 		for (const auto& entity : entitiesArray) {
 
-			entt::entity ent = scene->CreateEntity();
+			Entity* ent = scene->CreateEntity();
 
 			const nlohmann::json& components = entity["Components"];
 			
 			for (const auto& component : components) {
 					
 				const std::string& type = component["Type"];
-				if (type == "TransformComponent") {
-					TransformComponent& tc = scene->AddComponent<TransformComponent>(ent);
-					tc.FromJSON(component["Data"]);
-					continue;
-				}
-				
-				if (type == "RenderingComponent") {
-					RenderingComponent& rc = scene->AddComponent<RenderingComponent>(ent);
-					rc.FromJSON(component["Data"]);
-					continue;
-				}
 
-				if (type == "LightComponent") {
-					LightComponent& rc = scene->AddComponent<LightComponent>(ent);
-					rc.FromJSON(component["Data"]);
-					continue;
-				}
-
-				if (type == "SpotLightComponent") {
-					SpotLightComponent& rc = scene->AddComponent<SpotLightComponent>(ent);
-					rc.FromJSON(component["Data"]);
-					continue;
-				}
-
+				ISerializable* c = DeserializeComponent(type, ent);
+				c->FromJSON(component["Data"]);
 			}
 		}
-
 		m_CurrentScene = scene;
-			// Get Entity name 
-
-			// Get Components
-				// Go through components 
-					// Add them to the new entity
-						// Set the data inside the component
 	}
 
 	void SceneManager::SaveScene(const char* filePath)
 	{
 		nlohmann::ordered_json sceneJson;
-		std::vector<entt::entity> entities = m_CurrentScene->GetAllEntities();
-		entt::registry& reg = m_CurrentScene->Registry();
+		std::vector<Entity*> entities = m_CurrentScene->GetAllEntities();
 
 		// TODO: Remove this when entities have a name
 		unsigned int index = 0;
 
-		std::vector<entt::entity>::const_reverse_iterator it;  
+		std::vector<Entity*>::const_reverse_iterator it;  
 		for (it = entities.rbegin(); it != entities.rend(); it++) {
-			const entt::entity entity = *it;
+			const Entity* entity = *it;
 
 			nlohmann::ordered_json entityJson; // Describes the Entity
 
 			std::string name = "Entity_" + std::to_string(index);
 			entityJson["Name"] = name; 
 
-
-			if (m_CurrentScene->HasComponent<TransformComponent>(entity)) {
+			if (entity->HasComponent<TransformComponent>()) {
 				nlohmann::ordered_json componentJson; 
-				
-				TransformComponent& transform = m_CurrentScene->GetComponent<TransformComponent>(entity);
+				TransformComponent& transform = entity->GetComponent<TransformComponent>();
 				componentJson["Type"] = "TransformComponent";
 				componentJson["Data"] = transform.ToJSON();
 
 				entityJson["Components"].push_back(componentJson);
 			}
 
-			if (m_CurrentScene->HasComponent<RenderingComponent>(entity)) {
+			if (entity->HasComponent<RenderingComponent>()) {
 				nlohmann::ordered_json componentJson;
 
-				RenderingComponent& rendering = m_CurrentScene->GetComponent<RenderingComponent>(entity);
+				RenderingComponent& rendering = entity->GetComponent<RenderingComponent>();
 				componentJson["Type"] = "RenderingComponent";
 				componentJson["Data"] = rendering.ToJSON();
 
 				entityJson["Components"].push_back(componentJson);
 			}
 
-			if (m_CurrentScene->HasComponent<LightComponent>(entity)) {
+			if (entity->HasComponent<LightComponent>()) {
 				nlohmann::ordered_json componentJson;
 
-				LightComponent& rendering = m_CurrentScene->GetComponent<LightComponent>(entity);
+				LightComponent& rendering = entity->GetComponent<LightComponent>();
 				componentJson["Type"] = "LightComponent";
 				componentJson["Data"] = rendering.ToJSON();
 
 				entityJson["Components"].push_back(componentJson);
 			}
 
-			if (m_CurrentScene->HasComponent<SpotLightComponent>(entity)) {
+			if (entity->HasComponent<SpotLightComponent>()) {
 				nlohmann::ordered_json componentJson;
 
-				SpotLightComponent& rendering = m_CurrentScene->GetComponent<SpotLightComponent>(entity);
+				SpotLightComponent& rendering = entity->GetComponent<SpotLightComponent>();
 				componentJson["Type"] = "SpotLightComponent";
+				componentJson["Data"] = rendering.ToJSON();
+
+				entityJson["Components"].push_back(componentJson);
+			}
+
+			if (entity->HasComponent<PhysicsComponent>()) {
+				nlohmann::ordered_json componentJson;
+
+				PhysicsComponent& rendering = entity->GetComponent<PhysicsComponent>();
+				componentJson["Type"] = "PhysicsComponent";
+				componentJson["Data"] = rendering.ToJSON();
+
+				entityJson["Components"].push_back(componentJson);
+			}
+
+			if (entity->HasComponent<TagComponent>()) {
+				nlohmann::ordered_json componentJson;
+
+				TagComponent& rendering = entity->GetComponent<TagComponent>();
+				componentJson["Type"] = "TagComponent";
 				componentJson["Data"] = rendering.ToJSON();
 
 				entityJson["Components"].push_back(componentJson);
@@ -128,5 +120,24 @@ namespace Void {
 		}
 
 		File::Write(filePath, sceneJson.dump(4).c_str());
+	}
+
+	ISerializable* SceneManager::DeserializeComponent(std::string componentName, Entity* entity)
+	{
+		if(componentName == "TransformComponent")
+			return &entity->AddComponent<TransformComponent>();
+		if (componentName == "RenderingComponent")
+			return &entity->AddComponent<RenderingComponent>();
+		if (componentName == "LightComponent")
+			return &entity->AddComponent<LightComponent>();
+		if (componentName == "SpotLightComponent")
+			return &entity->AddComponent<SpotLightComponent>();
+		if (componentName == "PhysicsComponent")
+			return &entity->AddComponent<PhysicsComponent>();
+		if (componentName == "TagComponent")
+			return &entity->AddComponent<TagComponent>();
+
+		VOID_ASSERT(false, "Component does not exist");
+		return nullptr;
 	}
 }

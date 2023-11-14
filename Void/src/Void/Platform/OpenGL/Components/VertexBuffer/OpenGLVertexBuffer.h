@@ -7,11 +7,12 @@ namespace Void::Rendering {
 	private:
 		unsigned int m_ID;
 		uint32_t m_Count;
+		char* m_Data;
 
 		VertexBufferLayout m_BufferLayout;
 
 	public:
-		OpenGLVertexBuffer(const void* vertices, const uint32_t size);
+		OpenGLVertexBuffer(const void* vertices, const size_t size);
 		virtual ~OpenGLVertexBuffer();
 
 		void Bind() const override;
@@ -21,5 +22,6 @@ namespace Void::Rendering {
 		const VertexBufferLayout& GetVertexBufferLayout() const override { return m_BufferLayout; }
 
 		uint32_t GetCount() const override { return m_Count; }
+		virtual const char* GetData() const override { return m_Data; }
 	};
 }

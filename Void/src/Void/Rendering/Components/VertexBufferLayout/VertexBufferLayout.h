@@ -23,7 +23,7 @@ namespace Void {
 		template<>
 		void Push<unsigned int>(unsigned int count) {
 			m_Elements.push_back({ GL_UNSIGNED_INT, count, false, m_Offset});
-			m_Offset += count;
+			m_Offset += sizeof(unsigned int) * count;
 			m_Stride += sizeof(unsigned int) * count;
 		}
 
@@ -37,8 +37,8 @@ namespace Void {
 		template<>
 		void Push<unsigned char>(unsigned int count) {
 			m_Elements.push_back({ GL_UNSIGNED_BYTE, count, false, m_Offset });
-			m_Offset += count;
-			m_Stride += sizeof(unsigned int) * count;
+			m_Offset += sizeof(unsigned char) * count;
+			m_Stride += sizeof(unsigned char) * count;
 		}
 
 		inline const std::vector<VertexBufferLayoutElement> GetLayoutElements() const { return m_Elements; }

@@ -768,8 +768,8 @@
                     "Data": {
                         "Position": {
                             "X": -24.0,
-                            "Y": 25,
-                            "Z": -15
+                            "Y": 25.0,
+                            "Z": -15.0
                         },
                         "Rotation": {
                             "X": 0.0,
@@ -777,9 +777,9 @@
                             "Z": 0.0
                         },
                         "Scale": {
-                            "X": 0.01,
-                            "Y": 0.01,
-                            "Z": 0.01
+                            "X": 0.009999999776482582,
+                            "Y": 0.009999999776482582,
+                            "Z": 0.009999999776482582
                         }
                     }
                 },
@@ -802,8 +802,8 @@
                     "Type": "LightComponent",
                     "Data": {
                         "Constant": 1.0,
-                        "Linear": 0.1,
-                        "Quadratic": 0.6,
+                        "Linear": 0.10000000149011612,
+                        "Quadratic": 0.6000000238418579,
                         "Ambient": {
                             "R": 1.0,
                             "G": 0.0,
@@ -819,15 +819,15 @@
             ]
         },
         {
-            "Name": "Entity_19",
+            "Name": "Entity_20",
             "Components": [
                 {
                     "Type": "TransformComponent",
                     "Data": {
                         "Position": {
-                            "X": -9.2,
-                            "Y": 20.8,
-                            "Z": -15
+                            "X": -9.199999809265137,
+                            "Y": 20.799999237060547,
+                            "Z": -15.0
                         },
                         "Rotation": {
                             "X": 0.0,
@@ -835,9 +835,9 @@
                             "Z": 0.0
                         },
                         "Scale": {
-                            "X": 0.01,
-                            "Y": 0.01,
-                            "Z": 0.01
+                            "X": 0.009999999776482582,
+                            "Y": 0.009999999776482582,
+                            "Z": 0.009999999776482582
                         }
                     }
                 },
@@ -860,8 +860,8 @@
                     "Type": "LightComponent",
                     "Data": {
                         "Constant": 1.0,
-                        "Linear": 0.1,
-                        "Quadratic": 0.6,
+                        "Linear": 0.10000000149011612,
+                        "Quadratic": 0.6000000238418579,
                         "Ambient": {
                             "R": 1.0,
                             "G": 0.0,
@@ -877,15 +877,15 @@
             ]
         },
         {
-            "Name": "Entity_19",
+            "Name": "Entity_21",
             "Components": [
                 {
                     "Type": "TransformComponent",
                     "Data": {
                         "Position": {
-                            "X": -30.8,
-                            "Y": 20.1,
-                            "Z": -13.8
+                            "X": -30.799999237060547,
+                            "Y": 20.100000381469727,
+                            "Z": -13.800000190734863
                         },
                         "Rotation": {
                             "X": 0.0,
@@ -893,9 +893,9 @@
                             "Z": 0.0
                         },
                         "Scale": {
-                            "X": 0.01,
-                            "Y": 0.01,
-                            "Z": 0.01
+                            "X": 0.009999999776482582,
+                            "Y": 0.009999999776482582,
+                            "Z": 0.009999999776482582
                         }
                     }
                 },
@@ -918,8 +918,8 @@
                     "Type": "LightComponent",
                     "Data": {
                         "Constant": 1.0,
-                        "Linear": 0.1,
-                        "Quadratic": 0.6,
+                        "Linear": 0.10000000149011612,
+                        "Quadratic": 0.6000000238418579,
                         "Ambient": {
                             "R": 1.0,
                             "G": 0.0,
@@ -935,7 +935,7 @@
             ]
         },
         {
-            "Name": "Entity_19",
+            "Name": "Entity_22",
             "Components": [
                 {
                     "Type": "TransformComponent",
@@ -951,9 +951,9 @@
                             "Z": 0.0
                         },
                         "Scale": {
-                            "X": 0.01,
-                            "Y": 0.01,
-                            "Z": 0.01
+                            "X": 0.009999999776482582,
+                            "Y": 0.009999999776482582,
+                            "Z": 0.009999999776482582
                         }
                     }
                 },
@@ -976,8 +976,8 @@
                     "Type": "LightComponent",
                     "Data": {
                         "Constant": 1.0,
-                        "Linear": 0.1,
-                        "Quadratic": 0.6,
+                        "Linear": 0.10000000149011612,
+                        "Quadratic": 0.6000000238418579,
                         "Ambient": {
                             "R": 1.0,
                             "G": 1.0,
@@ -993,15 +993,15 @@
             ]
         },
         {
-            "Name": "Entity_19",
+            "Name": "Entity_23",
             "Components": [
                 {
                     "Type": "TransformComponent",
                     "Data": {
                         "Position": {
-                            "X": -16.1,
-                            "Y": -1.8,
-                            "Z": 1.1
+                            "X": -16.100000381469727,
+                            "Y": -1.7999999523162842,
+                            "Z": 1.100000023841858
                         },
                         "Rotation": {
                             "X": -65.0,
@@ -1009,9 +1009,9 @@
                             "Z": 0.0
                         },
                         "Scale": {
-                            "X": 0.01,
-                            "Y": 0.01,
-                            "Z": 0.01
+                            "X": 0.009999999776482582,
+                            "Y": 0.009999999776482582,
+                            "Z": 0.009999999776482582
                         }
                     }
                 },
@@ -1023,28 +1023,241 @@
                             {
                                 "Model": "Temp/Models/SM_Icon_Light_Spotlight_01.obj",
                                 "Texture": [
-                                    "Temp/Models/StreetTexture.png"
+                                    "Temp/Models/PolygonPrototype_Texture_06.png"
                                 ],
                                 "Shader": "DefaultShader"
                             }
                         ]
                     }
+                }
+            ]
+        },
+        {
+            "Name": "Entity_24",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": -16.100000381469727,
+                            "Y": -1.7999999523162842,
+                            "Z": 1.100000023841858
+                        },
+                        "Rotation": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        }
+                    }
                 },
                 {
-                    "Type": "LightComponent",
+                    "Type": "SpotLightComponent",
                     "Data": {
-                        "Constant": 1.0,
-                        "Linear": 0.1,
-                        "Quadratic": 0.6,
+                        "Direction": {
+                            "X": -35.0,
+                            "Y": 225.0,
+                            "Z": -35.0
+                        },
+                        "CutOff": 20.0,
+                        "OuterCutOff": 25.0,
+                        "Constant": 0.5,
+                        "Linear": 0.009999999776482582,
+                        "Quadratic": 0.009999999776482582,
                         "Ambient": {
+                            "R": 0.20000000298023224,
+                            "G": 0.20000000298023224,
+                            "B": 0.20000000298023224
+                        },
+                        "Diffuse": {
+                            "R": 0.800000011920929,
+                            "G": 0.800000011920929,
+                            "B": 0.6000000238418579
+                        },
+                        "Specular": {
                             "R": 1.0,
                             "G": 1.0,
                             "B": 1.0
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Entity_25",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": -16.100000381469727,
+                            "Y": -1.7999999523162842,
+                            "Z": -6.5
+                        },
+                        "Rotation": {
+                            "X": -65.0,
+                            "Y": 315.0,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 0.009999999776482582,
+                            "Y": 0.009999999776482582,
+                            "Z": 0.009999999776482582
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Temp/Models/SM_Icon_Light_Spotlight_01.obj",
+                                "Texture": [
+                                    "Temp/Models/PolygonPrototype_Texture_06.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Entity_26",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": -16.100000381469727,
+                            "Y": -1.7999999523162842,
+                            "Z": -6.5
+                        },
+                        "Rotation": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        }
+                    }
+                },
+                {
+                    "Type": "SpotLightComponent",
+                    "Data": {
+                        "Direction": {
+                            "X": -35.0,
+                            "Y": 225.0,
+                            "Z": 35.0
+                        },
+                        "CutOff": 20.0,
+                        "OuterCutOff": 25.0,
+                        "Constant": 0.5,
+                        "Linear": 0.009999999776482582,
+                        "Quadratic": 0.009999999776482582,
+                        "Ambient": {
+                            "R": 0.20000000298023224,
+                            "G": 0.20000000298023224,
+                            "B": 0.20000000298023224
                         },
                         "Diffuse": {
-                            "R": 0.0,
-                            "G": 0.0,
-                            "B": 0.0
+                            "R": 0.800000011920929,
+                            "G": 0.800000011920929,
+                            "B": 0.6000000238418579
+                        },
+                        "Specular": {
+                            "R": 1.0,
+                            "G": 1.0,
+                            "B": 1.0
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Entity_27",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": -18.700000762939453,
+                            "Y": 15.0,
+                            "Z": -2.799999952316284
+                        },
+                        "Rotation": {
+                            "X": -10.0,
+                            "Y": -90.0,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 0.004999999888241291,
+                            "Y": 0.004999999888241291,
+                            "Z": 0.004999999888241291
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Temp/Models/SM_Pawn_LadderClimb_Male_01.obj",
+                                "Texture": [
+                                    "Temp/Models/PolygonPrototype_Texture_06.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Entity_28",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Rotation": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        }
+                    }
+                },
+                {
+                    "Type": "PhysicsComponent",
+                    "Data": {
+                        "Mass": 1.0,
+                        "IsStatic": false,
+                        "Type": "Sphere",
+                        "Data": {
+                            "Offset": {
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Radius": 0.0
                         }
                     }
                 }

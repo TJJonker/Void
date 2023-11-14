@@ -8,6 +8,7 @@ namespace Void::Rendering {
 	private:
 		unsigned int m_ID;
 		uint32_t m_Count;
+		uint32_t* m_Indices;
 
 	public:
 		OpenGLIndexBuffer(const uint32_t* vertices, const uint32_t size);
@@ -17,6 +18,7 @@ namespace Void::Rendering {
 		virtual void Unbind() const;
 	
 		virtual uint32_t GetCount() const { return m_Count; }
+		virtual const uint32_t* GetIndices() const { return m_Indices; }
 	};
 }
 

@@ -1,5 +1,4 @@
 #pragma once
-#include <GLFW/glfw3.h>
 
 // TODO: Abstract to the point where GLFW can be deleted.
 
@@ -13,6 +12,6 @@ namespace Void {
 	public:
 		static float DeltaTime() { return m_DeltaTime; };
 		static void Update();
-		static float TimeSinceStartup() { return glfwGetTime(); };
+		static float TimeSinceStartup();
 	};
 }

@@ -1,7 +1,8 @@
 #include "EditorLayer.h"
 #include "imgui.h"
-#include <Void/ECS/Components/LightComponent.h>
-#include <Void/ECS/Components/SpotLightComponent.h>
+#include <PlayerSystem.h>
+
+
 
 namespace Nebula::Editor {
 
@@ -15,7 +16,7 @@ namespace Nebula::Editor {
 
         // Temp
         // Shader lib
-        Void::ShaderLibrary::GetInstance()->Load("Temp/Shaders/VertexShader.glsl", "Temp/Shaders/FragmentShaderLights.glsl", "DefaultShader");
+        Void::ShaderLibrary::GetInstance()->Load("Temp/Shaders/VertexShader.glsl", "Temp/Shaders/FragmentShader.glsl", "DefaultShader");
 
         // Mesh lib
         Void::MeshLibrary::GetInstance()->Load("Temp/Models/Building.obj");
@@ -33,50 +34,36 @@ namespace Nebula::Editor {
         Void::MeshLibrary::GetInstance()->Load("Temp/Models/LowPoly_Sphere_12.stl");
         Void::MeshLibrary::GetInstance()->Load("Temp/Models/SM_Icon_Light_Spotlight_01.obj");
         Void::MeshLibrary::GetInstance()->Load("Temp/Models/SM_Pawn_LadderClimb_Male_01.obj");
+        Void::MeshLibrary::GetInstance()->Load("Temp/Models/Simple_pooltable.obj");
+        Void::MeshLibrary::GetInstance()->Load("Temp/Models/Slider.obj");
 
         // Texture lib
         Void::TextureLibrary::GetInstance()->Load("Temp/Models/SimpleCity_Texture.png");
         Void::TextureLibrary::GetInstance()->Load("Temp/Models/StreetTexture.png");
         Void::TextureLibrary::GetInstance()->Load("Temp/Models/PolygonPrototype_Texture_06.png");
 
-
         m_SceneManager = new Void::SceneManager();
-        m_SceneManager->LoadScene("Scene4.json");
+        m_SceneManager->LoadScene("Scene7.json");
+
+        //entt::entity en = m_SceneManager->GetCurrentScene()->CreateEntity();
+        //m_SceneManager->GetCurrentScene()->AddComponent<Void::TransformComponent>(en);
+        //Void::PhysicsComponent& pc = m_SceneManager->GetCurrentScene()->AddComponent<Void::PhysicsComponent>(en);
+        //pc.Collider = new Void::SphereCollider();
+        //Void::TagComponent& tag = m_SceneManager->GetCurrentScene()->AddComponent<Void::TagComponent>(en);
+        //tag.Tag = "Player";
+        //m_SceneManager->SaveScene("Scene7.json");
 
         m_CameraController = new Void::CameraController();
 
-        for (auto ent : m_SceneManager->GetCurrentScene()->Registry().view<Void::LightComponent, Void::TransformComponent>()) {
-            auto& [transform, light] = m_SceneManager->GetCurrentScene()->Registry().get<Void::TransformComponent, Void::LightComponent>(ent);
-            
-            Void::Rendering::RenderingCommands::PointLightData pointLightData;
-            pointLightData.Ambient = light.Ambient;
-            pointLightData.Constant = light.Constant;
-            pointLightData.Diffuse = light.Diffuse;
-            pointLightData.Linear = light.Linear;
-            pointLightData.Quadratic = light.Quadratic;
-            pointLightData.Position = transform.Position;
-            Void::Rendering::RenderingCommands::AddPointLight(pointLightData);
-        }
-
-        for (auto ent : m_SceneManager->GetCurrentScene()->Registry().view<Void::SpotLightComponent, Void::TransformComponent>()) {
-            auto& [transform, light] = m_SceneManager->GetCurrentScene()->Registry().get<Void::TransformComponent, Void::SpotLightComponent>(ent);
-
-            Void::Rendering::RenderingCommands::SpotLightData spotLightData;
-            spotLightData.Ambient = light.Ambient;
-            spotLightData.Constant = light.Constant;
-            spotLightData.Diffuse = light.Diffuse;
-            spotLightData.Linear = light.Linear;
-            spotLightData.Quadratic = light.Quadratic;
-            spotLightData.Position = transform.Position;
-            spotLightData.CutOff = glm::radians(light.CutOff);
-            spotLightData.Direction = glm::normalize(light.Direction);
-            spotLightData.OuterCutOff = glm::radians(light.OuterCutOff);
-            spotLightData.Specular = light.Specular;
-            Void::Rendering::RenderingCommands::AddSpotLight(spotLightData);
-        }
-
         std::shared_ptr<Void::Rendering::RenderingSystem> renderingSystem = std::make_shared<Void::Rendering::RenderingSystem>();
         m_SceneManager->GetCurrentScene()->SetRenderingSystem(renderingSystem);
+
+        std::shared_ptr<Void::PhysicsSystem> physicsSystem = std::make_shared<Void::PhysicsSystem>();
+        m_SceneManager->GetCurrentScene()->SetPhysicsSystem(physicsSystem);
+        physicsSystem->AddSolver(std::make_shared<Void::PositionSolver>());
+        physicsSystem->AddSolver(std::make_shared<Void::ImpulseSolver>());
+
+        m_SceneManager->GetCurrentScene()->AddSystem(std::make_shared<PlayerSystem>());
 	}
 
     void EditorLayer::OnUpdate()
@@ -84,8 +71,11 @@ namespace Nebula::Editor {
         m_CameraController->Update(); 
         Void::Rendering::RenderingCommands::BeginDraw(m_CameraController->GetCamera()); 
 
+        m_SceneManager->GetCurrentScene()->UpdateSystems();
+        m_SceneManager->GetCurrentScene()->UpdatePhysicsSystem();
+
         //m_FrameBuffer->Bind();
-        Void::Rendering::RenderingCommands::SetClearColor({ .03, .03, .05, 1 });
+        Void::Rendering::RenderingCommands::SetClearColor({ .1, .2, .1, 1 });
         Void::Rendering::RenderingCommands::Clear();
         m_SceneManager->GetCurrentScene()->UpdateRenderingSystem();
         //m_FrameBuffer->UnBind();

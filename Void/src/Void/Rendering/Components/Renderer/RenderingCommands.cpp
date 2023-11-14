@@ -45,8 +45,8 @@ namespace Void::Rendering {
 
 		/// TODO: TEMP
 		glm::vec3 lightDirection = { .2f, 0.f, -1.f };
-		glm::vec3 ambientColor = { .1f, .1f, .1f };
-		glm::vec3 diffuseColor = { .2f, .2f, .2f };
+		glm::vec3 ambientColor = { .4f, .4f, .4f };
+		glm::vec3 diffuseColor = { .6f, .6f, .6f };
 		glm::vec3 specularColor = { 1.f, 1.f, 1.f };
 
 		// TODO: Temp as well

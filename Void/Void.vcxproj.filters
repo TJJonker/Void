@@ -37,6 +37,21 @@
     <Filter Include="Void\Layers\Core">
       <UniqueIdentifier>{2EF33EAA-1AEC-5DFC-431E-43812F763D08}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Void\Physics">
+      <UniqueIdentifier>{A9683830-95CB-C7D4-3E51-008B2A939357}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Void\Physics\Colliders">
+      <UniqueIdentifier>{B9FA3EB2-A5F4-6704-8E61-FE147AFACD70}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Void\Physics\Solvers">
+      <UniqueIdentifier>{462F50BC-32BE-D985-DBDC-ED80C74AEA2B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Void\Physics\Solvers\Impulse">
+      <UniqueIdentifier>{9485F618-8040-E6C4-29F8-5E0F15923055}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Void\Physics\Solvers\Position">
+      <UniqueIdentifier>{CA11B34D-362A-9A77-FFD6-29116BAE2E11}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Void\Platform">
       <UniqueIdentifier>{6B484333-D708-BF69-A043-08E70CC30346}</UniqueIdentifier>
     </Filter>
@@ -151,6 +166,9 @@
     <Filter Include="Void\Utils\ExternalFiles\MeshLoader">
       <UniqueIdentifier>{0F9FE0EC-7B58-4B97-04B8-657170700107}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Void\Utils\ExternalFiles\TextureLoader">
+      <UniqueIdentifier>{33284EF8-1F7A-25E8-0899-62F8F4893ED1}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Void\Utils\Parser">
       <UniqueIdentifier>{73912F48-DFA7-2DDE-281F-B9FF9474FE65}</UniqueIdentifier>
     </Filter>
@@ -187,7 +205,16 @@
     <ClInclude Include="src\Void\Debug\Log.h">
       <Filter>Void\Debug</Filter>
     </ClInclude>
+    <ClInclude Include="src\Void\ECS\Components\LightComponent.h">
+      <Filter>Void\ECS\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Void\ECS\Components\PhysicsComponent.h">
+      <Filter>Void\ECS\Components</Filter>
+    </ClInclude>
     <ClInclude Include="src\Void\ECS\Components\RenderingComponent.h">
+      <Filter>Void\ECS\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Void\ECS\Components\SpotLightComponent.h">
       <Filter>Void\ECS\Components</Filter>
     </ClInclude>
     <ClInclude Include="src\Void\ECS\Components\TranformComponent.h">
@@ -201,6 +228,9 @@
     </ClInclude>
     <ClInclude Include="src\Void\ECS\Core\Systems\ISystem.h">
       <Filter>Void\ECS\Core\Systems</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Void\ECS\Systems\PhysicsSystem.h">
+      <Filter>Void\ECS\Systems</Filter>
     </ClInclude>
     <ClInclude Include="src\Void\ECS\Systems\RenderingSystem.h">
       <Filter>Void\ECS\Systems</Filter>
@@ -225,6 +255,39 @@
     </ClInclude>
     <ClInclude Include="src\Void\Layers\ImGuiLayer.h">
       <Filter>Void\Layers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Void\Physics\ColissionAlgorithms.h">
+      <Filter>Void\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Void\Physics\Colliders\Collider.h">
+      <Filter>Void\Physics\Colliders</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Void\Physics\Colliders\MeshCollider.h">
+      <Filter>Void\Physics\Colliders</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Void\Physics\Colliders\PlaneCollider.h">
+      <Filter>Void\Physics\Colliders</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Void\Physics\Colliders\SphereCollider.h">
+      <Filter>Void\Physics\Colliders</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Void\Physics\Collision.h">
+      <Filter>Void\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Void\Physics\CollisionPoints.h">
+      <Filter>Void\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Void\Physics\Solvers\Impulse\ImpulseSolver.h">
+      <Filter>Void\Physics\Solvers\Impulse</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Void\Physics\Solvers\Position\PositionSolver.h">
+      <Filter>Void\Physics\Solvers\Position</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Void\Physics\Solvers\Solver.h">
+      <Filter>Void\Physics\Solvers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Void\Physics\Tranform.h">
+      <Filter>Void\Physics</Filter>
     </ClInclude>
     <ClInclude Include="src\Void\Platform\OpenGL\Components\FrameBuffer\OpenGLFrameBuffer.h">
       <Filter>Void\Platform\OpenGL\Components\FrameBuffer</Filter>
@@ -319,8 +382,8 @@
     <ClInclude Include="src\Void\Utils\ExternalFiles\MeshLoader\MeshLoader.h">
       <Filter>Void\Utils\ExternalFiles\MeshLoader</Filter>
     </ClInclude>
-    <ClInclude Include="src\Void\Utils\ExternalFiles\TextureLoader.h">
-      <Filter>Void\Utils\ExternalFiles</Filter>
+    <ClInclude Include="src\Void\Utils\ExternalFiles\TextureLoader\TextureLoader.h">
+      <Filter>Void\Utils\ExternalFiles\TextureLoader</Filter>
     </ClInclude>
     <ClInclude Include="src\Void\Utils\Parser\ISerializable.h">
       <Filter>Void\Utils\Parser</Filter>
@@ -335,8 +398,8 @@
       <Filter>Void\Vendor\stb_lib</Filter>
     </ClInclude>
     <ClInclude Include="src\pch.h" />
-    <ClInclude Include="src\Void\ECS\Components\LightComponent.h" />
-    <ClInclude Include="src\Void\ECS\Components\SpotLightComponent.h" />
+    <ClInclude Include="src\Void\ECS\Components\TagComponent.h" />
+    <ClInclude Include="src\Void\ECS\Core\Entity\Entity.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Void\Core\Application.cpp">
@@ -357,6 +420,9 @@
     <ClCompile Include="src\Void\ECS\Core\Scene\SceneManager.cpp">
       <Filter>Void\ECS\Core\Scene</Filter>
     </ClCompile>
+    <ClCompile Include="src\Void\ECS\Systems\PhysicsSystem.cpp">
+      <Filter>Void\ECS\Systems</Filter>
+    </ClCompile>
     <ClCompile Include="src\Void\ECS\Systems\RenderingSystem.cpp">
       <Filter>Void\ECS\Systems</Filter>
     </ClCompile>
@@ -368,6 +434,24 @@
     </ClCompile>
     <ClCompile Include="src\Void\Layers\ImGuiLayer.cpp">
       <Filter>Void\Layers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Void\Physics\ColissionAlgorithms.cpp">
+      <Filter>Void\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Void\Physics\Colliders\MeshCollider.cpp">
+      <Filter>Void\Physics\Colliders</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Void\Physics\Colliders\PlaneCollider.cpp">
+      <Filter>Void\Physics\Colliders</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Void\Physics\Colliders\SphereCollider.cpp">
+      <Filter>Void\Physics\Colliders</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Void\Physics\Solvers\Impulse\ImpulseSolver.cpp">
+      <Filter>Void\Physics\Solvers\Impulse</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Void\Physics\Solvers\Position\PositionSolver.cpp">
+      <Filter>Void\Physics\Solvers\Position</Filter>
     </ClCompile>
     <ClCompile Include="src\Void\Platform\OpenGL\Components\FrameBuffer\OpenGLFrameBuffer.cpp">
       <Filter>Void\Platform\OpenGL\Components\FrameBuffer</Filter>
@@ -453,8 +537,8 @@
     <ClCompile Include="src\Void\Utils\ExternalFiles\MeshLoader\MeshLoader.cpp">
       <Filter>Void\Utils\ExternalFiles\MeshLoader</Filter>
     </ClCompile>
-    <ClCompile Include="src\Void\Utils\ExternalFiles\TextureLoader.cpp">
-      <Filter>Void\Utils\ExternalFiles</Filter>
+    <ClCompile Include="src\Void\Utils\ExternalFiles\TextureLoader\TextureLoader.cpp">
+      <Filter>Void\Utils\ExternalFiles\TextureLoader</Filter>
     </ClCompile>
     <ClCompile Include="src\Void\Utils\Parser\JSONParser.cpp">
       <Filter>Void\Utils\Parser</Filter>
@@ -466,5 +550,6 @@
       <Filter>Void\Vendor\stb_lib</Filter>
     </ClCompile>
     <ClCompile Include="src\pch.cpp" />
+    <ClCompile Include="src\Void\ECS\Core\Entity\Entity.cpp" />
   </ItemGroup>
 </Project>
