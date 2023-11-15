@@ -5,7 +5,7 @@ namespace Void {
 	Entity* Scene::CreateEntity()
 	{
 		entt::entity id = m_Registry.create();
-		Entity* entity = new Entity(id, m_Registry, std::bind(&Scene::RemoveEntity, this, std::placeholders::_1));
+		Entity* entity = new Entity(id, m_Registry);
 
 		m_Entities[id] = entity;
 		return entity;
@@ -47,5 +47,10 @@ namespace Void {
 		m_Registry.destroy(id);
 		// Remove from map
 		m_Entities.erase(id);
+	}
+	Scene& Scene::GetInstance()
+	{
+		static Scene scene;
+		return scene;
 	}
 }

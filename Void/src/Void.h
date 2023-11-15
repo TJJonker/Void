@@ -7,6 +7,9 @@
 #include "Void/Core/Input.h"
 #include "Void/Utils/TimeSteps/Time.h"
 
+#include "Void/ECS/Core/Entity/Entity.h"
+#include "Void/ECS/Core/Scene/Scene.h"
+
 // Debug
 #include "Void/Debug/Log.h"
 

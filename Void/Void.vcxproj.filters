@@ -19,6 +19,9 @@
     <Filter Include="Void\ECS\Core">
       <UniqueIdentifier>{F962BF92-6523-3BC9-2E5E-84469ADD7FA5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Void\ECS\Core\Entity">
+      <UniqueIdentifier>{253D52F0-11CC-DBB9-BAEA-EFB4A658EC5F}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Void\ECS\Core\Scene">
       <UniqueIdentifier>{D6665E84-42C8-3B92-CB35-824437967251}</UniqueIdentifier>
     </Filter>
@@ -217,8 +220,14 @@
     <ClInclude Include="src\Void\ECS\Components\SpotLightComponent.h">
       <Filter>Void\ECS\Components</Filter>
     </ClInclude>
+    <ClInclude Include="src\Void\ECS\Components\TagComponent.h">
+      <Filter>Void\ECS\Components</Filter>
+    </ClInclude>
     <ClInclude Include="src\Void\ECS\Components\TranformComponent.h">
       <Filter>Void\ECS\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Void\ECS\Core\Entity\Entity.h">
+      <Filter>Void\ECS\Core\Entity</Filter>
     </ClInclude>
     <ClInclude Include="src\Void\ECS\Core\Scene\Scene.h">
       <Filter>Void\ECS\Core\Scene</Filter>
@@ -398,8 +407,6 @@
       <Filter>Void\Vendor\stb_lib</Filter>
     </ClInclude>
     <ClInclude Include="src\pch.h" />
-    <ClInclude Include="src\Void\ECS\Components\TagComponent.h" />
-    <ClInclude Include="src\Void\ECS\Core\Entity\Entity.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Void\Core\Application.cpp">
@@ -413,6 +420,9 @@
     </ClCompile>
     <ClCompile Include="src\Void\Debug\Log.cpp">
       <Filter>Void\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Void\ECS\Core\Entity\Entity.cpp">
+      <Filter>Void\ECS\Core\Entity</Filter>
     </ClCompile>
     <ClCompile Include="src\Void\ECS\Core\Scene\Scene.cpp">
       <Filter>Void\ECS\Core\Scene</Filter>
@@ -550,6 +560,5 @@
       <Filter>Void\Vendor\stb_lib</Filter>
     </ClCompile>
     <ClCompile Include="src\pch.cpp" />
-    <ClCompile Include="src\Void\ECS\Core\Entity\Entity.cpp" />
   </ItemGroup>
 </Project>

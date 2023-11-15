@@ -2,7 +2,7 @@
 #include "Entity.h"
 
 namespace Void {
-	Entity::Entity(entt::entity entity, entt::registry& registry, DestroyCallback onDestroyCallback)
+	Entity::Entity(entt::entity entity, entt::registry& registry)
 		: m_Entity(entity), m_Registry(registry) { }
 	
 	Entity::~Entity()
@@ -10,8 +10,5 @@ namespace Void {
 		Destroy();
 	}
 
-	void Entity::Destroy()
-	{
-		onDestroyCallback(m_Entity);
-	}
+	void Entity::Destroy() { }
 }

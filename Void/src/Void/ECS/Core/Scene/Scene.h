@@ -46,7 +46,7 @@ namespace Void {
 			return entities;
 		}
 
-		//entt::registry& Registry() { return m_Registry; }
+		static Scene& GetInstance();
 	};
 }
 

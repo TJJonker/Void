@@ -4,15 +4,13 @@
 namespace Void {
 	class Entity {
 	
-		using DestroyCallback = std::function<void(const entt::entity& id)>;
 
 	private:
 		entt::entity m_Entity;
 		entt::registry& m_Registry;
-		DestroyCallback onDestroyCallback;
 
 	public:
-		Entity(entt::entity entity, entt::registry& registry, DestroyCallback destroyCallback);
+		Entity(entt::entity entity, entt::registry& registry);
 		~Entity();
 
 		void Destroy();

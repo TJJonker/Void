@@ -1,8 +1,5 @@
 #include "EditorLayer.h"
 #include "imgui.h"
-#include <PlayerSystem.h>
-
-
 
 namespace Nebula::Editor {
 
@@ -19,31 +16,15 @@ namespace Nebula::Editor {
         Void::ShaderLibrary::GetInstance()->Load("Temp/Shaders/VertexShader.glsl", "Temp/Shaders/FragmentShader.glsl", "DefaultShader");
 
         // Mesh lib
-        Void::MeshLibrary::GetInstance()->Load("Temp/Models/Building.obj");
-        Void::MeshLibrary::GetInstance()->Load("Temp/Models/SC_Bld_04_Bright.obj");
-        Void::MeshLibrary::GetInstance()->Load("Temp/Models/SC_Bld_09_Dark.obj");
-        Void::MeshLibrary::GetInstance()->Load("Temp/Models/SC_Prop_Garden_Tree.obj");
-        Void::MeshLibrary::GetInstance()->Load("Temp/Models/SC_Bld_WashingtonMonument.obj");
-        Void::MeshLibrary::GetInstance()->Load("Temp/Models/SC_Prop_AmericanFlag.obj");
-        Void::MeshLibrary::GetInstance()->Load("Temp/Models/SC_Prop_BasketballCourt.obj");
-        Void::MeshLibrary::GetInstance()->Load("Temp/Models/SC_Prop_Construction_Beams.obj");
-        Void::MeshLibrary::GetInstance()->Load("Temp/Models/SC_Prop_Construction_Crane.obj");
-        Void::MeshLibrary::GetInstance()->Load("Temp/Models/SC_Prop_Construction_Scaffolding.obj");
-        Void::MeshLibrary::GetInstance()->Load("Temp/Models/SC_Prop_Garden_Chair.obj");
-        Void::MeshLibrary::GetInstance()->Load("Temp/Models/Plane.obj");
-        Void::MeshLibrary::GetInstance()->Load("Temp/Models/LowPoly_Sphere_12.stl");
-        Void::MeshLibrary::GetInstance()->Load("Temp/Models/SM_Icon_Light_Spotlight_01.obj");
-        Void::MeshLibrary::GetInstance()->Load("Temp/Models/SM_Pawn_LadderClimb_Male_01.obj");
-        Void::MeshLibrary::GetInstance()->Load("Temp/Models/Simple_pooltable.obj");
-        Void::MeshLibrary::GetInstance()->Load("Temp/Models/Slider.obj");
+        Void::MeshLibrary::GetInstance()->Load("Temp/Models/Grunt/grunt1.ply");
+        Void::MeshLibrary::GetInstance()->Load("Temp/Models/Grunt/grunt2.ply");
+        Void::MeshLibrary::GetInstance()->Load("Temp/Models/Grunt/grunt3.ply");
 
         // Texture lib
-        Void::TextureLibrary::GetInstance()->Load("Temp/Models/SimpleCity_Texture.png");
-        Void::TextureLibrary::GetInstance()->Load("Temp/Models/StreetTexture.png");
-        Void::TextureLibrary::GetInstance()->Load("Temp/Models/PolygonPrototype_Texture_06.png");
+        //Void::TextureLibrary::GetInstance()->Load("Temp/Models/PolygonPrototype_Texture_06.png");
 
         m_SceneManager = new Void::SceneManager();
-        m_SceneManager->LoadScene("Scene7.json");
+        m_SceneManager->LoadScene("Scene8.json");
 
         //entt::entity en = m_SceneManager->GetCurrentScene()->CreateEntity();
         //m_SceneManager->GetCurrentScene()->AddComponent<Void::TransformComponent>(en);
@@ -62,8 +43,6 @@ namespace Nebula::Editor {
         m_SceneManager->GetCurrentScene()->SetPhysicsSystem(physicsSystem);
         physicsSystem->AddSolver(std::make_shared<Void::PositionSolver>());
         physicsSystem->AddSolver(std::make_shared<Void::ImpulseSolver>());
-
-        m_SceneManager->GetCurrentScene()->AddSystem(std::make_shared<PlayerSystem>());
 	}
 
     void EditorLayer::OnUpdate()
