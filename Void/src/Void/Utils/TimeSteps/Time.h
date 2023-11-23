@@ -6,11 +6,11 @@ namespace Void {
 	class Time
 	{
 	private:
-		static float m_LastFrameTimestamp;
-		static float m_DeltaTime;
+		static double m_LastFrameTimestamp;
+		static double m_DeltaTime;
 
 	public:
-		static float DeltaTime() { return m_DeltaTime; };
+		static float DeltaTime() { return (float)m_DeltaTime; };
 		static void Update();
 		static float TimeSinceStartup();
 	};

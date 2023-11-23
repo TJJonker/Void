@@ -70,7 +70,7 @@ namespace Void {
 		std::vector<unsigned int> indices = GetIndices(mesh);
 
 		std::shared_ptr<Rendering::IndexBuffer> indexBuffer;
-		indexBuffer.reset(Rendering::IndexBuffer::Create(indices.data(), indices.size()));
+		indexBuffer.reset(Rendering::IndexBuffer::Create(indices.data(), (uint32_t)indices.size()));
 
 		vertexArray->SetIndexBuffer(indexBuffer);
 
