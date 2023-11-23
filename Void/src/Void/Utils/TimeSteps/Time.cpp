@@ -4,8 +4,8 @@
 
 namespace Void {
 
-	float Time::m_LastFrameTimestamp = 0;
-	float Time::m_DeltaTime = 0;
+	double Time::m_LastFrameTimestamp = 0;
+	double Time::m_DeltaTime = 0;
 
 	void Void::Time::Update()
 	{
