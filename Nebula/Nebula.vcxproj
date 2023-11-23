@@ -137,13 +137,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="src\PlayerSystem.h" />
     <ClInclude Include="src\EditorLayer.h" />
+    <ClInclude Include="src\PlayerSystem.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\PlayerSystem.cpp" />
     <ClCompile Include="src\EditorLayer.cpp" />
     <ClCompile Include="src\Nebula.cpp" />
+    <ClCompile Include="src\PlayerSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Void\Void.vcxproj">
