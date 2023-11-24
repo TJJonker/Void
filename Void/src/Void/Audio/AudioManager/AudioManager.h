@@ -5,7 +5,8 @@
 namespace Void::Audio {
 	class AudioManager
 	{
-		virtual void Initialize() = 0;
+	public:
+		virtual void Initialize(unsigned int maxChannels) = 0;
 		virtual void Update() = 0;
 		virtual void Destroy() = 0;
 
@@ -41,5 +42,9 @@ namespace Void::Audio {
 		virtual void AddPolygon(float direct, float reverb, bool doublesided, const std::vector<glm::vec3>& vertices, const glm::vec3& position) = 0;
 
 		static AudioManager* Create();
+
+		#define CHANNELGROUP_MASTER_INDEX	0
+		#define CHANNELGROUP_MUSIC_INDEX	1
+		#define CHANNELGROUP_SFX_INDEX		2
 	};
 }
