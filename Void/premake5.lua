@@ -21,11 +21,13 @@ project "Void"
 		solutionDir .. "%{includeDirs.GLM}",
 		solutionDir .. "%{includeDirs.ASSIMP}",
 		solutionDir .. "%{includeDirs.IMGUI}",
-		solutionDir .. "%{includeDirs.NLOHMANN}"
+		solutionDir .. "%{includeDirs.NLOHMANN}",
+		solutionDir .. "%{includeDirs.FMOD}"
 	}
 
 	libdirs {
-		solutionDir .. "%{libraryDirs.ASSIMP}"
+		solutionDir .. "%{libraryDirs.ASSIMP}",
+		solutionDir .. "%{libraryDirs.FMOD}"
 	}
 
 	links {
@@ -33,7 +35,9 @@ project "Void"
 		"opengl32",
 		"GLAD",
 		"assimp-vc143-mtd.lib",
-		"ImGui"
+		"ImGui",
+		"fmod_vc.lib",
+		"fmodL_vc.lib"
 	}
 
 
@@ -45,22 +49,25 @@ project "Void"
 		defines {
 			"VOID_PLATFORM_WINDOWS",
 			"VOID_BUILD_DLL",
-			"VOID_ASSERT_ENABLED"
+			"VOID_ASSERT_ENABLED",
+			"VOID_AUDIO_FMOD"
 		}
 
 		prebuildcommands {
-			("{COPY} vendor/ASSIMP/libs/assimp-vc143-mtd.dll " .. solutionDir .. "bin/" .. outputdir .. "/%{prj.name}")
+			("{COPY} vendor/ASSIMP/libs/assimp-vc143-mtd.dll " .. solutionDir .. "bin/" .. outputdir .. "/%{prj.name}"),
+			("{COPY} vendor/FMOD/lib/fmod.dll " .. solutionDir .. "bin/" .. outputdir .. "/%{prj.name}")
 		}
 
 		postbuildcommands {
-			"call CreateDir.bat ../bin/" .. outputdir .. "/Sandbox",
+			-- "call CreateDir.bat ../bin/" .. outputdir .. "/Sandbox",
 			"call CreateDir.bat ../bin/" .. outputdir .. "/Nebula",
 			
-			("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Sandbox"),			
-			("{COPY} ../bin/" .. outputdir .. "/%{prj.name}/assimp-vc143-mtd.dll ../bin/" .. outputdir .. "/Sandbox"),	
+			-- ("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Sandbox"),			
+			-- ("{COPY} ../bin/" .. outputdir .. "/%{prj.name}/assimp-vc143-mtd.dll ../bin/" .. outputdir .. "/Sandbox"),	
 
 			("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Nebula"),			
-			("{COPY} ../bin/" .. outputdir .. "/%{prj.name}/assimp-vc143-mtd.dll ../bin/" .. outputdir .. "/Nebula")	
+			("{COPY} ../bin/" .. outputdir .. "/%{prj.name}/assimp-vc143-mtd.dll ../bin/" .. outputdir .. "/Nebula"),	
+			("{COPY} ../bin/" .. outputdir .. "/%{prj.name}/fmod.dll ../bin/" .. outputdir .. "/Nebula")	
 		}
 
 

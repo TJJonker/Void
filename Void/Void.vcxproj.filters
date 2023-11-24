@@ -4,6 +4,9 @@
     <Filter Include="Void">
       <UniqueIdentifier>{371E8E7C-2355-8F0D-CC41-7510B8570B0F}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Void\Audio">
+      <UniqueIdentifier>{78396C7E-64F1-ADCB-CDF8-8627B9CF48BC}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Void\Core">
       <UniqueIdentifier>{EFBCD503-5B27-8A7A-A465-3B20100F68CF}</UniqueIdentifier>
     </Filter>
@@ -407,6 +410,7 @@
       <Filter>Void\Vendor\stb_lib</Filter>
     </ClInclude>
     <ClInclude Include="src\pch.h" />
+    <ClInclude Include="src\Void\Audio\AudioManager\AudioManager.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Void\Core\Application.cpp">
@@ -560,5 +564,6 @@
       <Filter>Void\Vendor\stb_lib</Filter>
     </ClCompile>
     <ClCompile Include="src\pch.cpp" />
+    <ClCompile Include="src\Void\Audio\AudioManager\AudioManager.cpp" />
   </ItemGroup>
 </Project>

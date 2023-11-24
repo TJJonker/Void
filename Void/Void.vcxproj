@@ -76,8 +76,8 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>VOID_PLATFORM_WINDOWS;VOID_BUILD_DLL;VOID_ASSERT_ENABLED;VOID_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\SPDLOG\include;vendor\GLFW\include;vendor\GLAD\include;vendor\GLM;vendor\ASSIMP\include;vendor\IMGUI;vendor\NLOHMANN\single_include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>VOID_PLATFORM_WINDOWS;VOID_BUILD_DLL;VOID_ASSERT_ENABLED;VOID_AUDIO_FMOD;VOID_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>src;vendor\SPDLOG\include;vendor\GLFW\include;vendor\GLAD\include;vendor\GLM;vendor\ASSIMP\include;vendor\IMGUI;vendor\NLOHMANN\single_include;vendor\FMOD\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -89,19 +89,18 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <Lib>
-      <AdditionalDependencies>opengl32.lib;assimp-vc143-mtd.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>vendor\ASSIMP\libs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opengl32.lib;assimp-vc143-mtd.lib;fmod_vc.lib;fmodL_vc.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>vendor\ASSIMP\libs;vendor\FMOD\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Lib>
     <PreBuildEvent>
-      <Command>IF EXIST vendor\ASSIMP\libs\assimp-vc143-mtd.dll\ (xcopy /Q /E /Y /I vendor\ASSIMP\libs\assimp-vc143-mtd.dll $(SolutionDir)\bin\Debug-windows-x86_64\$(ProjectName) &gt; nul) ELSE (xcopy /Q /Y /I vendor\ASSIMP\libs\assimp-vc143-mtd.dll $(SolutionDir)\bin\Debug-windows-x86_64\$(ProjectName) &gt; nul)</Command>
+      <Command>IF EXIST vendor\ASSIMP\libs\assimp-vc143-mtd.dll\ (xcopy /Q /E /Y /I vendor\ASSIMP\libs\assimp-vc143-mtd.dll $(SolutionDir)\bin\Debug-windows-x86_64\$(ProjectName) &gt; nul) ELSE (xcopy /Q /Y /I vendor\ASSIMP\libs\assimp-vc143-mtd.dll $(SolutionDir)\bin\Debug-windows-x86_64\$(ProjectName) &gt; nul)
+IF EXIST vendor\FMOD\lib\fmod.dll\ (xcopy /Q /E /Y /I vendor\FMOD\lib\fmod.dll $(SolutionDir)\bin\Debug-windows-x86_64\$(ProjectName) &gt; nul) ELSE (xcopy /Q /Y /I vendor\FMOD\lib\fmod.dll $(SolutionDir)\bin\Debug-windows-x86_64\$(ProjectName) &gt; nul)</Command>
     </PreBuildEvent>
     <PostBuildEvent>
-      <Command>call CreateDir.bat ../bin/Debug-windows-x86_64/Sandbox
-call CreateDir.bat ../bin/Debug-windows-x86_64/Nebula
-IF EXIST ..\bin\Debug-windows-x86_64\Void\Void.lib\ (xcopy /Q /E /Y /I ..\bin\Debug-windows-x86_64\Void\Void.lib ..\bin\Debug-windows-x86_64\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Debug-windows-x86_64\Void\Void.lib ..\bin\Debug-windows-x86_64\Sandbox &gt; nul)
-IF EXIST ..\bin\Debug-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll\ (xcopy /Q /E /Y /I ..\bin\Debug-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll ..\bin\Debug-windows-x86_64\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Debug-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll ..\bin\Debug-windows-x86_64\Sandbox &gt; nul)
+      <Command>call CreateDir.bat ../bin/Debug-windows-x86_64/Nebula
 IF EXIST ..\bin\Debug-windows-x86_64\Void\Void.lib\ (xcopy /Q /E /Y /I ..\bin\Debug-windows-x86_64\Void\Void.lib ..\bin\Debug-windows-x86_64\Nebula &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Debug-windows-x86_64\Void\Void.lib ..\bin\Debug-windows-x86_64\Nebula &gt; nul)
-IF EXIST ..\bin\Debug-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll\ (xcopy /Q /E /Y /I ..\bin\Debug-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll ..\bin\Debug-windows-x86_64\Nebula &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Debug-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll ..\bin\Debug-windows-x86_64\Nebula &gt; nul)</Command>
+IF EXIST ..\bin\Debug-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll\ (xcopy /Q /E /Y /I ..\bin\Debug-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll ..\bin\Debug-windows-x86_64\Nebula &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Debug-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll ..\bin\Debug-windows-x86_64\Nebula &gt; nul)
+IF EXIST ..\bin\Debug-windows-x86_64\$(ProjectName)\fmod.dll\ (xcopy /Q /E /Y /I ..\bin\Debug-windows-x86_64\$(ProjectName)\fmod.dll ..\bin\Debug-windows-x86_64\Nebula &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Debug-windows-x86_64\$(ProjectName)\fmod.dll ..\bin\Debug-windows-x86_64\Nebula &gt; nul)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -109,8 +108,8 @@ IF EXIST ..\bin\Debug-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll\ (xcopy
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>VOID_PLATFORM_WINDOWS;VOID_BUILD_DLL;VOID_ASSERT_ENABLED;VOID_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\SPDLOG\include;vendor\GLFW\include;vendor\GLAD\include;vendor\GLM;vendor\ASSIMP\include;vendor\IMGUI;vendor\NLOHMANN\single_include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>VOID_PLATFORM_WINDOWS;VOID_BUILD_DLL;VOID_ASSERT_ENABLED;VOID_AUDIO_FMOD;VOID_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>src;vendor\SPDLOG\include;vendor\GLFW\include;vendor\GLAD\include;vendor\GLM;vendor\ASSIMP\include;vendor\IMGUI;vendor\NLOHMANN\single_include;vendor\FMOD\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -119,6 +118,7 @@ IF EXIST ..\bin\Debug-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll\ (xcopy
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -126,19 +126,18 @@ IF EXIST ..\bin\Debug-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll\ (xcopy
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
     <Lib>
-      <AdditionalDependencies>opengl32.lib;assimp-vc143-mtd.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>vendor\ASSIMP\libs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opengl32.lib;assimp-vc143-mtd.lib;fmod_vc.lib;fmodL_vc.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>vendor\ASSIMP\libs;vendor\FMOD\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Lib>
     <PreBuildEvent>
-      <Command>IF EXIST vendor\ASSIMP\libs\assimp-vc143-mtd.dll\ (xcopy /Q /E /Y /I vendor\ASSIMP\libs\assimp-vc143-mtd.dll $(SolutionDir)\bin\Release-windows-x86_64\$(ProjectName) &gt; nul) ELSE (xcopy /Q /Y /I vendor\ASSIMP\libs\assimp-vc143-mtd.dll $(SolutionDir)\bin\Release-windows-x86_64\$(ProjectName) &gt; nul)</Command>
+      <Command>IF EXIST vendor\ASSIMP\libs\assimp-vc143-mtd.dll\ (xcopy /Q /E /Y /I vendor\ASSIMP\libs\assimp-vc143-mtd.dll $(SolutionDir)\bin\Release-windows-x86_64\$(ProjectName) &gt; nul) ELSE (xcopy /Q /Y /I vendor\ASSIMP\libs\assimp-vc143-mtd.dll $(SolutionDir)\bin\Release-windows-x86_64\$(ProjectName) &gt; nul)
+IF EXIST vendor\FMOD\lib\fmod.dll\ (xcopy /Q /E /Y /I vendor\FMOD\lib\fmod.dll $(SolutionDir)\bin\Release-windows-x86_64\$(ProjectName) &gt; nul) ELSE (xcopy /Q /Y /I vendor\FMOD\lib\fmod.dll $(SolutionDir)\bin\Release-windows-x86_64\$(ProjectName) &gt; nul)</Command>
     </PreBuildEvent>
     <PostBuildEvent>
-      <Command>call CreateDir.bat ../bin/Release-windows-x86_64/Sandbox
-call CreateDir.bat ../bin/Release-windows-x86_64/Nebula
-IF EXIST ..\bin\Release-windows-x86_64\Void\Void.lib\ (xcopy /Q /E /Y /I ..\bin\Release-windows-x86_64\Void\Void.lib ..\bin\Release-windows-x86_64\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Release-windows-x86_64\Void\Void.lib ..\bin\Release-windows-x86_64\Sandbox &gt; nul)
-IF EXIST ..\bin\Release-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll\ (xcopy /Q /E /Y /I ..\bin\Release-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll ..\bin\Release-windows-x86_64\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Release-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll ..\bin\Release-windows-x86_64\Sandbox &gt; nul)
+      <Command>call CreateDir.bat ../bin/Release-windows-x86_64/Nebula
 IF EXIST ..\bin\Release-windows-x86_64\Void\Void.lib\ (xcopy /Q /E /Y /I ..\bin\Release-windows-x86_64\Void\Void.lib ..\bin\Release-windows-x86_64\Nebula &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Release-windows-x86_64\Void\Void.lib ..\bin\Release-windows-x86_64\Nebula &gt; nul)
-IF EXIST ..\bin\Release-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll\ (xcopy /Q /E /Y /I ..\bin\Release-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll ..\bin\Release-windows-x86_64\Nebula &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Release-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll ..\bin\Release-windows-x86_64\Nebula &gt; nul)</Command>
+IF EXIST ..\bin\Release-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll\ (xcopy /Q /E /Y /I ..\bin\Release-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll ..\bin\Release-windows-x86_64\Nebula &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Release-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll ..\bin\Release-windows-x86_64\Nebula &gt; nul)
+IF EXIST ..\bin\Release-windows-x86_64\$(ProjectName)\fmod.dll\ (xcopy /Q /E /Y /I ..\bin\Release-windows-x86_64\$(ProjectName)\fmod.dll ..\bin\Release-windows-x86_64\Nebula &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Release-windows-x86_64\$(ProjectName)\fmod.dll ..\bin\Release-windows-x86_64\Nebula &gt; nul)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">
@@ -146,8 +145,8 @@ IF EXIST ..\bin\Release-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll\ (xco
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>VOID_PLATFORM_WINDOWS;VOID_BUILD_DLL;VOID_ASSERT_ENABLED;VOID_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\SPDLOG\include;vendor\GLFW\include;vendor\GLAD\include;vendor\GLM;vendor\ASSIMP\include;vendor\IMGUI;vendor\NLOHMANN\single_include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>VOID_PLATFORM_WINDOWS;VOID_BUILD_DLL;VOID_ASSERT_ENABLED;VOID_AUDIO_FMOD;VOID_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>src;vendor\SPDLOG\include;vendor\GLFW\include;vendor\GLAD\include;vendor\GLM;vendor\ASSIMP\include;vendor\IMGUI;vendor\NLOHMANN\single_include;vendor\FMOD\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -163,22 +162,22 @@ IF EXIST ..\bin\Release-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll\ (xco
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
     <Lib>
-      <AdditionalDependencies>opengl32.lib;assimp-vc143-mtd.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>vendor\ASSIMP\libs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opengl32.lib;assimp-vc143-mtd.lib;fmod_vc.lib;fmodL_vc.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>vendor\ASSIMP\libs;vendor\FMOD\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Lib>
     <PreBuildEvent>
-      <Command>IF EXIST vendor\ASSIMP\libs\assimp-vc143-mtd.dll\ (xcopy /Q /E /Y /I vendor\ASSIMP\libs\assimp-vc143-mtd.dll $(SolutionDir)\bin\Dist-windows-x86_64\$(ProjectName) &gt; nul) ELSE (xcopy /Q /Y /I vendor\ASSIMP\libs\assimp-vc143-mtd.dll $(SolutionDir)\bin\Dist-windows-x86_64\$(ProjectName) &gt; nul)</Command>
+      <Command>IF EXIST vendor\ASSIMP\libs\assimp-vc143-mtd.dll\ (xcopy /Q /E /Y /I vendor\ASSIMP\libs\assimp-vc143-mtd.dll $(SolutionDir)\bin\Dist-windows-x86_64\$(ProjectName) &gt; nul) ELSE (xcopy /Q /Y /I vendor\ASSIMP\libs\assimp-vc143-mtd.dll $(SolutionDir)\bin\Dist-windows-x86_64\$(ProjectName) &gt; nul)
+IF EXIST vendor\FMOD\lib\fmod.dll\ (xcopy /Q /E /Y /I vendor\FMOD\lib\fmod.dll $(SolutionDir)\bin\Dist-windows-x86_64\$(ProjectName) &gt; nul) ELSE (xcopy /Q /Y /I vendor\FMOD\lib\fmod.dll $(SolutionDir)\bin\Dist-windows-x86_64\$(ProjectName) &gt; nul)</Command>
     </PreBuildEvent>
     <PostBuildEvent>
-      <Command>call CreateDir.bat ../bin/Dist-windows-x86_64/Sandbox
-call CreateDir.bat ../bin/Dist-windows-x86_64/Nebula
-IF EXIST ..\bin\Dist-windows-x86_64\Void\Void.lib\ (xcopy /Q /E /Y /I ..\bin\Dist-windows-x86_64\Void\Void.lib ..\bin\Dist-windows-x86_64\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Dist-windows-x86_64\Void\Void.lib ..\bin\Dist-windows-x86_64\Sandbox &gt; nul)
-IF EXIST ..\bin\Dist-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll\ (xcopy /Q /E /Y /I ..\bin\Dist-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll ..\bin\Dist-windows-x86_64\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Dist-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll ..\bin\Dist-windows-x86_64\Sandbox &gt; nul)
+      <Command>call CreateDir.bat ../bin/Dist-windows-x86_64/Nebula
 IF EXIST ..\bin\Dist-windows-x86_64\Void\Void.lib\ (xcopy /Q /E /Y /I ..\bin\Dist-windows-x86_64\Void\Void.lib ..\bin\Dist-windows-x86_64\Nebula &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Dist-windows-x86_64\Void\Void.lib ..\bin\Dist-windows-x86_64\Nebula &gt; nul)
-IF EXIST ..\bin\Dist-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll\ (xcopy /Q /E /Y /I ..\bin\Dist-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll ..\bin\Dist-windows-x86_64\Nebula &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Dist-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll ..\bin\Dist-windows-x86_64\Nebula &gt; nul)</Command>
+IF EXIST ..\bin\Dist-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll\ (xcopy /Q /E /Y /I ..\bin\Dist-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll ..\bin\Dist-windows-x86_64\Nebula &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Dist-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll ..\bin\Dist-windows-x86_64\Nebula &gt; nul)
+IF EXIST ..\bin\Dist-windows-x86_64\$(ProjectName)\fmod.dll\ (xcopy /Q /E /Y /I ..\bin\Dist-windows-x86_64\$(ProjectName)\fmod.dll ..\bin\Dist-windows-x86_64\Nebula &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Dist-windows-x86_64\$(ProjectName)\fmod.dll ..\bin\Dist-windows-x86_64\Nebula &gt; nul)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Void\Audio\AudioManager\AudioManager.h" />
     <ClInclude Include="src\Void.h" />
     <ClInclude Include="src\Void\Core\Application.h" />
     <ClInclude Include="src\Void\Core\Core.h" />
@@ -256,6 +255,7 @@ IF EXIST ..\bin\Dist-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll\ (xcopy 
     <ClInclude Include="src\pch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Void\Audio\AudioManager\AudioManager.cpp" />
     <ClCompile Include="src\Void\Core\Application.cpp" />
     <ClCompile Include="src\Void\Core\Input.cpp" />
     <ClCompile Include="src\Void\Core\Window.cpp" />
