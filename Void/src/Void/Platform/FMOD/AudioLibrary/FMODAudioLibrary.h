@@ -15,6 +15,6 @@ namespace Void::Audio {
 		void LoadAudio(const char* filePath);
 		void LoadStream(const char* filePath);
 
-		FMOD::Sound* GetSound();
+		FMOD::Sound* GetSound(const char* filePath);
 	};
 }
