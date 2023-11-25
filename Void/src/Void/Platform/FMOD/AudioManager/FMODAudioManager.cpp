@@ -1,16 +1,8 @@
 #include "pch.h"
 #include "FMODAudioManager.h"
+#include "Void/Platform/FMOD/Utils/FMODUtils.h"
 
 namespace Void::Audio {
-	FMOD_RESULT F_CALLBACK channelFinishedCallback(FMOD_CHANNELCONTROL* channelControl, FMOD_CHANNELCONTROL_TYPE controlType, FMOD_CHANNELCONTROL_CALLBACK_TYPE callbackType, void* commandData1, void* commandData2) {
-		if (callbackType == FMOD_CHANNELCONTROL_CALLBACK_END) {
-			std::cout << "Channel finished playing!" << std::endl;
-			// Perform any actions you need when the channel finishes playing
-		}
-
-		return FMOD_OK;
-	}
-
 	void FMODAudioManager::Initialize(unsigned int maxChannels)
 	{
 		FMOD_RESULT result;
@@ -21,9 +13,11 @@ namespace Void::Audio {
 		VOID_ASSERT(result, "Failed to initialize the audio system.");
 
 		m_Library = new FMODAudioLibrary(m_System);
+		m_ChannelsPool = new Pool<Channel>(maxChannels);
 
-		for (unsigned int i = 0; i < maxChannels; i++)
-			m_Channels.push_back(new Channel());
+		m_ChannelGroups.push_back(new ChannelGroup()); // Master
+		m_ChannelGroups.push_back(new ChannelGroup()); // Music
+		m_ChannelGroups.push_back(new ChannelGroup()); // SFX
 	}
 
 	void FMODAudioManager::Update()
@@ -53,60 +47,34 @@ namespace Void::Audio {
 
 	unsigned int FMODAudioManager::PlayAudio(const char* filePath, int channelGroupIndex)
 	{
-
+		FMOD::Sound* sound = m_Library->GetSound(filePath);
+		unsigned int channelIndex = m_ChannelsPool->Get();
+		Channel* channel = m_ChannelsPool->GetPoolObject(channelIndex);
+		m_System->playSound(sound, m_ChannelGroups[channelGroupIndex]->ChannelGroup, false, &channel->FMODChannel);
+		return channelIndex;
 	}
 
-	void Void::Audio::FMODAudioManager::StopAudio(unsigned int channelIndex)
+	void FMODAudioManager::StopAudio(unsigned int channelIndex)
 	{
+		Channel* channel = m_ChannelsPool->GetPoolObject(channelIndex);
+		channel->FMODChannel->stop();
+		m_ChannelsPool->Release(channel);
 	}
 
-	
-
-	void Void::Audio::FMODAudioManager::AddReverbToChannel(unsigned int channelIndex, float decay, float density, float diffusion)
+	void FMODAudioManager::SetListenerAttributes(const glm::vec3& position, const glm::vec3& velocity, const glm::vec3& forward, const glm::vec3& up)
 	{
+		FMOD_RESULT result;
+		FMOD_VECTOR fpos = ToFMOD(position);
+		FMOD_VECTOR fvel = ToFMOD(velocity);
+		FMOD_VECTOR ffwd = ToFMOD(forward);
+		FMOD_VECTOR fup  = ToFMOD(up);
+
+		result = m_System->set3DListenerAttributes(0, &fpos, &fvel, &ffwd, &fup);
+		VOID_ASSERT(result, "Error while setting 3D listener attribute.");
 	}
 
-	void Void::Audio::FMODAudioManager::AddLowPassToChannel(unsigned int channelIndex, unsigned int limit)
+	void FMODAudioManager::AddPolygon(float direct, float reverb, bool doublesided, const std::vector<glm::vec3>& vertices, const glm::vec3& position)
 	{
-	}
 
-	void Void::Audio::FMODAudioManager::AddHighPassToChannel(unsigned int channelIndex, unsigned int limit)
-	{
-	}
-
-	void Void::Audio::FMODAudioManager::AddDistortionToChannel(unsigned int channelIndex, float level)
-	{
-	}
-
-	void Void::Audio::FMODAudioManager::AddChorusToChannel(unsigned int channelIndex, unsigned int mix, float rate, unsigned int depth)
-	{
-	}
-
-	void Void::Audio::FMODAudioManager::AddReverbToChannelGroup(unsigned int channelGroupIndex, float decay, float density, float diffusion)
-	{
-	}
-
-	void Void::Audio::FMODAudioManager::AddLowPassToChannelGroup(unsigned int channelGroupIndex, unsigned int limit)
-	{
-	}
-
-	void Void::Audio::FMODAudioManager::AddHighPassToChannelGroup(unsigned int channelGroupIndex, unsigned int limit)
-	{
-	}
-
-	void Void::Audio::FMODAudioManager::AddDistortionToChannelGroup(unsigned int channelGroupIndex, float level)
-	{
-	}
-
-	void Void::Audio::FMODAudioManager::AddChorusToChannelGroup(unsigned int channelGroupIndex, unsigned int mix, float rate, unsigned int depth)
-	{
-	}
-
-	void Void::Audio::FMODAudioManager::SetListenerAttributes(const glm::vec3& position, const glm::vec3& velocity, const glm::vec3& forward, const glm::vec3& up)
-	{
-	}
-
-	void Void::Audio::FMODAudioManager::AddPolygon(float direct, float reverb, bool doublesided, const std::vector<glm::vec3>& vertices, const glm::vec3& position)
-	{
 	}
 }

@@ -14,7 +14,7 @@ namespace Void::Audio {
 		virtual void LoadStream(const char* filePath) = 0;
 		virtual void Load3DAudio(const char* filePath) = 0;
 
-		virtual void PlayAudio(const char* filePath, int channelGroupIndex) = 0;
+		virtual unsigned int PlayAudio(const char* filePath, int channelGroupIndex) = 0;
 		virtual void StopAudio(unsigned int channelID) = 0;
 
 		virtual void SetChannelVolume(unsigned int channelID, float volume) = 0;
@@ -22,18 +22,18 @@ namespace Void::Audio {
 		virtual void SetChannelPan(unsigned int channelID, float pan) = 0;
 
 		virtual void SetChannelGroupVolume(unsigned int groupID, float volume) = 0;
-		virtual void SetChannelGroupPitch(unsigned int groupID, float volume) = 0;
-		virtual void SetChannelGroupPan(unsigned int groupID, float volume) = 0;
+		virtual void SetChannelGroupPitch(unsigned int groupID, float pitch) = 0;
+		virtual void SetChannelGroupPan(unsigned int groupID, float pan) = 0;
 		
 		virtual void AddReverbToChannel(unsigned int channelID, float decay = 1500.f, float density = 100.f, float diffusion = 50.f) = 0;
-		virtual void AddLowPassToChannel(unsigned int channelID, unsigned int limit = 5000) = 0;
-		virtual void AddHighPassToChannel(unsigned int channelID, unsigned int limit = 5000) = 0;
+		virtual void AddLowPassToChannel(unsigned int channelID, unsigned int cutoff = 5000) = 0;
+		virtual void AddHighPassToChannel(unsigned int channelID, unsigned int cutoff = 5000) = 0;
 		virtual void AddDistortionToChannel(unsigned int channelID, float level = .5f) = 0;
 		virtual void AddChorusToChannel(unsigned int channelID, unsigned int mix = 50, float rate = .8f, unsigned int depth = 3) = 0;
 
 		virtual void AddReverbToChannelGroup(unsigned int channelGroupID, float decay = 1500.f, float density = 100.f, float diffusion = 50.f) = 0;
-		virtual void AddLowPassToChannelGroup(unsigned int channelGroupID, unsigned int limit = 5000) = 0;
-		virtual void AddHighPassToChannelGroup(unsigned int channelGroupID, unsigned int limit = 5000) = 0;
+		virtual void AddLowPassToChannelGroup(unsigned int channelGroupID, unsigned int cutoff = 5000) = 0;
+		virtual void AddHighPassToChannelGroup(unsigned int channelGroupID, unsigned int cutoff = 5000) = 0;
 		virtual void AddDistortionToChannelGroup(unsigned int channelGroupID, float level = .5f) = 0;
 		virtual void AddChorusToChannelGroup(unsigned int channelGroupID, unsigned int mix = 50, float rate = .8f, unsigned int depth = 3) = 0;
 
@@ -46,5 +46,13 @@ namespace Void::Audio {
 		#define CHANNELGROUP_MASTER_INDEX	0
 		#define CHANNELGROUP_MUSIC_INDEX	1
 		#define CHANNELGROUP_SFX_INDEX		2
+
+		#define DSP_REVERB_INDEX			0
+		#define DSP_LOWPASS_INDEX			1
+		#define DSP_HIGHPASS_INDEX			2
+		#define DSP_DISTORTION_INDEX		3
+		#define DSP_CHORUS_INDEX			4
+
+		#define	DSP_AMOUNT					5
 	};
 }

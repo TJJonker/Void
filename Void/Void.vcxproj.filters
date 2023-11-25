@@ -411,6 +411,10 @@
     </ClInclude>
     <ClInclude Include="src\pch.h" />
     <ClInclude Include="src\Void\Audio\AudioManager\AudioManager.h" />
+    <ClInclude Include="src\Void\Platform\FMOD\AudioLibrary\FMODAudioLibrary.h" />
+    <ClInclude Include="src\Void\Platform\FMOD\AudioManager\FMODAudioManager.h" />
+    <ClInclude Include="src\Void\Utils\ObjectPooling\ObjectPooling.h" />
+    <ClInclude Include="src\Void\Utils\ObjectPooling\IPoolObject.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Void\Core\Application.cpp">
@@ -565,5 +569,9 @@
     </ClCompile>
     <ClCompile Include="src\pch.cpp" />
     <ClCompile Include="src\Void\Audio\AudioManager\AudioManager.cpp" />
+    <ClCompile Include="src\Void\Platform\FMOD\AudioLibrary\FMODAudioLibrary.cpp" />
+    <ClCompile Include="src\Void\Platform\FMOD\AudioManager\FMODAudioManager.cpp" />
+    <ClCompile Include="src\Void\Platform\FMOD\AudioManager\FMODAudioManagerManipulation.cpp" />
+    <ClCompile Include="src\Void\Utils\ObjectPooling\ObjectPooling.cpp" />
   </ItemGroup>
 </Project>
