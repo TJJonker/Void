@@ -28,11 +28,11 @@ namespace Void::Rendering {
 		m_SpotLightData.push_back(spotLightData);
 	}
 
-	void RenderingCommands::BeginDraw(Camera* camera)
+	void RenderingCommands::BeginDraw(const glm::mat4& view, float fov, const glm::vec3& position)
 	{
-		m_RenderData->viewMatrix = camera->GetView();
-		m_RenderData->projectionMatrix = glm::perspective(glm::radians(camera->GetFOV()), 1280.0f / 720.0f, 0.1f, 100.0f);
-		m_RenderData->viewPosition = camera->GetPosition();
+		m_RenderData->viewMatrix = view;
+		m_RenderData->projectionMatrix = glm::perspective(glm::radians(fov), 1280.0f / 720.0f, 0.1f, 100.0f);
+		m_RenderData->viewPosition = position;
 	}
 
 	void RenderingCommands::Draw(VertexArray* vertexArray, Shader* shader, glm::mat4 modelMatrix)
