@@ -3,7 +3,7 @@
 #include <fmod/fmod_errors.h>
 
 namespace Void::Audio {
-	void FMODAudioManager::SetChannelVolume(unsigned int channelID, float volume)
+	void FMODAudioManager::SetChannelVolume(unsigned int channelID, unsigned int volume)
 	{
 		FMOD_RESULT result = m_ChannelsPool->GetPoolObject(channelID)->FMODChannel->setVolume(volume);
 		VOID_ERROR("Error while setting the volume of channel: '{0}' - {1}", channelID, FMOD_ErrorString(result));
@@ -24,7 +24,7 @@ namespace Void::Audio {
 		m_ChannelsPool->GetPoolObject(channelID)->Pan = pan;
 	}
 
-	void FMODAudioManager::SetChannelGroupVolume(unsigned int groupID, float volume)
+	void FMODAudioManager::SetChannelGroupVolume(unsigned int groupID, unsigned int volume)
 	{
 		VOID_ASSERT(groupID < m_ChannelGroups.size(), "ID out of bounds.");
 		FMOD_RESULT result = m_ChannelGroups[groupID]->ChannelGroup->setVolume(volume);

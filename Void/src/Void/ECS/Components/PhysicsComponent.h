@@ -21,10 +21,6 @@ namespace Void {
 			json["Mass"] = Mass;
 			json["IsStatic"] = IsStatic;
 
-			json["Velocity"]["X"] = Velocity.x;
-			json["Velocity"]["Y"] = Velocity.y;
-			json["Velocity"]["Z"] = Velocity.z;
-
 			if (PlaneCollider* collider = dynamic_cast<PlaneCollider*>(Collider)) {
 				json["Type"] = "Plane";
 				json["Data"] = collider->ToJSON();
@@ -46,10 +42,6 @@ namespace Void {
 		void FromJSON(const nlohmann::json& json) override {
 			Mass = json["Mass"];
 			IsStatic = json["IsStatic"];
-
-			Velocity.x = json["Velocity"]["X"];
-			Velocity.y = json["Velocity"]["Y"];
-			Velocity.z = json["Velocity"]["Z"];
 
 			std::string type = json["Type"];
 			if (type == "Plane") {

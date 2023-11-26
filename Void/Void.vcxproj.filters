@@ -7,6 +7,9 @@
     <Filter Include="Void\Audio">
       <UniqueIdentifier>{78396C7E-64F1-ADCB-CDF8-8627B9CF48BC}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Void\Audio\AudioManager">
+      <UniqueIdentifier>{34A6B471-A0DD-FC08-A9E7-602C159E2302}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Void\Core">
       <UniqueIdentifier>{EFBCD503-5B27-8A7A-A465-3B20100F68CF}</UniqueIdentifier>
     </Filter>
@@ -34,6 +37,18 @@
     <Filter Include="Void\ECS\Systems">
       <UniqueIdentifier>{081DB82B-F415-D77D-1D48-BC0209A0B689}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Void\ECS\Systems\AudioListener">
+      <UniqueIdentifier>{6F06E5F3-5B2C-AF5A-4472-34263037D426}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Void\ECS\Systems\Camera">
+      <UniqueIdentifier>{80B83769-ECEF-7F00-F5F9-E32361B0A6F9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Void\ECS\Systems\Physics">
+      <UniqueIdentifier>{7AA8188A-66CD-670A-8F18-4D9A7B9C6628}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Void\ECS\Systems\Rendering">
+      <UniqueIdentifier>{55D01925-41E0-C5F5-AA99-2A1496C8B48E}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Void\Event">
       <UniqueIdentifier>{C82CB57E-B4E4-F6CB-1DEC-CF2709C391BC}</UniqueIdentifier>
     </Filter>
@@ -60,6 +75,21 @@
     </Filter>
     <Filter Include="Void\Platform">
       <UniqueIdentifier>{6B484333-D708-BF69-A043-08E70CC30346}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Void\Platform\FMOD">
+      <UniqueIdentifier>{8077A2A5-6C5B-63FB-D5BB-5D4EC1BE4D7D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Void\Platform\FMOD\AudioLibrary">
+      <UniqueIdentifier>{168E804D-8271-8F8D-8B74-BDC9F7D655DE}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Void\Platform\FMOD\AudioManager">
+      <UniqueIdentifier>{3C71A188-A854-B0C8-B157-DE041DBA7619}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Void\Platform\FMOD\DataStructs">
+      <UniqueIdentifier>{A1BE3E50-8DE4-08B7-762A-8E8262EF2D83}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Void\Platform\FMOD\Utils">
+      <UniqueIdentifier>{E018641A-CC3D-B39A-F588-982AE10CB2B8}</UniqueIdentifier>
     </Filter>
     <Filter Include="Void\Platform\OpenGL">
       <UniqueIdentifier>{3FEBA2AF-2B7A-2C79-D498-4074C0063D1F}</UniqueIdentifier>
@@ -175,6 +205,9 @@
     <Filter Include="Void\Utils\ExternalFiles\TextureLoader">
       <UniqueIdentifier>{33284EF8-1F7A-25E8-0899-62F8F4893ED1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Void\Utils\ObjectPooling">
+      <UniqueIdentifier>{15D44F4F-01F9-9ECF-2A44-845F16C89DED}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Void\Utils\Parser">
       <UniqueIdentifier>{73912F48-DFA7-2DDE-281F-B9FF9474FE65}</UniqueIdentifier>
     </Filter>
@@ -190,6 +223,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Void.h" />
+    <ClInclude Include="src\Void\Audio\AudioManager\AudioManager.h">
+      <Filter>Void\Audio\AudioManager</Filter>
+    </ClInclude>
     <ClInclude Include="src\Void\Core\Application.h">
       <Filter>Void\Core</Filter>
     </ClInclude>
@@ -211,6 +247,15 @@
     <ClInclude Include="src\Void\Debug\Log.h">
       <Filter>Void\Debug</Filter>
     </ClInclude>
+    <ClInclude Include="src\Void\ECS\Components\AudioListenerComponent.h">
+      <Filter>Void\ECS\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Void\ECS\Components\CameraComponent.h">
+      <Filter>Void\ECS\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Void\ECS\Components\EventComponent.h">
+      <Filter>Void\ECS\Components</Filter>
+    </ClInclude>
     <ClInclude Include="src\Void\ECS\Components\LightComponent.h">
       <Filter>Void\ECS\Components</Filter>
     </ClInclude>
@@ -229,6 +274,9 @@
     <ClInclude Include="src\Void\ECS\Components\TranformComponent.h">
       <Filter>Void\ECS\Components</Filter>
     </ClInclude>
+    <ClInclude Include="src\Void\ECS\Components\VelocityComponent.h">
+      <Filter>Void\ECS\Components</Filter>
+    </ClInclude>
     <ClInclude Include="src\Void\ECS\Core\Entity\Entity.h">
       <Filter>Void\ECS\Core\Entity</Filter>
     </ClInclude>
@@ -241,11 +289,17 @@
     <ClInclude Include="src\Void\ECS\Core\Systems\ISystem.h">
       <Filter>Void\ECS\Core\Systems</Filter>
     </ClInclude>
-    <ClInclude Include="src\Void\ECS\Systems\PhysicsSystem.h">
-      <Filter>Void\ECS\Systems</Filter>
+    <ClInclude Include="src\Void\ECS\Systems\AudioListener\AudioListenerSystem.h">
+      <Filter>Void\ECS\Systems\AudioListener</Filter>
     </ClInclude>
-    <ClInclude Include="src\Void\ECS\Systems\RenderingSystem.h">
-      <Filter>Void\ECS\Systems</Filter>
+    <ClInclude Include="src\Void\ECS\Systems\Camera\CameraSystem.h">
+      <Filter>Void\ECS\Systems\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Void\ECS\Systems\Physics\PhysicsSystem.h">
+      <Filter>Void\ECS\Systems\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Void\ECS\Systems\Rendering\RenderingSystem.h">
+      <Filter>Void\ECS\Systems\Rendering</Filter>
     </ClInclude>
     <ClInclude Include="src\Void\Event\Event.h">
       <Filter>Void\Event</Filter>
@@ -300,6 +354,21 @@
     </ClInclude>
     <ClInclude Include="src\Void\Physics\Tranform.h">
       <Filter>Void\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Void\Platform\FMOD\AudioLibrary\FMODAudioLibrary.h">
+      <Filter>Void\Platform\FMOD\AudioLibrary</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Void\Platform\FMOD\AudioManager\FMODAudioManager.h">
+      <Filter>Void\Platform\FMOD\AudioManager</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Void\Platform\FMOD\DataStructs\FMODChannel.h">
+      <Filter>Void\Platform\FMOD\DataStructs</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Void\Platform\FMOD\DataStructs\FMODChannelGroup.h">
+      <Filter>Void\Platform\FMOD\DataStructs</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Void\Platform\FMOD\Utils\FMODUtils.h">
+      <Filter>Void\Platform\FMOD\Utils</Filter>
     </ClInclude>
     <ClInclude Include="src\Void\Platform\OpenGL\Components\FrameBuffer\OpenGLFrameBuffer.h">
       <Filter>Void\Platform\OpenGL\Components\FrameBuffer</Filter>
@@ -397,6 +466,12 @@
     <ClInclude Include="src\Void\Utils\ExternalFiles\TextureLoader\TextureLoader.h">
       <Filter>Void\Utils\ExternalFiles\TextureLoader</Filter>
     </ClInclude>
+    <ClInclude Include="src\Void\Utils\ObjectPooling\IPoolObject.h">
+      <Filter>Void\Utils\ObjectPooling</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Void\Utils\ObjectPooling\Pool.h">
+      <Filter>Void\Utils\ObjectPooling</Filter>
+    </ClInclude>
     <ClInclude Include="src\Void\Utils\Parser\ISerializable.h">
       <Filter>Void\Utils\Parser</Filter>
     </ClInclude>
@@ -410,13 +485,15 @@
       <Filter>Void\Vendor\stb_lib</Filter>
     </ClInclude>
     <ClInclude Include="src\pch.h" />
-    <ClInclude Include="src\Void\Audio\AudioManager\AudioManager.h" />
-    <ClInclude Include="src\Void\Platform\FMOD\AudioLibrary\FMODAudioLibrary.h" />
-    <ClInclude Include="src\Void\Platform\FMOD\AudioManager\FMODAudioManager.h" />
-    <ClInclude Include="src\Void\Utils\ObjectPooling\ObjectPooling.h" />
-    <ClInclude Include="src\Void\Utils\ObjectPooling\IPoolObject.h" />
+    <ClInclude Include="src\Void\Utils\Command\ICommand.h" />
+    <ClInclude Include="src\Void\ECS\Components\EventTriggerComponent.h" />
+    <ClInclude Include="src\Void\ECS\Event\ECSEventType.h" />
+    <ClInclude Include="src\Void\ECS\Event\ECSEventInfo.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Void\Audio\AudioManager\AudioManager.cpp">
+      <Filter>Void\Audio\AudioManager</Filter>
+    </ClCompile>
     <ClCompile Include="src\Void\Core\Application.cpp">
       <Filter>Void\Core</Filter>
     </ClCompile>
@@ -438,11 +515,17 @@
     <ClCompile Include="src\Void\ECS\Core\Scene\SceneManager.cpp">
       <Filter>Void\ECS\Core\Scene</Filter>
     </ClCompile>
-    <ClCompile Include="src\Void\ECS\Systems\PhysicsSystem.cpp">
-      <Filter>Void\ECS\Systems</Filter>
+    <ClCompile Include="src\Void\ECS\Systems\AudioListener\AudioListenerSystem.cpp">
+      <Filter>Void\ECS\Systems\AudioListener</Filter>
     </ClCompile>
-    <ClCompile Include="src\Void\ECS\Systems\RenderingSystem.cpp">
-      <Filter>Void\ECS\Systems</Filter>
+    <ClCompile Include="src\Void\ECS\Systems\Camera\CameraSystem.cpp">
+      <Filter>Void\ECS\Systems\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Void\ECS\Systems\Physics\PhysicsSystem.cpp">
+      <Filter>Void\ECS\Systems\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Void\ECS\Systems\Rendering\RenderingSystem.cpp">
+      <Filter>Void\ECS\Systems\Rendering</Filter>
     </ClCompile>
     <ClCompile Include="src\Void\Layers\Core\Layer.cpp">
       <Filter>Void\Layers\Core</Filter>
@@ -470,6 +553,18 @@
     </ClCompile>
     <ClCompile Include="src\Void\Physics\Solvers\Position\PositionSolver.cpp">
       <Filter>Void\Physics\Solvers\Position</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Void\Platform\FMOD\AudioLibrary\FMODAudioLibrary.cpp">
+      <Filter>Void\Platform\FMOD\AudioLibrary</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Void\Platform\FMOD\AudioManager\FMODAudioManager.cpp">
+      <Filter>Void\Platform\FMOD\AudioManager</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Void\Platform\FMOD\AudioManager\FMODAudioManagerDSP.cpp">
+      <Filter>Void\Platform\FMOD\AudioManager</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Void\Platform\FMOD\AudioManager\FMODAudioManagerManipulation.cpp">
+      <Filter>Void\Platform\FMOD\AudioManager</Filter>
     </ClCompile>
     <ClCompile Include="src\Void\Platform\OpenGL\Components\FrameBuffer\OpenGLFrameBuffer.cpp">
       <Filter>Void\Platform\OpenGL\Components\FrameBuffer</Filter>
@@ -568,10 +663,5 @@
       <Filter>Void\Vendor\stb_lib</Filter>
     </ClCompile>
     <ClCompile Include="src\pch.cpp" />
-    <ClCompile Include="src\Void\Audio\AudioManager\AudioManager.cpp" />
-    <ClCompile Include="src\Void\Platform\FMOD\AudioLibrary\FMODAudioLibrary.cpp" />
-    <ClCompile Include="src\Void\Platform\FMOD\AudioManager\FMODAudioManager.cpp" />
-    <ClCompile Include="src\Void\Platform\FMOD\AudioManager\FMODAudioManagerManipulation.cpp" />
-    <ClCompile Include="src\Void\Utils\ObjectPooling\ObjectPooling.cpp" />
   </ItemGroup>
 </Project>

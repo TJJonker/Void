@@ -110,7 +110,7 @@ namespace Void::Audio {
 		result = m_System->createDSPByType(FMOD_DSP_TYPE_LOWPASS, &lowPass);
 		VOID_ASSERT(result, "Failed to create the lowPass dsp.");
 
-		result = lowPass->setParameterFloat(FMOD_DSP_LOWPASS_CUTOFF, cutoff);
+		result = lowPass->setParameterInt(FMOD_DSP_LOWPASS_CUTOFF, cutoff);
 		VOID_ASSERT(result, "Failed to set the cutoff in the lowPass dsp.");
 
 		return lowPass;
@@ -124,7 +124,7 @@ namespace Void::Audio {
 		result = m_System->createDSPByType(FMOD_DSP_TYPE_HIGHPASS, &highPass);
 		VOID_ASSERT(result, "Failed to create the highPass dsp.");
 
-		result = highPass->setParameterFloat(FMOD_DSP_HIGHPASS_CUTOFF, cutoff);
+		result = highPass->setParameterInt(FMOD_DSP_HIGHPASS_CUTOFF, cutoff);
 		VOID_ASSERT(result, "Failed to set the cutoff in the highPass dsp.");
 
 		return highPass;
@@ -152,11 +152,11 @@ namespace Void::Audio {
 		result = m_System->createDSPByType(FMOD_DSP_TYPE_CHORUS, &chorus);
 		VOID_ASSERT(result, "Failed to create the chorus dsp.");
 
-		result = chorus->setParameterFloat(FMOD_DSP_CHORUS_MIX, mix);
+		result = chorus->setParameterInt(FMOD_DSP_CHORUS_MIX, mix);
 		VOID_ASSERT(result, "Failed to set the mix in the chorus dsp.");
 		result = chorus->setParameterFloat(FMOD_DSP_CHORUS_RATE, rate);
 		VOID_ASSERT(result, "Failed to set the rate in the chorus dsp.");
-		result = chorus->setParameterFloat(FMOD_DSP_CHORUS_DEPTH, depth);
+		result = chorus->setParameterInt(FMOD_DSP_CHORUS_DEPTH, depth);
 		VOID_ASSERT(result, "Failed to set the depth in the chorus dsp.");
 
 		return chorus;

@@ -23,7 +23,12 @@ namespace Void::Audio {
 			Pan			= 0.f;
 			IsPaused	= false;
 
-			delete[] DSPEffects;
+			for (int i = 0; i < DSP_AMOUNT; ++i) {
+				if (DSPEffects[i] != nullptr) {
+					delete DSPEffects[i];
+					DSPEffects[i] = nullptr; 
+				}
+			}
 		}
 	};
 }

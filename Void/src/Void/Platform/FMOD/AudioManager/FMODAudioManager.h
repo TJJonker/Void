@@ -20,11 +20,11 @@ namespace Void::Audio {
 		virtual unsigned int PlayAudio(const char* filePath, int channelGroupIndex) override;
 		virtual void StopAudio(unsigned int channelIndex) override;
 
-		virtual void SetChannelVolume(unsigned int channelIndex, float volume) override;
+		virtual void SetChannelVolume(unsigned int channelIndex, unsigned int volume) override;
 		virtual void SetChannelPitch(unsigned int channelIndex, float pitch) override;
 		virtual void SetChannelPan(unsigned int channelIndex, float pan) override;
 
-		virtual void SetChannelGroupVolume(unsigned int channelGroupIndex, float volume) override;
+		virtual void SetChannelGroupVolume(unsigned int channelGroupIndex, unsigned int volume) override;
 		virtual void SetChannelGroupPitch(unsigned int channelGroupIndex, float pitch) override;
 		virtual void SetChannelGroupPan(unsigned int channelGroupIndex, float pan) override;
 

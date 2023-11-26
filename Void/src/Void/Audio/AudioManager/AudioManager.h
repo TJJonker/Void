@@ -17,11 +17,11 @@ namespace Void::Audio {
 		virtual unsigned int PlayAudio(const char* filePath, int channelGroupIndex) = 0;
 		virtual void StopAudio(unsigned int channelID) = 0;
 
-		virtual void SetChannelVolume(unsigned int channelID, float volume) = 0;
+		virtual void SetChannelVolume(unsigned int channelID, unsigned int volume) = 0;
 		virtual void SetChannelPitch(unsigned int channelID, float pitch) = 0;
 		virtual void SetChannelPan(unsigned int channelID, float pan) = 0;
 
-		virtual void SetChannelGroupVolume(unsigned int groupID, float volume) = 0;
+		virtual void SetChannelGroupVolume(unsigned int groupID, unsigned int volume) = 0;
 		virtual void SetChannelGroupPitch(unsigned int groupID, float pitch) = 0;
 		virtual void SetChannelGroupPan(unsigned int groupID, float pan) = 0;
 		
