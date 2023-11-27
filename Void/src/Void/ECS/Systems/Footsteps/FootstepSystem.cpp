@@ -27,14 +27,11 @@ namespace Void {
             footstep.TimeSinceLastStep += Time::DeltaTime();
             footstep.LastStepPosition = transform.Position;
 
-            VOID_TRACE(speed);
             // Check if the entity is moving fast enough to trigger a footstep
             if (speed > velocityThreshold && footstep.TimeSinceLastStep > .6f) {
                 footstep.IsLeft = !footstep.IsLeft;
 
                 footstep.TimeSinceLastStep = 0;
-
-                VOID_TRACE("step!: {0}, {1}", speed, footstep.TimeSinceLastStep);
 
                 // Adjust the audio playback based on velocity or other parameters
                 unsigned int soundIndex = Audio::AudioManager::GetInstance()->PlayAudio("Temp/Sound/footstep-gravel.wav", CHANNELGROUP_MASTER_INDEX);
