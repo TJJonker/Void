@@ -1,3 +1,44 @@
 {
-    "Entities": []
+    "Entities": [
+        {
+            "Name": "Entity_0",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": 0.0,
+                            "Y": -1.0,
+                            "Z": -20.0
+                        },
+                        "Rotation": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 0.01,
+                            "Y": 0.01,
+                            "Z": 0.01
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Temp/Models/Cabin.obj",
+                                "Texture": [
+                                    "Temp/Models/Western_Texture.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
 }

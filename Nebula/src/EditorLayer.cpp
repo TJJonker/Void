@@ -1,5 +1,7 @@
 #include "EditorLayer.h"
 #include "imgui.h"
+#include <Void/ECS/Components/CameraComponent.h>
+#include <Void/ECS/Systems/Camera/CameraSystem.h>
 
 
 
@@ -18,9 +20,10 @@ namespace Nebula::Editor {
         Void::ShaderLibrary::GetInstance()->Load("Temp/Shaders/VertexShader.glsl", "Temp/Shaders/FragmentShader.glsl", "DefaultShader");
 
         // Mesh lib
- 
+        Void::MeshLibrary::GetInstance()->Load("Temp/Models/Cabin.obj");
 
         // Texture lib
+        Void::TextureLibrary::GetInstance()->Load("Temp/Models/Western_Texture.png");
 
         m_SceneManager = new Void::SceneManager();
         m_SceneManager->LoadScene("Scene7.json");
@@ -43,6 +46,12 @@ namespace Nebula::Editor {
         physicsSystem->AddSolver(std::make_shared<Void::PositionSolver>());
         physicsSystem->AddSolver(std::make_shared<Void::ImpulseSolver>());
 
+        std::shared_ptr<Void::CameraSystem> cameraSystem = std::make_shared<Void::CameraSystem>();
+        m_SceneManager->GetCurrentScene()->AddSystem(cameraSystem);
+
+        Void::Entity* entity = m_SceneManager->GetCurrentScene()->CreateEntity();
+        entity->AddComponent<Void::TransformComponent>();
+        entity->AddComponent<Void::CameraComponent>();
 	}
 
     void EditorLayer::OnUpdate()
