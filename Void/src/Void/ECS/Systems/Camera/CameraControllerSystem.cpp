@@ -35,11 +35,10 @@ namespace Void {
         static bool firstMouse = true;
         static glm::vec2 lastMousePosition;
 
-#define PITCH_MAX 89.f
-#define PITCH_MIN -89.f
+        #define PITCH_MAX 89.f
+        #define PITCH_MIN -89.f
 
         glm::vec2 mousePosition = Input::MousePosition();
-
         if (firstMouse) {
             lastMousePosition = mousePosition;
             firstMouse = false;
