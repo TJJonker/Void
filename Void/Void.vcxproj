@@ -177,6 +177,8 @@ IF EXIST ..\bin\Dist-windows-x86_64\$(ProjectName)\fmod.dll\ (xcopy /Q /E /Y /I 
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Void\ECS\Components\CameraControllerComponent.h" />
+    <ClInclude Include="src\Void\ECS\Systems\Camera\CameraControllerSystem.h" />
     <ClInclude Include="src\Void\ECS\Commands\PlaySoundCommand.h" />
     <ClInclude Include="src\Void\ECS\Event\CollisionInfo.h" />
     <ClInclude Include="src\Void\ECS\Event\IECSCommand.h" />
@@ -244,8 +246,6 @@ IF EXIST ..\bin\Dist-windows-x86_64\$(ProjectName)\fmod.dll\ (xcopy /Q /E /Y /I 
     <ClInclude Include="src\Void\Platform\OpenGL\Debugging\OpenGLDebugger.h" />
     <ClInclude Include="src\Void\Platform\OpenGL\Input\OpenGLInput.h" />
     <ClInclude Include="src\Void\Platform\OpenGL\Window\OpenGLWindow.h" />
-    <ClInclude Include="src\Void\Rendering\Camera\Camera\Camera.h" />
-    <ClInclude Include="src\Void\Rendering\Camera\CameraController\CameraController.h" />
     <ClInclude Include="src\Void\Rendering\Components\FrameBuffer\FrameBuffer.h" />
     <ClInclude Include="src\Void\Rendering\Components\FrameBuffer\FrameBufferConfig.h" />
     <ClInclude Include="src\Void\Rendering\Components\IndexBuffer\IndexBuffer.h" />
@@ -275,6 +275,7 @@ IF EXIST ..\bin\Dist-windows-x86_64\$(ProjectName)\fmod.dll\ (xcopy /Q /E /Y /I 
     <ClInclude Include="src\pch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Void\ECS\Systems\Camera\CameraControllerSystem.cpp" />
     <ClCompile Include="src\Void\ECS\Commands\PlaySoundCommand.cpp" />
     <ClCompile Include="src\Void\ECS\Systems\Event\EventSystem.cpp" />
     <ClCompile Include="src\Void\Audio\AudioManager\AudioManager.cpp" />
@@ -314,8 +315,6 @@ IF EXIST ..\bin\Dist-windows-x86_64\$(ProjectName)\fmod.dll\ (xcopy /Q /E /Y /I 
     <ClCompile Include="src\Void\Platform\OpenGL\ImGui\ImGuiBuilder.cpp" />
     <ClCompile Include="src\Void\Platform\OpenGL\Input\OpenGLInput.cpp" />
     <ClCompile Include="src\Void\Platform\OpenGL\Window\OpenGLWindow.cpp" />
-    <ClCompile Include="src\Void\Rendering\Camera\Camera\Camera.cpp" />
-    <ClCompile Include="src\Void\Rendering\Camera\CameraController\CameraController.cpp" />
     <ClCompile Include="src\Void\Rendering\Components\FrameBuffer\FrameBuffer.cpp" />
     <ClCompile Include="src\Void\Rendering\Components\IndexBuffer\IndexBuffer.cpp" />
     <ClCompile Include="src\Void\Rendering\Components\Renderer\Renderer.cpp" />

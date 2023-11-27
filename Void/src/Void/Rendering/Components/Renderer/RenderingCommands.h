@@ -3,7 +3,6 @@
 #include <Void/Rendering/Components/VertexArray/VertexArray.h>
 #include "Renderer.h"
 #include <Void/Rendering/Components/Shader/Shader.h>
-#include <Void/Rendering/Camera/Camera/Camera.h>
 
 namespace Void::Rendering {
 	class RenderingCommands {

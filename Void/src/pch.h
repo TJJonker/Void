@@ -13,6 +13,7 @@
 #endif
 
 #include "Void/Utils/TimeSteps/Time.h"
+#include "Void/Core/Input.h"
 
 #include "Void/Debug/Log.h"
 #include "Void/Core/Core.h"

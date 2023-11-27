@@ -1,7 +1,10 @@
 #include "EditorLayer.h"
 #include "imgui.h"
 #include <Void/ECS/Components/CameraComponent.h>
+#include "Void/ECS/Components/CameraControllerComponent.h"
 #include <Void/ECS/Systems/Camera/CameraSystem.h>
+#include <Void/ECS/Systems/Camera/CameraControllerSystem.h>
+
 
 
 
@@ -36,8 +39,6 @@ namespace Nebula::Editor {
         //tag.Tag = "Player";
         //m_SceneManager->SaveScene("Scene7.json");
 
-        m_CameraController = new Void::CameraController();
-
         std::shared_ptr<Void::Rendering::RenderingSystem> renderingSystem = std::make_shared<Void::Rendering::RenderingSystem>();
         m_SceneManager->GetCurrentScene()->SetRenderingSystem(renderingSystem);
 
@@ -49,9 +50,13 @@ namespace Nebula::Editor {
         std::shared_ptr<Void::CameraSystem> cameraSystem = std::make_shared<Void::CameraSystem>();
         m_SceneManager->GetCurrentScene()->AddSystem(cameraSystem);
 
+        std::shared_ptr<Void::CameraControllerSystem> cameraControllerSystem = std::make_shared<Void::CameraControllerSystem>();
+        m_SceneManager->GetCurrentScene()->AddSystem(cameraControllerSystem);
+
         Void::Entity* entity = m_SceneManager->GetCurrentScene()->CreateEntity();
         entity->AddComponent<Void::TransformComponent>();
         entity->AddComponent<Void::CameraComponent>();
+        entity->AddComponent<Void::CameraControllerComponent>();
 	}
 
     void EditorLayer::OnUpdate()

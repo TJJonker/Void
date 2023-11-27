@@ -10,8 +10,6 @@ namespace Nebula::Editor {
 
 		Void::SceneManager* m_SceneManager;
 
-		Void::CameraController* m_CameraController;
-
 	public:
 		void OnAdded() override;
 		void OnUpdate() override;
