@@ -177,7 +177,9 @@ IF EXIST ..\bin\Dist-windows-x86_64\$(ProjectName)\fmod.dll\ (xcopy /Q /E /Y /I 
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Void\ECS\Systems\Footsteps\FootstepSystem.h" />
     <ClInclude Include="src\Void\ECS\Components\CameraControllerComponent.h" />
+    <ClInclude Include="src\Void\ECS\Components\FootstepComponent.h" />
     <ClInclude Include="src\Void\ECS\Systems\Camera\CameraControllerSystem.h" />
     <ClInclude Include="src\Void\ECS\Commands\PlaySoundCommand.h" />
     <ClInclude Include="src\Void\ECS\Event\CollisionInfo.h" />
@@ -270,11 +272,13 @@ IF EXIST ..\bin\Dist-windows-x86_64\$(ProjectName)\fmod.dll\ (xcopy /Q /E /Y /I 
     <ClInclude Include="src\Void\Utils\ObjectPooling\Pool.h" />
     <ClInclude Include="src\Void\Utils\Parser\ISerializable.h" />
     <ClInclude Include="src\Void\Utils\Parser\JSONParser.h" />
+    <ClInclude Include="src\Void\Utils\Random\Random.h" />
     <ClInclude Include="src\Void\Utils\TimeSteps\Time.h" />
     <ClInclude Include="src\Void\Vendor\stb_lib\stb_lib.h" />
     <ClInclude Include="src\pch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Void\ECS\Systems\Footsteps\FootstepSystem.cpp" />
     <ClCompile Include="src\Void\ECS\Systems\Camera\CameraControllerSystem.cpp" />
     <ClCompile Include="src\Void\ECS\Commands\PlaySoundCommand.cpp" />
     <ClCompile Include="src\Void\ECS\Systems\Event\EventSystem.cpp" />

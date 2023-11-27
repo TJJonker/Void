@@ -46,7 +46,7 @@ namespace Void::Audio {
 		VOID_ASSERT(channelGroupIndex < m_ChannelGroups.size(), "Index is out of bounds.");
 		FMOD::DSP* reverb = CreateReverbDSP(decay, density, diffusion);
 		m_ChannelGroups[channelGroupIndex]->DSPEffects[DSP_REVERB_INDEX] = reverb;
-		m_ChannelGroups[channelGroupIndex]->ChannelGroup->addDSP(DSP_REVERB_INDEX, reverb);
+		m_ChannelGroups[channelGroupIndex]->Group->addDSP(DSP_REVERB_INDEX, reverb);
 	}
 
 	void FMODAudioManager::AddLowPassToChannelGroup(unsigned int channelGroupIndex, unsigned int cutoff)
@@ -54,7 +54,7 @@ namespace Void::Audio {
 		VOID_ASSERT(channelGroupIndex < m_ChannelGroups.size(), "Index is out of bounds.");
 		FMOD::DSP* lowPass = CreateLowPassDSP(cutoff);
 		m_ChannelGroups[channelGroupIndex]->DSPEffects[DSP_LOWPASS_INDEX] = lowPass;
-		m_ChannelGroups[channelGroupIndex]->ChannelGroup->addDSP(DSP_LOWPASS_INDEX, lowPass);
+		m_ChannelGroups[channelGroupIndex]->Group->addDSP(DSP_LOWPASS_INDEX, lowPass);
 	}
 
 	void FMODAudioManager::AddHighPassToChannelGroup(unsigned int channelGroupIndex, unsigned int cutoff)
@@ -62,7 +62,7 @@ namespace Void::Audio {
 		VOID_ASSERT(channelGroupIndex < m_ChannelGroups.size(), "Index is out of bounds.");
 		FMOD::DSP* highPass = CreateHighPassDSP(cutoff);
 		m_ChannelGroups[channelGroupIndex]->DSPEffects[DSP_HIGHPASS_INDEX] = highPass;
-		m_ChannelGroups[channelGroupIndex]->ChannelGroup->addDSP(DSP_HIGHPASS_INDEX, highPass);
+		m_ChannelGroups[channelGroupIndex]->Group->addDSP(DSP_HIGHPASS_INDEX, highPass);
 	}
 
 	void FMODAudioManager::AddDistortionToChannelGroup(unsigned int channelGroupIndex, float level)
@@ -70,7 +70,7 @@ namespace Void::Audio {
 		VOID_ASSERT(channelGroupIndex < m_ChannelGroups.size(), "Index is out of bounds.");
 		FMOD::DSP* distortion = CreateDistortionDSP(level);
 		m_ChannelGroups[channelGroupIndex]->DSPEffects[DSP_DISTORTION_INDEX] = distortion;
-		m_ChannelGroups[channelGroupIndex]->ChannelGroup->addDSP(DSP_DISTORTION_INDEX, distortion);
+		m_ChannelGroups[channelGroupIndex]->Group->addDSP(DSP_DISTORTION_INDEX, distortion);
 	}
 
 	void FMODAudioManager::AddChorusToChannelGroup(unsigned int channelGroupIndex, unsigned int mix, float rate, unsigned int depth)
@@ -78,7 +78,7 @@ namespace Void::Audio {
 		VOID_ASSERT(channelGroupIndex < m_ChannelGroups.size(), "Index is out of bounds.");
 		FMOD::DSP* chorus = CreateChorusDSP(mix, rate, depth);
 		m_ChannelGroups[channelGroupIndex]->DSPEffects[DSP_CHORUS_INDEX] = chorus;
-		m_ChannelGroups[channelGroupIndex]->ChannelGroup->addDSP(DSP_CHORUS_INDEX, chorus);
+		m_ChannelGroups[channelGroupIndex]->Group->addDSP(DSP_CHORUS_INDEX, chorus);
 	}
 
 #pragma endregion

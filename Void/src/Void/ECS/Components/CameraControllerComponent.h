@@ -7,7 +7,7 @@ namespace Void {
 		unsigned int KeyLeft = 'A';
 		unsigned int KeyRight = 'D';
 
-		float MovementSpeed = 8.0f;
+		float MovementSpeed = 4.0f;
 		float Sensitivity = 30.f;
 	};
 }

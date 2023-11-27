@@ -41,6 +41,9 @@ namespace Void::Audio {
 
 		virtual void AddPolygon(float direct, float reverb, bool doublesided, const std::vector<glm::vec3>& vertices, const glm::vec3& position) = 0;
 
+		virtual bool IsValid(unsigned int channelID) = 0;
+		virtual void SetChannelAttributes(unsigned int channelID, const glm::vec3& position, const glm::vec3 velocity) = 0;
+
 		static AudioManager* GetInstance();
 
 		#define CHANNELGROUP_MASTER_INDEX	0

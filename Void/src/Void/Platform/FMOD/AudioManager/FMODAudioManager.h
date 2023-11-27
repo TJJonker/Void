@@ -9,6 +9,8 @@ namespace Void::Audio {
 	class FMODAudioManager : public AudioManager
 	{
 	public:
+		FMODAudioManager();
+
 		virtual void Initialize(unsigned int maxChannels) override;
 		virtual void Update() override;
 		virtual void Destroy() override;
@@ -42,6 +44,9 @@ namespace Void::Audio {
 
 		virtual void SetListenerAttributes(const glm::vec3& position, const glm::vec3& velocity, const glm::vec3& forward, const glm::vec3& up) override;
 		virtual void AddPolygon(float direct, float reverb, bool doublesided, const std::vector<glm::vec3>& vertices, const glm::vec3& position) override;
+
+		virtual bool IsValid(unsigned int channelID);
+		virtual void SetChannelAttributes(unsigned int channelID, const glm::vec3& position, const glm::vec3 velocity);
 	
 	private:
 		FMOD::DSP* CreateReverbDSP(float decay, float density, float diffusion);

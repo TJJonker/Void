@@ -4,10 +4,11 @@
 
 namespace Void::Audio {
 	struct ChannelGroup {
-		FMOD::ChannelGroup*	ChannelGroup;
-		unsigned int		Volume;
-		float				Pitch;
-		float				Pan;
+
+		FMOD::ChannelGroup*	Group = nullptr;
+		unsigned int		Volume = 100;
+		float				Pitch = 1.f;
+		float				Pan = 0.f;
 		FMOD::DSP*			DSPEffects[DSP_AMOUNT]{ nullptr };
 	};
 }

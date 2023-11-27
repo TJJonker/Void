@@ -7,7 +7,9 @@
 #include <Void/ECS/Systems/AudioListener/AudioListenerSystem.h>
 #include <Void/ECS/Components/AudioListenerComponent.h>
 #include <Void/ECS/Components/VelocityComponent.h>
-
+#include <Void/ECS/Components/FootstepComponent.h>
+#include <Void/ECS/Systems/Footsteps/FootstepSystem.h>
+#include <Void/Audio/AudioManager/AudioManager.h>
 
 
 
@@ -30,6 +32,9 @@ namespace Nebula::Editor {
 
         // Texture lib
         Void::TextureLibrary::GetInstance()->Load("Temp/Models/Western_Texture.png");
+
+        // Sound lib
+        Void::Audio::AudioManager::GetInstance()->Load3DAudio("Temp/Sound/footstep-gravel.wav");
 
         m_SceneManager = new Void::SceneManager();
         m_SceneManager->LoadScene("Scene7.json");
@@ -59,11 +64,15 @@ namespace Nebula::Editor {
         std::shared_ptr<Void::AudioListenerSystem> audioListenerSystem = std::make_shared<Void::AudioListenerSystem>();
         m_SceneManager->GetCurrentScene()->AddSystem(audioListenerSystem);
 
+        std::shared_ptr<Void::FootstepSystem> footstepSystem = std::make_shared<Void::FootstepSystem>();
+        m_SceneManager->GetCurrentScene()->AddSystem(footstepSystem);
+
         Void::Entity* entity = m_SceneManager->GetCurrentScene()->CreateEntity();
         entity->AddComponent<Void::CameraControllerComponent>();
         entity->AddComponent<Void::AudioListenerComponent>();
         entity->AddComponent<Void::TransformComponent>();
         entity->AddComponent<Void::VelocityComponent>();
+        entity->AddComponent<Void::FootStepComponent>();
         entity->AddComponent<Void::CameraComponent>();
 	}
 

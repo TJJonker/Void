@@ -26,7 +26,10 @@ namespace Void {
         int moveZ = Input::KeyDown(controller.KeyForward) - Input::KeyDown(controller.KeyBackward);
 
         const float cameraMovementSpeed = controller.MovementSpeed * Time::DeltaTime();
-        transform.Position += cameraMovementSpeed * camera.Front * (float)moveZ;
+        glm::vec3 XZCamera = camera.Front;
+        XZCamera.y = 0;
+        XZCamera = glm::normalize(XZCamera);
+        transform.Position += cameraMovementSpeed * XZCamera * (float)moveZ;
         transform.Position += glm::normalize(glm::cross(camera.Front, camera.Up)) * cameraMovementSpeed * (float)moveX;
     }
 
@@ -52,10 +55,16 @@ namespace Void {
         camera.Pitch += offset.y;
         camera.Pitch = std::max(PITCH_MIN, std::min(camera.Pitch, PITCH_MAX));
 
+        // Calculate the new camera direction
         glm::vec3 direction;
         direction.x = cos(glm::radians(camera.Yaw)) * cos(glm::radians(camera.Pitch));
         direction.y = sin(glm::radians(camera.Pitch));
         direction.z = sin(glm::radians(camera.Yaw)) * cos(glm::radians(camera.Pitch));
         camera.Front = glm::normalize(direction);
+
+        // Calculate the new up vector
+        glm::vec3 worldUp = { 0.0f, 1.0f, 0.0f };
+        glm::vec3 right = glm::normalize(glm::cross(worldUp, camera.Front));
+        camera.Up = glm::normalize(glm::cross(camera.Front, right));
     }
 }

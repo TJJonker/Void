@@ -1,12 +1,12 @@
-#include <map>
 #include <fmod/fmod.hpp>
 #include <string>
+#include <unordered_map>
 
 namespace Void::Audio {
 	class FMODAudioLibrary {
 	private:
 		FMOD::System* m_System = nullptr;
-		std::map<std::string, FMOD::Sound*> m_Library = {};
+		std::unordered_map<std::string, FMOD::Sound*> m_Library{};
 
 	public:
 		FMODAudioLibrary(FMOD::System* system);

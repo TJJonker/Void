@@ -11,7 +11,7 @@ namespace Void::Audio {
 		
 		FMOD::Sound* sound;
 		FMOD_RESULT result = m_System->createSound(filePath, FMOD_3D, nullptr, &sound);
-		VOID_ASSERT(result, "Failed to load the audio file: '{0}'", filePath);
+		VOID_ASSERT(result == FMOD_OK, "Failed to load the audio file: '{0}'", filePath);
 
 		m_Library.insert({ filePath, sound });
 	}
@@ -22,7 +22,7 @@ namespace Void::Audio {
 
 		FMOD::Sound* sound;
 		FMOD_RESULT result = m_System->createSound(filePath, FMOD_DEFAULT, nullptr, &sound);
-		VOID_ASSERT(result, "Failed to load the audio file: '{0}'", filePath);
+		VOID_ASSERT(result == FMOD_OK, "Failed to load the audio file: '{0}'", filePath);
 
 		m_Library.insert({ filePath, sound });
 	}
@@ -33,7 +33,7 @@ namespace Void::Audio {
 
 		FMOD::Sound* sound;
 		FMOD_RESULT result = m_System->createStream(filePath, FMOD_DEFAULT, nullptr, &sound);
-		VOID_ASSERT(result, "Failed to load the audio file: '{0}'", filePath);
+		VOID_ASSERT(result == FMOD_OK, "Failed to load the audio file: '{0}'", filePath);
 
 		m_Library.insert({ filePath, sound });
 	}
