@@ -32,8 +32,8 @@
 #include "Void/Rendering/Libraries/Texture/TextureLibrary.h"
 
 // Built in Systems
-#include "Void/ECS/Systems/RenderingSystem.h"
-#include <Void/ECS/Systems/PhysicsSystem.h>
+#include "Void/ECS/Systems/Rendering/RenderingSystem.h"
+#include "Void/ECS/Systems/Physics/PhysicsSystem.h"
 
 // Built in Components
 #include "Void/ECS/Components/RenderingComponent.h"

@@ -1,6 +1,6 @@
 #pragma once
 #include <Void/Vendor/entt/entt.hpp>
-#include "Void/ECS/Event/ECSEventInfo.h"
+#include "Void/ECS/Event/IECSEventInfo.h"
 #include "Void/ECS/Event/ECSEventType.h"
 
 namespace Void {
@@ -9,7 +9,7 @@ namespace Void {
 		entt::entity m_Entity;
 		entt::registry& m_Registry;
 
-		std::map<ECSEventType, std::vector<ECSEventInfo>> m_Events;
+		std::map<ECSEventType, std::vector<IECSEventInfo>> m_Events;
 
 	public:
 		Entity(entt::entity entity, entt::registry& registry);
@@ -30,8 +30,8 @@ namespace Void {
 			return m_Registry.any_of<T>(m_Entity);
 		}
 
-		void RecordEvent(ECSEventType type, ECSEventInfo info);
-		const std::map<ECSEventType, std::vector<ECSEventInfo>>& GetEvents() const;
+		void RecordEvent(ECSEventType type, IECSEventInfo info);
+		const std::map<ECSEventType, std::vector<IECSEventInfo>>& GetEvents() const;
 		void ResetEvents();
 	};
 }

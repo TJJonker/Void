@@ -1,10 +1,9 @@
 #pragma once
-#include "Void/Utils/Command/ICommand.h"
 #include <Void/ECS/Event/ECSEventType.h>
+#include "Void/ECS/Event/IECSCommand.h"
 
 namespace Void {
 	struct EventListenerComponent {
-		ECSEventType EventType;
-		ICommand* Command;
+		std::map<ECSEventType, std::vector<IECSCommand*>> Events;
 	};
 }

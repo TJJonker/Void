@@ -3,8 +3,10 @@
 #include "Void/Platform/FMOD/AudioManager/FMODAudioManager.h"
 
 namespace Void::Audio {
-	AudioManager* AudioManager::Create()
+	AudioManager* AudioManager::GetInstance()
 	{
-		return new FMODAudioManager();
+		if (m_Instance == nullptr)
+			m_Instance = new FMODAudioManager();
+		return m_Instance;
 	}
 }

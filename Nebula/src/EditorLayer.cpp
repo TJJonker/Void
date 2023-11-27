@@ -47,9 +47,6 @@ namespace Nebula::Editor {
 
     void EditorLayer::OnUpdate()
     {
-        m_CameraController->Update(); 
-        Void::Rendering::RenderingCommands::BeginDraw(m_CameraController->GetCamera()); 
-
         m_SceneManager->GetCurrentScene()->UpdateSystems();
         m_SceneManager->GetCurrentScene()->UpdatePhysicsSystem();
 

@@ -1,7 +1,5 @@
 #pragma once
 
 namespace Void {
-	struct ECSEventInfo {
-		
-	};
+	struct IECSEventInfo {};
 }

@@ -2,10 +2,11 @@
 #include "PhysicsSystem.h"
 #include <Void/ECS/Components/TranformComponent.h>
 #include <Void/ECS/Components/PhysicsComponent.h>
-#include "Void/Utils/TimeSteps/Time.h"
+#include <Void/ECS/Components/VelocityComponent.h>
 #include "Void/Physics/Collision.h"
 #include "Void/ECS/Core/Scene/Scene.h"
-#include <Void/ECS/Components/VelocityComponent.h>
+#include "Void/ECS/Event/CollisionInfo.h"
+
 
 namespace Void {
 
@@ -43,15 +44,9 @@ namespace Void {
 
 				for (const CollisionPoint& cp : points) {
 					if (cp.HasCollision) {
-						Collision collision{ a, b, cp };
-
-						if (aPhysics.collisionCallback)
-							aPhysics.collisionCallback(collision);
-
-						if (bPhysics.collisionCallback)
-							bPhysics.collisionCallback(collision);
-
-						collisions.push_back(collision);
+						a->RecordEvent(ECSEventType::OnCollide, CollisionInfo(b, cp));
+						b->RecordEvent(ECSEventType::OnCollide, CollisionInfo(a, cp));
+						collisions.push_back({a, b, cp});
 					}
 				}
 			}

@@ -83,6 +83,7 @@
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -176,6 +177,10 @@ IF EXIST ..\bin\Dist-windows-x86_64\$(ProjectName)\fmod.dll\ (xcopy /Q /E /Y /I 
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Void\ECS\Commands\PlaySoundCommand.h" />
+    <ClInclude Include="src\Void\ECS\Event\CollisionInfo.h" />
+    <ClInclude Include="src\Void\ECS\Event\IECSCommand.h" />
+    <ClInclude Include="src\Void\ECS\Systems\Event\EventSystem.h" />
     <ClInclude Include="src\Void.h" />
     <ClInclude Include="src\Void\Audio\AudioManager\AudioManager.h" />
     <ClInclude Include="src\Void\Core\Application.h" />
@@ -187,8 +192,7 @@ IF EXIST ..\bin\Dist-windows-x86_64\$(ProjectName)\fmod.dll\ (xcopy /Q /E /Y /I 
     <ClInclude Include="src\Void\Debug\Log.h" />
     <ClInclude Include="src\Void\ECS\Components\AudioListenerComponent.h" />
     <ClInclude Include="src\Void\ECS\Components\CameraComponent.h" />
-    <ClInclude Include="src\Void\ECS\Components\EventComponent.h" />
-    <ClInclude Include="src\Void\ECS\Components\EventTriggerComponent.h" />
+    <ClInclude Include="src\Void\ECS\Components\EventListenerComponent.h" />
     <ClInclude Include="src\Void\ECS\Components\LightComponent.h" />
     <ClInclude Include="src\Void\ECS\Components\PhysicsComponent.h" />
     <ClInclude Include="src\Void\ECS\Components\RenderingComponent.h" />
@@ -200,7 +204,7 @@ IF EXIST ..\bin\Dist-windows-x86_64\$(ProjectName)\fmod.dll\ (xcopy /Q /E /Y /I 
     <ClInclude Include="src\Void\ECS\Core\Scene\Scene.h" />
     <ClInclude Include="src\Void\ECS\Core\Scene\SceneManager.h" />
     <ClInclude Include="src\Void\ECS\Core\Systems\ISystem.h" />
-    <ClInclude Include="src\Void\ECS\Event\ECSEventInfo.h" />
+    <ClInclude Include="src\Void\ECS\Event\IECSEventInfo.h" />
     <ClInclude Include="src\Void\ECS\Event\ECSEventType.h" />
     <ClInclude Include="src\Void\ECS\Systems\AudioListener\AudioListenerSystem.h" />
     <ClInclude Include="src\Void\ECS\Systems\Camera\CameraSystem.h" />
@@ -271,6 +275,8 @@ IF EXIST ..\bin\Dist-windows-x86_64\$(ProjectName)\fmod.dll\ (xcopy /Q /E /Y /I 
     <ClInclude Include="src\pch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Void\ECS\Commands\PlaySoundCommand.cpp" />
+    <ClCompile Include="src\Void\ECS\Systems\Event\EventSystem.cpp" />
     <ClCompile Include="src\Void\Audio\AudioManager\AudioManager.cpp" />
     <ClCompile Include="src\Void\Core\Application.cpp" />
     <ClCompile Include="src\Void\Core\Input.cpp" />

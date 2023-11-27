@@ -41,7 +41,7 @@ namespace Void::Audio {
 
 		virtual void AddPolygon(float direct, float reverb, bool doublesided, const std::vector<glm::vec3>& vertices, const glm::vec3& position) = 0;
 
-		static AudioManager* Create();
+		static AudioManager* GetInstance();
 
 		#define CHANNELGROUP_MASTER_INDEX	0
 		#define CHANNELGROUP_MUSIC_INDEX	1
@@ -54,5 +54,8 @@ namespace Void::Audio {
 		#define DSP_CHORUS_INDEX			4
 
 		#define	DSP_AMOUNT					5
+
+	private:
+		static AudioManager* m_Instance;
 	};
 }

@@ -75,7 +75,7 @@ namespace Void {
 		void Release(T* object) {
 			object->Reset();
 			m_PassivePool.push(object->ID);
-			std::vector<unsigned int>::iterator it = std::find(m_ActivePool.begin(), m_ActivePool.end(), object->m_ID);
+			std::vector<unsigned int>::iterator it = std::find(m_ActivePool.begin(), m_ActivePool.end(), object->ID);
 			m_ActivePool.erase(it);
 		}
 
@@ -86,7 +86,7 @@ namespace Void {
 		void AddObjectToPool() {
 			T* object = new T();
 			m_Pool.push_back(object);
-			object->ID = m_Pool.size() - 1;
+			object->ID = (unsigned int)m_Pool.size() - 1;
 			m_PassivePool.push(object->ID);
 		}
 	};

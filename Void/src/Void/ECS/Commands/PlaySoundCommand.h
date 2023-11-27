@@ -1,18 +1,16 @@
 #pragma once
-#include "Void/Utils/Command/ICommand.h"
-#include <Void/Audio/AudioManager/AudioManager.h>
+#include "Void/ECS/Event/IECSCommand.h"
 
 namespace Void {
-	class PlaySoundCommand : public ICommand {
+	class PlaySoundCommand : public IECSCommand {
 	public:
-		PlaySoundCommand(const char* audioPath, unsigned int channelGroup, Audio::AudioManager& audioManager)
-			: m_AudioPath(audioPath), m_ChannelGroup(channelGroup), m_AudioManager(audioManager) { }
+		PlaySoundCommand(const char* audioPath, unsigned int channelGroup)
+			: m_AudioPath(audioPath), m_ChannelGroup(channelGroup) { }
 
-		void Execute() override;
+		void Execute(IECSEventInfo& info) override;
 
 	private:
 		const char* m_AudioPath;
 		unsigned int m_ChannelGroup;
-		Audio::AudioManager& m_AudioManager;
 	};
 }
