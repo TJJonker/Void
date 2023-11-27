@@ -5,6 +5,7 @@
 #include <Void/ECS/Components/AudioListenerComponent.h>
 #include <Void/ECS/Components/VelocityComponent.h>
 #include <Void/ECS/Components/CameraComponent.h>
+#include "Void/Audio/AudioManager/AudioManager.h"
 
 namespace Void {
 	void AudioListenerSystem::Update(Scene* scene)
@@ -20,6 +21,6 @@ namespace Void {
 		CameraComponent& camera = entity->GetComponent<CameraComponent>();
 		VelocityComponent& velocity = entity->GetComponent<VelocityComponent>();
 
-		m_AudioManager.SetListenerAttributes(transform.Position, velocity.Velocity, camera.Front, camera.Up);
+		Audio::AudioManager::GetInstance()->SetListenerAttributes(transform.Position, velocity.Velocity, camera.Front, camera.Up);
 	}
 }

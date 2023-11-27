@@ -4,6 +4,9 @@
 #include "Void/ECS/Components/CameraControllerComponent.h"
 #include <Void/ECS/Systems/Camera/CameraSystem.h>
 #include <Void/ECS/Systems/Camera/CameraControllerSystem.h>
+#include <Void/ECS/Systems/AudioListener/AudioListenerSystem.h>
+#include <Void/ECS/Components/AudioListenerComponent.h>
+#include <Void/ECS/Components/VelocityComponent.h>
 
 
 
@@ -53,10 +56,15 @@ namespace Nebula::Editor {
         std::shared_ptr<Void::CameraControllerSystem> cameraControllerSystem = std::make_shared<Void::CameraControllerSystem>();
         m_SceneManager->GetCurrentScene()->AddSystem(cameraControllerSystem);
 
+        std::shared_ptr<Void::AudioListenerSystem> audioListenerSystem = std::make_shared<Void::AudioListenerSystem>();
+        m_SceneManager->GetCurrentScene()->AddSystem(audioListenerSystem);
+
         Void::Entity* entity = m_SceneManager->GetCurrentScene()->CreateEntity();
-        entity->AddComponent<Void::TransformComponent>();
-        entity->AddComponent<Void::CameraComponent>();
         entity->AddComponent<Void::CameraControllerComponent>();
+        entity->AddComponent<Void::AudioListenerComponent>();
+        entity->AddComponent<Void::TransformComponent>();
+        entity->AddComponent<Void::VelocityComponent>();
+        entity->AddComponent<Void::CameraComponent>();
 	}
 
     void EditorLayer::OnUpdate()
