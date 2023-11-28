@@ -38,7 +38,7 @@ namespace Void {
                 float offset = footstep.IsLeft ? -1.f : 1.f;
                 glm::vec3 footOffset = glm::vec3(.5f, 0, 0) * offset;
                 Audio::AudioManager::GetInstance()->SetChannelAttributes(soundIndex, transform.Position + glm::vec3(0, -.5f, 0) + footOffset, glm::vec3(0));
-                Audio::AudioManager::GetInstance()->SetChannelPitch(soundIndex, Random::Between(.9f, 1.1f));
+                Audio::AudioManager::GetInstance()->SetChannelPitch(soundIndex, Random::Between(.85f, 1.15f));
 
             }
         }

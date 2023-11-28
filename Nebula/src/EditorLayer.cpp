@@ -10,7 +10,9 @@
 #include <Void/ECS/Components/FootstepComponent.h>
 #include <Void/ECS/Systems/Footsteps/FootstepSystem.h>
 #include <Void/Audio/AudioManager/AudioManager.h>
-
+#include <Void/ECS/Components/GunComponent.h>
+#include <Void/ECS/Systems/Gun/GunSystem.h>
+#include <Void/Audio/AudioManager/AudioManager.h>
 
 
 namespace Nebula::Editor {
@@ -63,6 +65,11 @@ namespace Nebula::Editor {
 
         // Sound lib
         Void::Audio::AudioManager::GetInstance()->Load3DAudio("Temp/Sound/footstep-gravel.wav");
+        Void::Audio::AudioManager::GetInstance()->Load3DAudio("Temp/Sound/crazy-indian-scream.mp3");
+        Void::Audio::AudioManager::GetInstance()->Load3DAudio("Temp/Sound/burstfire.mp3");
+        Void::Audio::AudioManager::GetInstance()->Load3DAudio("Temp/Sound/single-pistol-gunshot.mp3");
+        Void::Audio::AudioManager::GetInstance()->LoadAudio("Temp/Sound/highnoon.mp3");
+
 
         m_SceneManager = new Void::SceneManager();
         m_SceneManager->LoadScene("Scene7.json");
@@ -95,15 +102,40 @@ namespace Nebula::Editor {
         std::shared_ptr<Void::FootstepSystem> footstepSystem = std::make_shared<Void::FootstepSystem>();
         m_SceneManager->GetCurrentScene()->AddSystem(footstepSystem);
 
-        Void::Entity* entity = m_SceneManager->GetCurrentScene()->CreateEntity();
-        entity->AddComponent<Void::CameraControllerComponent>();
-        entity->AddComponent<Void::AudioListenerComponent>();
-        entity->AddComponent<Void::TransformComponent>();
-        Void::TransformComponent& t = entity->GetComponent<Void::TransformComponent>();
-        t.Position = glm::vec3(0, .5, 0);
-        entity->AddComponent<Void::VelocityComponent>();
-        entity->AddComponent<Void::FootStepComponent>();
-        entity->AddComponent<Void::CameraComponent>();
+        std::shared_ptr<Void::GunSystem> gunSystem = std::make_shared<Void::GunSystem>();
+        m_SceneManager->GetCurrentScene()->AddSystem(gunSystem);
+
+        {
+            Void::Entity* entity = m_SceneManager->GetCurrentScene()->CreateEntity();
+            entity->AddComponent<Void::CameraControllerComponent>();
+            entity->AddComponent<Void::AudioListenerComponent>();
+            entity->AddComponent<Void::TransformComponent>();
+            Void::TransformComponent& t = entity->GetComponent<Void::TransformComponent>();
+            t.Position = glm::vec3(0, .5, 0);
+            entity->AddComponent<Void::VelocityComponent>();
+            entity->AddComponent<Void::FootStepComponent>();
+            entity->AddComponent<Void::CameraComponent>();
+        }
+        {
+            Void::Entity* entity = m_SceneManager->GetCurrentScene()->CreateEntity();
+            entity->AddComponent<Void::TransformComponent>();
+            Void::TransformComponent& t = entity->GetComponent<Void::TransformComponent>();
+            t.Position = glm::vec3(1.0, 0.5, -16.0);
+            entity->AddComponent<Void::GunComponent>();
+            Void::GunComponent& gun = entity->GetComponent<Void::GunComponent>();
+            gun.Cooldown = 2.f;
+            gun.SoundPath = "Temp/Sound/burstfire.mp3";
+        }
+        {
+            Void::Entity* entity = m_SceneManager->GetCurrentScene()->CreateEntity();
+            entity->AddComponent<Void::TransformComponent>();
+            Void::TransformComponent& t = entity->GetComponent<Void::TransformComponent>();
+            t.Position = glm::vec3(-6.0, 0.5, -17.0);
+            entity->AddComponent<Void::GunComponent>();
+            Void::GunComponent& gun = entity->GetComponent<Void::GunComponent>();
+            gun.Cooldown = 1.5f;
+            gun.SoundPath = "Temp/Sound/single-pistol-gunshot.mp3";
+        }
 	}
 
     void EditorLayer::OnUpdate()
@@ -115,6 +147,7 @@ namespace Nebula::Editor {
         Void::Rendering::RenderingCommands::SetClearColor({ .1, .2, .1, 1 });
         Void::Rendering::RenderingCommands::Clear();
         m_SceneManager->GetCurrentScene()->UpdateRenderingSystem();
+        Void::Audio::AudioManager::GetInstance()->Update();
         //m_FrameBuffer->UnBind();
     } 
 

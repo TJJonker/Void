@@ -14,7 +14,7 @@ namespace Void::Audio {
 		result = FMOD::System_Create(&m_System);
 		VOID_ASSERT(result == FMOD_OK, "Failed to create the audio system.");
 
-		result = m_System->init(maxChannels, FMOD_INIT_NORMAL, (void*)0);
+		result = m_System->init(maxChannels, FMOD_INIT_NORMAL | FMOD_INIT_3D_RIGHTHANDED, (void*)0);
 		VOID_ASSERT(result == FMOD_OK, "Failed to initialize the audio system.");
 
 		m_Library = new FMODAudioLibrary(m_System);
@@ -89,6 +89,7 @@ namespace Void::Audio {
 		FMOD_VECTOR fup  = ToFMOD(up);
 
 		result = m_System->set3DListenerAttributes(0, &fpos, &fvel, &ffwd, &fup);
+
 		VOID_ASSERT(result == FMOD_OK, "Error while setting 3D listener attribute.");
 	}
 
