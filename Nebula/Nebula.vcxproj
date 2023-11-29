@@ -137,9 +137,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="SceneViewWindow.h" />
+    <ClInclude Include="src\Windows\Core\GuiWindow.h" />
     <ClInclude Include="src\EditorLayer.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="SceneViewWindow.cpp" />
+    <ClCompile Include="src\Windows\Core\GuiWindow.cpp" />
     <ClCompile Include="src\EditorLayer.cpp" />
     <ClCompile Include="src\Nebula.cpp" />
   </ItemGroup>
