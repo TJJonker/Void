@@ -6,12 +6,12 @@ Void Engine is a C++ Game Engine developed as a learning project to explore C++,
 
 ## Table of Contents
 - [Features](#features)
-- Getting Started
-- Dependencies
-- Building from Source
-- Usage
-- Contributing
-- License
+- [Getting Started](#getting-started)
+- [Dependencies](#dependencies)
+- [Building from Source](#building-from-source)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
 
 ## Features  
 ECS Architecture: Utilizes the ENTT library and aims to develop a custom ECS system.
@@ -23,10 +23,12 @@ Graphical Development Environment: Features the beginning of a graphical develop
 External File Parsing: Supports JSON file parsing with the help of NLOHMANN.
 Build System: Uses Premake5 for solution and project management.
 Logging Solution: Integrates SPDLOG for effective logging.
-Getting Started
+
+
+## Getting Started
 To get started with Void Engine, follow these steps:
 
-## Clone the Repository:
+Clone the Repository:
 
 bash
 Copy code
@@ -48,7 +50,7 @@ cd bin
 ./VoidSample
 This will run a sample application using Void Engine.
 
-Dependencies
+## Dependencies
 Void Engine relies on the following external libraries:
 
 ENTT
@@ -63,15 +65,15 @@ Premake5
 SPDLOG
 Make sure to have these dependencies installed before building the engine.
 
-Building from Source
+## Building from Source
 ...
 
-Usage
+## Usage
 ...
 
-Contributing
+## Contributing
 ...
 
-License
+## License
 This project is licensed under the MIT License.
 
