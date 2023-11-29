@@ -1,21 +1,18 @@
 #pragma once
 #include <Void/Vendor/entt/entt.hpp>
+#include "Void/ECS/Event/IECSEventInfo.h"
+#include "Void/ECS/Event/ECSEventType.h"
 
 namespace Void {
 	class Entity {
-	
-		using DestroyCallback = std::function<void(const entt::entity& id)>;
-
 	private:
 		entt::entity m_Entity;
 		entt::registry& m_Registry;
-		DestroyCallback onDestroyCallback;
+
+		std::map<ECSEventType, std::vector<IECSEventInfo>> m_Events;
 
 	public:
-		Entity(entt::entity entity, entt::registry& registry, DestroyCallback destroyCallback);
-		~Entity();
-
-		void Destroy();
+		Entity(entt::entity entity, entt::registry& registry);
 		
 		template<typename T>
 		T& AddComponent() {
@@ -32,5 +29,9 @@ namespace Void {
 		bool HasComponent() const {
 			return m_Registry.any_of<T>(m_Entity);
 		}
+
+		void RecordEvent(ECSEventType type, IECSEventInfo info);
+		const std::map<ECSEventType, std::vector<IECSEventInfo>>& GetEvents() const;
+		void ResetEvents();
 	};
 }

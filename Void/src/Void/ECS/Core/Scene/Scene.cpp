@@ -5,7 +5,7 @@ namespace Void {
 	Entity* Scene::CreateEntity()
 	{
 		entt::entity id = m_Registry.create();
-		Entity* entity = new Entity(id, m_Registry, std::bind(&Scene::RemoveEntity, this, std::placeholders::_1));
+		Entity* entity = new Entity(id, m_Registry);
 
 		m_Entities[id] = entity;
 		return entity;

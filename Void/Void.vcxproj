@@ -76,32 +76,32 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>VOID_PLATFORM_WINDOWS;VOID_BUILD_DLL;VOID_ASSERT_ENABLED;VOID_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\SPDLOG\include;vendor\GLFW\include;vendor\GLAD\include;vendor\GLM;vendor\ASSIMP\include;vendor\IMGUI;vendor\NLOHMANN\single_include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>VOID_PLATFORM_WINDOWS;VOID_BUILD_DLL;VOID_ASSERT_ENABLED;VOID_AUDIO_FMOD;VOID_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>src;vendor\SPDLOG\include;vendor\GLFW\include;vendor\GLAD\include;vendor\GLM;vendor\ASSIMP\include;vendor\IMGUI;vendor\NLOHMANN\single_include;vendor\FMOD\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <Lib>
-      <AdditionalDependencies>opengl32.lib;assimp-vc143-mtd.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>vendor\ASSIMP\libs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opengl32.lib;assimp-vc143-mtd.lib;fmod_vc.lib;fmodL_vc.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>vendor\ASSIMP\libs;vendor\FMOD\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Lib>
     <PreBuildEvent>
-      <Command>IF EXIST vendor\ASSIMP\libs\assimp-vc143-mtd.dll\ (xcopy /Q /E /Y /I vendor\ASSIMP\libs\assimp-vc143-mtd.dll $(SolutionDir)\bin\Debug-windows-x86_64\$(ProjectName) &gt; nul) ELSE (xcopy /Q /Y /I vendor\ASSIMP\libs\assimp-vc143-mtd.dll $(SolutionDir)\bin\Debug-windows-x86_64\$(ProjectName) &gt; nul)</Command>
+      <Command>IF EXIST vendor\ASSIMP\libs\assimp-vc143-mtd.dll\ (xcopy /Q /E /Y /I vendor\ASSIMP\libs\assimp-vc143-mtd.dll $(SolutionDir)\bin\Debug-windows-x86_64\$(ProjectName) &gt; nul) ELSE (xcopy /Q /Y /I vendor\ASSIMP\libs\assimp-vc143-mtd.dll $(SolutionDir)\bin\Debug-windows-x86_64\$(ProjectName) &gt; nul)
+IF EXIST vendor\FMOD\lib\fmod.dll\ (xcopy /Q /E /Y /I vendor\FMOD\lib\fmod.dll $(SolutionDir)\bin\Debug-windows-x86_64\$(ProjectName) &gt; nul) ELSE (xcopy /Q /Y /I vendor\FMOD\lib\fmod.dll $(SolutionDir)\bin\Debug-windows-x86_64\$(ProjectName) &gt; nul)</Command>
     </PreBuildEvent>
     <PostBuildEvent>
-      <Command>call CreateDir.bat ../bin/Debug-windows-x86_64/Sandbox
-call CreateDir.bat ../bin/Debug-windows-x86_64/Nebula
-IF EXIST ..\bin\Debug-windows-x86_64\Void\Void.lib\ (xcopy /Q /E /Y /I ..\bin\Debug-windows-x86_64\Void\Void.lib ..\bin\Debug-windows-x86_64\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Debug-windows-x86_64\Void\Void.lib ..\bin\Debug-windows-x86_64\Sandbox &gt; nul)
-IF EXIST ..\bin\Debug-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll\ (xcopy /Q /E /Y /I ..\bin\Debug-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll ..\bin\Debug-windows-x86_64\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Debug-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll ..\bin\Debug-windows-x86_64\Sandbox &gt; nul)
+      <Command>call CreateDir.bat ../bin/Debug-windows-x86_64/Nebula
 IF EXIST ..\bin\Debug-windows-x86_64\Void\Void.lib\ (xcopy /Q /E /Y /I ..\bin\Debug-windows-x86_64\Void\Void.lib ..\bin\Debug-windows-x86_64\Nebula &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Debug-windows-x86_64\Void\Void.lib ..\bin\Debug-windows-x86_64\Nebula &gt; nul)
-IF EXIST ..\bin\Debug-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll\ (xcopy /Q /E /Y /I ..\bin\Debug-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll ..\bin\Debug-windows-x86_64\Nebula &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Debug-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll ..\bin\Debug-windows-x86_64\Nebula &gt; nul)</Command>
+IF EXIST ..\bin\Debug-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll\ (xcopy /Q /E /Y /I ..\bin\Debug-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll ..\bin\Debug-windows-x86_64\Nebula &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Debug-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll ..\bin\Debug-windows-x86_64\Nebula &gt; nul)
+IF EXIST ..\bin\Debug-windows-x86_64\$(ProjectName)\fmod.dll\ (xcopy /Q /E /Y /I ..\bin\Debug-windows-x86_64\$(ProjectName)\fmod.dll ..\bin\Debug-windows-x86_64\Nebula &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Debug-windows-x86_64\$(ProjectName)\fmod.dll ..\bin\Debug-windows-x86_64\Nebula &gt; nul)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -109,8 +109,8 @@ IF EXIST ..\bin\Debug-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll\ (xcopy
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>VOID_PLATFORM_WINDOWS;VOID_BUILD_DLL;VOID_ASSERT_ENABLED;VOID_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\SPDLOG\include;vendor\GLFW\include;vendor\GLAD\include;vendor\GLM;vendor\ASSIMP\include;vendor\IMGUI;vendor\NLOHMANN\single_include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>VOID_PLATFORM_WINDOWS;VOID_BUILD_DLL;VOID_ASSERT_ENABLED;VOID_AUDIO_FMOD;VOID_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>src;vendor\SPDLOG\include;vendor\GLFW\include;vendor\GLAD\include;vendor\GLM;vendor\ASSIMP\include;vendor\IMGUI;vendor\NLOHMANN\single_include;vendor\FMOD\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -126,19 +126,18 @@ IF EXIST ..\bin\Debug-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll\ (xcopy
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
     <Lib>
-      <AdditionalDependencies>opengl32.lib;assimp-vc143-mtd.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>vendor\ASSIMP\libs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opengl32.lib;assimp-vc143-mtd.lib;fmod_vc.lib;fmodL_vc.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>vendor\ASSIMP\libs;vendor\FMOD\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Lib>
     <PreBuildEvent>
-      <Command>IF EXIST vendor\ASSIMP\libs\assimp-vc143-mtd.dll\ (xcopy /Q /E /Y /I vendor\ASSIMP\libs\assimp-vc143-mtd.dll $(SolutionDir)\bin\Release-windows-x86_64\$(ProjectName) &gt; nul) ELSE (xcopy /Q /Y /I vendor\ASSIMP\libs\assimp-vc143-mtd.dll $(SolutionDir)\bin\Release-windows-x86_64\$(ProjectName) &gt; nul)</Command>
+      <Command>IF EXIST vendor\ASSIMP\libs\assimp-vc143-mtd.dll\ (xcopy /Q /E /Y /I vendor\ASSIMP\libs\assimp-vc143-mtd.dll $(SolutionDir)\bin\Release-windows-x86_64\$(ProjectName) &gt; nul) ELSE (xcopy /Q /Y /I vendor\ASSIMP\libs\assimp-vc143-mtd.dll $(SolutionDir)\bin\Release-windows-x86_64\$(ProjectName) &gt; nul)
+IF EXIST vendor\FMOD\lib\fmod.dll\ (xcopy /Q /E /Y /I vendor\FMOD\lib\fmod.dll $(SolutionDir)\bin\Release-windows-x86_64\$(ProjectName) &gt; nul) ELSE (xcopy /Q /Y /I vendor\FMOD\lib\fmod.dll $(SolutionDir)\bin\Release-windows-x86_64\$(ProjectName) &gt; nul)</Command>
     </PreBuildEvent>
     <PostBuildEvent>
-      <Command>call CreateDir.bat ../bin/Release-windows-x86_64/Sandbox
-call CreateDir.bat ../bin/Release-windows-x86_64/Nebula
-IF EXIST ..\bin\Release-windows-x86_64\Void\Void.lib\ (xcopy /Q /E /Y /I ..\bin\Release-windows-x86_64\Void\Void.lib ..\bin\Release-windows-x86_64\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Release-windows-x86_64\Void\Void.lib ..\bin\Release-windows-x86_64\Sandbox &gt; nul)
-IF EXIST ..\bin\Release-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll\ (xcopy /Q /E /Y /I ..\bin\Release-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll ..\bin\Release-windows-x86_64\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Release-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll ..\bin\Release-windows-x86_64\Sandbox &gt; nul)
+      <Command>call CreateDir.bat ../bin/Release-windows-x86_64/Nebula
 IF EXIST ..\bin\Release-windows-x86_64\Void\Void.lib\ (xcopy /Q /E /Y /I ..\bin\Release-windows-x86_64\Void\Void.lib ..\bin\Release-windows-x86_64\Nebula &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Release-windows-x86_64\Void\Void.lib ..\bin\Release-windows-x86_64\Nebula &gt; nul)
-IF EXIST ..\bin\Release-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll\ (xcopy /Q /E /Y /I ..\bin\Release-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll ..\bin\Release-windows-x86_64\Nebula &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Release-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll ..\bin\Release-windows-x86_64\Nebula &gt; nul)</Command>
+IF EXIST ..\bin\Release-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll\ (xcopy /Q /E /Y /I ..\bin\Release-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll ..\bin\Release-windows-x86_64\Nebula &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Release-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll ..\bin\Release-windows-x86_64\Nebula &gt; nul)
+IF EXIST ..\bin\Release-windows-x86_64\$(ProjectName)\fmod.dll\ (xcopy /Q /E /Y /I ..\bin\Release-windows-x86_64\$(ProjectName)\fmod.dll ..\bin\Release-windows-x86_64\Nebula &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Release-windows-x86_64\$(ProjectName)\fmod.dll ..\bin\Release-windows-x86_64\Nebula &gt; nul)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">
@@ -146,8 +145,8 @@ IF EXIST ..\bin\Release-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll\ (xco
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>VOID_PLATFORM_WINDOWS;VOID_BUILD_DLL;VOID_ASSERT_ENABLED;VOID_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\SPDLOG\include;vendor\GLFW\include;vendor\GLAD\include;vendor\GLM;vendor\ASSIMP\include;vendor\IMGUI;vendor\NLOHMANN\single_include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>VOID_PLATFORM_WINDOWS;VOID_BUILD_DLL;VOID_ASSERT_ENABLED;VOID_AUDIO_FMOD;VOID_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>src;vendor\SPDLOG\include;vendor\GLFW\include;vendor\GLAD\include;vendor\GLM;vendor\ASSIMP\include;vendor\IMGUI;vendor\NLOHMANN\single_include;vendor\FMOD\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -163,23 +162,37 @@ IF EXIST ..\bin\Release-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll\ (xco
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
     <Lib>
-      <AdditionalDependencies>opengl32.lib;assimp-vc143-mtd.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>vendor\ASSIMP\libs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opengl32.lib;assimp-vc143-mtd.lib;fmod_vc.lib;fmodL_vc.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>vendor\ASSIMP\libs;vendor\FMOD\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Lib>
     <PreBuildEvent>
-      <Command>IF EXIST vendor\ASSIMP\libs\assimp-vc143-mtd.dll\ (xcopy /Q /E /Y /I vendor\ASSIMP\libs\assimp-vc143-mtd.dll $(SolutionDir)\bin\Dist-windows-x86_64\$(ProjectName) &gt; nul) ELSE (xcopy /Q /Y /I vendor\ASSIMP\libs\assimp-vc143-mtd.dll $(SolutionDir)\bin\Dist-windows-x86_64\$(ProjectName) &gt; nul)</Command>
+      <Command>IF EXIST vendor\ASSIMP\libs\assimp-vc143-mtd.dll\ (xcopy /Q /E /Y /I vendor\ASSIMP\libs\assimp-vc143-mtd.dll $(SolutionDir)\bin\Dist-windows-x86_64\$(ProjectName) &gt; nul) ELSE (xcopy /Q /Y /I vendor\ASSIMP\libs\assimp-vc143-mtd.dll $(SolutionDir)\bin\Dist-windows-x86_64\$(ProjectName) &gt; nul)
+IF EXIST vendor\FMOD\lib\fmod.dll\ (xcopy /Q /E /Y /I vendor\FMOD\lib\fmod.dll $(SolutionDir)\bin\Dist-windows-x86_64\$(ProjectName) &gt; nul) ELSE (xcopy /Q /Y /I vendor\FMOD\lib\fmod.dll $(SolutionDir)\bin\Dist-windows-x86_64\$(ProjectName) &gt; nul)</Command>
     </PreBuildEvent>
     <PostBuildEvent>
-      <Command>call CreateDir.bat ../bin/Dist-windows-x86_64/Sandbox
-call CreateDir.bat ../bin/Dist-windows-x86_64/Nebula
-IF EXIST ..\bin\Dist-windows-x86_64\Void\Void.lib\ (xcopy /Q /E /Y /I ..\bin\Dist-windows-x86_64\Void\Void.lib ..\bin\Dist-windows-x86_64\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Dist-windows-x86_64\Void\Void.lib ..\bin\Dist-windows-x86_64\Sandbox &gt; nul)
-IF EXIST ..\bin\Dist-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll\ (xcopy /Q /E /Y /I ..\bin\Dist-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll ..\bin\Dist-windows-x86_64\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Dist-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll ..\bin\Dist-windows-x86_64\Sandbox &gt; nul)
+      <Command>call CreateDir.bat ../bin/Dist-windows-x86_64/Nebula
 IF EXIST ..\bin\Dist-windows-x86_64\Void\Void.lib\ (xcopy /Q /E /Y /I ..\bin\Dist-windows-x86_64\Void\Void.lib ..\bin\Dist-windows-x86_64\Nebula &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Dist-windows-x86_64\Void\Void.lib ..\bin\Dist-windows-x86_64\Nebula &gt; nul)
-IF EXIST ..\bin\Dist-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll\ (xcopy /Q /E /Y /I ..\bin\Dist-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll ..\bin\Dist-windows-x86_64\Nebula &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Dist-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll ..\bin\Dist-windows-x86_64\Nebula &gt; nul)</Command>
+IF EXIST ..\bin\Dist-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll\ (xcopy /Q /E /Y /I ..\bin\Dist-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll ..\bin\Dist-windows-x86_64\Nebula &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Dist-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll ..\bin\Dist-windows-x86_64\Nebula &gt; nul)
+IF EXIST ..\bin\Dist-windows-x86_64\$(ProjectName)\fmod.dll\ (xcopy /Q /E /Y /I ..\bin\Dist-windows-x86_64\$(ProjectName)\fmod.dll ..\bin\Dist-windows-x86_64\Nebula &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Dist-windows-x86_64\$(ProjectName)\fmod.dll ..\bin\Dist-windows-x86_64\Nebula &gt; nul)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="MovingSystem.h" />
+    <ClInclude Include="src\Void\ECS\Components\MovingComponent.h" />
+    <ClInclude Include="src\Void\ECS\Systems\IntroSystem.h" />
+    <ClInclude Include="src\Void\ECS\Components\IntroTrigger.h" />
+    <ClInclude Include="src\Void\ECS\Systems\Gun\GunSystem.h" />
+    <ClInclude Include="src\Void\ECS\Components\GunComponent.h" />
+    <ClInclude Include="src\Void\ECS\Systems\Footsteps\FootstepSystem.h" />
+    <ClInclude Include="src\Void\ECS\Components\CameraControllerComponent.h" />
+    <ClInclude Include="src\Void\ECS\Components\FootstepComponent.h" />
+    <ClInclude Include="src\Void\ECS\Systems\Camera\CameraControllerSystem.h" />
+    <ClInclude Include="src\Void\ECS\Commands\PlaySoundCommand.h" />
+    <ClInclude Include="src\Void\ECS\Event\CollisionInfo.h" />
+    <ClInclude Include="src\Void\ECS\Event\IECSCommand.h" />
+    <ClInclude Include="src\Void\ECS\Systems\Event\EventSystem.h" />
     <ClInclude Include="src\Void.h" />
+    <ClInclude Include="src\Void\Audio\AudioManager\AudioManager.h" />
     <ClInclude Include="src\Void\Core\Application.h" />
     <ClInclude Include="src\Void\Core\Core.h" />
     <ClInclude Include="src\Void\Core\EntryPoint.h" />
@@ -187,18 +200,26 @@ IF EXIST ..\bin\Dist-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll\ (xcopy 
     <ClInclude Include="src\Void\Core\Window.h" />
     <ClInclude Include="src\Void\Debug\Assertion.h" />
     <ClInclude Include="src\Void\Debug\Log.h" />
+    <ClInclude Include="src\Void\ECS\Components\AudioListenerComponent.h" />
+    <ClInclude Include="src\Void\ECS\Components\CameraComponent.h" />
+    <ClInclude Include="src\Void\ECS\Components\EventListenerComponent.h" />
     <ClInclude Include="src\Void\ECS\Components\LightComponent.h" />
     <ClInclude Include="src\Void\ECS\Components\PhysicsComponent.h" />
     <ClInclude Include="src\Void\ECS\Components\RenderingComponent.h" />
     <ClInclude Include="src\Void\ECS\Components\SpotLightComponent.h" />
     <ClInclude Include="src\Void\ECS\Components\TagComponent.h" />
     <ClInclude Include="src\Void\ECS\Components\TranformComponent.h" />
+    <ClInclude Include="src\Void\ECS\Components\VelocityComponent.h" />
     <ClInclude Include="src\Void\ECS\Core\Entity\Entity.h" />
     <ClInclude Include="src\Void\ECS\Core\Scene\Scene.h" />
     <ClInclude Include="src\Void\ECS\Core\Scene\SceneManager.h" />
     <ClInclude Include="src\Void\ECS\Core\Systems\ISystem.h" />
-    <ClInclude Include="src\Void\ECS\Systems\PhysicsSystem.h" />
-    <ClInclude Include="src\Void\ECS\Systems\RenderingSystem.h" />
+    <ClInclude Include="src\Void\ECS\Event\IECSEventInfo.h" />
+    <ClInclude Include="src\Void\ECS\Event\ECSEventType.h" />
+    <ClInclude Include="src\Void\ECS\Systems\AudioListener\AudioListenerSystem.h" />
+    <ClInclude Include="src\Void\ECS\Systems\Camera\CameraSystem.h" />
+    <ClInclude Include="src\Void\ECS\Systems\Physics\PhysicsSystem.h" />
+    <ClInclude Include="src\Void\ECS\Systems\Rendering\RenderingSystem.h" />
     <ClInclude Include="src\Void\Event\Event.h" />
     <ClInclude Include="src\Void\Event\KeyEvents.h" />
     <ClInclude Include="src\Void\Event\MouseEvents.h" />
@@ -217,6 +238,11 @@ IF EXIST ..\bin\Dist-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll\ (xcopy 
     <ClInclude Include="src\Void\Physics\Solvers\Position\PositionSolver.h" />
     <ClInclude Include="src\Void\Physics\Solvers\Solver.h" />
     <ClInclude Include="src\Void\Physics\Tranform.h" />
+    <ClInclude Include="src\Void\Platform\FMOD\AudioLibrary\FMODAudioLibrary.h" />
+    <ClInclude Include="src\Void\Platform\FMOD\AudioManager\FMODAudioManager.h" />
+    <ClInclude Include="src\Void\Platform\FMOD\DataStructs\FMODChannel.h" />
+    <ClInclude Include="src\Void\Platform\FMOD\DataStructs\FMODChannelGroup.h" />
+    <ClInclude Include="src\Void\Platform\FMOD\Utils\FMODUtils.h" />
     <ClInclude Include="src\Void\Platform\OpenGL\Components\FrameBuffer\OpenGLFrameBuffer.h" />
     <ClInclude Include="src\Void\Platform\OpenGL\Components\IndexBuffer\OpenGLIndexBuffer.h" />
     <ClInclude Include="src\Void\Platform\OpenGL\Components\Renderer\OpenGLRenderer.h" />
@@ -228,8 +254,6 @@ IF EXIST ..\bin\Dist-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll\ (xcopy 
     <ClInclude Include="src\Void\Platform\OpenGL\Debugging\OpenGLDebugger.h" />
     <ClInclude Include="src\Void\Platform\OpenGL\Input\OpenGLInput.h" />
     <ClInclude Include="src\Void\Platform\OpenGL\Window\OpenGLWindow.h" />
-    <ClInclude Include="src\Void\Rendering\Camera\Camera\Camera.h" />
-    <ClInclude Include="src\Void\Rendering\Camera\CameraController\CameraController.h" />
     <ClInclude Include="src\Void\Rendering\Components\FrameBuffer\FrameBuffer.h" />
     <ClInclude Include="src\Void\Rendering\Components\FrameBuffer\FrameBufferConfig.h" />
     <ClInclude Include="src\Void\Rendering\Components\IndexBuffer\IndexBuffer.h" />
@@ -246,16 +270,28 @@ IF EXIST ..\bin\Dist-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll\ (xcopy 
     <ClInclude Include="src\Void\Rendering\Libraries\Mesh\MeshLibrary.h" />
     <ClInclude Include="src\Void\Rendering\Libraries\Shader\ShaderLibrary.h" />
     <ClInclude Include="src\Void\Rendering\Libraries\Texture\TextureLibrary.h" />
+    <ClInclude Include="src\Void\Utils\Command\ICommand.h" />
     <ClInclude Include="src\Void\Utils\ExternalFiles\File\File.h" />
     <ClInclude Include="src\Void\Utils\ExternalFiles\MeshLoader\MeshLoader.h" />
     <ClInclude Include="src\Void\Utils\ExternalFiles\TextureLoader\TextureLoader.h" />
+    <ClInclude Include="src\Void\Utils\ObjectPooling\IPoolObject.h" />
+    <ClInclude Include="src\Void\Utils\ObjectPooling\Pool.h" />
     <ClInclude Include="src\Void\Utils\Parser\ISerializable.h" />
     <ClInclude Include="src\Void\Utils\Parser\JSONParser.h" />
+    <ClInclude Include="src\Void\Utils\Random\Random.h" />
     <ClInclude Include="src\Void\Utils\TimeSteps\Time.h" />
     <ClInclude Include="src\Void\Vendor\stb_lib\stb_lib.h" />
     <ClInclude Include="src\pch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="MovingSystem.cpp" />
+    <ClCompile Include="src\Void\ECS\Systems\IntroSystem.cpp" />
+    <ClCompile Include="src\Void\ECS\Systems\Gun\GunSystem.cpp" />
+    <ClCompile Include="src\Void\ECS\Systems\Footsteps\FootstepSystem.cpp" />
+    <ClCompile Include="src\Void\ECS\Systems\Camera\CameraControllerSystem.cpp" />
+    <ClCompile Include="src\Void\ECS\Commands\PlaySoundCommand.cpp" />
+    <ClCompile Include="src\Void\ECS\Systems\Event\EventSystem.cpp" />
+    <ClCompile Include="src\Void\Audio\AudioManager\AudioManager.cpp" />
     <ClCompile Include="src\Void\Core\Application.cpp" />
     <ClCompile Include="src\Void\Core\Input.cpp" />
     <ClCompile Include="src\Void\Core\Window.cpp" />
@@ -263,8 +299,10 @@ IF EXIST ..\bin\Dist-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll\ (xcopy 
     <ClCompile Include="src\Void\ECS\Core\Entity\Entity.cpp" />
     <ClCompile Include="src\Void\ECS\Core\Scene\Scene.cpp" />
     <ClCompile Include="src\Void\ECS\Core\Scene\SceneManager.cpp" />
-    <ClCompile Include="src\Void\ECS\Systems\PhysicsSystem.cpp" />
-    <ClCompile Include="src\Void\ECS\Systems\RenderingSystem.cpp" />
+    <ClCompile Include="src\Void\ECS\Systems\AudioListener\AudioListenerSystem.cpp" />
+    <ClCompile Include="src\Void\ECS\Systems\Camera\CameraSystem.cpp" />
+    <ClCompile Include="src\Void\ECS\Systems\Physics\PhysicsSystem.cpp" />
+    <ClCompile Include="src\Void\ECS\Systems\Rendering\RenderingSystem.cpp" />
     <ClCompile Include="src\Void\Layers\Core\Layer.cpp" />
     <ClCompile Include="src\Void\Layers\Core\LayerStack.cpp" />
     <ClCompile Include="src\Void\Layers\ImGuiLayer.cpp" />
@@ -274,6 +312,10 @@ IF EXIST ..\bin\Dist-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll\ (xcopy 
     <ClCompile Include="src\Void\Physics\Colliders\SphereCollider.cpp" />
     <ClCompile Include="src\Void\Physics\Solvers\Impulse\ImpulseSolver.cpp" />
     <ClCompile Include="src\Void\Physics\Solvers\Position\PositionSolver.cpp" />
+    <ClCompile Include="src\Void\Platform\FMOD\AudioLibrary\FMODAudioLibrary.cpp" />
+    <ClCompile Include="src\Void\Platform\FMOD\AudioManager\FMODAudioManager.cpp" />
+    <ClCompile Include="src\Void\Platform\FMOD\AudioManager\FMODAudioManagerDSP.cpp" />
+    <ClCompile Include="src\Void\Platform\FMOD\AudioManager\FMODAudioManagerManipulation.cpp" />
     <ClCompile Include="src\Void\Platform\OpenGL\Components\FrameBuffer\OpenGLFrameBuffer.cpp" />
     <ClCompile Include="src\Void\Platform\OpenGL\Components\IndexBuffer\OpenGLIndexBuffer.cpp" />
     <ClCompile Include="src\Void\Platform\OpenGL\Components\Renderer\OpenGLRenderer.cpp" />
@@ -286,8 +328,6 @@ IF EXIST ..\bin\Dist-windows-x86_64\$(ProjectName)\assimp-vc143-mtd.dll\ (xcopy 
     <ClCompile Include="src\Void\Platform\OpenGL\ImGui\ImGuiBuilder.cpp" />
     <ClCompile Include="src\Void\Platform\OpenGL\Input\OpenGLInput.cpp" />
     <ClCompile Include="src\Void\Platform\OpenGL\Window\OpenGLWindow.cpp" />
-    <ClCompile Include="src\Void\Rendering\Camera\Camera\Camera.cpp" />
-    <ClCompile Include="src\Void\Rendering\Camera\CameraController\CameraController.cpp" />
     <ClCompile Include="src\Void\Rendering\Components\FrameBuffer\FrameBuffer.cpp" />
     <ClCompile Include="src\Void\Rendering\Components\IndexBuffer\IndexBuffer.cpp" />
     <ClCompile Include="src\Void\Rendering\Components\Renderer\Renderer.cpp" />

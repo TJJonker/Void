@@ -2,16 +2,21 @@
 #include "Entity.h"
 
 namespace Void {
-	Entity::Entity(entt::entity entity, entt::registry& registry, DestroyCallback onDestroyCallback)
+	Entity::Entity(entt::entity entity, entt::registry& registry)
 		: m_Entity(entity), m_Registry(registry) { }
 	
-	Entity::~Entity()
+	void Entity::RecordEvent(ECSEventType type, IECSEventInfo info)
 	{
-		Destroy();
+		m_Events[type].push_back(info);
 	}
 
-	void Entity::Destroy()
+	const std::map<ECSEventType, std::vector<IECSEventInfo>>& Entity::GetEvents() const
 	{
-		onDestroyCallback(m_Entity);
+		return m_Events;
+	}
+
+	void Entity::ResetEvents()
+	{
+		m_Events.clear();
 	}
 }

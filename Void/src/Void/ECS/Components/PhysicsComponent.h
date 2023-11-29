@@ -10,29 +10,16 @@
 namespace Void {
 	struct PhysicsComponent : public ISerializable {
 
-		using CollisionCallback = std::function<void(const Collision&)>;
-
-
 		float Mass = 1;
 		bool IsStatic = false;
-
-		glm::vec3 Velocity = glm::vec3(0);
 		glm::vec3 Force = glm::vec3(0);
-
-		CollisionCallback collisionCallback;
-
 		Collider* Collider = nullptr;
-
 
 		nlohmann::ordered_json ToJSON() const override {
 			nlohmann::ordered_json json;
 
 			json["Mass"] = Mass;
 			json["IsStatic"] = IsStatic;
-
-			json["Velocity"]["X"] = Velocity.x;
-			json["Velocity"]["Y"] = Velocity.y;
-			json["Velocity"]["Z"] = Velocity.z;
 
 			if (PlaneCollider* collider = dynamic_cast<PlaneCollider*>(Collider)) {
 				json["Type"] = "Plane";
@@ -55,10 +42,6 @@ namespace Void {
 		void FromJSON(const nlohmann::json& json) override {
 			Mass = json["Mass"];
 			IsStatic = json["IsStatic"];
-
-			Velocity.x = json["Velocity"]["X"];
-			Velocity.y = json["Velocity"]["Y"];
-			Velocity.z = json["Velocity"]["Z"];
 
 			std::string type = json["Type"];
 			if (type == "Plane") {
