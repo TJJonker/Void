@@ -25,7 +25,7 @@ namespace Void::Audio {
 
 			for (int i = 0; i < DSP_AMOUNT; ++i) {
 				if (DSPEffects[i] != nullptr) {
-					delete DSPEffects[i];
+					//delete DSPEffects[i];
 					DSPEffects[i] = nullptr; 
 				}
 			}

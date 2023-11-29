@@ -17,7 +17,7 @@ namespace Void::Audio {
 
 		virtual void LoadAudio(const char* filePath) override;
 		virtual void LoadStream(const char* filePath) override;
-		virtual void Load3DAudio(const char* filePath) override;
+		virtual void Load3DAudio(const char* filePath, bool loop = false) override;
 
 		virtual unsigned int PlayAudio(const char* filePath, int channelGroupIndex) override;
 		virtual void StopAudio(unsigned int channelIndex) override;
@@ -43,7 +43,7 @@ namespace Void::Audio {
 		virtual void AddChorusToChannelGroup(unsigned int channelGroupIndex, unsigned int mix, float rate, unsigned int depth) override;
 
 		virtual void SetListenerAttributes(const glm::vec3& position, const glm::vec3& velocity, const glm::vec3& forward, const glm::vec3& up) override;
-		virtual void AddPolygon(float direct, float reverb, bool doublesided, const std::vector<glm::vec3>& vertices, const glm::vec3& position) override;
+		virtual unsigned int AddPolygon(float direct, float reverb, bool doublesided, const std::vector<glm::vec3>& vertices, const glm::vec3& position) override;
 
 		virtual bool IsValid(unsigned int channelID);
 		virtual void SetChannelAttributes(unsigned int channelID, const glm::vec3& position, const glm::vec3 velocity);
@@ -61,5 +61,6 @@ namespace Void::Audio {
 
 		std::vector<ChannelGroup*> m_ChannelGroups;
 		Pool<Channel>* m_ChannelsPool;
+		FMOD::Geometry* m_Geometry;
 	};
 }

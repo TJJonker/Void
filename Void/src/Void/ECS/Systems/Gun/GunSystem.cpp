@@ -20,6 +20,10 @@ namespace Void {
 			gun.CooldownTimer = 0;
 			unsigned int soundId = Audio::AudioManager::GetInstance()->PlayAudio(gun.SoundPath.c_str(), CHANNELGROUP_MASTER_INDEX);
 			Audio::AudioManager::GetInstance()->SetChannelAttributes(soundId, transform.Position, glm::vec3(0));
+			Audio::AudioManager::GetInstance()->AddReverbToChannel(soundId);
+
+			//Entity* entity = scene->CreateEntity();
+			//entity->AddComponent
 		}
 	}
 }

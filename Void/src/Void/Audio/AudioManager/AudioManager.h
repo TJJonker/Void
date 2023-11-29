@@ -12,7 +12,7 @@ namespace Void::Audio {
 
 		virtual void LoadAudio(const char* filePath) = 0;
 		virtual void LoadStream(const char* filePath) = 0;
-		virtual void Load3DAudio(const char* filePath) = 0;
+		virtual void Load3DAudio(const char* filePath, bool loop = false) = 0;
 
 		virtual unsigned int PlayAudio(const char* filePath, int channelGroupIndex) = 0;
 		virtual void StopAudio(unsigned int channelID) = 0;
@@ -39,7 +39,7 @@ namespace Void::Audio {
 
 		virtual void SetListenerAttributes(const glm::vec3& position, const glm::vec3& velocity, const glm::vec3& forward, const glm::vec3& up) = 0;
 
-		virtual void AddPolygon(float direct, float reverb, bool doublesided, const std::vector<glm::vec3>& vertices, const glm::vec3& position) = 0;
+		virtual unsigned int AddPolygon(float direct, float reverb, bool doublesided, const std::vector<glm::vec3>& vertices, const glm::vec3& position) = 0;
 
 		virtual bool IsValid(unsigned int channelID) = 0;
 		virtual void SetChannelAttributes(unsigned int channelID, const glm::vec3& position, const glm::vec3 velocity) = 0;

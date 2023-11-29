@@ -493,6 +493,10 @@
     <ClInclude Include="src\Void\Utils\Random\Random.h" />
     <ClInclude Include="src\Void\ECS\Components\GunComponent.h" />
     <ClInclude Include="src\Void\ECS\Systems\Gun\GunSystem.h" />
+    <ClInclude Include="src\Void\ECS\Components\IntroTrigger.h" />
+    <ClInclude Include="src\Void\ECS\Systems\IntroSystem.h" />
+    <ClInclude Include="src\Void\ECS\Components\MovingComponent.h" />
+    <ClInclude Include="MovingSystem.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Void\Audio\AudioManager\AudioManager.cpp">
@@ -666,5 +670,7 @@
     <ClCompile Include="src\Void\ECS\Systems\Camera\CameraControllerSystem.cpp" />
     <ClCompile Include="src\Void\ECS\Systems\Footsteps\FootstepSystem.cpp" />
     <ClCompile Include="src\Void\ECS\Systems\Gun\GunSystem.cpp" />
+    <ClCompile Include="src\Void\ECS\Systems\IntroSystem.cpp" />
+    <ClCompile Include="MovingSystem.cpp" />
   </ItemGroup>
 </Project>

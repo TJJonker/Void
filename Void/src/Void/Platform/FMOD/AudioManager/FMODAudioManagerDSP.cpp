@@ -90,14 +90,14 @@ namespace Void::Audio {
 		FMOD_RESULT result;
 
 		result = m_System->createDSPByType(FMOD_DSP_TYPE_SFXREVERB, &reverb);
-		VOID_ASSERT(result, "Failed to create the reverb dsp.");
+		VOID_ASSERT(result == FMOD_OK, "Failed to create the reverb dsp.");
 
 		result = reverb->setParameterFloat(FMOD_DSP_SFXREVERB_DECAYTIME, decay);
-		VOID_ASSERT(result, "Failed to set the decay in the reverb dsp.");
+		VOID_ASSERT(result == FMOD_OK, "Failed to set the decay in the reverb dsp.");
 		result = reverb->setParameterFloat(FMOD_DSP_SFXREVERB_DENSITY, density);
-		VOID_ASSERT(result, "Failed to set the density in the reverb dsp.");
+		VOID_ASSERT(result == FMOD_OK, "Failed to set the density in the reverb dsp.");
 		result = reverb->setParameterFloat(FMOD_DSP_SFXREVERB_DIFFUSION, diffusion);
-		VOID_ASSERT(result, "Failed to set the diffusion in the reverb dsp.");
+		VOID_ASSERT(result == FMOD_OK, "Failed to set the diffusion in the reverb dsp.");
 
 		return reverb;
 	}
@@ -108,10 +108,10 @@ namespace Void::Audio {
 		FMOD_RESULT result;
 
 		result = m_System->createDSPByType(FMOD_DSP_TYPE_LOWPASS, &lowPass);
-		VOID_ASSERT(result, "Failed to create the lowPass dsp.");
+		VOID_ASSERT(result == FMOD_OK, "Failed to create the lowPass dsp.");
 
 		result = lowPass->setParameterInt(FMOD_DSP_LOWPASS_CUTOFF, cutoff);
-		VOID_ASSERT(result, "Failed to set the cutoff in the lowPass dsp.");
+		VOID_ASSERT(result == FMOD_OK, "Failed to set the cutoff in the lowPass dsp.");
 
 		return lowPass;
 	}
@@ -122,10 +122,10 @@ namespace Void::Audio {
 		FMOD_RESULT result;
 
 		result = m_System->createDSPByType(FMOD_DSP_TYPE_HIGHPASS, &highPass);
-		VOID_ASSERT(result, "Failed to create the highPass dsp.");
+		VOID_ASSERT(result == FMOD_OK, "Failed to create the highPass dsp.");
 
 		result = highPass->setParameterInt(FMOD_DSP_HIGHPASS_CUTOFF, cutoff);
-		VOID_ASSERT(result, "Failed to set the cutoff in the highPass dsp.");
+		VOID_ASSERT(result == FMOD_OK, "Failed to set the cutoff in the highPass dsp.");
 
 		return highPass;
 	}
@@ -136,10 +136,10 @@ namespace Void::Audio {
 		FMOD_RESULT result;
 
 		result = m_System->createDSPByType(FMOD_DSP_TYPE_DISTORTION, &distortion);
-		VOID_ASSERT(result, "Failed to create the distortion dsp.");
+		VOID_ASSERT(result == FMOD_OK, "Failed to create the distortion dsp.");
 
 		result = distortion->setParameterFloat(FMOD_DSP_DISTORTION_LEVEL, level);
-		VOID_ASSERT(result, "Failed to set the decay in the distortion dsp.");
+		VOID_ASSERT(result == FMOD_OK, "Failed to set the decay in the distortion dsp.");
 
 		return distortion;
 	}
@@ -150,14 +150,14 @@ namespace Void::Audio {
 		FMOD_RESULT result;
 
 		result = m_System->createDSPByType(FMOD_DSP_TYPE_CHORUS, &chorus);
-		VOID_ASSERT(result, "Failed to create the chorus dsp.");
+		VOID_ASSERT(result == FMOD_OK, "Failed to create the chorus dsp.");
 
-		result = chorus->setParameterInt(FMOD_DSP_CHORUS_MIX, mix);
-		VOID_ASSERT(result, "Failed to set the mix in the chorus dsp.");
+		result = chorus->setParameterFloat(FMOD_DSP_CHORUS_MIX, mix);
+		VOID_ASSERT(result == FMOD_OK, "Failed to set the mix in the chorus dsp.");
 		result = chorus->setParameterFloat(FMOD_DSP_CHORUS_RATE, rate);
-		VOID_ASSERT(result, "Failed to set the rate in the chorus dsp.");
-		result = chorus->setParameterInt(FMOD_DSP_CHORUS_DEPTH, depth);
-		VOID_ASSERT(result, "Failed to set the depth in the chorus dsp.");
+		VOID_ASSERT(result == FMOD_OK, "Failed to set the rate in the chorus dsp.");
+		result = chorus->setParameterFloat(FMOD_DSP_CHORUS_DEPTH, depth);
+		VOID_ASSERT(result == FMOD_OK, "Failed to set the depth in the chorus dsp.");
 
 		return chorus;
 	}

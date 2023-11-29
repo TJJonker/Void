@@ -177,6 +177,10 @@ IF EXIST ..\bin\Dist-windows-x86_64\$(ProjectName)\fmod.dll\ (xcopy /Q /E /Y /I 
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="MovingSystem.h" />
+    <ClInclude Include="src\Void\ECS\Components\MovingComponent.h" />
+    <ClInclude Include="src\Void\ECS\Systems\IntroSystem.h" />
+    <ClInclude Include="src\Void\ECS\Components\IntroTrigger.h" />
     <ClInclude Include="src\Void\ECS\Systems\Gun\GunSystem.h" />
     <ClInclude Include="src\Void\ECS\Components\GunComponent.h" />
     <ClInclude Include="src\Void\ECS\Systems\Footsteps\FootstepSystem.h" />
@@ -280,6 +284,8 @@ IF EXIST ..\bin\Dist-windows-x86_64\$(ProjectName)\fmod.dll\ (xcopy /Q /E /Y /I 
     <ClInclude Include="src\pch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="MovingSystem.cpp" />
+    <ClCompile Include="src\Void\ECS\Systems\IntroSystem.cpp" />
     <ClCompile Include="src\Void\ECS\Systems\Gun\GunSystem.cpp" />
     <ClCompile Include="src\Void\ECS\Systems\Footsteps\FootstepSystem.cpp" />
     <ClCompile Include="src\Void\ECS\Systems\Camera\CameraControllerSystem.cpp" />

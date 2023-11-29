@@ -11,7 +11,7 @@ namespace Void::Audio {
 	public:
 		FMODAudioLibrary(FMOD::System* system);
 
-		void Load3DAudio(const char* filePath);
+		void Load3DAudio(const char* filePath, bool loop = false);
 		void LoadAudio(const char* filePath);
 		void LoadStream(const char* filePath);
 

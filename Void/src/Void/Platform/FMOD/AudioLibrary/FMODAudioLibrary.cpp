@@ -5,12 +5,16 @@ namespace Void::Audio {
 	FMODAudioLibrary::FMODAudioLibrary(FMOD::System* system)
 		:m_System(system) { }
 
-	void FMODAudioLibrary::Load3DAudio(const char* filePath)
+	void FMODAudioLibrary::Load3DAudio(const char* filePath, bool loop)
 	{
 		VOID_ASSERT(!m_Library.count(filePath), "Entry '{0}' already exists in the library", filePath);
-		
+
+		FMOD_INITFLAGS flags = FMOD_3D;
+		if (loop)
+			flags |= FMOD_LOOP_NORMAL;
+
 		FMOD::Sound* sound;
-		FMOD_RESULT result = m_System->createSound(filePath, FMOD_3D, nullptr, &sound);
+		FMOD_RESULT result = m_System->createSound(filePath, flags, nullptr, &sound);
 		VOID_ASSERT(result == FMOD_OK, "Failed to load the audio file: '{0}'", filePath);
 
 		m_Library.insert({ filePath, sound });
