@@ -1,25 +1,110 @@
-# Void
-Void Engine
+> [!WARNING]
+> This README file is under construction and could contain misinformation.
 
-This project serves as a sandbox to try out the different types of functionality of FMOD.
+# Void Engine
+Void Engine is a C++ Game Engine developed as a learning project to explore C++, handle larger codebases, and integrate multiple external libraries.
 
-In this project, we played around with the 3D audio and the doppler effect. Audio Occlusion was also part of the assignment, but I failed to implement this functionaliy.
-The wireframes at the gate would function as the barriers/walls, but the effect itself is not there.
+<br/>
 
-To showcase the doppler effect, I implemented a very good camouflaged indian, running left and right behind the starting point.
-When walking through the gate, music will play, which will stop when the player is outside the trigger point.
+## Table of Contents
+- [Features](#features)
+- [Getting Started](#getting-started)
+- [Dependencies](#dependencies)
+- [Building from Source](#building-from-source)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
 
-There are foosteps, which are also the user interacted sounds. (these can be hard to hear, so walking away from the scene is advised to listen to them)
+<br/>
 
-The DSP sounds can be found on:
-- the footsteps, which shift in pitch every step (1)
-- Both guns, which make use of reverb (2)
-- The theme song when entering the gate, which makes use of a chorus DSP. (1)
+## Features  
+### ECS Architecture
+Utilizes the ENTT library and aims to develop a custom ECS system.
 
-Everything is implemented except for the complete audio occlusion.
+### Graphics
+Leverages OpenGL, GLFW, and GLAD for powerful graphics capabilities.
 
-Excuses me for the lack of documentation... I was really short on time and did not want to delay another day and taking another penalty...
+### Physics System
+Incorporates a self-created physics system with support for Mesh, Sphere, and Box collision and response.
 
+### Model Loading
+Utilizes ASSIMP for efficient loading of 3D models.
 
+### Audio Programming
+Implements FMOD for audio functionality.
 
-Building the project is as easy as clicking build. Make sure the absolute path does not contain any spaces. In case the project fails to build, click GenerateFiles in the sln folder.
+### Graphical Development Environment
+Features the beginning of a graphical development environment named Nebula, utilizing IMGUI.
+
+### External File Parsing
+Supports JSON file parsing with the help of NLOHMANN.
+
+### Build System
+Uses Premake5 for solution and project management.
+
+### Logging Solution
+Integrates SPDLOG for effective logging.
+
+<br/>
+
+## Getting Started
+To get started with Void Engine, follow these steps:
+
+Clone the Repository:
+
+``` bash
+git clone https://github.com/your-username/void-engine.git
+cd void-engine
+Build the Engine:
+```
+
+``` bash
+premake5 [platform]
+make
+Replace [platform] with your target platform (e.g., vs2019, xcode, etc.).
+```
+
+Run a Sample Application:
+
+bash
+Copy code
+cd bin
+./VoidSample
+This will run a sample application using Void Engine.
+
+<br/>
+
+## Dependencies
+Void Engine relies on the following external libraries:
+
+- ENTT
+- OpenGL
+- GLFW
+- GLAD
+- ASSIMP
+- FMOD
+- IMGUI
+- NLOHMANN JSON
+- Premake5
+- SPDLOG
+
+<br/>
+
+## Building from Source
+...
+
+<br/>
+
+## Usage
+...
+
+<br/>
+
+## Contributing
+...
+
+<br/>
+
+## License
+This project is licensed under the MIT License.
+
