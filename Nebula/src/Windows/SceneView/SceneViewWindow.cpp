@@ -9,6 +9,10 @@ namespace Nebula::Window {
 		Void::Rendering::FrameBufferConfig config{1280, 720};
 		m_FrameBuffer = Void::Rendering::FrameBuffer::Create(config);
 		Void::Rendering::RenderingCommands::SetClearColor({ .1, .2, .1, 1 });
+
+		m_Camera = Void::SceneManager::GetInstance().GetCurrentScene()->CreateEntity();
+		m_Camera->AddComponent<Void::TransformComponent>();
+		m_Camera->AddComponent<Void::Camera>();
 	}
 
 	void SceneViewWindow::OnGuiRender()
