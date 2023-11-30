@@ -3,6 +3,9 @@
 namespace Nebula::Window {
 	void GuiWindow::Render()
 	{
+		if (!IsOpen)
+			return; 
+
 		ImGui::Begin(p_Name.c_str(), &IsOpen, m_Flags);
 		CheckAndApplyResize();
 		OnGuiRender();
