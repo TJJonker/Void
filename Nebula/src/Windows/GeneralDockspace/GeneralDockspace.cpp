@@ -21,8 +21,8 @@ namespace Nebula::Window {
 
 	void GeneralDockspace::Render()
 	{		
-		ImGui::SetNextWindowPos(m_Viewport->GetWorkPos());
-		ImGui::SetNextWindowSize(m_Viewport->GetWorkSize());
+		ImGui::SetNextWindowPos(m_Viewport->WorkPos);
+		ImGui::SetNextWindowSize(m_Viewport->WorkSize);
 		ImGui::SetNextWindowViewport(m_Viewport->ID);
 
 		ImGui::PushStyleVar(ImGuiStyleVar_WindowRounding, 0.0f);

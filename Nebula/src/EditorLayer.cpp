@@ -47,5 +47,7 @@ namespace Nebula::Editor {
 	void EditorLayer::OnGuiRender()
 	{
         m_Dockspace->Render();
+        //static bool open = false;
+        //ImGui::ShowDemoWindow(&open);
 	}
 }

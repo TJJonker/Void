@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Windows">
+      <UniqueIdentifier>{5032B729-BC11-36C5-C529-C19B31889C26}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Windows\Core">
+      <UniqueIdentifier>{A8481C34-94AB-ABD8-3D31-E48E2973775B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Windows\GeneralDockspace">
+      <UniqueIdentifier>{CA4A7C23-B66F-CBA3-DFBA-B033CB3ECAC1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Windows\Menus">
+      <UniqueIdentifier>{67C854B8-D388-D0EE-9CC3-196C084315CB}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Windows\Menus\Core">
+      <UniqueIdentifier>{1F454E88-0B29-0FDE-7489-0931608CF95F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Windows\Menus\Menu">
+      <UniqueIdentifier>{EB955388-D779-14DE-40DA-0E312CDDFE5F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Windows\SceneHierarchy">
+      <UniqueIdentifier>{8CED4F80-78E7-78D2-6154-0FE34DEDDE3E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Windows\SceneView">
+      <UniqueIdentifier>{A8FE3A09-1415-399F-5D8C-C4C0C9E10927}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\EditorLayer.h" />
+    <ClInclude Include="src\Windows\Core\GuiWindow.h">
+      <Filter>Windows\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Windows\Core\WindowManager.h">
+      <Filter>Windows\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Windows\GeneralDockspace\GeneralDockspace.h">
+      <Filter>Windows\GeneralDockspace</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Windows\Menus\Core\Menu.h">
+      <Filter>Windows\Menus\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Windows\Menus\Core\MenuItem.h">
+      <Filter>Windows\Menus\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Windows\Menus\Menu\FileMenu.h">
+      <Filter>Windows\Menus\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Windows\SceneHierarchy\SceneHierarchyWindow.h">
+      <Filter>Windows\SceneHierarchy</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Windows\SceneView\SceneViewWindow.h">
+      <Filter>Windows\SceneView</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\EditorLayer.cpp" />
+    <ClCompile Include="src\Nebula.cpp" />
+    <ClCompile Include="src\Windows\Core\GuiWindow.cpp">
+      <Filter>Windows\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Windows\Core\WindowManager.cpp">
+      <Filter>Windows\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Windows\GeneralDockspace\GeneralDockspace.cpp">
+      <Filter>Windows\GeneralDockspace</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Windows\Menus\Core\Menu.cpp">
+      <Filter>Windows\Menus\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Windows\Menus\Menu\FileMenu.cpp">
+      <Filter>Windows\Menus\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Windows\SceneHierarchy\SceneHierarchyWindow.cpp">
+      <Filter>Windows\SceneHierarchy</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Windows\SceneView\SceneViewWindow.cpp">
+      <Filter>Windows\SceneView</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
