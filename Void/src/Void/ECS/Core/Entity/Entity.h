@@ -5,6 +5,9 @@
 
 namespace Void {
 	class Entity {
+	public:
+		std::string Name = "New entity";
+
 	private:
 		entt::entity m_Entity;
 		entt::registry& m_Registry;

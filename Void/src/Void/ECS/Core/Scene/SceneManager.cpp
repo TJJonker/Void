@@ -2,7 +2,6 @@
 #include "SceneManager.h"
 #include <Void/ECS/Components/TranformComponent.h>
 #include <Void/ECS/Components/RenderingComponent.h>
-#include <Void/ECS/Components/LightComponent.h>
 #include <Void/ECS/Components/SpotLightComponent.h>
 #include <Void/ECS/Components/PhysicsComponent.h>
 #include <Void/ECS/Components/TagComponent.h>
@@ -78,16 +77,6 @@ namespace Void {
 				entityJson["Components"].push_back(componentJson);
 			}
 
-			if (entity->HasComponent<LightComponent>()) {
-				nlohmann::ordered_json componentJson;
-
-				LightComponent& rendering = entity->GetComponent<LightComponent>();
-				componentJson["Type"] = "LightComponent";
-				componentJson["Data"] = rendering.ToJSON();
-
-				entityJson["Components"].push_back(componentJson);
-			}
-
 			if (entity->HasComponent<SpotLightComponent>()) {
 				nlohmann::ordered_json componentJson;
 
@@ -133,8 +122,6 @@ namespace Void {
 			return &entity->AddComponent<TransformComponent>();
 		if (componentName == "RenderingComponent")
 			return &entity->AddComponent<RenderingComponent>();
-		if (componentName == "LightComponent")
-			return &entity->AddComponent<LightComponent>();
 		if (componentName == "SpotLightComponent")
 			return &entity->AddComponent<SpotLightComponent>();
 		if (componentName == "PhysicsComponent")

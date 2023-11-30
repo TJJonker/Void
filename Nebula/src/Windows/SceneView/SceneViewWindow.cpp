@@ -12,7 +12,8 @@ namespace Nebula::Window {
 
 		m_Camera = Void::SceneManager::GetInstance().GetCurrentScene()->CreateEntity();
 		m_Camera->AddComponent<Void::TransformComponent>();
-		m_Camera->AddComponent<Void::Camera>();
+		//m_Camera->AddComponent<Void::>();
+
 	}
 
 	void SceneViewWindow::OnGuiRender()

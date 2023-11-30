@@ -8,17 +8,9 @@ namespace Nebula::Window {
 		FileMenu(std::string name, WindowManager* windowManager) 
 			: Menu(name) 
 		{
-			AddMenuItem("Scene Hierarchy", 
-				[windowManager]() {
-					windowManager->OpenWindow("SceneHierarchy"); 
-				}
-			);
-
-			AddMenuItem("Scene View", 
-				[windowManager]() {
-					windowManager->OpenWindow("SceneView"); 
-				}
-			);
+			AddMenuItem("Scene Hierarchy", [windowManager]() {windowManager->OpenWindow("SceneHierarchy"); });
+			AddMenuItem("Scene View", [windowManager]() {windowManager->OpenWindow("SceneView"); });
+			AddMenuItem("Demo Window", [windowManager]() {windowManager->OpenDemoWindow(); });
 		}
 	};
 }

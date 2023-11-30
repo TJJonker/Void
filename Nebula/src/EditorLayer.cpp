@@ -5,8 +5,11 @@ namespace Nebula::Editor {
 
 	void EditorLayer::OnAdded()
 	{
+        Void::SceneManager::GetInstance().LoadScene("Scene7.json");
+
         m_Dockspace = new Window::GeneralDockspace();
         m_Dockspace->Initialize();
+
 
         // Temp
         // Shader lib
@@ -19,7 +22,6 @@ namespace Nebula::Editor {
         Void::MeshLibrary::GetInstance()->Load("Temp/Models/Barn.obj");
 
 
-        Void::SceneManager::GetInstance().LoadScene("Scene7.json");
 
         //entt::entity en = m_SceneManager->GetCurrentScene()->CreateEntity();
         //m_SceneManager->GetCurrentScene()->AddComponent<Void::TransformComponent>(en);

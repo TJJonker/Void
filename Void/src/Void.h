@@ -38,7 +38,7 @@
 // Built in Components
 #include "Void/ECS/Components/RenderingComponent.h"
 #include "Void/ECS/Components/TranformComponent.h"
-#include <Void/ECS/Components/LightComponent.h>
+//#include <Void/ECS/Components/LightComponent.h>
 #include <Void/ECS/Components/SpotLightComponent.h>
 #include <Void/ECS/Components/TagComponent.h>
 

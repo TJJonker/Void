@@ -6,6 +6,9 @@ namespace Nebula::Window {
 	{
 		for (auto const& window : m_Windows)
 			window.second->Render();
+
+		if (m_DemoWindowOpen)
+			ImGui::ShowDemoWindow(&m_DemoWindowOpen);
 	}
 
 	void WindowManager::OpenWindow(std::string windowName)
