@@ -3,7 +3,7 @@
 namespace Nebula::Window {
 	void GuiWindow::Render()
 	{
-		ImGui::Begin("", &IsOpen, m_Flags);
+		ImGui::Begin(p_Name.c_str(), &IsOpen, m_Flags);
 		CheckAndApplyResize();
 		OnGuiRender();
 		ImGui::End();
@@ -27,9 +27,9 @@ namespace Nebula::Window {
 	void GuiWindow::CheckAndApplyResize()
 	{
 		glm::vec2 windowSize = *((glm::vec2*)&ImGui::GetContentRegionAvail());
-		if (m_WindowSize != windowSize) {
+		if (p_WindowSize != windowSize) {
 			OnWindowResize(windowSize);
-			m_WindowSize = windowSize;
+			p_WindowSize = windowSize;
 		}
 	}
 }

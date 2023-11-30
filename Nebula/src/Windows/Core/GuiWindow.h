@@ -1,6 +1,7 @@
 #pragma once
 #include <imgui.h>
 #include "glm/glm.hpp"
+#include <string>
 
 namespace Nebula::Window {
 	class GuiWindow
@@ -24,9 +25,12 @@ namespace Nebula::Window {
 	public:
 		bool IsOpen;
 
+	protected:
+		glm::vec2 p_WindowSize = glm::vec2(0);
+		std::string p_Name = "New window";
+
 	private:
 		ImGuiWindowFlags m_Flags;
-		glm::vec2 m_WindowSize;
 	};
 }
 

@@ -9,6 +9,11 @@
 
 namespace Void {
 
+	SceneManager& SceneManager::GetInstance() {
+		static SceneManager instance;
+		return instance;
+	}
+
 	void SceneManager::LoadScene(const char* filePath)
 	{
 		Scene* scene = new Scene();

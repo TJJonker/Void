@@ -18,5 +18,6 @@ namespace Void {
 		void SaveScene(const char* filePath);
 
 		Scene* GetCurrentScene() { return m_CurrentScene; }
+		static SceneManager& GetInstance();
 	};
 }
