@@ -9,7 +9,6 @@ namespace Nebula::Window {
 
 	void Menu::RenderMenu()
 	{
-		//bool opened = ImGui::BeginMenu(m_MenuName.c_str());
 		if (ImGui::BeginMenu(m_MenuName.c_str())) {
 			for (const MenuItem menuItem : m_MenuItems) {
 				if (ImGui::MenuItem(menuItem.label)) {

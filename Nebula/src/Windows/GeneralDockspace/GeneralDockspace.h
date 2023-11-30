@@ -2,6 +2,7 @@
 #include <imgui.h>
 #include <vector>
 #include <Windows/Menus/Core/Menu.h>
+#include <Windows/Core/WindowManager.h>
 
 namespace Nebula::Window {
 	class GeneralDockspace
@@ -14,9 +15,12 @@ namespace Nebula::Window {
 		void RenderContent();
 
 	private:
-		ImGuiViewport* m_Viewport;
 		bool IsOpen = true;
+
+		ImGuiViewport* m_Viewport;
 		ImGuiWindowFlags m_Window_flags;
+
 		std::vector<Menu*> m_MenuManagers;
+		WindowManager* m_WindowManager;
 	};
 }

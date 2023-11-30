@@ -1,6 +1,7 @@
 #pragma once
 #include <functional>
 #include "MenuItem.h"
+#include "Windows/Core/WindowManager.h"
 
 namespace Nebula::Window {
 	class Menu

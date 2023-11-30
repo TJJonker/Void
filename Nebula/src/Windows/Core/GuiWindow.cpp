@@ -6,7 +6,7 @@ namespace Nebula::Window {
 		ImGui::Begin(p_Name.c_str(), &IsOpen, m_Flags);
 		CheckAndApplyResize();
 		OnGuiRender();
-		ImGui::End();
+		ImGui::End();		
 	}
 
 	void GuiWindow::SetFlags(ImGuiWindowFlags flags)

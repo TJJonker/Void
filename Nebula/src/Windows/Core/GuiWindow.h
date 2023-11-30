@@ -23,14 +23,14 @@ namespace Nebula::Window {
 		void CheckAndApplyResize();
 
 	public:
-		bool IsOpen;
+		bool IsOpen = false;
 
 	protected:
 		glm::vec2 p_WindowSize = glm::vec2(0);
 		std::string p_Name = "New window";
 
 	private:
-		ImGuiWindowFlags m_Flags;
+		ImGuiWindowFlags m_Flags = ImGuiWindowFlags_None;
 	};
 }
 

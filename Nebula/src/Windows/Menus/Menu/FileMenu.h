@@ -5,10 +5,20 @@ namespace Nebula::Window {
 	class FileMenu : public Menu
 	{
 	public:
-		FileMenu(std::string name) 
+		FileMenu(std::string name, WindowManager* windowManager) 
 			: Menu(name) 
 		{
-			AddMenuItem("Test1", []() {});
+			AddMenuItem("Scene Hierarchy", 
+				[windowManager]() {
+					windowManager->OpenWindow("SceneHierarchy"); 
+				}
+			);
+
+			AddMenuItem("Scene View", 
+				[windowManager]() {
+					windowManager->OpenWindow("SceneView"); 
+				}
+			);
 		}
 	};
 }
