@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "ImpulseSolver.h"
 #include <Void/ECS/Components/PhysicsComponent.h>
+#include <Void/ECS/Components/VelocityComponent.h>
 
 namespace Void {
 	void ImpulseSolver::Solve(std::vector<Collision>& collisions)
@@ -10,12 +11,13 @@ namespace Void {
 			PhysicsComponent& aPhysics = collision.A->GetComponent<PhysicsComponent>();
 			PhysicsComponent& bPhysics = collision.B->GetComponent<PhysicsComponent>();
 
+			VelocityComponent& aVelocity = collision.A->GetComponent<VelocityComponent>();
+			VelocityComponent& bVelocity = collision.B->GetComponent<VelocityComponent>();
+
 			float aStatic = (float)aPhysics.IsStatic;
 			float bStatic = (float)bPhysics.IsStatic;
 
-			glm::vec3 aVelocity = aPhysics.Velocity;
-			glm::vec3 bVelocity = bPhysics.Velocity;
-			glm::vec3 rVelocity = bVelocity - aVelocity;
+			glm::vec3 rVelocity = bVelocity.Velocity - aVelocity.Velocity;
 			float nSpd = glm::dot(rVelocity, collision.CollisionPoint.Normal);
 
 			float aInvMass = !aStatic ? 1 / aPhysics.Mass : 0.f;
@@ -32,10 +34,10 @@ namespace Void {
 			glm::vec3 impulse = scale * collision.CollisionPoint.Normal;
 
 			if (!aStatic)
-				aPhysics.Velocity -= impulse * aInvMass;
+				aVelocity.Velocity -= impulse * aInvMass;
 
 			if (!bStatic)
-				bPhysics.Velocity += impulse * bInvMass;
+				bVelocity.Velocity += impulse * bInvMass;
 		}
 	}
 }

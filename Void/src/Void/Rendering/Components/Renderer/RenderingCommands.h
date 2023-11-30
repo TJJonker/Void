@@ -3,10 +3,9 @@
 #include <Void/Rendering/Components/VertexArray/VertexArray.h>
 #include "Renderer.h"
 #include <Void/Rendering/Components/Shader/Shader.h>
-#include <Void/Rendering/Camera/Camera/Camera.h>
 
 namespace Void::Rendering {
-	class VOID_API RenderingCommands {
+	class RenderingCommands {
 	public:
 		struct PointLightData {
 			glm::vec3 Position = glm::vec3(0);
@@ -49,7 +48,7 @@ namespace Void::Rendering {
 		static void AddPointLight(PointLightData pointLightData);
 		static void AddSpotLight(SpotLightData spotLightData);
 
-		static void BeginDraw(Camera* camera);
+		static void BeginDraw(const glm::mat4& view, float fov, const glm::vec3& position);
 		static void Draw(VertexArray* vertexArray, Shader* shader, glm::mat4 modelMatrix);
 	};
 }

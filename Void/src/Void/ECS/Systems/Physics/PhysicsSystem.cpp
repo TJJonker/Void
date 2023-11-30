@@ -2,9 +2,11 @@
 #include "PhysicsSystem.h"
 #include <Void/ECS/Components/TranformComponent.h>
 #include <Void/ECS/Components/PhysicsComponent.h>
-#include "Void/Utils/TimeSteps/Time.h"
+#include <Void/ECS/Components/VelocityComponent.h>
 #include "Void/Physics/Collision.h"
 #include "Void/ECS/Core/Scene/Scene.h"
+#include "Void/ECS/Event/CollisionInfo.h"
+
 
 namespace Void {
 
@@ -42,15 +44,9 @@ namespace Void {
 
 				for (const CollisionPoint& cp : points) {
 					if (cp.HasCollision) {
-						Collision collision{ a, b, cp };
-
-						if (aPhysics.collisionCallback)
-							aPhysics.collisionCallback(collision);
-
-						if (bPhysics.collisionCallback)
-							bPhysics.collisionCallback(collision);
-
-						collisions.push_back(collision);
+						a->RecordEvent(ECSEventType::OnCollide, CollisionInfo(b, cp));
+						b->RecordEvent(ECSEventType::OnCollide, CollisionInfo(a, cp));
+						collisions.push_back({a, b, cp});
 					}
 				}
 			}
@@ -62,17 +58,18 @@ namespace Void {
 
 	void PhysicsSystem::ApplyForces(Scene* scene)
 	{
-		for (const Entity* entity : scene->GetAllEntitesWith<PhysicsComponent, TransformComponent>()) {
+		for (const Entity* entity : scene->GetAllEntitesWith<PhysicsComponent, TransformComponent, VelocityComponent>()) {
 			TransformComponent& transform = entity->GetComponent<TransformComponent>();
 			PhysicsComponent& physics = entity->GetComponent<PhysicsComponent>();
+			VelocityComponent velocity = entity->GetComponent<VelocityComponent>();
 
 			if (physics.IsStatic)
 				continue;
 
 			physics.Force += physics.Mass * glm::vec3(0, -2.5, 0); // apply a force
 
-			physics.Velocity += physics.Force / physics.Mass * (Time::DeltaTime() / m_Substeps);
-			transform.Position += physics.Velocity * (Time::DeltaTime() / m_Substeps);
+			velocity.Velocity += physics.Force / physics.Mass * (Time::DeltaTime() / m_Substeps);
+			transform.Position += velocity.Velocity * (Time::DeltaTime() / m_Substeps);
 
 			physics.Force = glm::vec3(0, 0, 0); // reset net force at the end
 		}

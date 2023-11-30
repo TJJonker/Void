@@ -20,9 +20,11 @@ includeDirs["VOID"] = "Void/src"
 includeDirs["ASSIMP"] = "Void/vendor/ASSIMP/include"
 includeDirs["IMGUI"] = "Void/vendor/IMGUI"
 includeDirs["NLOHMANN"] = "Void/vendor/NLOHMANN/single_include"
+includeDirs["FMOD"] = "Void/vendor/FMOD/include"
 
 libraryDirs = {}
 libraryDirs["ASSIMP"] = "Void/vendor/ASSIMP/libs"
+libraryDirs["FMOD"] = "Void/vendor/FMOD/lib"
 
 include "Void/vendor/GLFW"
 include "Void/vendor/GLAD"
