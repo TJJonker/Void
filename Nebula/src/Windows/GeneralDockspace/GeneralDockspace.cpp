@@ -1,5 +1,6 @@
 #include "GeneralDockspace.h"
 #include <imgui.h>
+#include "Windows/Menus/Menu/FileMenu.h"
 
 namespace Nebula::Window {
 	void GeneralDockspace::Initialize()
@@ -8,6 +9,10 @@ namespace Nebula::Window {
 		m_Window_flags |= ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize;
 		m_Window_flags |= ImGuiWindowFlags_NoBringToFrontOnFocus | ImGuiWindowFlags_NoNavFocus | ImGuiWindowFlags_NoMove;
 		m_Viewport = ImGui::GetMainViewport();
+
+		m_MenuManagers.push_back(new FileMenu("File"));
+		m_MenuManagers.push_back(new FileMenu("Edit"));
+		m_MenuManagers.push_back(new FileMenu("View"));
 	}
 
 	void GeneralDockspace::Render()
@@ -36,13 +41,10 @@ namespace Nebula::Window {
 			ImGui::DockSpace(dockspace_id, ImVec2(0.0f, 0.0f), ImGuiDockNodeFlags_None);
 		}
 
-		if (ImGui::BeginMenuBar())
-		{
-			if (ImGui::BeginMenu("Options"))
-			{
-				ImGui::MenuItem("Test", NULL);
-				ImGui::EndMenu();
-			}
+		
+		if (ImGui::BeginMenuBar()) {
+			for (Menu* manager : m_MenuManagers)
+				manager->RenderMenu();
 			ImGui::EndMenuBar();
 		}
 	}

@@ -137,12 +137,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Windows\Menus\Menu\FileMenu.h" />
+    <ClInclude Include="src\Windows\Menus\Core\Menu.h" />
     <ClInclude Include="src\Windows\GeneralDockspace\GeneralDockspace.h" />
+    <ClInclude Include="src\Windows\Menus\Core\MenuItem.h" />
     <ClInclude Include="src\Windows\SceneView\SceneViewWindow.h" />
     <ClInclude Include="src\Windows\Core\GuiWindow.h" />
     <ClInclude Include="src\EditorLayer.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Windows\Menus\Menu\FileMenu.cpp" />
+    <ClCompile Include="src\Windows\Menus\Core\Menu.cpp" />
     <ClCompile Include="src\Windows\GeneralDockspace\GeneralDockspace.cpp" />
     <ClCompile Include="src\Windows\SceneView\SceneViewWindow.cpp" />
     <ClCompile Include="src\Windows\Core\GuiWindow.cpp" />
