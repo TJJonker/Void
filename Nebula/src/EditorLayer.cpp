@@ -5,15 +5,19 @@ namespace Nebula::Editor {
 
 	void EditorLayer::OnAdded()
 	{
+        m_Dockspace = new Window::GeneralDockspace();
+        m_Dockspace->Initialize();
 
         // Temp
         // Shader lib
         Void::ShaderLibrary::GetInstance()->Load("Temp/Shaders/VertexShader.glsl", "Temp/Shaders/FragmentShader.glsl", "DefaultShader");
 
-        // Mesh lib
- 
-
         // Texture lib
+        Void::TextureLibrary::GetInstance()->Load("Temp/Textures/PolygonPrototype_Texture_06.png");
+
+        // Mesh lib
+        Void::MeshLibrary::GetInstance()->Load("Temp/Models/Barn.obj");
+
 
         Void::SceneManager::GetInstance().LoadScene("Scene7.json");
 
@@ -33,9 +37,6 @@ namespace Nebula::Editor {
         //m_SceneManager->GetCurrentScene()->SetPhysicsSystem(physicsSystem);
         //physicsSystem->AddSolver(std::make_shared<Void::PositionSolver>());
         //physicsSystem->AddSolver(std::make_shared<Void::ImpulseSolver>());
-        
-        m_Dockspace = new Window::GeneralDockspace();
-        m_Dockspace->Initialize();
 	}
 
     void EditorLayer::OnUpdate()
@@ -47,7 +48,5 @@ namespace Nebula::Editor {
 	void EditorLayer::OnGuiRender()
 	{
         m_Dockspace->Render();
-        //static bool open = false;
-        //ImGui::ShowDemoWindow(&open);
 	}
 }

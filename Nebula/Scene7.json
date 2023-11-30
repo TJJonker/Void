@@ -1,3 +1,44 @@
 {
-    "Entities": []
+    "Entities": [
+        {
+            "Name": "Entity_0",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": 0.0,
+                            "Y": -1.0,
+                            "Z": -20.0
+                        },
+                        "Rotation": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 0.01,
+                            "Y": 0.01,
+                            "Z": 0.01
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Temp/Models/Barn.obj",
+                                "Texture": [
+                                    "Temp/Textures/PolygonPrototype_Texture_06.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
 }
