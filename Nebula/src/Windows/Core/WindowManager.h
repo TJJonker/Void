@@ -7,6 +7,8 @@ namespace Nebula::Window {
 	class WindowManager
 	{
 	public:
+		WindowManager();
+
 		void RenderWindows();
 
 		void OpenWindow(std::string windowName);

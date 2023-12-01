@@ -1,7 +1,14 @@
 #include <Void.h>
 #include "WindowManager.h"
+#include "Events/Core/EventManager.h"
+#include "Events/Commands/OpenWindow/OpenWindowCommand.h"
 
 namespace Nebula::Window {
+	WindowManager::WindowManager()
+	{
+		Events::EventManager::GetInstance().EntitySelectedEvent.AddCommand(new Events::OpenWindowCommand("Inspector", this));
+	}
+
 	void WindowManager::RenderWindows()
 	{
 		for (auto const& window : m_Windows)

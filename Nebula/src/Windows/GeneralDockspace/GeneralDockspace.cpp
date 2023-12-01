@@ -3,6 +3,7 @@
 #include <imgui.h>
 #include "Windows/Menus/Menu/FileMenu.h"
 #include "Windows/SceneHierarchy/SceneHierarchyWindow.h"
+#include "Windows/Inspector/InspectorWindow.h"
 
 namespace Nebula::Window {
 	void GeneralDockspace::Initialize()
@@ -16,6 +17,7 @@ namespace Nebula::Window {
 
 		m_WindowManager->AddWindow("SceneHierarchy", new SceneHierarchyWindow());
 		m_WindowManager->AddWindow("SceneView", new SceneViewWindow());
+		m_WindowManager->AddWindow("Inspector", new InspectorWindow());
 		m_MenuManagers.push_back(new FileMenu("View", m_WindowManager));
 	}
 

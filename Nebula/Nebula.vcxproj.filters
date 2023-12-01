@@ -52,6 +52,14 @@
     <ClInclude Include="src\Windows\SceneView\SceneViewWindow.h">
       <Filter>Windows\SceneView</Filter>
     </ClInclude>
+    <ClInclude Include="src\Events\Core\IEventCommand.h" />
+    <ClInclude Include="src\Events\Core\Event.h" />
+    <ClInclude Include="src\Events\EventStructs\WindowOpened.h" />
+    <ClInclude Include="src\Events\EventStructs\EntitySelected.h" />
+    <ClInclude Include="src\Events\Core\EventManager.h" />
+    <ClInclude Include="src\Events\Commands\OpenWindow\OpenWindowCommand.h" />
+    <ClInclude Include="src\Events\Commands\SetCurrentEntity\SetCurrentEntityCommand.h" />
+    <ClInclude Include="src\Windows\Inspector\InspectorWindow.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\EditorLayer.cpp" />
@@ -77,5 +85,10 @@
     <ClCompile Include="src\Windows\SceneView\SceneViewWindow.cpp">
       <Filter>Windows\SceneView</Filter>
     </ClCompile>
+    <ClCompile Include="src\Events\Core\Event.cpp" />
+    <ClCompile Include="src\Events\Core\EventManager.cpp" />
+    <ClCompile Include="src\Events\Commands\OpenWindow\OpenWindowCommand.cpp" />
+    <ClCompile Include="src\Events\Commands\SetCurrentEntity\SetCurrentEntityCommand.cpp" />
+    <ClCompile Include="src\Windows\Inspector\InspectorWindow.cpp" />
   </ItemGroup>
 </Project>

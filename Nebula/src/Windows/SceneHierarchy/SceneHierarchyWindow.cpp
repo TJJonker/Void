@@ -1,5 +1,7 @@
 #include "Void.h"
 #include "SceneHierarchyWindow.h"
+#include "Events/Core/EventManager.h"
+#include "Events/EventStructs/EntitySelected.h"
 
 namespace Nebula::Window {
 	void SceneHierarchyWindow::OnAdded()
@@ -16,7 +18,8 @@ namespace Nebula::Window {
 			ImGui::PushID(entity->GetID());
 			if (ImGui::Selectable(entity->Name.c_str(), m_CurrentSelected == entity->GetID())) {
 				if (m_CurrentSelected != entity->GetID()) {
-					
+					Events::EntitySelected es{ entity };
+					Events::EventManager::GetInstance().EntitySelectedEvent.Trigger(es);
 				}
 				m_CurrentSelected = entity->GetID();
 			}

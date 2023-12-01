@@ -1,11 +1,16 @@
 #pragma once
+#include "Void.h"
 #include "Windows/Core/GuiWindow.h"
 
 namespace Nebula::Window {
 	class InspectorWindow : public GuiWindow
 	{
-		// Inherited via GuiWindow
+	public:
+		virtual void OnAdded() override;
 		virtual void OnGuiRender() override;
+
+	private:
+		Void::Entity* m_SelectedEntity = nullptr;
 	};
 }
 

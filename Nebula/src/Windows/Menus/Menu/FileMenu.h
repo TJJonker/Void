@@ -10,6 +10,7 @@ namespace Nebula::Window {
 		{
 			AddMenuItem("Scene Hierarchy", [windowManager]() {windowManager->OpenWindow("SceneHierarchy"); });
 			AddMenuItem("Scene View", [windowManager]() {windowManager->OpenWindow("SceneView"); });
+			AddMenuItem("Inspector", [windowManager]() {windowManager->OpenWindow("Inspector"); });
 			AddMenuItem("Demo Window", [windowManager]() {windowManager->OpenDemoWindow(); });
 		}
 	};
