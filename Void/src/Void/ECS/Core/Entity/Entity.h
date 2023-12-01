@@ -17,10 +17,12 @@ namespace Void {
 	public:
 		Entity(entt::entity entity, entt::registry& registry);
 		
+		uint32_t GetID() { return (uint32_t)m_Entity; }
+
 		template<typename T>
 		T& AddComponent() {
 			m_Registry.emplace<T>(m_Entity);
-			return m_Registry.get<T>(m_Entity);
+			return m_Registry.get<T>(m_Entity);			
 		}
 
 		template<typename T>

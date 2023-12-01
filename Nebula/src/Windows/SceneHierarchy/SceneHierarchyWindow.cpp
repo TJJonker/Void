@@ -2,16 +2,26 @@
 #include "SceneHierarchyWindow.h"
 
 namespace Nebula::Window {
+	void SceneHierarchyWindow::OnAdded()
+	{
+		p_Name = "Scene Hierarchy";
+	}
+
 	void SceneHierarchyWindow::OnGuiRender()
 	{
-		std::vector<Void::Entity*> entities = Void::SceneManager::GetInstance().GetCurrentScene()->GetAllEntitesWith<Void::TransformComponent>();
-		for (Void::Entity* entity : entities) {
-			Void::TransformComponent& transform = entity->GetComponent<Void::TransformComponent>();
-			ImGui::Text("Entity: %s", entity->Name.c_str());
+		std::vector<Void::Entity*> entities = Void::SceneManager::GetInstance().GetCurrentScene()->GetAllEntities();
 
-			ImGui::DragFloat(("X##Entity_" + entity->Name).c_str(), &transform.Position.x);
-			ImGui::DragFloat(("Y##Entity_" + entity->Name).c_str(), &transform.Position.y);
-			ImGui::DragFloat(("Z##Entity_" + entity->Name).c_str(), &transform.Position.z);
+		for (Void::Entity* entity : entities) {
+
+			ImGui::PushID(entity->GetID());
+			if (ImGui::Selectable(entity->Name.c_str(), m_CurrentSelected == entity->GetID())) {
+				if (m_CurrentSelected != entity->GetID()) {
+					
+				}
+				m_CurrentSelected = entity->GetID();
+			}
+			ImGui::PopID();
 		}
 	}
 }
+
