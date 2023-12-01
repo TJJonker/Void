@@ -13,6 +13,7 @@ namespace Nebula::Window {
 	private:
 		Void::Rendering::FrameBuffer* m_FrameBuffer;
 		Void::Entity* m_Camera;
+		Void::Scene* m_SceneviewScene;
 	};
 }
 
