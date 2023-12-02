@@ -31,7 +31,13 @@ namespace Nebula::Window {
 	void InspectorWindow::DrawTransformInspector()
 	{
 		Void::TransformComponent& transform = m_SelectedEntity->GetComponent<Void::TransformComponent>();
+		if (ImGui::CollapsingHeader("Transform", ImGuiTreeNodeFlags_None))
+		{
+			ImGui::DragFloat3("Position", (float*)&transform.Position);
+			ImGui::DragFloat3("Rotation", (float*)&transform.Rotation);
+			ImGui::DragFloat3("Scale", (float*)&transform.Scale);
+		}
 
-		ImGui::DragFloat3("Position", (float*)&transform.Position);
+		
 	}
 }
