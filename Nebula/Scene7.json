@@ -1,14 +1,14 @@
 {
     "Entities": [
         {
-            "Name": "Barn",
+            "Name": "Barnie",
             "Components": [
                 {
                     "Type": "TransformComponent",
                     "Data": {
                         "Position": {
                             "X": 0.0,
-                            "Y": -1.7899999618530273,
+                            "Y": -6.789999961853027,
                             "Z": -22.6299991607666
                         },
                         "Rotation": {
