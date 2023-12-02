@@ -60,6 +60,7 @@
     <ClInclude Include="src\Events\Commands\OpenWindow\OpenWindowCommand.h" />
     <ClInclude Include="src\Events\Commands\SetCurrentEntity\SetCurrentEntityCommand.h" />
     <ClInclude Include="src\Windows\Inspector\InspectorWindow.h" />
+    <ClInclude Include="src\Windows\Menus\Menu\ViewMenu.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\EditorLayer.cpp" />
@@ -75,9 +76,6 @@
     </ClCompile>
     <ClCompile Include="src\Windows\Menus\Core\Menu.cpp">
       <Filter>Windows\Menus\Core</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Windows\Menus\Menu\FileMenu.cpp">
-      <Filter>Windows\Menus\Menu</Filter>
     </ClCompile>
     <ClCompile Include="src\Windows\SceneHierarchy\SceneHierarchyWindow.cpp">
       <Filter>Windows\SceneHierarchy</Filter>

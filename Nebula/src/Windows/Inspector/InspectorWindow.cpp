@@ -15,6 +15,21 @@ namespace Nebula::Window {
 		if (m_SelectedEntity == nullptr)
 			return;
 
+		char entityName[32];
+		strcpy(entityName, m_SelectedEntity->Name.c_str());
+		ImGui::InputText("EntityName", entityName, 32);
+		entityName[strlen(entityName)] = NULL;
+		m_SelectedEntity->Name = entityName;
+
+		if(m_SelectedEntity->HasComponent<Void::TransformComponent>())
+			DrawTransformInspector();
+
+		//if (m_SelectedEntity->HasComponent<Void::TransformComponent>();
+		//	DrawTransformInspector();
+	}
+
+	void InspectorWindow::DrawTransformInspector()
+	{
 		Void::TransformComponent& transform = m_SelectedEntity->GetComponent<Void::TransformComponent>();
 
 		ImGui::DragFloat3("Position", (float*)&transform.Position);

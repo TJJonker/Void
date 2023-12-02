@@ -21,13 +21,13 @@ namespace Void {
 		std::string data = File::Read(filePath);
 		// Go through entities 
 		nlohmann::ordered_json sceneJson = nlohmann::json::parse(data);
-		
+
 		const nlohmann::json& entitiesArray = sceneJson["Entities"];
 
 		for (const auto& entity : entitiesArray) {
 
 			Entity* ent = scene->CreateEntity();
-
+			ent->Name = entity["Name"];
 			const nlohmann::json& components = entity["Components"];
 			
 			for (const auto& component : components) {
@@ -39,6 +39,7 @@ namespace Void {
 			}
 		}
 		m_CurrentScene = scene;
+		m_CurrentScenePath = filePath;
 	}
 
 	void SceneManager::SaveScene(const char* filePath)
@@ -46,17 +47,13 @@ namespace Void {
 		nlohmann::ordered_json sceneJson;
 		std::vector<Entity*> entities = m_CurrentScene->GetAllEntities();
 
-		// TODO: Remove this when entities have a name
-		unsigned int index = 0;
-
 		std::vector<Entity*>::const_reverse_iterator it;  
 		for (it = entities.rbegin(); it != entities.rend(); it++) {
 			const Entity* entity = *it;
 
 			nlohmann::ordered_json entityJson; // Describes the Entity
 
-			std::string name = "Entity_" + std::to_string(index);
-			entityJson["Name"] = name; 
+			entityJson["Name"] = entity->Name; 
 
 			if (entity->HasComponent<TransformComponent>()) {
 				nlohmann::ordered_json componentJson; 
@@ -109,8 +106,6 @@ namespace Void {
 
 			
 			sceneJson["Entities"].push_back(entityJson);
-			index++;
-
 		}
 
 		File::Write(filePath, sceneJson.dump(4).c_str());

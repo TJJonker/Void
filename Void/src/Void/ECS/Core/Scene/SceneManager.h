@@ -5,9 +5,6 @@
 namespace Void {
 	class SceneManager
 	{
-	private:
-		// Temp raw pointer, should be unique
-		Scene* m_CurrentScene;
 
 	private:
 		ISerializable* DeserializeComponent(std::string componentName, Entity* entity);
@@ -17,7 +14,13 @@ namespace Void {
 		void LoadScene(const char* filePath);
 		void SaveScene(const char* filePath);
 
+		std::string GetCurrentScenePath() { return m_CurrentScenePath; }
+
 		Scene* GetCurrentScene() { return m_CurrentScene; }
 		static SceneManager& GetInstance();
+
+	private:
+		Scene* m_CurrentScene;
+		std::string m_CurrentScenePath;
 	};
 }

@@ -10,6 +10,9 @@ namespace Nebula::Window {
 		virtual void OnGuiRender() override;
 
 	private:
+		void DrawTransformInspector();
+
+	private:
 		Void::Entity* m_SelectedEntity = nullptr;
 	};
 }

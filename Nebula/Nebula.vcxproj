@@ -152,6 +152,7 @@
     <ClInclude Include="src\Windows\Menus\Core\Menu.h" />
     <ClInclude Include="src\Windows\Menus\Core\MenuItem.h" />
     <ClInclude Include="src\Windows\Menus\Menu\FileMenu.h" />
+    <ClInclude Include="src\Windows\Menus\Menu\ViewMenu.h" />
     <ClInclude Include="src\Windows\SceneHierarchy\SceneHierarchyWindow.h" />
     <ClInclude Include="src\Windows\SceneView\SceneViewWindow.h" />
   </ItemGroup>
@@ -167,7 +168,6 @@
     <ClCompile Include="src\Windows\GeneralDockspace\GeneralDockspace.cpp" />
     <ClCompile Include="src\Windows\Inspector\InspectorWindow.cpp" />
     <ClCompile Include="src\Windows\Menus\Core\Menu.cpp" />
-    <ClCompile Include="src\Windows\Menus\Menu\FileMenu.cpp" />
     <ClCompile Include="src\Windows\SceneHierarchy\SceneHierarchyWindow.cpp" />
     <ClCompile Include="src\Windows\SceneView\SceneViewWindow.cpp" />
   </ItemGroup>

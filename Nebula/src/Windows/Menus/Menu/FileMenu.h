@@ -1,4 +1,5 @@
 #pragma once
+#include "Void.h"
 #include "Windows/Menus/Core/Menu.h"
 
 namespace Nebula::Window {
@@ -8,10 +9,8 @@ namespace Nebula::Window {
 		FileMenu(std::string name, WindowManager* windowManager) 
 			: Menu(name) 
 		{
-			AddMenuItem("Scene Hierarchy", [windowManager]() {windowManager->OpenWindow("SceneHierarchy"); });
-			AddMenuItem("Scene View", [windowManager]() {windowManager->OpenWindow("SceneView"); });
-			AddMenuItem("Inspector", [windowManager]() {windowManager->OpenWindow("Inspector"); });
-			AddMenuItem("Demo Window", [windowManager]() {windowManager->OpenDemoWindow(); });
+			Void::SceneManager& currentScene = Void::SceneManager::GetInstance();
+			AddMenuItem("Save Scene", [&currentScene]() { currentScene.SaveScene(currentScene.GetCurrentScenePath().c_str()); });
 		}
 	};
 }
