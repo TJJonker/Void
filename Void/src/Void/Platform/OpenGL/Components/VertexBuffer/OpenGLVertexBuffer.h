@@ -6,8 +6,9 @@ namespace Void::Rendering {
 	{
 	private:
 		unsigned int m_ID;
-		uint32_t m_Count;
+		uint32_t m_Size;
 		void* m_Data;
+		const void* tempData;
 
 		VertexBufferLayout m_BufferLayout;
 
@@ -19,12 +20,12 @@ namespace Void::Rendering {
 		void Bind() const override;
 		void Unbind() const override;
 		 
-		virtual void SetDate(const void* data, uint32_t size) override;
+		virtual void SetData(const void* data, uint32_t size) override;
 
 		void SetVertexBufferLayout(VertexBufferLayout& bufferLayout) override { m_BufferLayout = bufferLayout; }	 
 		const VertexBufferLayout& GetVertexBufferLayout() const override { return m_BufferLayout; }
 
-		uint32_t GetCount() const override { return m_Count; }
+		uint32_t GetSize() const override { return m_Size; }
 		virtual const void* GetData() const override { return m_Data; }
 	};
 }

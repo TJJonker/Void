@@ -71,7 +71,7 @@ namespace Nebula {
 	void EditorCamera::OnEvent(Void::Event& e)
 	{
 		Void::EventDelegator delegator(e);
-		delegator.Delegate<Void::MouseScrolledEvent>([&](Void::MouseScrolledEvent& e) { EditorCamera::OnMouseScroll(e); });
+		delegator.Delegate<Void::MouseScrolledEvent>([&](Void::MouseScrolledEvent& e) { return EditorCamera::OnMouseScroll(e); });
 	}
 
 	bool EditorCamera::OnMouseScroll(Void::MouseScrolledEvent& e)

@@ -137,6 +137,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Camera\EditorCamera.h" />
     <ClInclude Include="src\Events\Commands\SetCurrentEntity\SetCurrentEntityCommand.h" />
     <ClInclude Include="src\Events\Commands\OpenWindow\OpenWindowCommand.h" />
     <ClInclude Include="src\EditorLayer.h" />
@@ -157,6 +158,7 @@
     <ClInclude Include="src\Windows\SceneView\SceneViewWindow.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Camera\EditorCamera.cpp" />
     <ClCompile Include="src\Events\Commands\SetCurrentEntity\SetCurrentEntityCommand.cpp" />
     <ClCompile Include="src\Events\Commands\OpenWindow\OpenWindowCommand.cpp" />
     <ClCompile Include="src\EditorLayer.cpp" />

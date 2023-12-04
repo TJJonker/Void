@@ -1,7 +1,7 @@
 {
     "Entities": [
         {
-            "Name": "Barnie",
+            "Name": "BarnieParnie",
             "Components": [
                 {
                     "Type": "TransformComponent",

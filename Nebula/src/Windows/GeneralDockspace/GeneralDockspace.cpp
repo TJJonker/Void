@@ -42,8 +42,7 @@ namespace Nebula::Window {
 
 	void GeneralDockspace::OnEvent(Void::Event& event)
 	{
-		for (Menu* manager : m_MenuManagers)
-			manager->OnEvent(event);
+		m_WindowManager->OnEvent(event);
 	}
 
 	void GeneralDockspace::RenderContent()

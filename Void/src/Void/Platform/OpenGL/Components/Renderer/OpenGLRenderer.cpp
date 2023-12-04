@@ -9,14 +9,14 @@
 namespace Void::Rendering {
 	struct BatchLayout {
 		glm::vec3 Position = glm::vec3(0);
-		glm::vec3 Normals = glm::vec3(0);
-		glm::vec2 TextureCoord = glm::vec2(0);
-		int TextureIndex[3];
+		//glm::vec3 Normals = glm::vec3(0);
+		//glm::vec2 TextureCoord = glm::vec2(0);
+		//unsigned int TextureIndex[3];
 	};
 
 	struct BatchData {
 		// Limits
-		static const uint32_t MaxTriangles = 20000;
+		static const uint32_t MaxTriangles = 40000;
 		static const uint32_t MaxIndices = MaxTriangles * 3;
 		static const uint32_t MaxTextureSlots = 32;
 
@@ -40,8 +40,8 @@ namespace Void::Rendering {
 		//Points to next free location in array
 		uint32_t* IndexBufferPtr = nullptr;
 
-		uint32_t GetVertexCount() { return uint32_t((uint8_t*)VertexBufferPtr - (uint8_t*)VertexBufferBase); }
-		uint32_t GetIndexCount() { return uint32_t((uint8_t*)IndexBufferPtr - (uint8_t*)IndexBufferBase); }
+		uint32_t GetVertexCount() { return uint32_t((uint8_t*)VertexBufferPtr - (uint8_t*)VertexBufferBase) / sizeof(BatchLayout); }
+		uint32_t GetIndexCount() { return uint32_t((uint8_t*)IndexBufferPtr - (uint8_t*)IndexBufferBase) / sizeof(uint32_t); }
 
 		// Textures
 		std::array<std::string, MaxTextureSlots> TextureSlots;
@@ -65,8 +65,9 @@ namespace Void::Rendering {
 
 		VertexBufferLayout bufferLayout;
 		bufferLayout.Push<float>(3);
-		bufferLayout.Push<float>(2);
-		bufferLayout.Push<unsigned int>(1);
+		//bufferLayout.Push<float>(3);
+		//bufferLayout.Push<float>(2);
+		//bufferLayout.Push<unsigned int>(3);
 		m_RendererData.VertexBuffer->SetVertexBufferLayout(bufferLayout);
 
 		m_RendererData.IndexBuffer.reset(IndexBuffer::Create(m_RendererData.MaxIndices * sizeof(uint32_t)));
@@ -115,7 +116,7 @@ namespace Void::Rendering {
 				VertexBuffer* vertexBuffer = submission.VertexArray->getVertexBuffers()[0].get();
 
 				// Check if the batch is full based on Indices Count
-				if (m_RendererData.GetIndexCount() + indexBuffer->GetCount() * sizeof(uint32_t)
+				if (m_RendererData.GetIndexCount() + submission.VertexArray->GetIndexBuffer()->GetCount()
 					> m_RendererData.MaxIndices)
 					Flush();
 
@@ -124,8 +125,9 @@ namespace Void::Rendering {
 					Flush();
 
 				// Check texture existence
-				uint64_t textureIndex = -1;
+				unsigned int textureIndices[3]{ -1 };
 				for (unsigned int i = 0; i < 3; i++) {
+					uint64_t textureIndex = -1;
 					if (i >= submission.TextureNames.size())
 						break;
 
@@ -140,17 +142,22 @@ namespace Void::Rendering {
 						m_RendererData.TextureSlots[m_RendererData.TextureSlotsIndex] = textureName;
 						m_RendererData.TextureSlotsIndex++;
 					}
+					textureIndices[i] = textureIndex;
 				}
 
 				// Add vertexBuffer to batch vertexBuffer
 				{
-					const uint32_t count = vertexBuffer->GetCount();
+					const uint32_t count = vertexBuffer->GetSize() / sizeof(VertexLayout);
 					VertexLayout* localVertexBuffer = (VertexLayout*)vertexBuffer->GetData();
 					for (uint32_t i = 0; i < count; i++) {
-						m_RendererData.VertexBufferPtr->Position = localVertexBuffer->Position;
-						m_RendererData.VertexBufferPtr->Normals = localVertexBuffer->Normals;
-						m_RendererData.VertexBufferPtr->TextureCoord = localVertexBuffer->TextureCoords;
-						m_RendererData.VertexBufferPtr->TextureIndex[i] = (int)textureIndex;
+						VertexLayout* currentLayout = localVertexBuffer + i;
+						m_RendererData.VertexBufferPtr->Position = submission.ModelMatrix * glm::vec4(currentLayout->Position, 1.f);
+						//m_RendererData.VertexBufferPtr->Normals = currentLayout->Normals;
+						//m_RendererData.VertexBufferPtr->TextureCoord = currentLayout->TextureCoords;
+						//m_RendererData.VertexBufferPtr->TextureIndex[0] = textureIndices[0];
+
+						//glm::vec4 tempPos = m_RendererData.ViewProjectionMatrix * glm::vec4(m_RendererData.VertexBufferPtr->Position, 1.0f);
+						//VOID_TRACE("Pos x vpm {0} - x: {1}, y: {2}, z: {3}, w: {4}", i, tempPos.x, tempPos.y, tempPos.z, tempPos.w);
 						m_RendererData.VertexBufferPtr++;
 					}
 				}
@@ -159,8 +166,15 @@ namespace Void::Rendering {
 				{
 					const uint32_t count = indexBuffer->GetCount();
 					const uint32_t* data = indexBuffer->GetIndices();
+					//for (int i = 0; i < 100; i++)
+					//	VOID_TRACE("Early indexbuffer check - {0}: {1}", i, *(data + i));
+					//VOID_TRACE("Early indexbuffer check minus one - {0}: {1}", count - 1, *(data + count - 1));
 					memcpy_s(m_RendererData.IndexBufferPtr, m_RendererData.MaxIndices, data, count * sizeof(uint32_t));
+	/*				for (int i = 0; i < 100; i++)
+						VOID_TRACE("Stored indexbuffer check - {0}: {1}", i, *(m_RendererData.IndexBufferBase + i));*/
 					m_RendererData.IndexBufferPtr += count;
+					//VOID_TRACE("ptr check: {0}", *m_RendererData.IndexBufferPtr);
+					//VOID_TRACE("ptr check minus one: {0}", *(m_RendererData.IndexBufferPtr - 1));
 				}
 			}
 			Flush();
@@ -194,10 +208,12 @@ namespace Void::Rendering {
 
 	void OpenGLRenderer::Clear()
 	{
+		GLCall(glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT));
 	}
 
 	void OpenGLRenderer::SetClearColor(const glm::vec4& color)
 	{
+		GLCall(glClearColor(color.r, color.g, color.b, color.a));
 	}
 
 	void OpenGLRenderer::FinishRender()
@@ -220,11 +236,20 @@ namespace Void::Rendering {
 			TextureLibrary::GetInstance()->Get(m_RendererData.TextureSlots[i].c_str())->Bind();
 		}
 
-		m_RendererData.IndexBuffer->SetData(m_RendererData.IndexBufferPtr, m_RendererData.GetIndexCount() * sizeof(uint32_t));
-		m_RendererData.VertexBuffer->SetDate(m_RendererData.VertexBufferPtr, m_RendererData.GetVertexCount() * sizeof(BatchLayout));
+		m_RendererData.IndexBuffer->SetData(m_RendererData.IndexBufferBase, m_RendererData.GetIndexCount());
+		m_RendererData.VertexBuffer->SetData(m_RendererData.VertexBufferBase, m_RendererData.GetVertexCount() * sizeof(BatchLayout));
 
-		glEnable(GL_DEPTH_TEST);
+		for (int i = 0; i < 100; i++) {
+			VOID_TRACE("VertexData {0} - x: {1}, y: {2}, z: {3}", i, (m_RendererData.VertexBufferBase + i)->Position.x, (m_RendererData.VertexBufferBase + i)->Position.y, (m_RendererData.VertexBufferBase + i)->Position.z);
+			///VOID_TRACE("IndexData {0} - index: {1}", i, *(m_RendererData.IndexBufferBase + i));
+		}
+
+		m_RendererData.VertexArray->Bind();
+		GLCall(glEnable(GL_DEPTH_TEST));
 		GLCall(glDrawElements(GL_TRIANGLES, m_RendererData.VertexArray->GetIndexBuffer()->GetCount(), GL_UNSIGNED_INT, nullptr));
+
+		m_RendererData.IndexBufferPtr = m_RendererData.IndexBufferBase;
+		m_RendererData.VertexBufferPtr = m_RendererData.VertexBufferBase;
 	}
 }
 

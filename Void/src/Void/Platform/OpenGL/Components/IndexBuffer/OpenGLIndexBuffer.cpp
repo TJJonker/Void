@@ -6,7 +6,7 @@
 namespace Void::Rendering {
 
 	OpenGLIndexBuffer::OpenGLIndexBuffer(const uint32_t* vertices, const uint32_t size)
-		: m_Count(size)
+		: m_Count(size) // size is same as count due to uint32_t being 4 bytes, just like the minimal memory storage
 	{
 		// Make sure the sizes match.
 		ASSERT(sizeof(uint32_t) == sizeof(GLuint));
@@ -23,7 +23,7 @@ namespace Void::Rendering {
 	}
 
 	OpenGLIndexBuffer::OpenGLIndexBuffer(const uint32_t size)
-		: m_Count(size)
+		: m_Count(size), m_Indices(nullptr)
 	{
 		// Make sure the sizes match.
 		ASSERT(sizeof(uint32_t) == sizeof(GLuint));

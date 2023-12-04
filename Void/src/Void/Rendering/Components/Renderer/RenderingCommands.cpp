@@ -27,6 +27,7 @@ namespace Void::Rendering {
 
 	void RenderingCommands::PrepareRender(const glm::mat4& viewProjectionMatrix, const glm::vec3 cameraPosition)
 	{
+		m_Renderer->PrepareRender(viewProjectionMatrix, cameraPosition);
 	}
 
 	void RenderingCommands::Render()
