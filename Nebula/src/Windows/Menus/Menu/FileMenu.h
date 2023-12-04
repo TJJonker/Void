@@ -10,7 +10,7 @@ namespace Nebula::Window {
 			: Menu(name) 
 		{
 			Void::SceneManager& currentScene = Void::SceneManager::GetInstance();
-			AddMenuItem("Save Scene", [&currentScene]() { currentScene.SaveScene(currentScene.GetCurrentScenePath().c_str()); });
+			AddMenuItem("Save Scene", [&currentScene]() { currentScene.SaveScene(currentScene.GetCurrentScenePath().c_str()); }, "Ctrl+S");
 		}
 	};
 }

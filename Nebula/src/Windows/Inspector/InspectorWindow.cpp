@@ -16,7 +16,7 @@ namespace Nebula::Window {
 			return;
 
 		char entityName[32];
-		strcpy(entityName, m_SelectedEntity->Name.c_str());
+		strcpy_s(entityName, m_SelectedEntity->Name.c_str());
 		ImGui::InputText("EntityName", entityName, 32);
 		entityName[strlen(entityName)] = NULL;
 		m_SelectedEntity->Name = entityName;

@@ -10,6 +10,7 @@ namespace Nebula::Window {
 	public:
 		void Initialize();
 		void Render();
+		void OnEvent(Void::Event& event);
 
 	private:
 		void RenderContent();

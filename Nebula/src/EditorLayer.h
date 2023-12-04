@@ -7,6 +7,7 @@ namespace Nebula::Editor {
 	{
 	public:
 		void OnAdded() override;
+		void OnEvent(Void::Event& event) override;
 		void OnUpdate() override;
 		void OnGuiRender() override;
 

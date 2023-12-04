@@ -19,30 +19,17 @@ namespace Void::Rendering {
 
 			// TODO: expand so multiple submeshes can be rendered
 			// TODO: Pass the strings so the Rendering Pipeline can load everything
-			if (rendering.Submeshes.size()) {
-				const std::string& textureName = rendering.Submeshes[0].Textures[0];
-				Texture* texture = Void::TextureLibrary::GetInstance()->Get(textureName.c_str());
+			if (rendering.Submeshes.size() <= 0)
+				continue;
 
-				const std::string& meshName = rendering.Submeshes[0].Model;
-				Mesh* mesh = Void::MeshLibrary::GetInstance()->Get(meshName.c_str());
+			// TODO: Klopt niks van... Hoezo zitten er submeshes in het model en klooien we hier ook met submeshes...?
+			for (RenderingComponent::Submesh submesh : rendering.Submeshes) {
+				Mesh* mesh = Void::MeshLibrary::GetInstance()->Get(submesh.Model.c_str());
 				VertexArray* vertexArray = mesh->Submeshes[0];
 
 				const std::string& shaderName = rendering.Submeshes[0].Shader;
-				Shader* shader = Void::ShaderLibrary::GetInstance()->Get(shaderName.c_str());
 
-				shader->Bind();
-				shader->SetInt("texture1", 0);
-				glActiveTexture(GL_TEXTURE0);
-				texture->Bind();
-
-
-				// Remove as well
-				if(rendering.DrawWireframe)
-					glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
-				else 
-					glPolygonMode(GL_FRONT_AND_BACK, GL_FILL); 
-
-				Rendering::RenderingCommands::Draw(vertexArray, shader, transform.GetTransformMatrix());
+				Rendering::RenderingCommands::Submit(vertexArray, transform.GetTransformMatrix(), submesh.Textures, submesh.Shader);
 			}
 		}
 	}

@@ -1,12 +1,13 @@
 #pragma once
 #include "glm/glm.hpp"
 #include "glm/gtc/matrix_transform.hpp"
+#include "glm/gtc/quaternion.hpp"
 #include "Void/Utils/Parser/ISerializable.h"
 
 namespace Void {
 	struct TransformComponent : public ISerializable {
 		glm::vec3 Position = glm::vec3(0);
-		glm::vec3 Rotation = glm::vec3(0);
+		glm::quat Rotation = glm::quat(1, 0, 0, 0);
 		glm::vec3 Scale = glm::vec3(1);
 
 		glm::mat4 GetTransformMatrix() const {
@@ -19,6 +20,18 @@ namespace Void {
 
 			//return scaleMatrix * rotationMatrix * translationMatrix;
 			return translationMatrix * rotationMatrix * scaleMatrix;
+		}
+
+		glm::vec3 GetForwardVector() const {
+			return -glm::vec3(glm::mat3(GetTransformMatrix())[2]);
+		}
+		glm::vec3 GetUpVector() const {
+			return glm::vec3(glm::mat3(GetTransformMatrix())[1]);
+		}
+
+		void Rotate(glm::vec3 axis, float angleDegrees) {
+			glm::quat additionalRotation = glm::angleAxis(glm::radians(angleDegrees), axis);
+			Rotation = additionalRotation * Rotation;
 		}
 
 		nlohmann::ordered_json ToJSON() const override {  

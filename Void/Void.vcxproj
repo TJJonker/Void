@@ -177,6 +177,7 @@ IF EXIST ..\bin\Dist-windows-x86_64\$(ProjectName)\fmod.dll\ (xcopy /Q /E /Y /I 
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Void\Rendering\Components\Camera\SceneCamera\SceneCamera.h" />
     <ClInclude Include="src\Void\ECS\Components\CameraControllerComponent.h" />
     <ClInclude Include="src\Void\ECS\Systems\Camera\CameraControllerSystem.h" />
     <ClInclude Include="src\Void\ECS\Commands\PlaySoundCommand.h" />
@@ -245,6 +246,7 @@ IF EXIST ..\bin\Dist-windows-x86_64\$(ProjectName)\fmod.dll\ (xcopy /Q /E /Y /I 
     <ClInclude Include="src\Void\Platform\OpenGL\Debugging\OpenGLDebugger.h" />
     <ClInclude Include="src\Void\Platform\OpenGL\Input\OpenGLInput.h" />
     <ClInclude Include="src\Void\Platform\OpenGL\Window\OpenGLWindow.h" />
+    <ClInclude Include="src\Void\Rendering\Components\Camera\Core\Camera.h" />
     <ClInclude Include="src\Void\Rendering\Components\FrameBuffer\FrameBuffer.h" />
     <ClInclude Include="src\Void\Rendering\Components\FrameBuffer\FrameBufferConfig.h" />
     <ClInclude Include="src\Void\Rendering\Components\IndexBuffer\IndexBuffer.h" />
@@ -258,6 +260,7 @@ IF EXIST ..\bin\Dist-windows-x86_64\$(ProjectName)\fmod.dll\ (xcopy /Q /E /Y /I 
     <ClInclude Include="src\Void\Rendering\Components\VertexBuffer\VertexBuffer.h" />
     <ClInclude Include="src\Void\Rendering\Components\VertexBufferLayout\VertexBufferLayout.h" />
     <ClInclude Include="src\Void\Rendering\Components\VertexBufferLayout\VertexBufferLayoutElement.h" />
+    <ClInclude Include="src\Void\Rendering\Components\VertexLayout.h" />
     <ClInclude Include="src\Void\Rendering\Libraries\Mesh\MeshLibrary.h" />
     <ClInclude Include="src\Void\Rendering\Libraries\Shader\ShaderLibrary.h" />
     <ClInclude Include="src\Void\Rendering\Libraries\Texture\TextureLibrary.h" />
@@ -275,6 +278,7 @@ IF EXIST ..\bin\Dist-windows-x86_64\$(ProjectName)\fmod.dll\ (xcopy /Q /E /Y /I 
     <ClInclude Include="src\pch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Void\Rendering\Components\Camera\SceneCamera\SceneCamera.cpp" />
     <ClCompile Include="src\Void\ECS\Systems\Camera\CameraControllerSystem.cpp" />
     <ClCompile Include="src\Void\ECS\Commands\PlaySoundCommand.cpp" />
     <ClCompile Include="src\Void\ECS\Systems\Event\EventSystem.cpp" />

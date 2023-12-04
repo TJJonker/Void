@@ -2,6 +2,7 @@
 #include "ColissionAlgorithms.h"
 #include "Void/Rendering/Libraries/Mesh/MeshLibrary.h"
 #include "glm/gtx/norm.hpp"
+#include "Void/Rendering/Components/VertexLayout.h"
 
 namespace Void::CollisionAlgorithms {
 
@@ -75,27 +76,24 @@ namespace Void::CollisionAlgorithms {
 
         // Retrieve mesh data.
         Rendering::Mesh* mesh = MeshLibrary::GetInstance()->Get(b->MeshName.c_str());
+
         const Rendering::VertexBuffer* vertexBuffer = mesh->Submeshes[0]->getVertexBuffers()[0].get();
         const Rendering::IndexBuffer* indexBuffer = mesh->Submeshes[0]->GetIndexBuffer().get();
-        unsigned int stride = vertexBuffer->GetVertexBufferLayout().GetStride();
-        const char* vertices = vertexBuffer->GetData();
+
+        VertexLayout* vertices = (VertexLayout*)vertexBuffer->GetData();
         const uint32_t* indices = indexBuffer->GetIndices();
 
         // Create triangles
         // We assume the first element of the buffer layout is the vertex position
         std::vector<Triangle> triangles;
+
         for (uint32_t i = 0; i < indexBuffer->GetCount(); i += 3) {
             Triangle triangle;
+
             for (int j = 0; j < 3; j++) {
                 uint32_t index = indices[i + j];
-                float x = *(float*)&vertices[(index * stride) + (0 * sizeof(float))];
-                float y = *(float*)&vertices[(index * stride) + (1 * sizeof(float))];
-                float z = *(float*)&vertices[(index * stride) + (2 * sizeof(float))];
-
-                glm::vec4 local_position(x, y, z, 1.0f);
-                glm::mat4 tm = tb->GetTransformMatrix();
-                glm::vec4 world_position = tm * local_position;
-                triangle.Positions[j] = glm::vec3(world_position);
+                glm::vec4 position = glm::vec4(vertices[index].Position, 1.f);
+                triangle.Positions[j] = glm::vec3(tb->GetTransformMatrix() * position);
             }
 
             // Calculate the normal of the scaled triangle

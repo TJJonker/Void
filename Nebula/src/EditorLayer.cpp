@@ -41,6 +41,11 @@ namespace Nebula::Editor {
         //physicsSystem->AddSolver(std::make_shared<Void::ImpulseSolver>());
 	}
 
+    void EditorLayer::OnEvent(Void::Event& event)
+    {
+        m_Dockspace->OnEvent(event);
+    }
+
     void EditorLayer::OnUpdate()
     {
         //Void::SceneManager::GetInstance().GetCurrentScene()->UpdateSystems();

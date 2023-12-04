@@ -18,6 +18,12 @@ namespace Nebula::Window {
 			ImGui::ShowDemoWindow(&m_DemoWindowOpen);
 	}
 
+	void WindowManager::OnEvent(Void::Event& event)
+	{
+		for (auto const& window : m_Windows)
+			window.second->OnEvent(event);
+	}
+
 	void WindowManager::OpenWindow(std::string windowName)
 	{
 		VOID_ASSERT(m_Windows.count(windowName), "No window found called: '{0}'.", windowName);

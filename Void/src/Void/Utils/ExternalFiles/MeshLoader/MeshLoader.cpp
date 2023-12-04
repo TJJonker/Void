@@ -3,6 +3,7 @@
 #include "assimp/Importer.hpp"
 #include "assimp/postprocess.h"
 #include "Void/Utils/ExternalFiles/File/File.h"
+#include "Void/Rendering/Components/VertexLayout.h"
 
 
 namespace Void {
@@ -55,7 +56,7 @@ namespace Void {
 		Rendering::VertexArray* vertexArray = Rendering::VertexArray::Create();
 		
 		// VertexBuffer Related stuff
-		std::vector<Vertex> vertices = GetVertexInformation(mesh);
+		std::vector<VertexLayout> vertices = GetVertexInformation(mesh);
 
 		std::shared_ptr<Rendering::VertexBuffer> vertexBuffer; 
 		vertexBuffer.reset(Rendering::VertexBuffer::Create(vertices.data(), vertices.size() * sizeof(float) * 8));
@@ -77,14 +78,14 @@ namespace Void {
 		return vertexArray;
 	}
 
-	std::vector<MeshLoader::Vertex> MeshLoader::GetVertexInformation(aiMesh* mesh)
+	std::vector<VertexLayout> MeshLoader::GetVertexInformation(aiMesh* mesh)
 	{
-		std::vector<Vertex> vertices; 
+		std::vector<VertexLayout> vertices; 
 
 		// Process the mesh and collect the necessary data. 
 		for (unsigned int i = 0; i < mesh->mNumVertices; ++i) { 
 			// Place this data in a Vertex struct for easy overview.
-			Vertex vertex; 
+			VertexLayout vertex; 
 
 			// Process Vertex Position
 			aiVector3D pos = mesh->mVertices[i]; 

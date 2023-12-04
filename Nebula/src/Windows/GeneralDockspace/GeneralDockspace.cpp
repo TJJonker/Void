@@ -40,6 +40,12 @@ namespace Nebula::Window {
 		ImGui::End();
 	}
 
+	void GeneralDockspace::OnEvent(Void::Event& event)
+	{
+		for (Menu* manager : m_MenuManagers)
+			manager->OnEvent(event);
+	}
+
 	void GeneralDockspace::RenderContent()
 	{
 		ImGuiIO& io = ImGui::GetIO();

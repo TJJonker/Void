@@ -1,5 +1,4 @@
 #include "SceneViewWindow.h"
-#include <Void/ECS/Components/CameraComponent.h>
 
 namespace Nebula::Window {
 	
@@ -11,16 +10,9 @@ namespace Nebula::Window {
 		m_FrameBuffer = Void::Rendering::FrameBuffer::Create(config);
 		Void::Rendering::RenderingCommands::SetClearColor({ .1, .2, .1, 1 });
 
-		m_SceneviewScene = new Void::Scene();
-		Void::Entity* cameraEntity = m_SceneviewScene->CreateEntity();
-		cameraEntity->AddComponent<Void::TransformComponent>();
-		cameraEntity->AddComponent<Void::CameraComponent>();
+		m_EditorCamera = new EditorCamera(45.f, 1280.f / 720.f, .001f, 100.f);
 
-		Void::TransformComponent& transform = cameraEntity->GetComponent<Void::TransformComponent>();
-		Void::CameraComponent& camera = cameraEntity->GetComponent<Void::CameraComponent>();
-
-		glm::mat4 view = glm::lookAt(transform.Position, transform.Position + camera.Front, camera.Up);
-		Void::Rendering::RenderingCommands::BeginDraw(view, camera.FOV, transform.Position);		
+		Void::Rendering::RenderingCommands::PrepareRender(m_EditorCamera, m_EditorCamera)
 	}
 
 	void SceneViewWindow::OnGuiRender()

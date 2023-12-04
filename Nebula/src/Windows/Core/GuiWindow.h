@@ -11,6 +11,8 @@ namespace Nebula::Window {
 		virtual void OnRemoved() { }
 		void Render();
 
+		virtual void OnEvent(Void::Event& event) {}
+
 	protected:
 		virtual void OnGuiRender() = 0;
 		virtual void OnWindowResize(glm::vec2 windowSize) {}

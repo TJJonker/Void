@@ -1,6 +1,8 @@
 #pragma once
 #include "Void.h"
 #include "Windows/Core/GuiWindow.h"
+#include <Camera/EditorCamera.h>
+
 
 namespace Nebula::Window {
 	class SceneViewWindow : public GuiWindow
@@ -11,9 +13,8 @@ namespace Nebula::Window {
 		virtual void OnWindowResize(glm::vec2 windowSize) override;
 
 	private:
-		Void::Rendering::FrameBuffer* m_FrameBuffer;
-		Void::Entity* m_Camera;
-		Void::Scene* m_SceneviewScene;
+		Void::Rendering::FrameBuffer* m_FrameBuffer = nullptr;
+		EditorCamera* m_EditorCamera = nullptr;
 	};
 }
 

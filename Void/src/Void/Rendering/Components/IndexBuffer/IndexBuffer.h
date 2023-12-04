@@ -13,6 +13,9 @@ namespace Void::Rendering {
 		virtual const uint32_t* GetIndices() const = 0;
 
 		static IndexBuffer* Create(uint32_t* indices, uint32_t size);
+		static IndexBuffer* Create(uint32_t size);
+
+		virtual void SetData(uint32_t* indices, uint32_t size) = 0;
 	};
 }
 

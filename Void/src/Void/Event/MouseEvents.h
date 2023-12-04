@@ -19,6 +19,22 @@ namespace Void {
 		uint16_t x, y;
 	};
 
+	class MouseScrolledEvent : public Event
+	{
+	public:
+		MouseScrolledEvent(const float xOffset, const float yOffset)
+			: xOffset(xOffset), YOffset(yOffset) {}
+
+		float GetXOffset() const { return xOffset; }
+		float GetYOffset() const { return YOffset; }
+
+		std::string ToString() const override { return "MouseScrolledEvent: " + std::to_string(GetXOffset()) + ", " + std::to_string(GetYOffset()); }
+
+		EVENT_CLASS_TYPE(EventType::MouseScrolled);
+
+	private:
+		float xOffset, YOffset;
+	};
 	
 	class MouseButtonPressedEvent : public Event {
 	private:

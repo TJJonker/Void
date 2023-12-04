@@ -10,6 +10,7 @@ namespace Nebula::Window {
 		WindowManager();
 
 		void RenderWindows();
+		void OnEvent(Void::Event& event);
 
 		void OpenWindow(std::string windowName);
 		void CloseWindow(std::string windowName);

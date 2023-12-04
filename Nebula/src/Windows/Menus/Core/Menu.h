@@ -2,6 +2,7 @@
 #include <functional>
 #include "MenuItem.h"
 #include "Windows/Core/WindowManager.h"
+#include "Void.h"
 
 namespace Nebula::Window {
 	class Menu
@@ -10,8 +11,9 @@ namespace Nebula::Window {
 		Menu(std::string menuName)
 			: m_MenuName(menuName) { }
 
-		void AddMenuItem(const char* label, std::function<void()> onClick);
+		void AddMenuItem(const char* label, std::function<void()> onClick, const char* shortCut = (const char*)0);
 		void RenderMenu();
+		void OnEvent(Void::Event& event);
 
 	private:
 		std::string m_MenuName;

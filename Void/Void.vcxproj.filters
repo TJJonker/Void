@@ -486,6 +486,9 @@
     <ClInclude Include="src\Void\ECS\Systems\Camera\CameraControllerSystem.h" />
     <ClInclude Include="src\Void\ECS\Components\CameraControllerComponent.h" />
     <ClInclude Include="src\Void\Utils\Random\Random.h" />
+    <ClInclude Include="src\Void\Rendering\Components\VertexLayout.h" />
+    <ClInclude Include="src\Void\Rendering\Components\Camera\Core\Camera.h" />
+    <ClInclude Include="src\Void\Rendering\Components\Camera\SceneCamera\SceneCamera.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Void\Audio\AudioManager\AudioManager.cpp">
@@ -657,5 +660,6 @@
     <ClCompile Include="src\Void\ECS\Systems\Event\EventSystem.cpp" />
     <ClCompile Include="src\Void\ECS\Commands\PlaySoundCommand.cpp" />
     <ClCompile Include="src\Void\ECS\Systems\Camera\CameraControllerSystem.cpp" />
+    <ClCompile Include="src\Void\Rendering\Components\Camera\SceneCamera\SceneCamera.cpp" />
   </ItemGroup>
 </Project>
