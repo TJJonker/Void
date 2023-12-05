@@ -35,4 +35,9 @@ namespace Nebula::Window {
 	{
 		//m_FrameBuffer->Resize((uint32_t)windowSize.x, (uint32_t)windowSize.y);
 	}
+
+	void SceneViewWindow::OnEvent(Void::Event& event)
+	{
+		m_EditorCamera->OnEvent(event);
+	}
 }

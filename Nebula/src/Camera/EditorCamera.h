@@ -40,6 +40,7 @@ namespace Nebula {
 		void MousePan(const glm::vec2& delta);
 		void MouseRotate(const glm::vec2& delta);
 		void MouseZoom(float delta);
+		void KeyMove(const glm::vec2& delta);
 
 		glm::vec3 CalculatePosition() const;
 

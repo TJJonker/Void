@@ -11,6 +11,7 @@ namespace Nebula::Window {
 		virtual void OnAdded() override;
 		virtual void OnGuiRender() override;
 		virtual void OnWindowResize(glm::vec2 windowSize) override;
+		virtual void OnEvent(Void::Event& event) override;
 
 	private:
 		Void::Rendering::FrameBuffer* m_FrameBuffer = nullptr;

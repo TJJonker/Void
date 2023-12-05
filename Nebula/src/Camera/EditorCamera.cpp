@@ -52,19 +52,21 @@ namespace Nebula {
 
 	void EditorCamera::OnUpdate()
 	{
-		if (Void::Input::KeyPressed(342)) // Left alt
-		{
-			const glm::vec2& mouse = Void::Input::MousePosition();
-			glm::vec2 delta = (mouse - m_InitialMousePosition) * 0.003f;
-			m_InitialMousePosition = mouse;
-			if (Void::Input::MousePressed(2)) // Middle mouse button
-				MousePan(delta);
-			else if (Void::Input::MousePressed(0)) // Left mouse button
-				MouseRotate(delta);
-			else if (Void::Input::MousePressed(1)) // Right mouse button
-				MouseZoom(delta.y);
+		const glm::vec2& mouse = Void::Input::MousePosition();
+		glm::vec2 delta = (mouse - m_InitialMousePosition) * 0.003f;
+		m_InitialMousePosition = mouse;
+			
+		if (Void::Input::MousePressed(2)) { // Middle mouse button
+			MousePan(delta);
 		}
+			
+		else if (Void::Input::MousePressed(1)) { // Left mouse button
+			MouseRotate(delta);
 
+			float deltaX = Void::Input::KeyDown('D') - Void::Input::KeyDown('A');
+			float deltaY = Void::Input::KeyDown('W') - Void::Input::KeyDown('S');
+			KeyMove({ deltaX, deltaY });
+		}
 		UpdateView();
 	}
 
@@ -80,6 +82,15 @@ namespace Nebula {
 		MouseZoom(delta);
 		UpdateView();
 		return false;
+	}
+
+	void EditorCamera::KeyMove(const glm::vec2& delta) {
+		// Move along the right and up directions
+		m_Position += GetRightDirection() * delta.x * Void::Time::DeltaTime() * 10.0f;
+		m_Position += GetForwardDirection() * delta.y * Void::Time::DeltaTime() * 10.0f;
+
+		// Update the focal point based on the new camera position
+		m_FocalPoint = m_Position + GetForwardDirection() * m_Distance;
 	}
 
 	void EditorCamera::MousePan(const glm::vec2& delta)
@@ -104,6 +115,11 @@ namespace Nebula {
 			m_FocalPoint += GetForwardDirection();
 			m_Distance = 1.0f;
 		}
+		if (m_Distance > 60.0f)
+		{
+			m_Distance = 60.0f;
+		}
+		VOID_TRACE(m_Distance);
 	}
 
 	glm::vec3 EditorCamera::GetUpDirection() const
