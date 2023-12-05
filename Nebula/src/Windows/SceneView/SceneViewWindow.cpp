@@ -19,11 +19,11 @@ namespace Nebula::Window {
 	void SceneViewWindow::OnGuiRender()
 	{
 		m_EditorCamera->OnUpdate();
-		Void::Rendering::RenderingCommands::PrepareRender(m_EditorCamera->GetViewProjection(), m_EditorCamera->GetPosition());
 
 		m_FrameBuffer->Bind();
 		Void::Rendering::RenderingCommands::Clear();
 		Void::SceneManager::GetInstance().GetCurrentScene()->UpdateRenderingSystem();
+		Void::Rendering::RenderingCommands::PrepareRender(m_EditorCamera->GetViewProjection(), m_EditorCamera->GetPosition());
 		Void::Rendering::RenderingCommands::Render();
 		m_FrameBuffer->UnBind();
 

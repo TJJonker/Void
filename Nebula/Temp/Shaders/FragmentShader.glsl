@@ -22,13 +22,13 @@ uniform sampler2D Textures[32];
 void main()
 {
      // Ambient
-    vec3 ambient = directionalLight.ambient * vec3(texture(Textures[int(TextureIndex[0])], TextureCoords));
+    vec4 ambient = vec4(directionalLight.ambient, 1) * texture(Textures[int(TextureIndex[0])], TextureCoords);
 
     // Diffuse
     vec3 norm = normalize(Normal);
     vec3 lightDir = normalize(-directionalLight.direction);
     float diff = max(dot(norm, lightDir), 0.0);
-    vec3 diffuse = directionalLight.diffuse * diff * vec3(texture(Textures[int(TextureIndex[0])], TextureCoords));
+    vec4 diffuse = vec4(directionalLight.diffuse * diff, 1) * texture(Textures[int(TextureIndex[0])], TextureCoords);
 
     // Specuar 
 //    vec3 viewDir = normalize(viewPosition - FragPosition); 
@@ -37,8 +37,8 @@ void main()
 //    vec3 specular = directionalLight.specular * spec;
 
     //vec3 result = ambient + diffuse + specular;
-    vec3 result = ambient + diffuse;
-    //color = vec4(result, 1.0);
-    color = vec4(0.3, 0.3, 0.6, 1.0);
+    vec4 result = ambient + diffuse;
+    color = result;
+    //color = vec4(0.3, 0.3, 0.6, 1.0);
     //color = texture(Textures[int(TextureIndex[0])], TextureCoords).rrrr;
 }

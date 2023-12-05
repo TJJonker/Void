@@ -32,6 +32,7 @@ namespace Void::Rendering {
 	private:
 		unsigned int NewTexturesCount(std::vector<std::string> textureNames);
 		void PrepareRenderData();
+		void ExecuteRender(const std::pair<std::string, std::vector<BatchSubmission>>&);
 
 	private:
 		std::map<std::string, std::vector<BatchSubmission>> m_Submissions;

@@ -38,10 +38,12 @@ namespace Void {
 
 		std::vector<Submesh> Submeshes;
 		bool DrawWireframe = false;
+		bool Blending = false;
 
 		nlohmann::ordered_json ToJSON() const override {
 			nlohmann::ordered_json json;
 			json["DrawWireframe"] = DrawWireframe;
+			json["Blending"] = Blending;
 			for (Submesh submesh : Submeshes)
 				json["Submeshes"].push_back(submesh.ToJSON());
 			return json;
@@ -49,6 +51,7 @@ namespace Void {
 
 		void FromJSON(const nlohmann::json& json) override {
 			DrawWireframe = json["DrawWireframe"];
+			Blending = json["Blending"];
 			for (const auto& sm : json["Submeshes"]) {
 				Submesh submesh;
 				submesh.FromJSON(sm);

@@ -28,8 +28,10 @@ namespace Void::Rendering {
 				VertexArray* vertexArray = mesh->Submeshes[0];
 
 				const std::string& shaderName = rendering.Submeshes[0].Shader;
-
-				Rendering::RenderingCommands::Submit(vertexArray, transform.GetTransformMatrix(), submesh.Textures, submesh.Shader);
+				if(rendering.Blending)
+					Rendering::RenderingCommands::SubmitBlended(vertexArray, transform.GetTransformMatrix(), submesh.Textures, submesh.Shader);
+				else
+					Rendering::RenderingCommands::Submit(vertexArray, transform.GetTransformMatrix(), submesh.Textures, submesh.Shader);
 			}
 		}
 	}

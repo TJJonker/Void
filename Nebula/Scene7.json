@@ -27,11 +27,12 @@
                     "Type": "RenderingComponent",
                     "Data": {
                         "DrawWireframe": false,
+                        "Blending": true,
                         "Submeshes": [
                             {
                                 "Model": "Temp/Models/SM_Env_Door_Glass_01.obj",
                                 "Texture": [
-                                    "Temp/Textures/PolygonHeist_Texture_04_C.png"
+                                    "Temp/Textures/PolygonHeist_Texture_03_C.png"
                                 ],
                                 "Shader": "DefaultShader"
                             }
@@ -67,11 +68,12 @@
                     "Type": "RenderingComponent",
                     "Data": {
                         "DrawWireframe": false,
+                        "Blending": true,
                         "Submeshes": [
                             {
                                 "Model": "Temp/Models/SM_Env_Door_Glass_01.obj",
                                 "Texture": [
-                                    "Temp/Textures/PolygonHeist_Texture_04_C.png"
+                                    "Temp/Textures/PolygonHeist_Texture_03_C.png"
                                 ],
                                 "Shader": "DefaultShader"
                             }
@@ -107,11 +109,12 @@
                     "Type": "RenderingComponent",
                     "Data": {
                         "DrawWireframe": false,
+                        "Blending": true,
                         "Submeshes": [
                             {
                                 "Model": "Temp/Models/SM_Env_Door_Glass_01.obj",
                                 "Texture": [
-                                    "Temp/Textures/PolygonHeist_Texture_04_C.png"
+                                    "Temp/Textures/PolygonHeist_Texture_03_C.png"
                                 ],
                                 "Shader": "DefaultShader"
                             }
@@ -147,11 +150,12 @@
                     "Type": "RenderingComponent",
                     "Data": {
                         "DrawWireframe": false,
+                        "Blending": true,
                         "Submeshes": [
                             {
                                 "Model": "Temp/Models/SM_Env_Door_Glass_01.obj",
                                 "Texture": [
-                                    "Temp/Textures/PolygonHeist_Texture_04_C.png"
+                                    "Temp/Textures/PolygonHeist_Texture_03_C.png"
                                 ],
                                 "Shader": "DefaultShader"
                             }
@@ -187,11 +191,12 @@
                     "Type": "RenderingComponent",
                     "Data": {
                         "DrawWireframe": false,
+                        "Blending": true,
                         "Submeshes": [
                             {
                                 "Model": "Temp/Models/SM_Env_Door_Glass_01.obj",
                                 "Texture": [
-                                    "Temp/Textures/PolygonHeist_Texture_04_C.png"
+                                    "Temp/Textures/PolygonHeist_Texture_03_C.png"
                                 ],
                                 "Shader": "DefaultShader"
                             }

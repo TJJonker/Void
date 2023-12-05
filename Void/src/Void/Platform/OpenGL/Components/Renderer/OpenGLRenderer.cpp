@@ -113,87 +113,95 @@ namespace Void::Rendering {
 
 	void OpenGLRenderer::Render()
 	{
-		for (auto& pair : m_Submissions) {
-			m_RendererData.Shader = ShaderLibrary::GetInstance()->Get(pair.first.c_str());
-			m_RendererData.SetShaderSettings();
-			for (auto& submission : pair.second) {
-				IndexBuffer* indexBuffer = submission.VertexArray->GetIndexBuffer().get();
-				VertexBuffer* vertexBuffer = submission.VertexArray->getVertexBuffers()[0].get();
+		for (const std::pair<std::string, std::vector<BatchSubmission>>& pair : m_Submissions) {
+			ExecuteRender(pair);
+		}
 
-				VertexLayout* vb = (VertexLayout*)vertexBuffer->GetData();
+		for (const std::pair<std::string, std::vector<BatchSubmission>>& pair : m_SubmissionsBlended) {
+			ExecuteRender(pair);
+		}
+	}
 
-				// Check if the batch is full based on Indices Count
-				if (m_RendererData.GetIndexCount() + submission.VertexArray->GetIndexBuffer()->GetCount()
+	void OpenGLRenderer::ExecuteRender(const std::pair<std::string, std::vector<BatchSubmission>>& pair) {
+		m_RendererData.Shader = ShaderLibrary::GetInstance()->Get(pair.first.c_str());
+		m_RendererData.SetShaderSettings();
+		for (auto& submission : pair.second) {
+			IndexBuffer* indexBuffer = submission.VertexArray->GetIndexBuffer().get();
+			VertexBuffer* vertexBuffer = submission.VertexArray->getVertexBuffers()[0].get();
+
+			VertexLayout* vb = (VertexLayout*)vertexBuffer->GetData();
+
+			// Check if the batch is full based on Indices Count
+			if (m_RendererData.GetIndexCount() + submission.VertexArray->GetIndexBuffer()->GetCount()
 					> m_RendererData.MaxIndices)
-					Flush();
+				Flush();
 
-				int newTextureCount = NewTexturesCount(submission.TextureNames);
-				if (m_RendererData.TextureSlotsIndex + newTextureCount > m_RendererData.MaxTextureSlots - 1)
-					Flush();
+			int newTextureCount = NewTexturesCount(submission.TextureNames);
+			if (m_RendererData.TextureSlotsIndex + newTextureCount > m_RendererData.MaxTextureSlots - 1)
+				Flush();
 
-				// Check texture existence
-				unsigned int textureIndices[3]{ -1 };
-				for (unsigned int i = 0; i < 3; i++) {
-					uint64_t textureIndex = -1;
-					if (i >= submission.TextureNames.size())
-						break;
+			// Check texture existence
+			unsigned int textureIndices[3]{ -1 };
+			for (unsigned int i = 0; i < 3; i++) {
+				uint64_t textureIndex = -1;
+				if (i >= submission.TextureNames.size())
+					break;
 
-					std::string textureName = submission.TextureNames[i];
-					auto it = std::find(m_RendererData.TextureSlots.begin(), m_RendererData.TextureSlots.end(), textureName);
-					if (it != m_RendererData.TextureSlots.end()) {
-						textureIndex = std::distance(m_RendererData.TextureSlots.begin(), it);
-					}
-
-					if (textureIndex == -1) {
-						textureIndex = m_RendererData.TextureSlotsIndex;
-						m_RendererData.TextureSlots[m_RendererData.TextureSlotsIndex] = textureName;
-						m_RendererData.TextureSlotsIndex++;
-					}
-					textureIndices[i] = textureIndex;
+				std::string textureName = submission.TextureNames[i];
+				auto it = std::find(m_RendererData.TextureSlots.begin(), m_RendererData.TextureSlots.end(), textureName);
+				if (it != m_RendererData.TextureSlots.end()) {
+					textureIndex = std::distance(m_RendererData.TextureSlots.begin(), it);
 				}
 
-				// Add indexBuffer to batch indexBuffer
-				{
-					uint32_t startIndex = m_RendererData.GetVertexCount();
-					const uint32_t count = indexBuffer->GetCount();
-					const uint32_t* data = indexBuffer->GetIndices();
-					//for (int i = 0; i < 100; i++)
-					//	VOID_TRACE("Early indexbuffer check - {0}: {1}", i, *(data + i));
-					//VOID_TRACE("Early indexbuffer check minus one - {0}: {1}", count - 1, *(data + count - 1));
-					for (int i = 0; i < count; i++) {
-						*m_RendererData.IndexBufferPtr = *(data + i) + startIndex;
-						m_RendererData.IndexBufferPtr++;
-					}
-					//memcpy_s(m_RendererData.IndexBufferPtr, m_RendererData.MaxIndices, data, count * sizeof(uint32_t));
-	/*				for (int i = 0; i < 100; i++)
-						VOID_TRACE("Stored indexbuffer check - {0}: {1}", i, *(m_RendererData.IndexBufferBase + i));*/
+				if (textureIndex == -1) {
+					textureIndex = m_RendererData.TextureSlotsIndex;
+					m_RendererData.TextureSlots[m_RendererData.TextureSlotsIndex] = textureName;
+					m_RendererData.TextureSlotsIndex++;
+				}
+				textureIndices[i] = textureIndex;
+			}
+
+			// Add indexBuffer to batch indexBuffer
+			{
+				uint32_t startIndex = m_RendererData.GetVertexCount();
+				const uint32_t count = indexBuffer->GetCount();
+				const uint32_t* data = indexBuffer->GetIndices();
+				//for (int i = 0; i < 100; i++)
+				//	VOID_TRACE("Early indexbuffer check - {0}: {1}", i, *(data + i));
+				//VOID_TRACE("Early indexbuffer check minus one - {0}: {1}", count - 1, *(data + count - 1));
+				for (int i = 0; i < count; i++) {
+					*m_RendererData.IndexBufferPtr = *(data + i) + startIndex;
+					m_RendererData.IndexBufferPtr++;
+				}
+				//memcpy_s(m_RendererData.IndexBufferPtr, m_RendererData.MaxIndices, data, count * sizeof(uint32_t));
+/*				for (int i = 0; i < 100; i++)
+					VOID_TRACE("Stored indexbuffer check - {0}: {1}", i, *(m_RendererData.IndexBufferBase + i));*/
 					/*VOID_TRACE("ptr check: {0}", *m_RendererData.IndexBufferPtr);
 					VOID_TRACE("ptr check minus one: {0}", *(m_RendererData.IndexBufferPtr - 1));*/
-				}
-
-				// Add vertexBuffer to batch vertexBuffer
-				{
-					const uint32_t count = vertexBuffer->GetSize() / sizeof(VertexLayout);
-					VertexLayout* localVertexBuffer = (VertexLayout*)vertexBuffer->GetData();
-					glm::mat3 ITModelMatrix = glm::transpose(glm::inverse(submission.ModelMatrix));
-					for (uint32_t i = 0; i < count; i++) {
-						VertexLayout* currentLayout = localVertexBuffer + i;
-						m_RendererData.VertexBufferPtr->Position = submission.ModelMatrix * glm::vec4(currentLayout->Position, 1.f);
-						m_RendererData.VertexBufferPtr->Normals = ITModelMatrix * currentLayout->Normals;
-						m_RendererData.VertexBufferPtr->TextureCoord = currentLayout->TextureCoords;
-						m_RendererData.VertexBufferPtr->TextureIndex[0] = textureIndices[0];
-
-						//glm::vec4 tempPos = m_RendererData.ViewProjectionMatrix * glm::vec4(m_RendererData.VertexBufferPtr->Position, 1.0f);
-						//VOID_TRACE("Pos x vpm {0} - x: {1}, y: {2}, z: {3}, w: {4}", i, tempPos.x, tempPos.y, tempPos.z, tempPos.w);
-						m_RendererData.VertexBufferPtr++;
-					}
-
-					glm::vec3 pos = (localVertexBuffer + count - 1)->Position;
-					int p = 0;
-				}
 			}
-			Flush();
+
+			// Add vertexBuffer to batch vertexBuffer
+			{
+				const uint32_t count = vertexBuffer->GetSize() / sizeof(VertexLayout);
+				VertexLayout* localVertexBuffer = (VertexLayout*)vertexBuffer->GetData();
+				glm::mat3 ITModelMatrix = glm::transpose(glm::inverse(submission.ModelMatrix));
+				for (uint32_t i = 0; i < count; i++) {
+					VertexLayout* currentLayout = localVertexBuffer + i;
+					m_RendererData.VertexBufferPtr->Position = submission.ModelMatrix * glm::vec4(currentLayout->Position, 1.f);
+					m_RendererData.VertexBufferPtr->Normals = ITModelMatrix * currentLayout->Normals;
+					m_RendererData.VertexBufferPtr->TextureCoord = currentLayout->TextureCoords;
+					m_RendererData.VertexBufferPtr->TextureIndex[0] = textureIndices[0];
+
+					//glm::vec4 tempPos = m_RendererData.ViewProjectionMatrix * glm::vec4(m_RendererData.VertexBufferPtr->Position, 1.0f);
+					//VOID_TRACE("Pos x vpm {0} - x: {1}, y: {2}, z: {3}, w: {4}", i, tempPos.x, tempPos.y, tempPos.z, tempPos.w);
+					m_RendererData.VertexBufferPtr++;
+				}
+
+				glm::vec3 pos = (localVertexBuffer + count - 1)->Position;
+				int p = 0;
+			}
 		}
+		Flush();
 	}
 
 	unsigned int OpenGLRenderer::NewTexturesCount(std::vector<std::string> textureNames)
@@ -217,7 +225,7 @@ namespace Void::Rendering {
 
 		for (auto& pair : m_SubmissionsBlended) {
 			std::sort(pair.second.begin(), pair.second.end(), [](BatchSubmission& a, BatchSubmission& b)
-				{ return (a.ModelMatrix[3].z / a.ModelMatrix[3].w) > (b.ModelMatrix[3].z / b.ModelMatrix[3].w); });
+				{ return (a.ModelMatrix[3].z / a.ModelMatrix[3].w) < (b.ModelMatrix[3].z / b.ModelMatrix[3].w); });
 		}
 	}
 
@@ -263,10 +271,9 @@ namespace Void::Rendering {
 		}
 
 		m_RendererData.VertexArray->Bind();
-		//GLCall(glEnable(GL_DEPTH_TEST));
-		//GLCall(glEnable(GL_BLEND));
-		//GLCall(glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA));
-		//GLCall(glBlendFuncSeparate(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA, GL_ONE, GL_ZERO));
+		GLCall(glEnable(GL_DEPTH_TEST));
+		glEnable(GL_BLEND);
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 		GLCall(glDrawElements(GL_TRIANGLES, m_RendererData.VertexArray->GetIndexBuffer()->GetCount(), GL_UNSIGNED_INT, nullptr));
 
 		m_RendererData.IndexBufferPtr = m_RendererData.IndexBufferBase;

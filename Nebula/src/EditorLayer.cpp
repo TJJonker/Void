@@ -16,7 +16,7 @@ namespace Nebula::Editor {
         Void::ShaderLibrary::GetInstance()->Load("Temp/Shaders/VertexShader.glsl", "Temp/Shaders/FragmentShader.glsl", "DefaultShader");
 
         // Texture lib
-        Void::TextureLibrary::GetInstance()->Load("Temp/Textures/PolygonHeist_Texture_04_C.png");
+        Void::TextureLibrary::GetInstance()->Load("Temp/Textures/PolygonHeist_Texture_03_C.png");
 
         // Mesh lib
         Void::MeshLibrary::GetInstance()->Load("Temp/Models/SM_Env_Door_Glass_01.obj");
