@@ -1,25 +1,25 @@
 {
     "Entities": [
         {
-            "Name": "BarnieParnie",
+            "Name": "Glass door",
             "Components": [
                 {
                     "Type": "TransformComponent",
                     "Data": {
                         "Position": {
                             "X": 0.0,
-                            "Y": -6.789999961853027,
-                            "Z": -22.6299991607666
+                            "Y": -1.0,
+                            "Z": 6.369999885559082
                         },
                         "Rotation": {
                             "X": 0.0,
-                            "Y": 31.270000457763672,
+                            "Y": -134.72999572753906,
                             "Z": 0.0
                         },
                         "Scale": {
-                            "X": 0.009999999776482582,
-                            "Y": 0.009999999776482582,
-                            "Z": 0.009999999776482582
+                            "X": 1.0,
+                            "Y": 1.0,
+                            "Z": 1.0
                         }
                     }
                 },
@@ -29,9 +29,9 @@
                         "DrawWireframe": false,
                         "Submeshes": [
                             {
-                                "Model": "Temp/Models/Barn.obj",
+                                "Model": "Temp/Models/SM_Env_Door_Glass_01.obj",
                                 "Texture": [
-                                    "Temp/Textures/PolygonPrototype_Texture_06.png"
+                                    "Temp/Textures/PolygonHeist_Texture_03_C.png"
                                 ],
                                 "Shader": "DefaultShader"
                             }

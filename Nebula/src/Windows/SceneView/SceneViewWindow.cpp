@@ -10,7 +10,7 @@ namespace Nebula::Window {
 
 		Void::Rendering::FrameBufferConfig config{1920, 1080};
 		m_FrameBuffer = Void::Rendering::FrameBuffer::Create(config);
-		Void::Rendering::RenderingCommands::SetClearColor({ .1, .2, .1, 1 });
+		Void::Rendering::RenderingCommands::SetClearColor({ .3, .2, .2, 1 });
 
 		m_EditorCamera = new EditorCamera(45.f, 1280.f / 720.f, .1f, 100.f);
 

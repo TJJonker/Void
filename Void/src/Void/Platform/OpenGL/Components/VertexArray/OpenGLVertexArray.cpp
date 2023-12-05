@@ -23,7 +23,7 @@ namespace Void::Rendering {
 		
 		for (const auto& element : vertexBuffer->GetVertexBufferLayout().GetLayoutElements()) {
 			GLCall(glEnableVertexAttribArray(m_BufferIndex));
-			GLCall(glVertexAttribPointer(m_BufferIndex, element.Count, GL_FLOAT, element.Normalized, vertexBuffer->GetVertexBufferLayout().GetStride(), (const void*)element.Offset));
+			glVertexAttribPointer(m_BufferIndex, element.Count, GL_FLOAT, element.Normalized, vertexBuffer->GetVertexBufferLayout().GetStride(), (const void*)element.Offset);
 			m_BufferIndex++;
 		}
 

@@ -156,10 +156,11 @@ namespace Void::Rendering {
 				{
 					const uint32_t count = vertexBuffer->GetSize() / sizeof(VertexLayout);
 					VertexLayout* localVertexBuffer = (VertexLayout*)vertexBuffer->GetData();
+					glm::mat3 ITModelMatrix = glm::transpose(glm::inverse(submission.ModelMatrix));
 					for (uint32_t i = 0; i < count; i++) {
 						VertexLayout* currentLayout = localVertexBuffer + i;
 						m_RendererData.VertexBufferPtr->Position = submission.ModelMatrix * glm::vec4(currentLayout->Position, 1.f);
-						m_RendererData.VertexBufferPtr->Normals = currentLayout->Normals;
+						m_RendererData.VertexBufferPtr->Normals = ITModelMatrix * currentLayout->Normals;
 						m_RendererData.VertexBufferPtr->TextureCoord = currentLayout->TextureCoords;
 						m_RendererData.VertexBufferPtr->TextureIndex[0] = textureIndices[0];
 
