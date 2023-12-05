@@ -22,7 +22,6 @@ uniform sampler2D Textures[32];
 void main()
 {
      // Ambient
-    //vec3 ambient = directionalLight.ambient * vec3(texture(texture1, TextureCoords));
     vec3 ambient = directionalLight.ambient * vec3(texture(Textures[int(TextureIndex[0])], TextureCoords));
 
     // Diffuse
@@ -39,5 +38,7 @@ void main()
 
     //vec3 result = ambient + diffuse + specular;
     vec3 result = ambient + diffuse;
-    color = vec4(result, 1.0);
+    //color = vec4(result, 1.0);
+    color = vec4(0.3, 0.3, 0.6, 1.0);
+    //color = texture(Textures[int(TextureIndex[0])], TextureCoords).rrrr;
 }

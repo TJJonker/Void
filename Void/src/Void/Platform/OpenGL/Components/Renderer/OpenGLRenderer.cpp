@@ -152,6 +152,25 @@ namespace Void::Rendering {
 					textureIndices[i] = textureIndex;
 				}
 
+				// Add indexBuffer to batch indexBuffer
+				{
+					uint32_t startIndex = m_RendererData.GetVertexCount();
+					const uint32_t count = indexBuffer->GetCount();
+					const uint32_t* data = indexBuffer->GetIndices();
+					//for (int i = 0; i < 100; i++)
+					//	VOID_TRACE("Early indexbuffer check - {0}: {1}", i, *(data + i));
+					//VOID_TRACE("Early indexbuffer check minus one - {0}: {1}", count - 1, *(data + count - 1));
+					for (int i = 0; i < count; i++) {
+						*m_RendererData.IndexBufferPtr = *(data + i) + startIndex;
+						m_RendererData.IndexBufferPtr++;
+					}
+					//memcpy_s(m_RendererData.IndexBufferPtr, m_RendererData.MaxIndices, data, count * sizeof(uint32_t));
+	/*				for (int i = 0; i < 100; i++)
+						VOID_TRACE("Stored indexbuffer check - {0}: {1}", i, *(m_RendererData.IndexBufferBase + i));*/
+					/*VOID_TRACE("ptr check: {0}", *m_RendererData.IndexBufferPtr);
+					VOID_TRACE("ptr check minus one: {0}", *(m_RendererData.IndexBufferPtr - 1));*/
+				}
+
 				// Add vertexBuffer to batch vertexBuffer
 				{
 					const uint32_t count = vertexBuffer->GetSize() / sizeof(VertexLayout);
@@ -171,21 +190,6 @@ namespace Void::Rendering {
 
 					glm::vec3 pos = (localVertexBuffer + count - 1)->Position;
 					int p = 0;
-				}
-
-				// Add indexBuffer to batch indexBuffer
-				{
-					const uint32_t count = indexBuffer->GetCount();
-					const uint32_t* data = indexBuffer->GetIndices();
-					//for (int i = 0; i < 100; i++)
-					//	VOID_TRACE("Early indexbuffer check - {0}: {1}", i, *(data + i));
-					//VOID_TRACE("Early indexbuffer check minus one - {0}: {1}", count - 1, *(data + count - 1));
-					memcpy_s(m_RendererData.IndexBufferPtr, m_RendererData.MaxIndices, data, count * sizeof(uint32_t));
-	/*				for (int i = 0; i < 100; i++)
-						VOID_TRACE("Stored indexbuffer check - {0}: {1}", i, *(m_RendererData.IndexBufferBase + i));*/
-					m_RendererData.IndexBufferPtr += count;
-					/*VOID_TRACE("ptr check: {0}", *m_RendererData.IndexBufferPtr);
-					VOID_TRACE("ptr check minus one: {0}", *(m_RendererData.IndexBufferPtr - 1));*/
 				}
 			}
 			Flush();
@@ -247,18 +251,22 @@ namespace Void::Rendering {
 			TextureLibrary::GetInstance()->Get(m_RendererData.TextureSlots[i].c_str())->Bind();
 		}
 
-		glm::vec3 p = (m_RendererData.VertexBufferBase + *(m_RendererData.IndexBufferPtr - 1))->Position;
+		size_t indexCount = m_RendererData.GetIndexCount();
+		size_t vertexCount = m_RendererData.GetVertexCount();
 
 		m_RendererData.IndexBuffer->SetData(m_RendererData.IndexBufferBase, m_RendererData.GetIndexCount() * sizeof(uint32_t));
 		m_RendererData.VertexBuffer->SetData(m_RendererData.VertexBufferBase, m_RendererData.GetVertexCount() * sizeof(BatchLayout));
 
-		for (int i = 0; i < 100; i++) {
-			//VOID_TRACE("VertexData {0} - x: {1}, y: {2}, z: {3}", i, (m_RendererData.VertexBufferBase + i)->Position.x, (m_RendererData.VertexBufferBase + i)->Position.y, (m_RendererData.VertexBufferBase + i)->Position.z);
-			//VOID_TRACE("IndexData {0} - index: {1}", i, *(m_RendererData.IndexBufferBase + i));
+		for (int i = 0; i < vertexCount; i++) {
+			VOID_TRACE("VertexData {0} - x: {1}, y: {2}, z: {3}", i, (m_RendererData.VertexBufferBase + i)->Position.x, (m_RendererData.VertexBufferBase + i)->Position.y, (m_RendererData.VertexBufferBase + i)->Position.z);
+			VOID_TRACE("IndexData {0} - index: {1}", i, *(m_RendererData.IndexBufferBase + i));
 		}
 
 		m_RendererData.VertexArray->Bind();
-		GLCall(glEnable(GL_DEPTH_TEST));
+		//GLCall(glEnable(GL_DEPTH_TEST));
+		//GLCall(glEnable(GL_BLEND));
+		//GLCall(glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA));
+		//GLCall(glBlendFuncSeparate(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA, GL_ONE, GL_ZERO));
 		GLCall(glDrawElements(GL_TRIANGLES, m_RendererData.VertexArray->GetIndexBuffer()->GetCount(), GL_UNSIGNED_INT, nullptr));
 
 		m_RendererData.IndexBufferPtr = m_RendererData.IndexBufferBase;
