@@ -140,6 +140,7 @@ namespace Void::Rendering {
 			if (m_RendererData.TextureSlotsIndex + newTextureCount > m_RendererData.MaxTextureSlots - 1)
 				Flush();
 
+
 			// Check texture existence
 			unsigned int textureIndices[3]{ -1 };
 			for (unsigned int i = 0; i < 3; i++) {
@@ -161,24 +162,15 @@ namespace Void::Rendering {
 				textureIndices[i] = textureIndex;
 			}
 
+
 			// Add indexBuffer to batch indexBuffer
 			{
-				uint32_t startIndex = m_RendererData.GetVertexCount();
-				const uint32_t count = indexBuffer->GetCount();
-				const uint32_t* data = indexBuffer->GetIndices();
-				//for (int i = 0; i < 100; i++)
-				//	VOID_TRACE("Early indexbuffer check - {0}: {1}", i, *(data + i));
-				//VOID_TRACE("Early indexbuffer check minus one - {0}: {1}", count - 1, *(data + count - 1));
-				for (int i = 0; i < count; i++) {
-					*m_RendererData.IndexBufferPtr = *(data + i) + startIndex;
+				for (int i = 0; i < indexBuffer->GetCount(); i++) {
+					*m_RendererData.IndexBufferPtr = *(indexBuffer->GetIndices() + i) + m_RendererData.GetVertexCount();
 					m_RendererData.IndexBufferPtr++;
 				}
-				//memcpy_s(m_RendererData.IndexBufferPtr, m_RendererData.MaxIndices, data, count * sizeof(uint32_t));
-/*				for (int i = 0; i < 100; i++)
-					VOID_TRACE("Stored indexbuffer check - {0}: {1}", i, *(m_RendererData.IndexBufferBase + i));*/
-					/*VOID_TRACE("ptr check: {0}", *m_RendererData.IndexBufferPtr);
-					VOID_TRACE("ptr check minus one: {0}", *(m_RendererData.IndexBufferPtr - 1));*/
 			}
+
 
 			// Add vertexBuffer to batch vertexBuffer
 			{
@@ -191,14 +183,8 @@ namespace Void::Rendering {
 					m_RendererData.VertexBufferPtr->Normals = ITModelMatrix * currentLayout->Normals;
 					m_RendererData.VertexBufferPtr->TextureCoord = currentLayout->TextureCoords;
 					m_RendererData.VertexBufferPtr->TextureIndex[0] = textureIndices[0];
-
-					//glm::vec4 tempPos = m_RendererData.ViewProjectionMatrix * glm::vec4(m_RendererData.VertexBufferPtr->Position, 1.0f);
-					//VOID_TRACE("Pos x vpm {0} - x: {1}, y: {2}, z: {3}, w: {4}", i, tempPos.x, tempPos.y, tempPos.z, tempPos.w);
 					m_RendererData.VertexBufferPtr++;
 				}
-
-				glm::vec3 pos = (localVertexBuffer + count - 1)->Position;
-				int p = 0;
 			}
 		}
 		Flush();
