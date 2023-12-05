@@ -8,7 +8,7 @@ namespace Nebula::Window {
 
 		Void::Rendering::RenderingCommands::Initialize();
 
-		Void::Rendering::FrameBufferConfig config{1280, 720};
+		Void::Rendering::FrameBufferConfig config{1920, 1080};
 		m_FrameBuffer = Void::Rendering::FrameBuffer::Create(config);
 		Void::Rendering::RenderingCommands::SetClearColor({ .1, .2, .1, 1 });
 
