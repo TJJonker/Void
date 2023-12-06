@@ -37,7 +37,9 @@ namespace Nebula::Window {
 		if (ImGui::CollapsingHeader("Transform", ImGuiTreeNodeFlags_None))
 		{
 			ImGui::DragFloat3("Position", (float*)&transform.Position);
-			ImGui::DragFloat3("Rotation", (float*)&transform.Rotation);
+			glm::vec3 rotationInDegrees = { glm::degrees(transform.Rotation.x), glm::degrees(transform.Rotation.y) , glm::degrees(transform.Rotation.z) };
+			ImGui::DragFloat3("Rotation", (float*)&rotationInDegrees);
+			transform.Rotation = { glm::radians(rotationInDegrees.x), glm::radians(rotationInDegrees.y) , glm::radians(rotationInDegrees.z) };
 			ImGui::DragFloat3("Scale", (float*)&transform.Scale);
 		}		
 	}

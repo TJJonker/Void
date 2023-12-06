@@ -2,6 +2,7 @@
 #include "Void.h"
 #include "Windows/Core/GuiWindow.h"
 #include <Camera/EditorCamera.h>
+#include "ImGuizmo/ImGuizmo.h"
 
 
 namespace Nebula::Window {
@@ -17,6 +18,7 @@ namespace Nebula::Window {
 		Void::Rendering::FrameBuffer* m_FrameBuffer = nullptr;
 		EditorCamera* m_EditorCamera = nullptr;
 		Void::Entity* m_SelectedEntity = nullptr;
+		int m_GyzmoType = ImGuizmo::OPERATION::TRANSLATE;
 	};
 }
 

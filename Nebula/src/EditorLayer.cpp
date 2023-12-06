@@ -31,7 +31,7 @@ namespace Nebula::Editor {
             });
 
         // Mesh lib
-        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Env_Road_001.obj");
+        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Env_Road_01.obj");
         Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Env_Road_02.obj");
         Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Env_Road_03.obj");
         Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Env_Road_Arrow_01.obj");

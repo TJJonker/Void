@@ -1,7 +1,6 @@
 #include "SceneViewWindow.h"
 #include "Events/Core/EventManager.h"
 #include "Events/Commands/SetCurrentEntity/SetCurrentEntityCommand.h"
-#include "ImGuizmo/ImGuizmo.h"
 #include <glm/gtc/type_ptr.hpp>
 
 namespace Nebula::Window {
@@ -53,11 +52,13 @@ namespace Nebula::Window {
 
 		bool snap = Void::Input::KeyPressed(341); // Left control
 		float snapValue = 0.5f; // Snap to 0.5m for translation/scale
+		if (m_GyzmoType == ImGuizmo::OPERATION::ROTATE)
+			snapValue = 45.f;
 
 		float snapValues[3] = { snapValue, snapValue, snapValue };
 
 		ImGuizmo::Manipulate(glm::value_ptr(cameraView), glm::value_ptr(cameraProjection),
-			ImGuizmo::OPERATION::ROTATE, ImGuizmo::LOCAL, glm::value_ptr(transform),
+			(ImGuizmo::OPERATION)m_GyzmoType, ImGuizmo::LOCAL, glm::value_ptr(transform),
 			nullptr, snap ? snapValues : nullptr);
 
 		if (ImGuizmo::IsUsing())
@@ -70,6 +71,13 @@ namespace Nebula::Window {
 			tc.Rotation += deltaRotation;
 			tc.Scale = scale;
 		}
+
+		if (Void::Input::KeyDown(49))
+			m_GyzmoType = ImGuizmo::OPERATION::TRANSLATE;
+		if (Void::Input::KeyDown(50))
+			m_GyzmoType = ImGuizmo::OPERATION::ROTATE;
+		if (Void::Input::KeyDown(51))
+			m_GyzmoType = ImGuizmo::OPERATION::SCALE;
 	}
 
 	void SceneViewWindow::OnWindowResize(glm::vec2 windowSize)
