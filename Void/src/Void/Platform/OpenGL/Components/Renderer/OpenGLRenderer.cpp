@@ -12,7 +12,7 @@ namespace Void::Rendering {
 		glm::vec3 Position = glm::vec3(0);
 		glm::vec3 Normals = glm::vec3(0);
 		glm::vec2 TextureCoord = glm::vec2(0);
-		int TextureIndex[3];
+		glm::vec3 TextureIndex = glm::vec3(0);
 	};
 
 	struct BatchData {
@@ -141,6 +141,7 @@ namespace Void::Rendering {
 			skyboxCube->Bind();
 
 			// Draw call
+			skyboxCube->GetIndexBuffer().get()->Bind();
 			GLCall(glDrawElements(GL_TRIANGLES, skyboxCube->GetIndexBuffer()->GetCount(), GL_UNSIGNED_INT, nullptr));
 			glDepthFunc(GL_LESS);
 		}
@@ -171,7 +172,7 @@ namespace Void::Rendering {
 
 
 			// Check texture existence
-			unsigned int textureIndices[3]{ -1 };
+			int textureIndices[3]{ -1, -1, -1 };
 			for (unsigned int i = 0; i < 3; i++) {
 				uint64_t textureIndex = -1;
 				if (i >= submission.TextureNames.size())
@@ -191,7 +192,6 @@ namespace Void::Rendering {
 				textureIndices[i] = textureIndex;
 			}
 
-
 			// Add indexBuffer to batch indexBuffer
 			{
 				for (int i = 0; i < indexBuffer->GetCount(); i++) {
@@ -199,7 +199,6 @@ namespace Void::Rendering {
 					m_RendererData.IndexBufferPtr++;
 				}
 			}
-
 
 			// Add vertexBuffer to batch vertexBuffer
 			{
@@ -272,6 +271,7 @@ namespace Void::Rendering {
 		for (uint32_t i = 0; i < m_RendererData.TextureSlotsIndex; i++) {
 			glActiveTexture(GL_TEXTURE0 + i);
 			TextureLibrary::GetInstance().GetTexture(m_RendererData.TextureSlots[i].c_str())->Bind();
+			m_RendererData.Shader->SetInt("Textures[" + std::to_string(i) + "]", i);
 		}
 
 		size_t indexCount = m_RendererData.GetIndexCount();
@@ -288,5 +288,6 @@ namespace Void::Rendering {
 
 		m_RendererData.IndexBufferPtr = m_RendererData.IndexBufferBase;
 		m_RendererData.VertexBufferPtr = m_RendererData.VertexBufferBase;
+		m_RendererData.TextureSlotsIndex = 0;
 	}
 }

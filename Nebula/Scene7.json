@@ -27,12 +27,12 @@
                     "Type": "RenderingComponent",
                     "Data": {
                         "DrawWireframe": false,
-                        "Blending": true,
+                        "Blending": false,
                         "Submeshes": [
                             {
-                                "Model": "Assets/Models/SM_Env_Door_Glass_01.obj",
+                                "Model": "Assets/Models/SM_Env_Road_001.obj",
                                 "Texture": [
-                                    "Assets/Textures/PolygonHeist_Texture_03_C.png"
+                                    "Assets/Textures/PolygonCity_Texture_04_A.png"
                                 ],
                                 "Shader": "DefaultShader"
                             }
@@ -68,130 +68,7 @@
                     "Type": "RenderingComponent",
                     "Data": {
                         "DrawWireframe": false,
-                        "Blending": true,
-                        "Submeshes": [
-                            {
-                                "Model": "Assets/Models/SM_Env_Door_Glass_01.obj",
-                                "Texture": [
-                                    "Assets/Textures/PolygonHeist_Texture_03_C.png"
-                                ],
-                                "Shader": "DefaultShader"
-                            }
-                        ]
-                    }
-                }
-            ]
-        },
-        {
-            "Name": "Glass door2",
-            "Components": [
-                {
-                    "Type": "TransformComponent",
-                    "Data": {
-                        "Position": {
-                            "X": 0.0,
-                            "Y": -1.0,
-                            "Z": -6.369999885559082
-                        },
-                        "Rotation": {
-                            "X": 0.0,
-                            "Y": -134.72999572753906,
-                            "Z": 0.0
-                        },
-                        "Scale": {
-                            "X": 1.0,
-                            "Y": 1.0,
-                            "Z": 1.0
-                        }
-                    }
-                },
-                {
-                    "Type": "RenderingComponent",
-                    "Data": {
-                        "DrawWireframe": false,
-                        "Blending": true,
-                        "Submeshes": [
-                            {
-                                "Model": "Assets/Models/SM_Env_Door_Glass_01.obj",
-                                "Texture": [
-                                    "Assets/Textures/PolygonHeist_Texture_03_C.png"
-                                ],
-                                "Shader": "DefaultShader"
-                            }
-                        ]
-                    }
-                }
-            ]
-        },
-        {
-            "Name": "Glass door2",
-            "Components": [
-                {
-                    "Type": "TransformComponent",
-                    "Data": {
-                        "Position": {
-                            "X": 1.0,
-                            "Y": -1.0,
-                            "Z": -6.369999885559082
-                        },
-                        "Rotation": {
-                            "X": 0.0,
-                            "Y": -134.72999572753906,
-                            "Z": 0.0
-                        },
-                        "Scale": {
-                            "X": 1.0,
-                            "Y": 1.0,
-                            "Z": 1.0
-                        }
-                    }
-                },
-                {
-                    "Type": "RenderingComponent",
-                    "Data": {
-                        "DrawWireframe": false,
-                        "Blending": true,
-                        "Submeshes": [
-                            {
-                                "Model": "Assets/Models/SM_Env_Door_Glass_01.obj",
-                                "Texture": [
-                                    "Assets/Textures/PolygonHeist_Texture_03_C.png"
-                                ],
-                                "Shader": "DefaultShader"
-                            }
-                        ]
-                    }
-                }
-            ]
-        },
-        {
-            "Name": "Glass door2",
-            "Components": [
-                {
-                    "Type": "TransformComponent",
-                    "Data": {
-                        "Position": {
-                            "X": 0.0,
-                            "Y": -1.0,
-                            "Z": 5.630000114440918
-                        },
-                        "Rotation": {
-                            "X": 0.0,
-                            "Y": -310.7300109863281,
-                            "Z": 0.0
-                        },
-                        "Scale": {
-                            "X": 2.0,
-                            "Y": 2.0,
-                            "Z": 2.0
-                        }
-                    }
-                },
-                {
-                    "Type": "RenderingComponent",
-                    "Data": {
-                        "DrawWireframe": false,
-                        "Blending": true,
+                        "Blending": false,
                         "Submeshes": [
                             {
                                 "Model": "Assets/Models/SM_Env_Door_Glass_01.obj",
