@@ -77,21 +77,20 @@
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>VOID_PLATFORM_WINDOWS;VOID_BUILD_DLL;VOID_ASSERT_ENABLED;VOID_AUDIO_FMOD;VOID_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\SPDLOG\include;vendor\GLFW\include;vendor\GLAD\include;vendor\GLM;vendor\ASSIMP\include;vendor\IMGUI;vendor\NLOHMANN\single_include;vendor\FMOD\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;vendor\SPDLOG\include;vendor\GLFW\include;vendor\GLAD\include;vendor\GLM;vendor\ASSIMP\include;vendor\IMGUI;vendor\NLOHMANN\single_include;vendor\FMOD\include;vendor\IMGUIZMO;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
-      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <Lib>
-      <AdditionalDependencies>opengl32.lib;assimp-vc143-mtd.lib;fmod_vc.lib;fmodL_vc.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>vendor\ASSIMP\libs;vendor\FMOD\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opengl32.lib;assimp-vc143-mtd.lib;fmod_vc.lib;fmodL_vc.lib;ImGuizmo.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>vendor\ASSIMP\libs;vendor\FMOD\lib;vendor\IMGUIZMO\ImGuizmo\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Lib>
     <PreBuildEvent>
       <Command>IF EXIST vendor\ASSIMP\libs\assimp-vc143-mtd.dll\ (xcopy /Q /E /Y /I vendor\ASSIMP\libs\assimp-vc143-mtd.dll $(SolutionDir)\bin\Debug-windows-x86_64\$(ProjectName) &gt; nul) ELSE (xcopy /Q /Y /I vendor\ASSIMP\libs\assimp-vc143-mtd.dll $(SolutionDir)\bin\Debug-windows-x86_64\$(ProjectName) &gt; nul)
@@ -110,7 +109,7 @@ IF EXIST ..\bin\Debug-windows-x86_64\$(ProjectName)\fmod.dll\ (xcopy /Q /E /Y /I
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>VOID_PLATFORM_WINDOWS;VOID_BUILD_DLL;VOID_ASSERT_ENABLED;VOID_AUDIO_FMOD;VOID_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\SPDLOG\include;vendor\GLFW\include;vendor\GLAD\include;vendor\GLM;vendor\ASSIMP\include;vendor\IMGUI;vendor\NLOHMANN\single_include;vendor\FMOD\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;vendor\SPDLOG\include;vendor\GLFW\include;vendor\GLAD\include;vendor\GLM;vendor\ASSIMP\include;vendor\IMGUI;vendor\NLOHMANN\single_include;vendor\FMOD\include;vendor\IMGUIZMO;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -126,8 +125,8 @@ IF EXIST ..\bin\Debug-windows-x86_64\$(ProjectName)\fmod.dll\ (xcopy /Q /E /Y /I
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
     <Lib>
-      <AdditionalDependencies>opengl32.lib;assimp-vc143-mtd.lib;fmod_vc.lib;fmodL_vc.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>vendor\ASSIMP\libs;vendor\FMOD\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opengl32.lib;assimp-vc143-mtd.lib;fmod_vc.lib;fmodL_vc.lib;ImGuizmo.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>vendor\ASSIMP\libs;vendor\FMOD\lib;vendor\IMGUIZMO\ImGuizmo\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Lib>
     <PreBuildEvent>
       <Command>IF EXIST vendor\ASSIMP\libs\assimp-vc143-mtd.dll\ (xcopy /Q /E /Y /I vendor\ASSIMP\libs\assimp-vc143-mtd.dll $(SolutionDir)\bin\Release-windows-x86_64\$(ProjectName) &gt; nul) ELSE (xcopy /Q /Y /I vendor\ASSIMP\libs\assimp-vc143-mtd.dll $(SolutionDir)\bin\Release-windows-x86_64\$(ProjectName) &gt; nul)
@@ -146,7 +145,7 @@ IF EXIST ..\bin\Release-windows-x86_64\$(ProjectName)\fmod.dll\ (xcopy /Q /E /Y 
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>VOID_PLATFORM_WINDOWS;VOID_BUILD_DLL;VOID_ASSERT_ENABLED;VOID_AUDIO_FMOD;VOID_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\SPDLOG\include;vendor\GLFW\include;vendor\GLAD\include;vendor\GLM;vendor\ASSIMP\include;vendor\IMGUI;vendor\NLOHMANN\single_include;vendor\FMOD\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;vendor\SPDLOG\include;vendor\GLFW\include;vendor\GLAD\include;vendor\GLM;vendor\ASSIMP\include;vendor\IMGUI;vendor\NLOHMANN\single_include;vendor\FMOD\include;vendor\IMGUIZMO;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -162,8 +161,8 @@ IF EXIST ..\bin\Release-windows-x86_64\$(ProjectName)\fmod.dll\ (xcopy /Q /E /Y 
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
     <Lib>
-      <AdditionalDependencies>opengl32.lib;assimp-vc143-mtd.lib;fmod_vc.lib;fmodL_vc.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>vendor\ASSIMP\libs;vendor\FMOD\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opengl32.lib;assimp-vc143-mtd.lib;fmod_vc.lib;fmodL_vc.lib;ImGuizmo.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>vendor\ASSIMP\libs;vendor\FMOD\lib;vendor\IMGUIZMO\ImGuizmo\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Lib>
     <PreBuildEvent>
       <Command>IF EXIST vendor\ASSIMP\libs\assimp-vc143-mtd.dll\ (xcopy /Q /E /Y /I vendor\ASSIMP\libs\assimp-vc143-mtd.dll $(SolutionDir)\bin\Dist-windows-x86_64\$(ProjectName) &gt; nul) ELSE (xcopy /Q /Y /I vendor\ASSIMP\libs\assimp-vc143-mtd.dll $(SolutionDir)\bin\Dist-windows-x86_64\$(ProjectName) &gt; nul)
@@ -177,16 +176,6 @@ IF EXIST ..\bin\Dist-windows-x86_64\$(ProjectName)\fmod.dll\ (xcopy /Q /E /Y /I 
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="src\Void\ECS\Components\SkyboxComponent.h" />
-    <ClInclude Include="src\Void\Platform\OpenGL\Components\Cubemap\OpenGLCubemap.h" />
-    <ClInclude Include="src\Void\Rendering\Components\Cubemap\Cubemap.h" />
-    <ClInclude Include="src\Void\Rendering\Components\Camera\SceneCamera\SceneCamera.h" />
-    <ClInclude Include="src\Void\ECS\Components\CameraControllerComponent.h" />
-    <ClInclude Include="src\Void\ECS\Systems\Camera\CameraControllerSystem.h" />
-    <ClInclude Include="src\Void\ECS\Commands\PlaySoundCommand.h" />
-    <ClInclude Include="src\Void\ECS\Event\CollisionInfo.h" />
-    <ClInclude Include="src\Void\ECS\Event\IECSCommand.h" />
-    <ClInclude Include="src\Void\ECS\Systems\Event\EventSystem.h" />
     <ClInclude Include="src\Void.h" />
     <ClInclude Include="src\Void\Audio\AudioManager\AudioManager.h" />
     <ClInclude Include="src\Void\Core\Application.h" />
@@ -196,11 +185,15 @@ IF EXIST ..\bin\Dist-windows-x86_64\$(ProjectName)\fmod.dll\ (xcopy /Q /E /Y /I 
     <ClInclude Include="src\Void\Core\Window.h" />
     <ClInclude Include="src\Void\Debug\Assertion.h" />
     <ClInclude Include="src\Void\Debug\Log.h" />
+    <ClInclude Include="src\Void\ECS\Commands\PlaySoundCommand.h" />
     <ClInclude Include="src\Void\ECS\Components\AudioListenerComponent.h" />
     <ClInclude Include="src\Void\ECS\Components\CameraComponent.h" />
+    <ClInclude Include="src\Void\ECS\Components\CameraControllerComponent.h" />
     <ClInclude Include="src\Void\ECS\Components\EventListenerComponent.h" />
     <ClInclude Include="src\Void\ECS\Components\PhysicsComponent.h" />
+    <ClInclude Include="src\Void\ECS\Components\PointLightComponent.h" />
     <ClInclude Include="src\Void\ECS\Components\RenderingComponent.h" />
+    <ClInclude Include="src\Void\ECS\Components\SkyboxComponent.h" />
     <ClInclude Include="src\Void\ECS\Components\SpotLightComponent.h" />
     <ClInclude Include="src\Void\ECS\Components\TagComponent.h" />
     <ClInclude Include="src\Void\ECS\Components\TranformComponent.h" />
@@ -209,10 +202,14 @@ IF EXIST ..\bin\Dist-windows-x86_64\$(ProjectName)\fmod.dll\ (xcopy /Q /E /Y /I 
     <ClInclude Include="src\Void\ECS\Core\Scene\Scene.h" />
     <ClInclude Include="src\Void\ECS\Core\Scene\SceneManager.h" />
     <ClInclude Include="src\Void\ECS\Core\Systems\ISystem.h" />
-    <ClInclude Include="src\Void\ECS\Event\IECSEventInfo.h" />
+    <ClInclude Include="src\Void\ECS\Event\CollisionInfo.h" />
     <ClInclude Include="src\Void\ECS\Event\ECSEventType.h" />
+    <ClInclude Include="src\Void\ECS\Event\IECSCommand.h" />
+    <ClInclude Include="src\Void\ECS\Event\IECSEventInfo.h" />
     <ClInclude Include="src\Void\ECS\Systems\AudioListener\AudioListenerSystem.h" />
+    <ClInclude Include="src\Void\ECS\Systems\Camera\CameraControllerSystem.h" />
     <ClInclude Include="src\Void\ECS\Systems\Camera\CameraSystem.h" />
+    <ClInclude Include="src\Void\ECS\Systems\Event\EventSystem.h" />
     <ClInclude Include="src\Void\ECS\Systems\Physics\PhysicsSystem.h" />
     <ClInclude Include="src\Void\ECS\Systems\Rendering\RenderingSystem.h" />
     <ClInclude Include="src\Void\Event\Event.h" />
@@ -238,6 +235,7 @@ IF EXIST ..\bin\Dist-windows-x86_64\$(ProjectName)\fmod.dll\ (xcopy /Q /E /Y /I 
     <ClInclude Include="src\Void\Platform\FMOD\DataStructs\FMODChannel.h" />
     <ClInclude Include="src\Void\Platform\FMOD\DataStructs\FMODChannelGroup.h" />
     <ClInclude Include="src\Void\Platform\FMOD\Utils\FMODUtils.h" />
+    <ClInclude Include="src\Void\Platform\OpenGL\Components\Cubemap\OpenGLCubemap.h" />
     <ClInclude Include="src\Void\Platform\OpenGL\Components\FrameBuffer\OpenGLFrameBuffer.h" />
     <ClInclude Include="src\Void\Platform\OpenGL\Components\IndexBuffer\OpenGLIndexBuffer.h" />
     <ClInclude Include="src\Void\Platform\OpenGL\Components\Renderer\OpenGLRenderer.h" />
@@ -250,6 +248,8 @@ IF EXIST ..\bin\Dist-windows-x86_64\$(ProjectName)\fmod.dll\ (xcopy /Q /E /Y /I 
     <ClInclude Include="src\Void\Platform\OpenGL\Input\OpenGLInput.h" />
     <ClInclude Include="src\Void\Platform\OpenGL\Window\OpenGLWindow.h" />
     <ClInclude Include="src\Void\Rendering\Components\Camera\Core\Camera.h" />
+    <ClInclude Include="src\Void\Rendering\Components\Camera\SceneCamera\SceneCamera.h" />
+    <ClInclude Include="src\Void\Rendering\Components\Cubemap\Cubemap.h" />
     <ClInclude Include="src\Void\Rendering\Components\FrameBuffer\FrameBuffer.h" />
     <ClInclude Include="src\Void\Rendering\Components\FrameBuffer\FrameBufferConfig.h" />
     <ClInclude Include="src\Void\Rendering\Components\IndexBuffer\IndexBuffer.h" />
@@ -271,6 +271,7 @@ IF EXIST ..\bin\Dist-windows-x86_64\$(ProjectName)\fmod.dll\ (xcopy /Q /E /Y /I 
     <ClInclude Include="src\Void\Utils\ExternalFiles\File\File.h" />
     <ClInclude Include="src\Void\Utils\ExternalFiles\MeshLoader\MeshLoader.h" />
     <ClInclude Include="src\Void\Utils\ExternalFiles\TextureLoader\TextureLoader.h" />
+    <ClInclude Include="src\Void\Utils\Math\Math.h" />
     <ClInclude Include="src\Void\Utils\ObjectPooling\IPoolObject.h" />
     <ClInclude Include="src\Void\Utils\ObjectPooling\Pool.h" />
     <ClInclude Include="src\Void\Utils\Parser\ISerializable.h" />
@@ -281,22 +282,19 @@ IF EXIST ..\bin\Dist-windows-x86_64\$(ProjectName)\fmod.dll\ (xcopy /Q /E /Y /I 
     <ClInclude Include="src\pch.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Void\Platform\OpenGL\Components\Cubemap\OpenGLCubemap.cpp" />
-    <ClCompile Include="src\Void\Rendering\Components\Cubemap\Cubemap.cpp" />
-    <ClCompile Include="src\Void\Rendering\Components\Camera\SceneCamera\SceneCamera.cpp" />
-    <ClCompile Include="src\Void\ECS\Systems\Camera\CameraControllerSystem.cpp" />
-    <ClCompile Include="src\Void\ECS\Commands\PlaySoundCommand.cpp" />
-    <ClCompile Include="src\Void\ECS\Systems\Event\EventSystem.cpp" />
     <ClCompile Include="src\Void\Audio\AudioManager\AudioManager.cpp" />
     <ClCompile Include="src\Void\Core\Application.cpp" />
     <ClCompile Include="src\Void\Core\Input.cpp" />
     <ClCompile Include="src\Void\Core\Window.cpp" />
     <ClCompile Include="src\Void\Debug\Log.cpp" />
+    <ClCompile Include="src\Void\ECS\Commands\PlaySoundCommand.cpp" />
     <ClCompile Include="src\Void\ECS\Core\Entity\Entity.cpp" />
     <ClCompile Include="src\Void\ECS\Core\Scene\Scene.cpp" />
     <ClCompile Include="src\Void\ECS\Core\Scene\SceneManager.cpp" />
     <ClCompile Include="src\Void\ECS\Systems\AudioListener\AudioListenerSystem.cpp" />
+    <ClCompile Include="src\Void\ECS\Systems\Camera\CameraControllerSystem.cpp" />
     <ClCompile Include="src\Void\ECS\Systems\Camera\CameraSystem.cpp" />
+    <ClCompile Include="src\Void\ECS\Systems\Event\EventSystem.cpp" />
     <ClCompile Include="src\Void\ECS\Systems\Physics\PhysicsSystem.cpp" />
     <ClCompile Include="src\Void\ECS\Systems\Rendering\RenderingSystem.cpp" />
     <ClCompile Include="src\Void\Layers\Core\Layer.cpp" />
@@ -312,6 +310,7 @@ IF EXIST ..\bin\Dist-windows-x86_64\$(ProjectName)\fmod.dll\ (xcopy /Q /E /Y /I 
     <ClCompile Include="src\Void\Platform\FMOD\AudioManager\FMODAudioManager.cpp" />
     <ClCompile Include="src\Void\Platform\FMOD\AudioManager\FMODAudioManagerDSP.cpp" />
     <ClCompile Include="src\Void\Platform\FMOD\AudioManager\FMODAudioManagerManipulation.cpp" />
+    <ClCompile Include="src\Void\Platform\OpenGL\Components\Cubemap\OpenGLCubemap.cpp" />
     <ClCompile Include="src\Void\Platform\OpenGL\Components\FrameBuffer\OpenGLFrameBuffer.cpp" />
     <ClCompile Include="src\Void\Platform\OpenGL\Components\IndexBuffer\OpenGLIndexBuffer.cpp" />
     <ClCompile Include="src\Void\Platform\OpenGL\Components\Renderer\OpenGLRenderer.cpp" />
@@ -324,6 +323,8 @@ IF EXIST ..\bin\Dist-windows-x86_64\$(ProjectName)\fmod.dll\ (xcopy /Q /E /Y /I 
     <ClCompile Include="src\Void\Platform\OpenGL\ImGui\ImGuiBuilder.cpp" />
     <ClCompile Include="src\Void\Platform\OpenGL\Input\OpenGLInput.cpp" />
     <ClCompile Include="src\Void\Platform\OpenGL\Window\OpenGLWindow.cpp" />
+    <ClCompile Include="src\Void\Rendering\Components\Camera\SceneCamera\SceneCamera.cpp" />
+    <ClCompile Include="src\Void\Rendering\Components\Cubemap\Cubemap.cpp" />
     <ClCompile Include="src\Void\Rendering\Components\FrameBuffer\FrameBuffer.cpp" />
     <ClCompile Include="src\Void\Rendering\Components\IndexBuffer\IndexBuffer.cpp" />
     <ClCompile Include="src\Void\Rendering\Components\Renderer\Renderer.cpp" />
@@ -339,6 +340,7 @@ IF EXIST ..\bin\Dist-windows-x86_64\$(ProjectName)\fmod.dll\ (xcopy /Q /E /Y /I 
     <ClCompile Include="src\Void\Utils\ExternalFiles\File\File.cpp" />
     <ClCompile Include="src\Void\Utils\ExternalFiles\MeshLoader\MeshLoader.cpp" />
     <ClCompile Include="src\Void\Utils\ExternalFiles\TextureLoader\TextureLoader.cpp" />
+    <ClCompile Include="src\Void\Utils\Math\Math.cpp" />
     <ClCompile Include="src\Void\Utils\Parser\JSONParser.cpp" />
     <ClCompile Include="src\Void\Utils\TimeSteps\Time.cpp" />
     <ClCompile Include="src\Void\Vendor\stb_lib\stb_lib.cpp" />

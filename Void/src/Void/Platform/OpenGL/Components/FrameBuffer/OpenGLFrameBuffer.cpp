@@ -24,7 +24,7 @@ namespace Void::Rendering {
 		glViewport(0, 0, m_Config.width, m_Config.height);
 	}
 
-	void OpenGLFrameBuffer::UnBind()
+	void OpenGLFrameBuffer::Unbind()
 	{
 		glBindFramebuffer(GL_FRAMEBUFFER, 0);
 	}
@@ -60,9 +60,7 @@ namespace Void::Rendering {
 		m_Config.width = width;
 		m_Config.height = height;
 
-		glBindTexture(GL_TEXTURE_2D, m_TextureID);
-		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, NULL);
+		GLCall(glBindTexture(GL_TEXTURE_2D, m_TextureID));
+		GLCall(glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, m_Config.width, m_Config.height, 0, GL_RGBA, GL_UNSIGNED_BYTE, NULL));
 	}
-
-
 }

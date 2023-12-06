@@ -1,6 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <Filter Include="Camera">
+      <UniqueIdentifier>{CE7141AB-BA13-6C81-A3CE-7FD58F0FF3D1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Events">
+      <UniqueIdentifier>{3A8963B1-262B-8E87-0FE6-A1DBFB2615D8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Events\Commands">
+      <UniqueIdentifier>{BB259421-27B1-01E6-30C2-84DA9CCC5DE6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Events\Commands\OpenWindow">
+      <UniqueIdentifier>{94B82B39-80C8-D709-E981-3C28D5B0C6A2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Events\Commands\SetCurrentEntity">
+      <UniqueIdentifier>{76DF89A1-6230-75E3-8B94-63A57744084D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Events\Core">
+      <UniqueIdentifier>{D281C524-3E37-3E1A-C72B-38F133E0341E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Events\EventStructs">
+      <UniqueIdentifier>{83D5EE61-EF36-CC6F-78A4-1222E404032F}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Windows">
       <UniqueIdentifier>{5032B729-BC11-36C5-C529-C19B31889C26}</UniqueIdentifier>
     </Filter>
@@ -9,6 +30,9 @@
     </Filter>
     <Filter Include="Windows\GeneralDockspace">
       <UniqueIdentifier>{CA4A7C23-B66F-CBA3-DFBA-B033CB3ECAC1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Windows\Inspector">
+      <UniqueIdentifier>{16AF93DD-82C5-9173-CB3C-1D95379262FB}</UniqueIdentifier>
     </Filter>
     <Filter Include="Windows\Menus">
       <UniqueIdentifier>{67C854B8-D388-D0EE-9CC3-196C084315CB}</UniqueIdentifier>
@@ -27,7 +51,31 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Camera\EditorCamera.h">
+      <Filter>Camera</Filter>
+    </ClInclude>
     <ClInclude Include="src\EditorLayer.h" />
+    <ClInclude Include="src\Events\Commands\OpenWindow\OpenWindowCommand.h">
+      <Filter>Events\Commands\OpenWindow</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Events\Commands\SetCurrentEntity\SetCurrentEntityCommand.h">
+      <Filter>Events\Commands\SetCurrentEntity</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Events\Core\Event.h">
+      <Filter>Events\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Events\Core\EventManager.h">
+      <Filter>Events\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Events\Core\IEventCommand.h">
+      <Filter>Events\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Events\EventStructs\EntitySelected.h">
+      <Filter>Events\EventStructs</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Events\EventStructs\WindowOpened.h">
+      <Filter>Events\EventStructs</Filter>
+    </ClInclude>
     <ClInclude Include="src\Windows\Core\GuiWindow.h">
       <Filter>Windows\Core</Filter>
     </ClInclude>
@@ -36,6 +84,9 @@
     </ClInclude>
     <ClInclude Include="src\Windows\GeneralDockspace\GeneralDockspace.h">
       <Filter>Windows\GeneralDockspace</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Windows\Inspector\InspectorWindow.h">
+      <Filter>Windows\Inspector</Filter>
     </ClInclude>
     <ClInclude Include="src\Windows\Menus\Core\Menu.h">
       <Filter>Windows\Menus\Core</Filter>
@@ -46,25 +97,33 @@
     <ClInclude Include="src\Windows\Menus\Menu\FileMenu.h">
       <Filter>Windows\Menus\Menu</Filter>
     </ClInclude>
+    <ClInclude Include="src\Windows\Menus\Menu\ViewMenu.h">
+      <Filter>Windows\Menus\Menu</Filter>
+    </ClInclude>
     <ClInclude Include="src\Windows\SceneHierarchy\SceneHierarchyWindow.h">
       <Filter>Windows\SceneHierarchy</Filter>
     </ClInclude>
     <ClInclude Include="src\Windows\SceneView\SceneViewWindow.h">
       <Filter>Windows\SceneView</Filter>
     </ClInclude>
-    <ClInclude Include="src\Events\Core\IEventCommand.h" />
-    <ClInclude Include="src\Events\Core\Event.h" />
-    <ClInclude Include="src\Events\EventStructs\WindowOpened.h" />
-    <ClInclude Include="src\Events\EventStructs\EntitySelected.h" />
-    <ClInclude Include="src\Events\Core\EventManager.h" />
-    <ClInclude Include="src\Events\Commands\OpenWindow\OpenWindowCommand.h" />
-    <ClInclude Include="src\Events\Commands\SetCurrentEntity\SetCurrentEntityCommand.h" />
-    <ClInclude Include="src\Windows\Inspector\InspectorWindow.h" />
-    <ClInclude Include="src\Windows\Menus\Menu\ViewMenu.h" />
-    <ClInclude Include="src\Camera\EditorCamera.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Camera\EditorCamera.cpp">
+      <Filter>Camera</Filter>
+    </ClCompile>
     <ClCompile Include="src\EditorLayer.cpp" />
+    <ClCompile Include="src\Events\Commands\OpenWindow\OpenWindowCommand.cpp">
+      <Filter>Events\Commands\OpenWindow</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Events\Commands\SetCurrentEntity\SetCurrentEntityCommand.cpp">
+      <Filter>Events\Commands\SetCurrentEntity</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Events\Core\Event.cpp">
+      <Filter>Events\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Events\Core\EventManager.cpp">
+      <Filter>Events\Core</Filter>
+    </ClCompile>
     <ClCompile Include="src\Nebula.cpp" />
     <ClCompile Include="src\Windows\Core\GuiWindow.cpp">
       <Filter>Windows\Core</Filter>
@@ -75,6 +134,9 @@
     <ClCompile Include="src\Windows\GeneralDockspace\GeneralDockspace.cpp">
       <Filter>Windows\GeneralDockspace</Filter>
     </ClCompile>
+    <ClCompile Include="src\Windows\Inspector\InspectorWindow.cpp">
+      <Filter>Windows\Inspector</Filter>
+    </ClCompile>
     <ClCompile Include="src\Windows\Menus\Core\Menu.cpp">
       <Filter>Windows\Menus\Core</Filter>
     </ClCompile>
@@ -84,11 +146,5 @@
     <ClCompile Include="src\Windows\SceneView\SceneViewWindow.cpp">
       <Filter>Windows\SceneView</Filter>
     </ClCompile>
-    <ClCompile Include="src\Events\Core\Event.cpp" />
-    <ClCompile Include="src\Events\Core\EventManager.cpp" />
-    <ClCompile Include="src\Events\Commands\OpenWindow\OpenWindowCommand.cpp" />
-    <ClCompile Include="src\Events\Commands\SetCurrentEntity\SetCurrentEntityCommand.cpp" />
-    <ClCompile Include="src\Windows\Inspector\InspectorWindow.cpp" />
-    <ClCompile Include="src\Camera\EditorCamera.cpp" />
   </ItemGroup>
 </Project>

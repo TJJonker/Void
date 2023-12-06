@@ -79,7 +79,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>VOID_PLATFORM_WINDOWS;VOID_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;..\Void\src;..\Void\vendor\SPDLOG\include;..\Void\vendor\GLM;..\Void\vendor\GLAD\include;..\Void\vendor\IMGUI;..\Void\vendor\ASSIMP\include;..\Void\vendor\NLOHMANN\single_include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;..\Void\src;..\Void\vendor\SPDLOG\include;..\Void\vendor\GLM;..\Void\vendor\GLAD\include;..\Void\vendor\IMGUI;..\Void\vendor\ASSIMP\include;..\Void\vendor\NLOHMANN\single_include;..\Void\vendor\IMGUIZMO;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -89,7 +89,8 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>..\bin\Debug-windows-x86_64\Nebula;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>ImGuizmo.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\bin\Debug-windows-x86_64\Nebula;..\Void\vendor\IMGUIZMO\ImGuizmo\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -97,7 +98,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>VOID_PLATFORM_WINDOWS;VOID_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;..\Void\src;..\Void\vendor\SPDLOG\include;..\Void\vendor\GLM;..\Void\vendor\GLAD\include;..\Void\vendor\IMGUI;..\Void\vendor\ASSIMP\include;..\Void\vendor\NLOHMANN\single_include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;..\Void\src;..\Void\vendor\SPDLOG\include;..\Void\vendor\GLM;..\Void\vendor\GLAD\include;..\Void\vendor\IMGUI;..\Void\vendor\ASSIMP\include;..\Void\vendor\NLOHMANN\single_include;..\Void\vendor\IMGUIZMO;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -111,7 +112,8 @@
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>..\bin\Release-windows-x86_64\Nebula;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>ImGuizmo.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\bin\Release-windows-x86_64\Nebula;..\Void\vendor\IMGUIZMO\ImGuizmo\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">
@@ -119,7 +121,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>VOID_PLATFORM_WINDOWS;VOID_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;..\Void\src;..\Void\vendor\SPDLOG\include;..\Void\vendor\GLM;..\Void\vendor\GLAD\include;..\Void\vendor\IMGUI;..\Void\vendor\ASSIMP\include;..\Void\vendor\NLOHMANN\single_include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;..\Void\src;..\Void\vendor\SPDLOG\include;..\Void\vendor\GLM;..\Void\vendor\GLAD\include;..\Void\vendor\IMGUI;..\Void\vendor\ASSIMP\include;..\Void\vendor\NLOHMANN\single_include;..\Void\vendor\IMGUIZMO;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -133,14 +135,15 @@
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>..\bin\Dist-windows-x86_64\Nebula;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>ImGuizmo.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\bin\Dist-windows-x86_64\Nebula;..\Void\vendor\IMGUIZMO\ImGuizmo\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="src\Camera\EditorCamera.h" />
-    <ClInclude Include="src\Events\Commands\SetCurrentEntity\SetCurrentEntityCommand.h" />
-    <ClInclude Include="src\Events\Commands\OpenWindow\OpenWindowCommand.h" />
     <ClInclude Include="src\EditorLayer.h" />
+    <ClInclude Include="src\Events\Commands\OpenWindow\OpenWindowCommand.h" />
+    <ClInclude Include="src\Events\Commands\SetCurrentEntity\SetCurrentEntityCommand.h" />
     <ClInclude Include="src\Events\Core\Event.h" />
     <ClInclude Include="src\Events\Core\EventManager.h" />
     <ClInclude Include="src\Events\Core\IEventCommand.h" />
@@ -159,9 +162,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Camera\EditorCamera.cpp" />
-    <ClCompile Include="src\Events\Commands\SetCurrentEntity\SetCurrentEntityCommand.cpp" />
-    <ClCompile Include="src\Events\Commands\OpenWindow\OpenWindowCommand.cpp" />
     <ClCompile Include="src\EditorLayer.cpp" />
+    <ClCompile Include="src\Events\Commands\OpenWindow\OpenWindowCommand.cpp" />
+    <ClCompile Include="src\Events\Commands\SetCurrentEntity\SetCurrentEntityCommand.cpp" />
     <ClCompile Include="src\Events\Core\Event.cpp" />
     <ClCompile Include="src\Events\Core\EventManager.cpp" />
     <ClCompile Include="src\Nebula.cpp" />

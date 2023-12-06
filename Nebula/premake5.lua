@@ -19,16 +19,19 @@ project "Nebula"
 		solutionDir .. "%{includeDirs.GLAD}",
 		solutionDir .. "%{includeDirs.IMGUI}",
 		solutionDir .. "%{includeDirs.ASSIMP}",
-		solutionDir .. "%{includeDirs.NLOHMANN}"
+		solutionDir .. "%{includeDirs.NLOHMANN}",
+		solutionDir .. "%{includeDirs.IMGUIZMO}"		
 	}
 
 	libdirs {
-		solutionDir .. "/bin/" .. outputdir .. "/%{prj.name}"
+		solutionDir .. "/bin/" .. outputdir .. "/%{prj.name}",
+		solutionDir .. "%{libraryDirs.IMGUIZMO}"
 	}
 
 	links {
 		"Void",
-		"ImGui"
+		"ImGui",
+		"ImGuizmo.lib"
 	}
 
 	defines { }

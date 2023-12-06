@@ -25,7 +25,7 @@ namespace Nebula::Window {
 		Void::SceneManager::GetInstance().GetCurrentScene()->UpdateRenderingSystem();
 		Void::Rendering::RenderingCommands::PrepareRender(m_EditorCamera->GetViewProjection(), m_EditorCamera->GetPosition(), m_EditorCamera->GetSkybox());
 		Void::Rendering::RenderingCommands::Render();
-		m_FrameBuffer->UnBind();
+		m_FrameBuffer->Unbind();
 
 		ImGui::Image((ImTextureID)m_FrameBuffer->GetRenderingID(), ImVec2{ p_WindowSize.x, p_WindowSize.y }, ImVec2{ 0, 1 }, ImVec2{ 1, 0 });
 		Void::Rendering::RenderingCommands::ResetSubmissions();
@@ -33,7 +33,9 @@ namespace Nebula::Window {
 
 	void SceneViewWindow::OnWindowResize(glm::vec2 windowSize)
 	{
+		// TODO: Research why blended colors fuck up on framebuffer resizing
 		//m_FrameBuffer->Resize((uint32_t)windowSize.x, (uint32_t)windowSize.y);
+		m_EditorCamera->SetViewportSize(windowSize);
 	}
 
 	void SceneViewWindow::OnEvent(Void::Event& event)

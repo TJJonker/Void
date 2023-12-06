@@ -8,7 +8,7 @@ namespace Void::Rendering {
 		virtual ~FrameBuffer() = default;
 
 		virtual void Bind() = 0;
-		virtual void UnBind() = 0;
+		virtual void Unbind() = 0;
 
 		virtual void Generate() = 0;
 		virtual void Resize(uint16_t width, uint16_t height) = 0;
