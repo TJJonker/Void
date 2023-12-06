@@ -28,3 +28,5 @@
 
 #include <Void/Rendering/Components/Texture/Texture.h>
 
+#include "Void/Utils/Math/Math.h"
+

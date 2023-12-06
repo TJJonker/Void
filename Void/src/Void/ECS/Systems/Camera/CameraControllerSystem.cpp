@@ -52,10 +52,8 @@ namespace Void {
         offset *= controller.Sensitivity * Time::DeltaTime();
         lastMousePosition = mousePosition;
 
-        glm::vec3 rotationEuler = glm::eulerAngles(transform.Rotation);
-        rotationEuler.y += offset.x;
-        rotationEuler.x += offset.y;
-        rotationEuler.x = glm::clamp(rotationEuler.x, PITCH_MIN, PITCH_MAX);
-        transform.Rotation = glm::quat(rotationEuler);
+        transform.Rotation.y += offset.x;
+        transform.Rotation.x += offset.y;
+        transform.Rotation.x = glm::clamp(transform.Rotation.x, PITCH_MIN, PITCH_MAX);
     }
 }

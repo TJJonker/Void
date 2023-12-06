@@ -48,7 +48,7 @@ namespace Void {
 		ImGui_ImplOpenGL3_NewFrame();
 		ImGui_ImplGlfw_NewFrame();
 		ImGui::NewFrame();
-		//ImGuizmo::BeginFrame();
+		ImGuizmo::BeginFrame();
 	}
 
 	void ImGuiLayer::EndRendering()

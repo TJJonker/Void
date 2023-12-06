@@ -16,6 +16,7 @@ namespace Nebula::Window {
 	private:
 		Void::Rendering::FrameBuffer* m_FrameBuffer = nullptr;
 		EditorCamera* m_EditorCamera = nullptr;
+		Void::Entity* m_SelectedEntity = nullptr;
 	};
 }
 

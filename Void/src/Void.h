@@ -50,3 +50,5 @@
 // Physics Solvers
 #include "Void/Physics/Solvers/Position/PositionSolver.h"
 #include "Void/Physics/Solvers/Impulse/ImpulseSolver.h"
+
+#include "Void/Utils/Math/Math.h"

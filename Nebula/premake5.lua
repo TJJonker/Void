@@ -20,7 +20,7 @@ project "Nebula"
 		solutionDir .. "%{includeDirs.IMGUI}",
 		solutionDir .. "%{includeDirs.ASSIMP}",
 		solutionDir .. "%{includeDirs.NLOHMANN}",
-		solutionDir .. "%{includeDirs.IMGUIZMO}"		
+		solutionDir .. "%{includeDirs.IMGUIZMO}"	
 	}
 
 	libdirs {

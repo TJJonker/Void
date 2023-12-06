@@ -68,7 +68,7 @@ namespace Void::Math {
 		}
 		else {
 			rotation.x = atan2(-Row[2][0], Row[1][1]);
-			rotation.z = 0;
+			rotation.z = 0.f;
 		}
 
 

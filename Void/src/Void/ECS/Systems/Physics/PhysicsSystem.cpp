@@ -38,8 +38,8 @@ namespace Void {
 				if (!aPhysics.Collider || !bPhysics.Collider)
 					continue;
 				
-				Transform transformA = { aTransform.Position, glm::eulerAngles(aTransform.Rotation), aTransform.Scale }; 
-				Transform transformB = { bTransform.Position, glm::eulerAngles(bTransform.Rotation), bTransform.Scale };
+				Transform transformA = { aTransform.Position, aTransform.Rotation, aTransform.Scale }; 
+				Transform transformB = { bTransform.Position, bTransform.Rotation, bTransform.Scale };
 				std::vector<CollisionPoint> points = aPhysics.Collider->TestCollision(&transformA, bPhysics.Collider, &transformB);
 
 				for (const CollisionPoint& cp : points) {
