@@ -4,6 +4,7 @@
 #include <Void/Rendering/Components/VertexLayout.h>
 #include "Void/Rendering/Libraries/Shader/ShaderLibrary.h"
 #include "Void/Rendering/Libraries/Texture/TextureLibrary.h"
+#include <Void/Rendering/Libraries/Mesh/MeshLibrary.h>
 
 
 namespace Void::Rendering {
@@ -25,6 +26,8 @@ namespace Void::Rendering {
 		std::shared_ptr<VertexBuffer> VertexBuffer = nullptr;
 		std::shared_ptr<IndexBuffer> IndexBuffer = nullptr;
 		Shader* Shader = nullptr;
+
+		Cubemap* CubemapTexture;
 
 		// Shader settings
 		glm::mat4 ViewProjectionMatrix = glm::mat4(0);
@@ -99,24 +102,50 @@ namespace Void::Rendering {
 
 	void OpenGLRenderer::PrepareRender(const Camera* camera, const glm::mat4& transformMatrix)
 	{
+		m_RendererData.CubemapTexture = camera->GetSkybox() != "" ? TextureLibrary::GetInstance().GetCubemap(camera->GetSkybox().c_str()) : nullptr;
 		m_RendererData.ViewProjectionMatrix = camera->GetProjection() * glm::inverse(transformMatrix);
 		m_RendererData.ViewPosition = transformMatrix[3];
 		PrepareRenderData();
 	}
 
-	void OpenGLRenderer::PrepareRender(const glm::mat4& viewProjectionMatrix, const glm::vec3 cameraPosition)
+	void OpenGLRenderer::PrepareRender(const glm::mat4& viewProjectionMatrix, const glm::vec3& position, std::string skyboxTitle)
 	{
+		m_RendererData.CubemapTexture = skyboxTitle != "" ? TextureLibrary::GetInstance().GetCubemap(skyboxTitle.c_str()) : nullptr;
 		m_RendererData.ViewProjectionMatrix = viewProjectionMatrix;
-		m_RendererData.ViewPosition = cameraPosition;
+		m_RendererData.ViewPosition = position;
 		PrepareRenderData();
 	}
 
 	void OpenGLRenderer::Render()
 	{
+		// Render non blended models
 		for (const std::pair<std::string, std::vector<BatchSubmission>>& pair : m_Submissions) {
 			ExecuteRender(pair);
 		}
 
+		// Render skybox
+		if (m_RendererData.CubemapTexture != nullptr) {
+			// Shader
+			m_RendererData.Shader = ShaderLibrary::GetInstance()->Get("DefaultSkyboxShader");
+			m_RendererData.SetShaderSettings();
+			
+			glm::mat4 modelMatrix = glm::translate(glm::mat4(1.f), m_RendererData.ViewPosition);
+			m_RendererData.Shader->SetMatrix4("modelMatrix", modelMatrix);
+
+			// Texture
+			m_RendererData.CubemapTexture->Bind();
+
+			// VertexArray
+			glDepthFunc(GL_LEQUAL);
+			VertexArray* skyboxCube = MeshLibrary::GetInstance()->Get("Assets/Core/Models/Cube.obj")->Submeshes[0];
+			skyboxCube->Bind();
+
+			// Draw call
+			GLCall(glDrawElements(GL_TRIANGLES, skyboxCube->GetIndexBuffer()->GetCount(), GL_UNSIGNED_INT, nullptr));
+			glDepthFunc(GL_LESS);
+		}
+
+		// Render blended models
 		for (const std::pair<std::string, std::vector<BatchSubmission>>& pair : m_SubmissionsBlended) {
 			ExecuteRender(pair);
 		}
@@ -242,7 +271,7 @@ namespace Void::Rendering {
 
 		for (uint32_t i = 0; i < m_RendererData.TextureSlotsIndex; i++) {
 			glActiveTexture(GL_TEXTURE0 + i);
-			TextureLibrary::GetInstance()->Get(m_RendererData.TextureSlots[i].c_str())->Bind();
+			TextureLibrary::GetInstance().GetTexture(m_RendererData.TextureSlots[i].c_str())->Bind();
 		}
 
 		size_t indexCount = m_RendererData.GetIndexCount();
@@ -250,11 +279,6 @@ namespace Void::Rendering {
 
 		m_RendererData.IndexBuffer->SetData(m_RendererData.IndexBufferBase, m_RendererData.GetIndexCount() * sizeof(uint32_t));
 		m_RendererData.VertexBuffer->SetData(m_RendererData.VertexBufferBase, m_RendererData.GetVertexCount() * sizeof(BatchLayout));
-
-		for (int i = 0; i < vertexCount; i++) {
-			VOID_TRACE("VertexData {0} - x: {1}, y: {2}, z: {3}", i, (m_RendererData.VertexBufferBase + i)->Position.x, (m_RendererData.VertexBufferBase + i)->Position.y, (m_RendererData.VertexBufferBase + i)->Position.z);
-			VOID_TRACE("IndexData {0} - index: {1}", i, *(m_RendererData.IndexBufferBase + i));
-		}
 
 		m_RendererData.VertexArray->Bind();
 		GLCall(glEnable(GL_DEPTH_TEST));

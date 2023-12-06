@@ -6,7 +6,7 @@ namespace Void {
 
 	void ShaderLibrary::Load(const char* vertexPath, const char* fragmentPath, const char* title)
 	{
-		VOID_ASSERT(!m_Library.count(title), "Filepath/Alias: '{0}' already exists.", title);
+		VOID_ASSERT(!m_Library.count(title), "Filepath/Alias: '{0}' already exists.");
 
 		m_Library[title] = Rendering::Shader::Create(vertexPath, fragmentPath);
 	}

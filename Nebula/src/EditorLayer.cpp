@@ -10,17 +10,29 @@ namespace Nebula::Editor {
         m_Dockspace = new Window::GeneralDockspace();
         m_Dockspace->Initialize();
 
-
         // Temp
         // Shader lib
-        Void::ShaderLibrary::GetInstance()->Load("Temp/Shaders/VertexShader.glsl", "Temp/Shaders/FragmentShader.glsl", "DefaultShader");
+        Void::ShaderLibrary::GetInstance()->Load("Assets/Shaders/VertexShader.glsl", "Assets/Shaders/FragmentShader.glsl", "DefaultShader");
+        Void::ShaderLibrary::GetInstance()->Load("Assets/Core/Shaders/DefaultSkybox/VertexShader.glsl", "Assets/Core/Shaders/DefaultSkybox/FragmentShader.glsl", "DefaultSkyboxShader");
 
         // Texture lib
-        Void::TextureLibrary::GetInstance()->Load("Temp/Textures/PolygonHeist_Texture_03_C.png");
+        Void::TextureLibrary::GetInstance().LoadTexture("Assets/Textures/PolygonHeist_Texture_03_C.png");
+
+        // Cubemaps
+        Void::TextureLibrary::GetInstance().LoadCubemap("Default",
+            {
+                "Assets/Skybox/DefaultSkybox/right.jpg",
+                "Assets/Skybox/DefaultSkybox/left.jpg",
+                "Assets/Skybox/DefaultSkybox/top.jpg",
+                "Assets/Skybox/DefaultSkybox/bottom.jpg",
+                "Assets/Skybox/DefaultSkybox/front.jpg",
+                "Assets/Skybox/DefaultSkybox/back.jpg",
+            });
 
         // Mesh lib
-        Void::MeshLibrary::GetInstance()->Load("Temp/Models/SM_Env_Door_Glass_01.obj");
-        Void::MeshLibrary::GetInstance()->Load("Temp/Models/SM_Prop_WaterCooler_Tank_01.obj");
+        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Env_Door_Glass_01.obj");
+        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Prop_WaterCooler_Tank_01.obj");
+        Void::MeshLibrary::GetInstance()->Load("Assets/Core/Models/Cube.obj");
 
 
 

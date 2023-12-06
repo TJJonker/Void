@@ -119,7 +119,6 @@ namespace Nebula {
 		{
 			m_Distance = 60.0f;
 		}
-		VOID_TRACE(m_Distance);
 	}
 
 	glm::vec3 EditorCamera::GetUpDirection() const

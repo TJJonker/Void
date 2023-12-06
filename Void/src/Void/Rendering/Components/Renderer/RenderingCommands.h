@@ -49,7 +49,7 @@ namespace Void::Rendering {
 		static void SubmitBlended(VertexArray* vertexArray, glm::mat4 modelMatrix, std::vector<std::string> textureNames, std::string shaderName);
 
 		static void PrepareRender(const Camera* camera, const glm::mat4& transformMatrix);
-		static void PrepareRender(const glm::mat4& viewProjectionMatrix, const glm::vec3 cameraPosition);
+		static void PrepareRender(const glm::mat4& viewProjectionMatrix, const glm::vec3& position, std::string skyboxTitle = "");
 		static void Render();
 		static void FinishRender();
 

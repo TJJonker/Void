@@ -489,6 +489,9 @@
     <ClInclude Include="src\Void\Rendering\Components\VertexLayout.h" />
     <ClInclude Include="src\Void\Rendering\Components\Camera\Core\Camera.h" />
     <ClInclude Include="src\Void\Rendering\Components\Camera\SceneCamera\SceneCamera.h" />
+    <ClInclude Include="src\Void\Rendering\Components\Cubemap\Cubemap.h" />
+    <ClInclude Include="src\Void\Platform\OpenGL\Components\Cubemap\OpenGLCubemap.h" />
+    <ClInclude Include="src\Void\ECS\Components\SkyboxComponent.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Void\Audio\AudioManager\AudioManager.cpp">
@@ -661,5 +664,7 @@
     <ClCompile Include="src\Void\ECS\Commands\PlaySoundCommand.cpp" />
     <ClCompile Include="src\Void\ECS\Systems\Camera\CameraControllerSystem.cpp" />
     <ClCompile Include="src\Void\Rendering\Components\Camera\SceneCamera\SceneCamera.cpp" />
+    <ClCompile Include="src\Void\Rendering\Components\Cubemap\Cubemap.cpp" />
+    <ClCompile Include="src\Void\Platform\OpenGL\Components\Cubemap\OpenGLCubemap.cpp" />
   </ItemGroup>
 </Project>

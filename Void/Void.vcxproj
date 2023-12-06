@@ -177,6 +177,9 @@ IF EXIST ..\bin\Dist-windows-x86_64\$(ProjectName)\fmod.dll\ (xcopy /Q /E /Y /I 
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Void\ECS\Components\SkyboxComponent.h" />
+    <ClInclude Include="src\Void\Platform\OpenGL\Components\Cubemap\OpenGLCubemap.h" />
+    <ClInclude Include="src\Void\Rendering\Components\Cubemap\Cubemap.h" />
     <ClInclude Include="src\Void\Rendering\Components\Camera\SceneCamera\SceneCamera.h" />
     <ClInclude Include="src\Void\ECS\Components\CameraControllerComponent.h" />
     <ClInclude Include="src\Void\ECS\Systems\Camera\CameraControllerSystem.h" />
@@ -278,6 +281,8 @@ IF EXIST ..\bin\Dist-windows-x86_64\$(ProjectName)\fmod.dll\ (xcopy /Q /E /Y /I 
     <ClInclude Include="src\pch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Void\Platform\OpenGL\Components\Cubemap\OpenGLCubemap.cpp" />
+    <ClCompile Include="src\Void\Rendering\Components\Cubemap\Cubemap.cpp" />
     <ClCompile Include="src\Void\Rendering\Components\Camera\SceneCamera\SceneCamera.cpp" />
     <ClCompile Include="src\Void\ECS\Systems\Camera\CameraControllerSystem.cpp" />
     <ClCompile Include="src\Void\ECS\Commands\PlaySoundCommand.cpp" />

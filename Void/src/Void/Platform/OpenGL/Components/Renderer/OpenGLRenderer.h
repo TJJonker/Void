@@ -15,7 +15,7 @@ namespace Void::Rendering {
 		void Initialize();
 				
 		virtual void PrepareRender(const Camera* camera, const glm::mat4& transformMatrix) override;
-		virtual void PrepareRender(const glm::mat4& viewProjectionMatrix, const glm::vec3 cameraPosition) override;
+		virtual void PrepareRender(const glm::mat4& viewProjectionMatrix, const glm::vec3& position, std::string skyboxTitle) override;
 		virtual void FinishRender() override;
 		void ResetSubmissions();
 		
@@ -23,7 +23,6 @@ namespace Void::Rendering {
 		virtual void SubmitBlended(VertexArray* vertexArray, const glm::mat4& modelMatrix, const std::vector<std::string>& textureNames, const std::string& shaderName) override;
 
 		virtual void Render() override;
-
 		void Flush();
 
 		virtual void Clear() override;

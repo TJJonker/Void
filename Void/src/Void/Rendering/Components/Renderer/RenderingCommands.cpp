@@ -25,9 +25,9 @@ namespace Void::Rendering {
 		m_Renderer->PrepareRender(camera, transformMatrix);
 	}
 
-	void RenderingCommands::PrepareRender(const glm::mat4& viewProjectionMatrix, const glm::vec3 cameraPosition)
+	void RenderingCommands::PrepareRender(const glm::mat4& viewProjectionMatrix, const glm::vec3& position, std::string skyboxTitle)
 	{
-		m_Renderer->PrepareRender(viewProjectionMatrix, cameraPosition);
+		m_Renderer->PrepareRender(viewProjectionMatrix, position, skyboxTitle);
 	}
 
 	void RenderingCommands::Render()

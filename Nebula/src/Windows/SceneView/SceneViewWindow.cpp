@@ -13,7 +13,7 @@ namespace Nebula::Window {
 		Void::Rendering::RenderingCommands::SetClearColor({ .3, .2, .2, 1 });
 
 		m_EditorCamera = new EditorCamera(45.f, 1280.f / 720.f, .1f, 100.f);
-
+		m_EditorCamera->SetSkybox("Default");
 	}
 
 	void SceneViewWindow::OnGuiRender()
@@ -23,7 +23,7 @@ namespace Nebula::Window {
 		m_FrameBuffer->Bind();
 		Void::Rendering::RenderingCommands::Clear();
 		Void::SceneManager::GetInstance().GetCurrentScene()->UpdateRenderingSystem();
-		Void::Rendering::RenderingCommands::PrepareRender(m_EditorCamera->GetViewProjection(), m_EditorCamera->GetPosition());
+		Void::Rendering::RenderingCommands::PrepareRender(m_EditorCamera->GetViewProjection(), m_EditorCamera->GetPosition(), m_EditorCamera->GetSkybox());
 		Void::Rendering::RenderingCommands::Render();
 		m_FrameBuffer->UnBind();
 
