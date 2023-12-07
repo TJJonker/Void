@@ -55,9 +55,9 @@ namespace Void::Rendering {
 			Shader->SetMatrix4("viewProjectionMatrix", ViewProjectionMatrix);
 			Shader->SetVec3("viewPosition", ViewPosition);
 
-			Shader->SetVec3("directionalLight.direction", glm::vec3(.2f, 0.f, -1.f ));
-			Shader->SetVec3("directionalLight.ambient", glm::vec3( .4f, .4f, .4f ));
-			Shader->SetVec3("directionalLight.diffuse", glm::vec3( .6f, .6f, .6f ));
+			Shader->SetVec3("directionalLight.direction", glm::vec3(.2f, -.6f, -1.f ));
+			Shader->SetVec3("directionalLight.ambient", glm::vec3( .6f, .6f, .6f ));
+			Shader->SetVec3("directionalLight.diffuse", glm::vec3( .4f, .4f, .4f ));
 			Shader->SetVec3("directionalLight.specular", glm::vec3( 1.f, 1.f, 1.f ));
 		}
 	};
