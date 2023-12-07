@@ -22,4 +22,11 @@
 #include "Void/Utils/ExternalFiles/File/File.h"
 
 #include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+
 #include <nlohmann/json.hpp>
+
+#include <Void/Rendering/Components/Texture/Texture.h>
+
+#include "Void/Utils/Math/Math.h"
+

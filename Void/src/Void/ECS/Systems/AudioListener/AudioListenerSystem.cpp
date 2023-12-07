@@ -21,6 +21,6 @@ namespace Void {
 		CameraComponent& camera = entity->GetComponent<CameraComponent>();
 		VelocityComponent& velocity = entity->GetComponent<VelocityComponent>();
 
-		Audio::AudioManager::GetInstance()->SetListenerAttributes(transform.Position, velocity.Velocity, camera.Front, camera.Up);
+		Audio::AudioManager::GetInstance()->SetListenerAttributes(transform.Position, velocity.Velocity, transform.GetForwardVector(), transform.GetUpVector());
 	}
 }

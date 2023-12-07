@@ -16,7 +16,7 @@ namespace Void::Rendering {
 		virtual ~OpenGLFrameBuffer();
 
 		void Bind() override;
-		void UnBind() override;
+		void Unbind() override;
 
 		void Generate() override;
 		void Resize(uint16_t width, uint16_t height) override;

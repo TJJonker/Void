@@ -1,46 +1,56 @@
 #include "EditorLayer.h"
-#include "imgui.h"
-#include <Void/ECS/Components/CameraComponent.h>
-#include "Void/ECS/Components/CameraControllerComponent.h"
-#include <Void/ECS/Systems/Camera/CameraSystem.h>
-#include <Void/ECS/Systems/Camera/CameraControllerSystem.h>
-#include <Void/ECS/Systems/AudioListener/AudioListenerSystem.h>
-#include <Void/ECS/Components/AudioListenerComponent.h>
-#include <Void/ECS/Components/VelocityComponent.h>
-#include <Void/ECS/Components/FootstepComponent.h>
-#include <Void/ECS/Systems/Footsteps/FootstepSystem.h>
-#include <Void/Audio/AudioManager/AudioManager.h>
-#include <Void/ECS/Components/GunComponent.h>
-#include <Void/ECS/Systems/Gun/GunSystem.h>
-#include <Void/Audio/AudioManager/AudioManager.h>
 
 
 namespace Nebula::Editor {
 
 	void EditorLayer::OnAdded()
 	{
-        Void::Rendering::FrameBufferConfig config;
-        config.width = 1280;
-        config.height = 720;
-        m_FrameBuffer = Void::Rendering::FrameBuffer::Create(config);
+        Void::SceneManager::GetInstance().LoadScene("Scene7.json");
 
+        m_Dockspace = new Window::GeneralDockspace();
+        m_Dockspace->Initialize();
 
         // Temp
         // Shader lib
-        Void::ShaderLibrary::GetInstance()->Load("Temp/Shaders/VertexShader.glsl", "Temp/Shaders/FragmentShader.glsl", "DefaultShader");
-
-        // Mesh lib
-        Void::MeshLibrary::GetInstance()->Load("Temp/Models/Barn.obj");
-       
+        Void::ShaderLibrary::GetInstance()->Load("Assets/Shaders/VertexShader.glsl", "Assets/Shaders/FragmentShader.glsl", "DefaultShader");
+        Void::ShaderLibrary::GetInstance()->Load("Assets/Core/Shaders/DefaultSkybox/VertexShader.glsl", "Assets/Core/Shaders/DefaultSkybox/FragmentShader.glsl", "DefaultSkyboxShader");
 
         // Texture lib
-        Void::TextureLibrary::GetInstance()->Load("Temp/Models/Western_Texture.png");
+        Void::TextureLibrary::GetInstance().LoadTexture("Assets/Textures/PolygonHeist_Texture_03_C.png");
+        Void::TextureLibrary::GetInstance().LoadTexture("Assets/Textures/PolygonCity_Texture_04_A.png");
 
-        // Sound lib
+        // Cubemaps
+        Void::TextureLibrary::GetInstance().LoadCubemap("Default",
+            {
+                "Assets/Skybox/DefaultSkybox/right.jpg",
+                "Assets/Skybox/DefaultSkybox/left.jpg",
+                "Assets/Skybox/DefaultSkybox/top.jpg",
+                "Assets/Skybox/DefaultSkybox/bottom.jpg",
+                "Assets/Skybox/DefaultSkybox/front.jpg",
+                "Assets/Skybox/DefaultSkybox/back.jpg",
+            });
+
+        // Mesh lib
+        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Env_Road_01.obj");
+        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Env_Road_02.obj");
+        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Env_Road_03.obj");
+        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Env_Road_Arrow_01.obj");
+        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Env_Road_Arrow_02.obj");
+        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Env_Road_Bare_01.obj");
+        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Env_Road_Crossing_01.obj");
+        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Env_Road_Lines_01.obj");
+        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Env_Road_Lines_02.obj");
+        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Env_Road_Median_01.obj");
+        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Env_Road_Median_02.obj");
+        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Env_Road_ParkingLines_01.obj");
+        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Env_Road_Patch_01.obj");
+        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Env_Road_YellowLines_01.obj");
+        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Env_Road_YellowLines_02.obj");
+        Void::MeshLibrary::GetInstance()->Load("Assets/Core/Models/Cube.obj");
+        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Env_Door_Glass_01.obj");
+        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Prop_WaterCooler_Tank_01.obj");
 
 
-        m_SceneManager = new Void::SceneManager();
-        m_SceneManager->LoadScene("Scene7.json");
 
         //entt::entity en = m_SceneManager->GetCurrentScene()->CreateEntity();
         //m_SceneManager->GetCurrentScene()->AddComponent<Void::TransformComponent>(en);
@@ -50,97 +60,29 @@ namespace Nebula::Editor {
         //tag.Tag = "Player";
         //m_SceneManager->SaveScene("Scene7.json");
 
+
         std::shared_ptr<Void::Rendering::RenderingSystem> renderingSystem = std::make_shared<Void::Rendering::RenderingSystem>();
-        m_SceneManager->GetCurrentScene()->SetRenderingSystem(renderingSystem);
+        Void::SceneManager::GetInstance().GetCurrentScene()->SetRenderingSystem(renderingSystem);
 
-        std::shared_ptr<Void::PhysicsSystem> physicsSystem = std::make_shared<Void::PhysicsSystem>();
-        m_SceneManager->GetCurrentScene()->SetPhysicsSystem(physicsSystem);
-        physicsSystem->AddSolver(std::make_shared<Void::PositionSolver>());
-        physicsSystem->AddSolver(std::make_shared<Void::ImpulseSolver>());
-
-        std::shared_ptr<Void::CameraSystem> cameraSystem = std::make_shared<Void::CameraSystem>();
-        m_SceneManager->GetCurrentScene()->AddSystem(cameraSystem);
-
-        std::shared_ptr<Void::CameraControllerSystem> cameraControllerSystem = std::make_shared<Void::CameraControllerSystem>();
-        m_SceneManager->GetCurrentScene()->AddSystem(cameraControllerSystem);
-
-
-        {
-            Void::Entity* entity = m_SceneManager->GetCurrentScene()->CreateEntity();
-            entity->AddComponent<Void::CameraControllerComponent>();
-            entity->AddComponent<Void::TransformComponent>();
-            Void::TransformComponent& t = entity->GetComponent<Void::TransformComponent>();
-            t.Position = glm::vec3(0, .5, 0);
-            entity->AddComponent<Void::CameraComponent>();
-        }
+        //std::shared_ptr<Void::PhysicsSystem> physicsSystem = std::make_shared<Void::PhysicsSystem>();
+        //m_SceneManager->GetCurrentScene()->SetPhysicsSystem(physicsSystem);
+        //physicsSystem->AddSolver(std::make_shared<Void::PositionSolver>());
+        //physicsSystem->AddSolver(std::make_shared<Void::ImpulseSolver>());
 	}
+
+    void EditorLayer::OnEvent(Void::Event& event)
+    {
+        m_Dockspace->OnEvent(event);
+    }
 
     void EditorLayer::OnUpdate()
     {
-        m_SceneManager->GetCurrentScene()->UpdateSystems();
-        m_SceneManager->GetCurrentScene()->UpdatePhysicsSystem();
-
-        m_FrameBuffer->Bind();
-        Void::Rendering::RenderingCommands::SetClearColor({ .1, .2, .1, 1 });
-        Void::Rendering::RenderingCommands::Clear();
-        m_SceneManager->GetCurrentScene()->UpdateRenderingSystem();
-        Void::Audio::AudioManager::GetInstance()->Update();
-        m_FrameBuffer->UnBind();
+        //Void::SceneManager::GetInstance().GetCurrentScene()->UpdateSystems();
+        //Void::SceneManager::GetInstance().GetCurrentScene()->UpdatePhysicsSystem();
     } 
 
 	void EditorLayer::OnGuiRender()
 	{
-        static ImGuiDockNodeFlags dockspace_flags = ImGuiDockNodeFlags_None;
-
-        // We are using the ImGuiWindowFlags_NoDocking flag to make the parent window not dockable into,
-        // because it would be confusing to have two docking targets within each others.
-        ImGuiWindowFlags window_flags = ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_NoDocking;
-        
-        ImGuiViewport* viewport = ImGui::GetMainViewport();
-        ImGui::SetNextWindowPos(viewport->GetWorkPos());
-        ImGui::SetNextWindowSize(viewport->GetWorkSize());
-        ImGui::SetNextWindowViewport(viewport->ID);
-        ImGui::PushStyleVar(ImGuiStyleVar_WindowRounding, 0.0f);
-        ImGui::PushStyleVar(ImGuiStyleVar_WindowBorderSize, 0.0f);
-        window_flags |= ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove;
-        window_flags |= ImGuiWindowFlags_NoBringToFrontOnFocus | ImGuiWindowFlags_NoNavFocus;
-
-        ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(0.0f, 0.0f));
-        
-        bool open = true;
-        ImGui::Begin("DockSpace Demo", &open, window_flags);
-
-        ImGui::PopStyleVar();
-        ImGui::PopStyleVar(2);
-
-        // DockSpace
-        ImGuiIO& io = ImGui::GetIO();
-        if (io.ConfigFlags & ImGuiConfigFlags_DockingEnable)
-        {
-            ImGuiID dockspace_id = ImGui::GetID("MyDockSpace");
-            ImGui::DockSpace(dockspace_id, ImVec2(0.0f, 0.0f), dockspace_flags);
-        }
-
-        if (ImGui::BeginMenuBar())
-        {
-            if (ImGui::BeginMenu("Options"))
-            {
-                ImGui::MenuItem("Test", NULL);
-                ImGui::EndMenu();
-            }
-            ImGui::EndMenuBar();
-        }
-
-
-        ImGui::Begin("Scene");
-        ImGui::Image((ImTextureID)m_FrameBuffer->GetRenderingID(), ImVec2{ 1280, 720 }, ImVec2{ 0, 1 }, ImVec2{ 1, 0 });
-        ImGui::End();
-
-        ImGui::Begin("Explorer");
-        //ImGui::Image((ImTextureID)m_FrameBuffer->GetRenderingID(), ImVec2{ 1280, 720 }, ImVec2{ 0, 1 }, ImVec2{ 1, 0 });
-        ImGui::End();
-
-
-        ImGui::End();
+        m_Dockspace->Render();
 	}
 }

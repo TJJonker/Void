@@ -22,12 +22,14 @@ project "Void"
 		solutionDir .. "%{includeDirs.ASSIMP}",
 		solutionDir .. "%{includeDirs.IMGUI}",
 		solutionDir .. "%{includeDirs.NLOHMANN}",
-		solutionDir .. "%{includeDirs.FMOD}"
+		solutionDir .. "%{includeDirs.FMOD}",
+		solutionDir .. "%{includeDirs.IMGUIZMO}"
 	}
 
 	libdirs {
 		solutionDir .. "%{libraryDirs.ASSIMP}",
-		solutionDir .. "%{libraryDirs.FMOD}"
+		solutionDir .. "%{libraryDirs.FMOD}",
+		solutionDir .. "%{libraryDirs.IMGUIZMO}"
 	}
 
 	links {
@@ -37,7 +39,8 @@ project "Void"
 		"assimp-vc143-mtd.lib",
 		"ImGui",
 		"fmod_vc.lib",
-		"fmodL_vc.lib"
+		"fmodL_vc.lib",
+		"ImGuizmo.lib"
 	}
 
 

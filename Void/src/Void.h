@@ -38,7 +38,7 @@
 // Built in Components
 #include "Void/ECS/Components/RenderingComponent.h"
 #include "Void/ECS/Components/TranformComponent.h"
-#include <Void/ECS/Components/LightComponent.h>
+#include <Void/ECS/Components/PointLightComponent.h>
 #include <Void/ECS/Components/SpotLightComponent.h>
 #include <Void/ECS/Components/TagComponent.h>
 
@@ -50,3 +50,5 @@
 // Physics Solvers
 #include "Void/Physics/Solvers/Position/PositionSolver.h"
 #include "Void/Physics/Solvers/Impulse/ImpulseSolver.h"
+
+#include "Void/Utils/Math/Math.h"

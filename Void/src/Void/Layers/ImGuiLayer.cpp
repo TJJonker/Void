@@ -2,8 +2,10 @@
 #include "ImGuiLayer.h"
 
 #include "imgui.h"
-#include "examples/imgui_impl_glfw.h"
-#include "examples/imgui_impl_opengl3.h"
+#include "backends/imgui_impl_glfw.h"
+#include "backends/imgui_impl_opengl3.h"
+
+#include <ImGuizmo/ImGuizmo.h>
 
 #include <Void/Core/Application.h>
 #include "Void/Utils/TimeSteps/Time.h"
@@ -46,6 +48,7 @@ namespace Void {
 		ImGui_ImplOpenGL3_NewFrame();
 		ImGui_ImplGlfw_NewFrame();
 		ImGui::NewFrame();
+		ImGuizmo::BeginFrame();
 	}
 
 	void ImGuiLayer::EndRendering()

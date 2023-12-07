@@ -101,6 +101,12 @@ namespace Void {
 				data.EventCallback(event);
 			}
 			});
+
+		glfwSetScrollCallback(m_Window, [](GLFWwindow* window, double x, double y) {
+			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
+			MouseScrolledEvent event(x, y);
+			data.EventCallback(event);
+			});
 	}
 
 	/// <summary>

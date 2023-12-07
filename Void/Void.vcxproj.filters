@@ -19,6 +19,9 @@
     <Filter Include="Void\ECS">
       <UniqueIdentifier>{01566B36-ED22-C641-163C-B4E90268FBCF}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Void\ECS\Commands">
+      <UniqueIdentifier>{624258CE-CE58-5664-17D0-E185832527EC}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Void\ECS\Components">
       <UniqueIdentifier>{76D809CD-E239-E7DA-6BA7-2D8DD7071E9A}</UniqueIdentifier>
     </Filter>
@@ -34,6 +37,9 @@
     <Filter Include="Void\ECS\Core\Systems">
       <UniqueIdentifier>{00A2E549-6C0E-A144-3502-39A2A12DC3AC}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Void\ECS\Event">
+      <UniqueIdentifier>{1294D3EA-FE61-C7F0-E7F5-3717D362A355}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Void\ECS\Systems">
       <UniqueIdentifier>{081DB82B-F415-D77D-1D48-BC0209A0B689}</UniqueIdentifier>
     </Filter>
@@ -42,6 +48,9 @@
     </Filter>
     <Filter Include="Void\ECS\Systems\Camera">
       <UniqueIdentifier>{80B83769-ECEF-7F00-F5F9-E32361B0A6F9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Void\ECS\Systems\Event">
+      <UniqueIdentifier>{59443149-453E-5A9B-2EAB-F0AB1A44C007}</UniqueIdentifier>
     </Filter>
     <Filter Include="Void\ECS\Systems\Physics">
       <UniqueIdentifier>{7AA8188A-66CD-670A-8F18-4D9A7B9C6628}</UniqueIdentifier>
@@ -97,6 +106,9 @@
     <Filter Include="Void\Platform\OpenGL\Components">
       <UniqueIdentifier>{F4EA2A36-60CE-3976-69D1-67B2D53300C7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Void\Platform\OpenGL\Components\Cubemap">
+      <UniqueIdentifier>{A0CCB623-0C5C-780E-1558-59268166B31A}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Void\Platform\OpenGL\Components\FrameBuffer">
       <UniqueIdentifier>{08168747-747B-1ACE-FD53-BCA669B80F3D}</UniqueIdentifier>
     </Filter>
@@ -136,17 +148,20 @@
     <Filter Include="Void\Rendering">
       <UniqueIdentifier>{44582AD2-3026-1ED8-19BA-8EFE0527FA3C}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Void\Rendering\Camera">
-      <UniqueIdentifier>{3C78E7A6-A8E4-A2A1-71D8-3AFFDD03C509}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Void\Rendering\Camera\Camera">
-      <UniqueIdentifier>{34F191FD-20AC-81A9-C963-FAF3B5FDCB39}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Void\Rendering\Camera\CameraController">
-      <UniqueIdentifier>{D8C6AF4C-C418-873C-AD37-C44C9928A025}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Void\Rendering\Components">
       <UniqueIdentifier>{D90AD5E9-45CD-0874-8E7D-9700FA7EE151}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Void\Rendering\Components\Camera">
+      <UniqueIdentifier>{31D1A683-1D22-92C5-4686-80873236252F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Void\Rendering\Components\Camera\Core">
+      <UniqueIdentifier>{295C57B7-9520-56A7-5E86-8671CA09F2DC}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Void\Rendering\Components\Camera\SceneCamera">
+      <UniqueIdentifier>{979EEA39-83B1-EA92-2C9B-C77F188D87E0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Void\Rendering\Components\Cubemap">
+      <UniqueIdentifier>{85016126-F16F-B6A5-3A59-71A5A606AC41}</UniqueIdentifier>
     </Filter>
     <Filter Include="Void\Rendering\Components\FrameBuffer">
       <UniqueIdentifier>{6D355B4C-D9F9-593C-A25F-8A060EE3F571}</UniqueIdentifier>
@@ -193,6 +208,9 @@
     <Filter Include="Void\Utils">
       <UniqueIdentifier>{D7ACD57F-C364-17CD-2C6C-F0281843B2BD}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Void\Utils\Command">
+      <UniqueIdentifier>{E50CB785-D1F0-77DB-3A51-722E2654625D}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Void\Utils\ExternalFiles">
       <UniqueIdentifier>{7C3A99FC-685F-E87C-91AA-CD0C7D2EE79A}</UniqueIdentifier>
     </Filter>
@@ -205,11 +223,17 @@
     <Filter Include="Void\Utils\ExternalFiles\TextureLoader">
       <UniqueIdentifier>{33284EF8-1F7A-25E8-0899-62F8F4893ED1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Void\Utils\Math">
+      <UniqueIdentifier>{10B044DD-7C3B-B2A1-854C-3596F1560EA2}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Void\Utils\ObjectPooling">
       <UniqueIdentifier>{15D44F4F-01F9-9ECF-2A44-845F16C89DED}</UniqueIdentifier>
     </Filter>
     <Filter Include="Void\Utils\Parser">
       <UniqueIdentifier>{73912F48-DFA7-2DDE-281F-B9FF9474FE65}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Void\Utils\Random">
+      <UniqueIdentifier>{A772D74C-1389-D5E2-5C00-6104C855A66A}</UniqueIdentifier>
     </Filter>
     <Filter Include="Void\Utils\TimeSteps">
       <UniqueIdentifier>{441FC3EE-30AE-4CB8-D9CC-60B3C53A5D5E}</UniqueIdentifier>
@@ -247,22 +271,31 @@
     <ClInclude Include="src\Void\Debug\Log.h">
       <Filter>Void\Debug</Filter>
     </ClInclude>
+    <ClInclude Include="src\Void\ECS\Commands\PlaySoundCommand.h">
+      <Filter>Void\ECS\Commands</Filter>
+    </ClInclude>
     <ClInclude Include="src\Void\ECS\Components\AudioListenerComponent.h">
       <Filter>Void\ECS\Components</Filter>
     </ClInclude>
     <ClInclude Include="src\Void\ECS\Components\CameraComponent.h">
       <Filter>Void\ECS\Components</Filter>
     </ClInclude>
-    <ClInclude Include="src\Void\ECS\Components\EventListenerComponent.h">
+    <ClInclude Include="src\Void\ECS\Components\CameraControllerComponent.h">
       <Filter>Void\ECS\Components</Filter>
     </ClInclude>
-    <ClInclude Include="src\Void\ECS\Components\LightComponent.h">
+    <ClInclude Include="src\Void\ECS\Components\EventListenerComponent.h">
       <Filter>Void\ECS\Components</Filter>
     </ClInclude>
     <ClInclude Include="src\Void\ECS\Components\PhysicsComponent.h">
       <Filter>Void\ECS\Components</Filter>
     </ClInclude>
+    <ClInclude Include="src\Void\ECS\Components\PointLightComponent.h">
+      <Filter>Void\ECS\Components</Filter>
+    </ClInclude>
     <ClInclude Include="src\Void\ECS\Components\RenderingComponent.h">
+      <Filter>Void\ECS\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Void\ECS\Components\SkyboxComponent.h">
       <Filter>Void\ECS\Components</Filter>
     </ClInclude>
     <ClInclude Include="src\Void\ECS\Components\SpotLightComponent.h">
@@ -289,11 +322,29 @@
     <ClInclude Include="src\Void\ECS\Core\Systems\ISystem.h">
       <Filter>Void\ECS\Core\Systems</Filter>
     </ClInclude>
+    <ClInclude Include="src\Void\ECS\Event\CollisionInfo.h">
+      <Filter>Void\ECS\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Void\ECS\Event\ECSEventType.h">
+      <Filter>Void\ECS\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Void\ECS\Event\IECSCommand.h">
+      <Filter>Void\ECS\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Void\ECS\Event\IECSEventInfo.h">
+      <Filter>Void\ECS\Event</Filter>
+    </ClInclude>
     <ClInclude Include="src\Void\ECS\Systems\AudioListener\AudioListenerSystem.h">
       <Filter>Void\ECS\Systems\AudioListener</Filter>
     </ClInclude>
+    <ClInclude Include="src\Void\ECS\Systems\Camera\CameraControllerSystem.h">
+      <Filter>Void\ECS\Systems\Camera</Filter>
+    </ClInclude>
     <ClInclude Include="src\Void\ECS\Systems\Camera\CameraSystem.h">
       <Filter>Void\ECS\Systems\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Void\ECS\Systems\Event\EventSystem.h">
+      <Filter>Void\ECS\Systems\Event</Filter>
     </ClInclude>
     <ClInclude Include="src\Void\ECS\Systems\Physics\PhysicsSystem.h">
       <Filter>Void\ECS\Systems\Physics</Filter>
@@ -370,6 +421,9 @@
     <ClInclude Include="src\Void\Platform\FMOD\Utils\FMODUtils.h">
       <Filter>Void\Platform\FMOD\Utils</Filter>
     </ClInclude>
+    <ClInclude Include="src\Void\Platform\OpenGL\Components\Cubemap\OpenGLCubemap.h">
+      <Filter>Void\Platform\OpenGL\Components\Cubemap</Filter>
+    </ClInclude>
     <ClInclude Include="src\Void\Platform\OpenGL\Components\FrameBuffer\OpenGLFrameBuffer.h">
       <Filter>Void\Platform\OpenGL\Components\FrameBuffer</Filter>
     </ClInclude>
@@ -402,6 +456,15 @@
     </ClInclude>
     <ClInclude Include="src\Void\Platform\OpenGL\Window\OpenGLWindow.h">
       <Filter>Void\Platform\OpenGL\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Void\Rendering\Components\Camera\Core\Camera.h">
+      <Filter>Void\Rendering\Components\Camera\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Void\Rendering\Components\Camera\SceneCamera\SceneCamera.h">
+      <Filter>Void\Rendering\Components\Camera\SceneCamera</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Void\Rendering\Components\Cubemap\Cubemap.h">
+      <Filter>Void\Rendering\Components\Cubemap</Filter>
     </ClInclude>
     <ClInclude Include="src\Void\Rendering\Components\FrameBuffer\FrameBuffer.h">
       <Filter>Void\Rendering\Components\FrameBuffer</Filter>
@@ -442,6 +505,9 @@
     <ClInclude Include="src\Void\Rendering\Components\VertexBufferLayout\VertexBufferLayoutElement.h">
       <Filter>Void\Rendering\Components\VertexBufferLayout</Filter>
     </ClInclude>
+    <ClInclude Include="src\Void\Rendering\Components\VertexLayout.h">
+      <Filter>Void\Rendering\Components</Filter>
+    </ClInclude>
     <ClInclude Include="src\Void\Rendering\Libraries\Mesh\MeshLibrary.h">
       <Filter>Void\Rendering\Libraries\Mesh</Filter>
     </ClInclude>
@@ -451,6 +517,9 @@
     <ClInclude Include="src\Void\Rendering\Libraries\Texture\TextureLibrary.h">
       <Filter>Void\Rendering\Libraries\Texture</Filter>
     </ClInclude>
+    <ClInclude Include="src\Void\Utils\Command\ICommand.h">
+      <Filter>Void\Utils\Command</Filter>
+    </ClInclude>
     <ClInclude Include="src\Void\Utils\ExternalFiles\File\File.h">
       <Filter>Void\Utils\ExternalFiles\File</Filter>
     </ClInclude>
@@ -459,6 +528,9 @@
     </ClInclude>
     <ClInclude Include="src\Void\Utils\ExternalFiles\TextureLoader\TextureLoader.h">
       <Filter>Void\Utils\ExternalFiles\TextureLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Void\Utils\Math\Math.h">
+      <Filter>Void\Utils\Math</Filter>
     </ClInclude>
     <ClInclude Include="src\Void\Utils\ObjectPooling\IPoolObject.h">
       <Filter>Void\Utils\ObjectPooling</Filter>
@@ -472,6 +544,9 @@
     <ClInclude Include="src\Void\Utils\Parser\JSONParser.h">
       <Filter>Void\Utils\Parser</Filter>
     </ClInclude>
+    <ClInclude Include="src\Void\Utils\Random\Random.h">
+      <Filter>Void\Utils\Random</Filter>
+    </ClInclude>
     <ClInclude Include="src\Void\Utils\TimeSteps\Time.h">
       <Filter>Void\Utils\TimeSteps</Filter>
     </ClInclude>
@@ -479,24 +554,6 @@
       <Filter>Void\Vendor\stb_lib</Filter>
     </ClInclude>
     <ClInclude Include="src\pch.h" />
-    <ClInclude Include="src\Void\Utils\Command\ICommand.h" />
-    <ClInclude Include="src\Void\ECS\Event\ECSEventType.h" />
-    <ClInclude Include="src\Void\ECS\Event\IECSEventInfo.h" />
-    <ClInclude Include="src\Void\ECS\Systems\Event\EventSystem.h" />
-    <ClInclude Include="src\Void\ECS\Commands\PlaySoundCommand.h" />
-    <ClInclude Include="src\Void\ECS\Event\IECSCommand.h" />
-    <ClInclude Include="src\Void\ECS\Event\CollisionInfo.h" />
-    <ClInclude Include="src\Void\ECS\Systems\Camera\CameraControllerSystem.h" />
-    <ClInclude Include="src\Void\ECS\Components\CameraControllerComponent.h" />
-    <ClInclude Include="src\Void\ECS\Components\FootstepComponent.h" />
-    <ClInclude Include="src\Void\ECS\Systems\Footsteps\FootstepSystem.h" />
-    <ClInclude Include="src\Void\Utils\Random\Random.h" />
-    <ClInclude Include="src\Void\ECS\Components\GunComponent.h" />
-    <ClInclude Include="src\Void\ECS\Systems\Gun\GunSystem.h" />
-    <ClInclude Include="src\Void\ECS\Components\IntroTrigger.h" />
-    <ClInclude Include="src\Void\ECS\Systems\IntroSystem.h" />
-    <ClInclude Include="src\Void\ECS\Components\MovingComponent.h" />
-    <ClInclude Include="MovingSystem.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Void\Audio\AudioManager\AudioManager.cpp">
@@ -514,6 +571,9 @@
     <ClCompile Include="src\Void\Debug\Log.cpp">
       <Filter>Void\Debug</Filter>
     </ClCompile>
+    <ClCompile Include="src\Void\ECS\Commands\PlaySoundCommand.cpp">
+      <Filter>Void\ECS\Commands</Filter>
+    </ClCompile>
     <ClCompile Include="src\Void\ECS\Core\Entity\Entity.cpp">
       <Filter>Void\ECS\Core\Entity</Filter>
     </ClCompile>
@@ -526,8 +586,14 @@
     <ClCompile Include="src\Void\ECS\Systems\AudioListener\AudioListenerSystem.cpp">
       <Filter>Void\ECS\Systems\AudioListener</Filter>
     </ClCompile>
+    <ClCompile Include="src\Void\ECS\Systems\Camera\CameraControllerSystem.cpp">
+      <Filter>Void\ECS\Systems\Camera</Filter>
+    </ClCompile>
     <ClCompile Include="src\Void\ECS\Systems\Camera\CameraSystem.cpp">
       <Filter>Void\ECS\Systems\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Void\ECS\Systems\Event\EventSystem.cpp">
+      <Filter>Void\ECS\Systems\Event</Filter>
     </ClCompile>
     <ClCompile Include="src\Void\ECS\Systems\Physics\PhysicsSystem.cpp">
       <Filter>Void\ECS\Systems\Physics</Filter>
@@ -574,6 +640,9 @@
     <ClCompile Include="src\Void\Platform\FMOD\AudioManager\FMODAudioManagerManipulation.cpp">
       <Filter>Void\Platform\FMOD\AudioManager</Filter>
     </ClCompile>
+    <ClCompile Include="src\Void\Platform\OpenGL\Components\Cubemap\OpenGLCubemap.cpp">
+      <Filter>Void\Platform\OpenGL\Components\Cubemap</Filter>
+    </ClCompile>
     <ClCompile Include="src\Void\Platform\OpenGL\Components\FrameBuffer\OpenGLFrameBuffer.cpp">
       <Filter>Void\Platform\OpenGL\Components\FrameBuffer</Filter>
     </ClCompile>
@@ -609,6 +678,12 @@
     </ClCompile>
     <ClCompile Include="src\Void\Platform\OpenGL\Window\OpenGLWindow.cpp">
       <Filter>Void\Platform\OpenGL\Window</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Void\Rendering\Components\Camera\SceneCamera\SceneCamera.cpp">
+      <Filter>Void\Rendering\Components\Camera\SceneCamera</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Void\Rendering\Components\Cubemap\Cubemap.cpp">
+      <Filter>Void\Rendering\Components\Cubemap</Filter>
     </ClCompile>
     <ClCompile Include="src\Void\Rendering\Components\FrameBuffer\FrameBuffer.cpp">
       <Filter>Void\Rendering\Components\FrameBuffer</Filter>
@@ -655,6 +730,9 @@
     <ClCompile Include="src\Void\Utils\ExternalFiles\TextureLoader\TextureLoader.cpp">
       <Filter>Void\Utils\ExternalFiles\TextureLoader</Filter>
     </ClCompile>
+    <ClCompile Include="src\Void\Utils\Math\Math.cpp">
+      <Filter>Void\Utils\Math</Filter>
+    </ClCompile>
     <ClCompile Include="src\Void\Utils\Parser\JSONParser.cpp">
       <Filter>Void\Utils\Parser</Filter>
     </ClCompile>
@@ -665,12 +743,5 @@
       <Filter>Void\Vendor\stb_lib</Filter>
     </ClCompile>
     <ClCompile Include="src\pch.cpp" />
-    <ClCompile Include="src\Void\ECS\Systems\Event\EventSystem.cpp" />
-    <ClCompile Include="src\Void\ECS\Commands\PlaySoundCommand.cpp" />
-    <ClCompile Include="src\Void\ECS\Systems\Camera\CameraControllerSystem.cpp" />
-    <ClCompile Include="src\Void\ECS\Systems\Footsteps\FootstepSystem.cpp" />
-    <ClCompile Include="src\Void\ECS\Systems\Gun\GunSystem.cpp" />
-    <ClCompile Include="src\Void\ECS\Systems\IntroSystem.cpp" />
-    <ClCompile Include="MovingSystem.cpp" />
   </ItemGroup>
 </Project>

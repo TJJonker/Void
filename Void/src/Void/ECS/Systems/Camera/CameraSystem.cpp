@@ -16,7 +16,6 @@ namespace Void {
 		CameraComponent& camera = entity->GetComponent<CameraComponent>();
 		TransformComponent& transform = entity->GetComponent<TransformComponent>();
 
-		glm::mat4 view = glm::lookAt(transform.Position, transform.Position + camera.Front, camera.Up);
-		Rendering::RenderingCommands::BeginDraw(view, camera.FOV, transform.Position);
+		Rendering::RenderingCommands::PrepareRender(&camera.SceneCamera, transform.GetTransformMatrix());
 	}
 }

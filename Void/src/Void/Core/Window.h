@@ -10,7 +10,7 @@ namespace Void {
 		uint16_t Width;
 		uint16_t Height;
 
-		WindowProps(const std::string& windowTitle = "New Window", uint16_t width = 1280, uint16_t height = 720)
+		WindowProps(const std::string& windowTitle = "New Window", uint16_t width = 1920, uint16_t height = 1080)
 			: WindowTitle(windowTitle), Width(width), Height(height) { }
 	};
 

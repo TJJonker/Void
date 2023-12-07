@@ -4,8 +4,6 @@ namespace Void::Rendering {
 	class Texture
 	{
 	public:
-
-
 		virtual ~Texture() = default;
 
 		static Texture* Create(const std::string& filePath);

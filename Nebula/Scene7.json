@@ -1,3 +1,619 @@
 {
-    "Entities": [  ]
+    "Entities": [
+        {
+            "Name": "SM_Env_Road_YellowLines_02",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": 0.0,
+                            "Y": -1.000003695487976,
+                            "Z": -23.5
+                        },
+                        "Rotation": {
+                            "X": -3.141592264175415,
+                            "Y": 0.0,
+                            "Z": -3.141592264175415
+                        },
+                        "Scale": {
+                            "X": 1.0,
+                            "Y": 1.0,
+                            "Z": 1.0
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Blending": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Assets/Models/SM_Env_Road_YellowLines_02.obj",
+                                "Texture": [
+                                    "Assets/Textures/PolygonCity_Texture_04_A.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "SM_Env_Road_YellowLines_01",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": -5.0,
+                            "Y": -1.0000066757202148,
+                            "Z": -13.599348068237305
+                        },
+                        "Rotation": {
+                            "X": 4.76837158203125e-07,
+                            "Y": 0.0,
+                            "Z": 4.76837158203125e-07
+                        },
+                        "Scale": {
+                            "X": 1.0,
+                            "Y": 1.0,
+                            "Z": 1.0
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Blending": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Assets/Models/SM_Env_Road_YellowLines_01.obj",
+                                "Texture": [
+                                    "Assets/Textures/PolygonCity_Texture_04_A.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "SM_Env_Road_Patch_01",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": -1.056783676147461,
+                            "Y": -0.7573164701461792,
+                            "Z": -10.30756950378418
+                        },
+                        "Rotation": {
+                            "X": -3.141592264175415,
+                            "Y": -0.35849034786224365,
+                            "Z": -3.141592264175415
+                        },
+                        "Scale": {
+                            "X": 0.9999995231628418,
+                            "Y": 1.0,
+                            "Z": 0.9999995231628418
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Blending": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Assets/Models/SM_Env_Road_Patch_01.obj",
+                                "Texture": [
+                                    "Assets/Textures/PolygonCity_Texture_04_A.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "SM_Env_Road_ParkingLines_01",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": -15.0,
+                            "Y": -1.0000085830688477,
+                            "Z": -8.5
+                        },
+                        "Rotation": {
+                            "X": 4.76837158203125e-07,
+                            "Y": 0.0,
+                            "Z": 4.76837158203125e-07
+                        },
+                        "Scale": {
+                            "X": 1.0,
+                            "Y": 1.0,
+                            "Z": 1.0
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Blending": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Assets/Models/SM_Env_Road_ParkingLines_01.obj",
+                                "Texture": [
+                                    "Assets/Textures/PolygonCity_Texture_04_A.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "SM_Env_Road_Median_02",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": -5.0,
+                            "Y": -1.000003695487976,
+                            "Z": -18.5
+                        },
+                        "Rotation": {
+                            "X": -3.141592264175415,
+                            "Y": 0.0,
+                            "Z": -3.141592264175415
+                        },
+                        "Scale": {
+                            "X": 1.0,
+                            "Y": 1.0,
+                            "Z": 1.0
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Blending": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Assets/Models/SM_Env_Road_Median_02.obj",
+                                "Texture": [
+                                    "Assets/Textures/PolygonCity_Texture_04_A.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "SM_Env_Road_Median_01",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": -5.0,
+                            "Y": -1.0000053644180298,
+                            "Z": -23.369998931884766
+                        },
+                        "Rotation": {
+                            "X": -3.141592264175415,
+                            "Y": 0.0,
+                            "Z": -3.141592264175415
+                        },
+                        "Scale": {
+                            "X": 1.0,
+                            "Y": 1.0,
+                            "Z": 1.0
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Blending": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Assets/Models/SM_Env_Road_Median_01.obj",
+                                "Texture": [
+                                    "Assets/Textures/PolygonCity_Texture_04_A.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "SM_Env_Road_Lines_02",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": -10.0,
+                            "Y": -1.0000056028366089,
+                            "Z": -18.5
+                        },
+                        "Rotation": {
+                            "X": -3.141592264175415,
+                            "Y": 0.0,
+                            "Z": -3.141592264175415
+                        },
+                        "Scale": {
+                            "X": 1.0,
+                            "Y": 1.0,
+                            "Z": 1.0
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Blending": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Assets/Models/SM_Env_Road_Lines_02.obj",
+                                "Texture": [
+                                    "Assets/Textures/PolygonCity_Texture_04_A.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "SM_Env_Road_Lines_01",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": -10.0,
+                            "Y": -1.0000073909759521,
+                            "Z": -23.369998931884766
+                        },
+                        "Rotation": {
+                            "X": -3.141592264175415,
+                            "Y": 0.0,
+                            "Z": -3.141592264175415
+                        },
+                        "Scale": {
+                            "X": 1.0,
+                            "Y": 1.0,
+                            "Z": 1.0
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Blending": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Assets/Models/SM_Env_Road_Lines_01.obj",
+                                "Texture": [
+                                    "Assets/Textures/PolygonCity_Texture_04_A.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "SM_Env_Road_Crossing_01",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": 5.0,
+                            "Y": -1.0000029802322388,
+                            "Z": -18.5
+                        },
+                        "Rotation": {
+                            "X": -3.141592264175415,
+                            "Y": 0.0,
+                            "Z": -3.141592264175415
+                        },
+                        "Scale": {
+                            "X": 1.0,
+                            "Y": 1.0,
+                            "Z": 1.0
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Blending": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Assets/Models/SM_Env_Road_Crossing_01.obj",
+                                "Texture": [
+                                    "Assets/Textures/PolygonCity_Texture_04_A.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "SM_Env_Road_Bare_01",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": -10.0,
+                            "Y": -1.0000017881393433,
+                            "Z": -8.5
+                        },
+                        "Rotation": {
+                            "X": -3.141592264175415,
+                            "Y": 0.0,
+                            "Z": -3.141592264175415
+                        },
+                        "Scale": {
+                            "X": 1.0,
+                            "Y": 1.0,
+                            "Z": 1.0
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Blending": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Assets/Models/SM_Env_Road_Bare_01.obj",
+                                "Texture": [
+                                    "Assets/Textures/PolygonCity_Texture_04_A.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "SM_Env_Road_Arrow_02",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": -5.0,
+                            "Y": -0.9999997615814209,
+                            "Z": -8.5
+                        },
+                        "Rotation": {
+                            "X": -3.141592264175415,
+                            "Y": 0.0,
+                            "Z": -3.141592264175415
+                        },
+                        "Scale": {
+                            "X": 1.0,
+                            "Y": 1.0,
+                            "Z": 1.0
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Blending": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Assets/Models/SM_Env_Road_Arrow_02.obj",
+                                "Texture": [
+                                    "Assets/Textures/PolygonCity_Texture_04_A.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "SM_Env_Road_Arrow_01",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": 5.0,
+                            "Y": -1.0000004768371582,
+                            "Z": -13.604389190673828
+                        },
+                        "Rotation": {
+                            "X": -3.141592264175415,
+                            "Y": 0.0,
+                            "Z": -3.141592264175415
+                        },
+                        "Scale": {
+                            "X": 1.0,
+                            "Y": 1.0,
+                            "Z": 1.0
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Blending": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Assets/Models/SM_Env_Road_Arrow_01.obj",
+                                "Texture": [
+                                    "Assets/Textures/PolygonCity_Texture_04_A.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "SM_Env_Road_03",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": -5.0,
+                            "Y": -1.0000073909759521,
+                            "Z": -3.5
+                        },
+                        "Rotation": {
+                            "X": 4.76837158203125e-07,
+                            "Y": 0.0,
+                            "Z": 4.76837158203125e-07
+                        },
+                        "Scale": {
+                            "X": 1.0,
+                            "Y": 1.0,
+                            "Z": 1.0
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Blending": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Assets/Models/SM_Env_Road_03.obj",
+                                "Texture": [
+                                    "Assets/Textures/PolygonCity_Texture_04_A.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "SM_Env_Road_02",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": 5.0,
+                            "Y": -0.9999959468841553,
+                            "Z": -8.5
+                        },
+                        "Rotation": {
+                            "X": -3.141592264175415,
+                            "Y": 0.0,
+                            "Z": -3.141592264175415
+                        },
+                        "Scale": {
+                            "X": 1.0,
+                            "Y": 1.0,
+                            "Z": 1.0
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Blending": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Assets/Models/SM_Env_Road_02.obj",
+                                "Texture": [
+                                    "Assets/Textures/PolygonCity_Texture_04_A.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "SM_Env_Road_01",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": 7.582177073695018e-13,
+                            "Y": -1.000001072883606,
+                            "Z": -13.595396995544434
+                        },
+                        "Rotation": {
+                            "X": -3.141592264175415,
+                            "Y": 0.0,
+                            "Z": -3.141592264175415
+                        },
+                        "Scale": {
+                            "X": 0.9998569488525391,
+                            "Y": 1.0,
+                            "Z": 0.9998569488525391
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Blending": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Assets/Models/SM_Env_Road_01.obj",
+                                "Texture": [
+                                    "Assets/Textures/PolygonCity_Texture_04_A.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
 }
