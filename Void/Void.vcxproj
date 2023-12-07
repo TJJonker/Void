@@ -226,6 +226,7 @@ IF EXIST ..\bin\Dist-windows-x86_64\$(ProjectName)\fmod.dll\ (xcopy /Q /E /Y /I 
     <ClInclude Include="src\Void\Physics\Colliders\SphereCollider.h" />
     <ClInclude Include="src\Void\Physics\Collision.h" />
     <ClInclude Include="src\Void\Physics\CollisionPoints.h" />
+    <ClInclude Include="src\Void\Physics\Phases\BroadPhase\Core\IBroadPhase.h" />
     <ClInclude Include="src\Void\Physics\Solvers\Impulse\ImpulseSolver.h" />
     <ClInclude Include="src\Void\Physics\Solvers\Position\PositionSolver.h" />
     <ClInclude Include="src\Void\Physics\Solvers\Solver.h" />

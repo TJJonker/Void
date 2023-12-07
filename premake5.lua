@@ -22,15 +22,18 @@ includeDirs["IMGUI"] = "Void/vendor/IMGUI"
 includeDirs["NLOHMANN"] = "Void/vendor/NLOHMANN/single_include"
 includeDirs["FMOD"] = "Void/vendor/FMOD/include"
 includeDirs["IMGUIZMO"] = "Void/vendor/IMGUIZMO"
+includeDirs["QUANTUM"] = "Quantum/include"
 
 libraryDirs = {}
 libraryDirs["ASSIMP"] = "Void/vendor/ASSIMP/libs"
 libraryDirs["FMOD"] = "Void/vendor/FMOD/lib"
 libraryDirs["IMGUIZMO"] = "Void/vendor/IMGUIZMO/ImGuizmo/lib"
+libraryDirs["QUANTUM"] = "Quantum/lib"
 
 include "Void/vendor/GLFW"
 include "Void/vendor/GLAD"
 include "Void/vendor/IMGUI"
 include "Void/vendor/IMGUIZMO/ImGuizmo"
+include "Quantum"
 include "Void"
 include "Nebula"
