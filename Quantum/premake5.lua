@@ -14,7 +14,7 @@ project "Quantum"
 	}
 
 	includedirs {
-		"src",
+		"include",
 		solutionDir .. "%{includeDirs.SPDLOG}",
 		solutionDir .. "%{includeDirs.GLM}"
 	}
