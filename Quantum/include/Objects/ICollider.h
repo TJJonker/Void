@@ -13,14 +13,22 @@ namespace Quantum {
 	class ICollider {
 	public:
 		ColliderType GetType() { return m_Type; }
-	
+		
+		glm::vec3 GetOffset() const { return m_Offset; }
+		void SetOffset(const glm::vec3& offset) { m_Offset = offset; }
+
+		bool IsTrigger() const { return m_Trigger; }
+		void SetTrigger(bool isTrigger) { m_Trigger = isTrigger; }
+
 	protected:
 		ICollider(ColliderType colliderType)
-			: m_Type(colliderType) { }
+			: m_Type(colliderType), m_Offset({0}), m_Trigger(false) { }
 
 		virtual ~ICollider() = default;
 
 	private:
 		ColliderType m_Type;
+		glm::vec3 m_Offset;
+		bool m_Trigger;
 	};
 }

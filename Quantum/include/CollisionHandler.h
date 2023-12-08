@@ -17,7 +17,7 @@ namespace Quantum {
 		IBroadPhase* m_BroadPhase;
 		INarrowPhase* m_NarrowPhase;
 
-		ColliderTest colliderTests[4][4] = {
+		Tests::ColliderTest colliderTests[4][4] = {
 			{ nullptr, nullptr, nullptr, nullptr },
 			{ nullptr, nullptr, nullptr, nullptr },
 			{ nullptr, nullptr, nullptr, nullptr },

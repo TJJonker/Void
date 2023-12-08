@@ -2,9 +2,12 @@
 
 namespace Quantum {
 	struct CollisionPair {
-		const ICollider* Collider1;
-		glm::mat4& Transform1;
-		const ICollider* Collider2;
-		glm::mat4& Transform2;
+		/*const ICollider* ColliderA;
+		glm::vec3& PositionA;
+		glm::vec3& RotationA;
+
+		const ICollider* ColliderB;
+		glm::vec3& PositionB;
+		glm::vec3& RotationB;*/
 	};
 }

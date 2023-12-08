@@ -1,5 +1,6 @@
 #pragma once
+#include "ICollisionTest.h"
 
-namespace Quantum {
-	std::vector<CollisionPoint> FindSphereSphereColissionPoints(const SphereCollider* a, const Transform* ta, const SphereCollider* b, const Transform* tb);
+namespace Quantum::Tests {
+	std::vector<CollisionInfo> FindSphereSphereColissionPoints(const SphereCollider3D* colliderA, const glm::mat4& transformA, const SphereCollider3D* colliderB, const glm::mat4& transformB);
 }

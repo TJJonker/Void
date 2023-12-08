@@ -137,14 +137,22 @@
     <ClInclude Include="include\CollisionHandler.h" />
     <ClInclude Include="include\Common.h" />
     <ClInclude Include="include\DataStructs\CollisionInfo.h" />
+    <ClInclude Include="include\DataStructs\CollisionPair.h" />
     <ClInclude Include="include\Objects\BoxCollider3D.h" />
     <ClInclude Include="include\Objects\ICollider.h" />
+    <ClInclude Include="include\Objects\MeshCollider3D.h" />
+    <ClInclude Include="include\Objects\PlaneCollider3D.h" />
+    <ClInclude Include="include\Objects\SphereCollider3D.h" />
     <ClInclude Include="include\Phases\Broad\Core\IBroadPhase.h" />
-    <ClInclude Include="include\Phases\Narrow\INarrowPhase.h" />
+    <ClInclude Include="include\Phases\Narrow\Core\INarrowPhase.h" />
     <ClInclude Include="include\QuantumPch.h" />
     <ClInclude Include="include\Tests\ICollisionTest.h" />
+    <ClInclude Include="include\Tests\Sphere_Plane_Collision.h" />
+    <ClInclude Include="include\Tests\Sphere_Sphere_Collision.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Tests\Sphere_Plane_Collision.cpp" />
+    <ClCompile Include="src\Tests\Sphere_Sphere_Collision.cpp" />
     <ClCompile Include="src\CollisionHandler.cpp" />
     <ClCompile Include="src\Objects\BoxCollider3D.cpp" />
     <ClCompile Include="src\QuantumPch.cpp">

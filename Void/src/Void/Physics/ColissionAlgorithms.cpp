@@ -179,6 +179,7 @@ namespace Void::CollisionAlgorithms {
             // Calculate the normal vector of the triangle
             result.Normal = triangleWorldSpace.Normal;
         }
+        //float penetrationDepth = glm::distance(pointWorldSpace, closestPoint);
 
         return result;
     }
