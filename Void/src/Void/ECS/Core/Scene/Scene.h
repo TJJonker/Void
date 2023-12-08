@@ -16,7 +16,6 @@ namespace Void {
 	public:
 		Entity* CreateEntity();
 
-
 		~Scene();
 
 		void AddSystem(std::shared_ptr<Void::ISystem> system) { m_Systems.push_back(system); }

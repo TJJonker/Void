@@ -37,14 +37,17 @@
     <ClInclude Include="include\Objects\MeshCollider3D.h" />
     <ClInclude Include="include\Objects\PlaneCollider3D.h" />
     <ClInclude Include="include\Tests\Sphere_Plane_Collision.h" />
+    <ClInclude Include="include\Tests\Sphere_Mesh_Collision.h" />
+    <ClInclude Include="include\DataStructs\Triangle.h" />
+    <ClInclude Include="include\DataStructs\ExtendedTriangle.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\QuantumPch.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Objects\BoxCollider3D.cpp" />
     <ClCompile Include="src\CollisionHandler.cpp" />
     <ClCompile Include="src\Tests\Sphere_Sphere_Collision.cpp" />
     <ClCompile Include="src\Tests\Sphere_Plane_Collision.cpp" />
+    <ClCompile Include="src\Tests\Sphere_Mesh_Collision.cpp" />
   </ItemGroup>
 </Project>

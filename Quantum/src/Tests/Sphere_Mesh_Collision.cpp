@@ -3,19 +3,25 @@
 #include <DataStructs/ExtendedTriangle.h>
 
 namespace Quantum::Tests {
-	std::vector<CollisionInfo> FindSphereMeshCollisionPoints(const SphereCollider3D* colliderA, const glm::mat4& transformA, const MeshCollider3D* colliderB, const glm::mat4& transformB)
+	std::vector<CollisionInfo> FindSphereMeshCollisionPoints(const ICollider* colliderA, const glm::mat4& transformA, const ICollider* colliderB, const glm::mat4& transformB)
 	{
+        assert(colliderA->GetType() == ColliderType::Sphere);
+        assert(colliderB->GetType() == ColliderType::Mesh);
+
+        const SphereCollider3D* sphereCollider = dynamic_cast<const SphereCollider3D*>(colliderA);
+        const MeshCollider3D* meshCollider = dynamic_cast<const MeshCollider3D*>(colliderB);
+
         std::vector<CollisionInfo> result;
 
-        glm::mat4 sphereTransform = glm::translate(transformA, colliderA->GetOffset());
-        glm::mat4 meshTransform = glm::translate(transformB, colliderB->GetOffset());
+        glm::mat4 sphereTransform = glm::translate(transformA, sphereCollider->GetOffset());
+        glm::mat4 meshTransform = glm::translate(transformB, meshCollider->GetOffset());
 
-        size_t arraySize = colliderB->Colliders.size();
+        size_t arraySize = meshCollider->Colliders.size();
         std::vector<ExtendedTriangle> extendedTriangles(arraySize);
 
         for (int i = 0; i < arraySize; i++) {
             for (int j = 0; j < 3; j++) 
-                extendedTriangles[i].Positions[j] = meshTransform * glm::vec4(colliderB->Colliders[i].Positions[j], 1.f);
+                extendedTriangles[i].Positions[j] = meshTransform * glm::vec4(meshCollider->Colliders[i].Positions[j], 1.f);
 
             // Calculate the normal of the scaled triangle
             glm::vec3 edge1 = extendedTriangles[i].Positions[1] - extendedTriangles[i].Positions[0];
@@ -26,7 +32,7 @@ namespace Quantum::Tests {
         // Iterate over every triangle an determine collision
         for (int i = 0; i < arraySize; i++) {
             CollisionInfo info;
-            if (FindSphereTriangleCollisionPoints(sphereTransform, colliderA->Radius, extendedTriangles[i], info))
+            if (FindSphereTriangleCollisionPoints(sphereTransform, sphereCollider->Radius, extendedTriangles[i], info))
                 result.push_back(info);
         }
 
@@ -96,10 +102,32 @@ namespace Quantum::Tests {
         return false;
     }
 
-    bool SphereTriangleEdgeIntersect(const glm::vec3& sphereCenter, float sphereRadius, const glm::vec3& v0, const glm::vec3& v1, CollisionInfo& outInfo)
+    bool SphereTriangleEdgeIntersect(const glm::vec3& spherePosition, const float sphereRadius, const glm::vec3& v0, const glm::vec3& v1, CollisionInfo& outInfo)
     {
+        // Calculate the closest point on the edge to the sphere center
+        glm::vec3 edgeDirection = glm::normalize(v1 - v0);
+        glm::vec3 edgeToPoint = spherePosition - v0;
+        float t = glm::dot(edgeToPoint, edgeDirection);
+        glm::vec3 closestPoint;
+
+        if (t < 0.0f)
+            closestPoint = v0;
+        else if (t > glm::length(v1 - v0))
+            closestPoint = v1;
+        else
+            closestPoint = v0 + t * edgeDirection;
+
+        // Check if the closest point is within the sphere
+        if (glm::length2(spherePosition - closestPoint) <= (sphereRadius * sphereRadius)) {
+            outInfo.CollisionPosition = closestPoint;
+            outInfo.Normal = glm::normalize(spherePosition - closestPoint);
+            outInfo.Depth = (sphereRadius - glm::length(spherePosition - closestPoint));
+            return true;
+        }
+
         return false;
     }
+
 
     glm::vec3 Barycentric(const glm::vec3& p, const glm::vec3& a, const glm::vec3& b, const glm::vec3& c)
     {

@@ -11,8 +11,8 @@ namespace Quantum {
 		delete m_NarrowPhase;
 	}
 
-	bool CollisionHandler::TestCollision(const ICollider* collider1, const glm::mat4& transfom1, const ICollider* collider2, const glm::mat4& transform2)
+	std::vector<CollisionInfo> CollisionHandler::RunNarrowPhase(const ICollider* collider1, glm::mat4& transform1, const ICollider* collider2, glm::mat4& transform2)
 	{
-		return false;
+		m_NarrowPhase->Execute(collider1, transform1, collider2, transform2);
 	}
 }

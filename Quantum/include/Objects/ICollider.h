@@ -20,8 +20,10 @@ namespace Quantum {
 		bool IsTrigger() const { return m_Trigger; }
 		void SetTrigger(bool isTrigger) { m_Trigger = isTrigger; }
 
+		ColliderType GetType() const { return m_Type; }
+
 	protected:
-		ICollider(ColliderType colliderType)
+		ICollider(ColliderType colliderType, uint32_t id)
 			: m_Type(colliderType), m_Offset({0}), m_Trigger(false) { }
 
 		virtual ~ICollider() = default;
