@@ -40,6 +40,8 @@
     <ClInclude Include="include\Tests\Sphere_Mesh_Collision.h" />
     <ClInclude Include="include\DataStructs\Triangle.h" />
     <ClInclude Include="include\DataStructs\ExtendedTriangle.h" />
+    <ClInclude Include="DefaultNarrowPhase.h" />
+    <ClInclude Include="include\Tests\Tests.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\QuantumPch.cpp">
@@ -49,5 +51,6 @@
     <ClCompile Include="src\Tests\Sphere_Sphere_Collision.cpp" />
     <ClCompile Include="src\Tests\Sphere_Plane_Collision.cpp" />
     <ClCompile Include="src\Tests\Sphere_Mesh_Collision.cpp" />
+    <ClCompile Include="DefaultNarrowPhase.cpp" />
   </ItemGroup>
 </Project>

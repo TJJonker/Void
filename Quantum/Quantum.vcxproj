@@ -134,6 +134,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="DefaultNarrowPhase.h" />
     <ClInclude Include="include\CollisionHandler.h" />
     <ClInclude Include="include\Common.h" />
     <ClInclude Include="include\DataStructs\CollisionInfo.h" />
@@ -152,8 +153,10 @@
     <ClInclude Include="include\Tests\Sphere_Plane_Collision.h" />
     <ClInclude Include="include\Tests\Sphere_Sphere_Collision.h" />
     <ClInclude Include="include\Tests\Sphere_Mesh_Collision.h" />
+    <ClInclude Include="include\Tests\Tests.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="DefaultNarrowPhase.cpp" />
     <ClCompile Include="src\Tests\Sphere_Mesh_Collision.cpp" />
     <ClCompile Include="src\Tests\Sphere_Plane_Collision.cpp" />
     <ClCompile Include="src\Tests\Sphere_Sphere_Collision.cpp" />
