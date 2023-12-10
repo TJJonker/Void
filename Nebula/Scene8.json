@@ -40,6 +40,47 @@
                     }
                 }
             ]
+        },
+        {
+            "Name": "New entity",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": -4,
+                            "Y": -4,
+                            "Z": -4
+                        },
+                        "Rotation": {
+                            "X": 0,
+                            "Y": 0,
+                            "Z": 0
+                        },
+                        "Scale": {
+                            "X": 1,
+                            "Y": 1,
+                            "Z": 1
+                        }
+                    }
+                },
+                {
+                    "Type": "BoxCollider3DComponent",
+                    "Data": {
+                        "Offset": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "IsTrigger": false,
+                        "HalfExtents": {
+                            "X": 0.5,
+                            "Y": 0.5,
+                            "Z": 0.5
+                        }
+                    }
+                }
+            ]
         }
     ]
 }

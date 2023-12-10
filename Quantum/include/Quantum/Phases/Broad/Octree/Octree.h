@@ -23,7 +23,7 @@ namespace Quantum::BroadPhase {
 
 	private:
 		// Checking
-		void ExecuteRecursive(OctreeNode& node, std::vector<Quantum::CollisionPair>& outColissionInfo);
+		void ExecuteRecursive(std::vector<Quantum::CollisionPair>& outColissionInfo);
 		void CheckNodeCollisions(OctreeNode& node, std::vector<Quantum::CollisionPair>& outColissionInfo);
 		bool ShouldCheckCollision(const Quantum::ICollider* colliderA, const Quantum::ICollider* colliderB) const;
 		bool IsCollisionPairAlreadyPresent(const std::vector<Quantum::CollisionPair>& outColissionInfo, const Quantum::ICollider* smallerCollider, const Quantum::ICollider* largerCollider) const;
@@ -40,5 +40,8 @@ namespace Quantum::BroadPhase {
 
 		uint32_t m_NodeIndex = 1;
 		OctreeNode m_NodePool[MaxSubnodes * (MaxSubnodes * MaxSubnodes)];
+
+		uint32_t m_LeafIndex = 0;
+		uint32_t m_LeafIndices[MaxSubnodes * (MaxSubnodes * MaxSubnodes)];
 	};
 }

@@ -19,9 +19,10 @@ namespace Void {
 
 	void PhysicsSystem::ResolveCollisions(Scene* scene)
 	{
-		std::vector<Quantum::ICollider*> colliders;
+		std::vector<Collision> collisions;
 		std::vector<Entity*> entities = scene->GetAllEntitesWith<BoxCollider3DComponent, TransformComponent>();
 
+		std::vector<Quantum::ICollider*> colliders;
 
 		for (Entity* entity : entities) {
 			TransformComponent& transform = entity->GetComponent<TransformComponent>();

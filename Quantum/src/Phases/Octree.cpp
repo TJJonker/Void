@@ -5,37 +5,39 @@ namespace Quantum::BroadPhase {
 
 	void Octree::Execute(const std::vector<ICollider*>& colliders, std::vector<CollisionPair>& outColissionInfo)
 	{
-		for (int i = 0; i < m_NodeIndex; i++) {
+		for (unsigned int i = 0; i < m_NodeIndex; i++) 
 			m_NodePool[i].SoftReset();
-		}
 		m_NodeIndex = 1;
+
+		for (unsigned int i = 0; i < m_LeafIndex; i++)
+			m_LeafIndices[i] = 0;
+		m_LeafIndex = 0;
+
 		m_NodePool[m_RootNodeID].BoundingBox = m_WorldBounds;
 
 		for(ICollider* collider : colliders)
 			InsertRecursive(m_NodePool[m_RootNodeID], collider, MaxDepth);
+		ExecuteRecursive(outColissionInfo);
 	}
 
 	void Octree::VisualiseDebug()
 	{
-		for (int i = 0; i < m_NodeIndex; i++)
+		for (unsigned int i = 0; i < m_NodeIndex; i++)
 			m_DebugCallback(m_NodePool[i].BoundingBox);
 	}
 
 #pragma region Checking
-	void Octree::ExecuteRecursive(OctreeNode& node, std::vector<Quantum::CollisionPair>& outColissionInfo)
+	void Octree::ExecuteRecursive(std::vector<Quantum::CollisionPair>& outColissionInfo)
 	{
-		CheckNodeCollisions(node, outColissionInfo);
-
-		for (int i = 0; i < 8; ++i) {
-			if (node.SubNodes[i] != 0) {
-				ExecuteRecursive(m_NodePool[node.SubNodes[i]], outColissionInfo);
-			}
-		}
+		for(unsigned int i = 0; i < m_LeafIndex; i++)
+			CheckNodeCollisions(m_NodePool[m_LeafIndices[i]], outColissionInfo);
 	}
 
 	void Octree::CheckNodeCollisions(OctreeNode& node, std::vector<Quantum::CollisionPair>& outColissionInfo)
 	{
 		// Check collisions between colliders in the same node
+		if (node.AmountOfObjects > 1)
+			int i = 0;
 		for (size_t i = 0; i < node.AmountOfObjects; ++i) {
 			for (size_t j = i + 1; j < node.AmountOfObjects; ++j) {
 				// Broad phase collision check
@@ -80,6 +82,7 @@ namespace Quantum::BroadPhase {
 
 		if (depth == 0)
 			return;
+
 		// Determine which octants the object intersects
 		std::vector<int> intersectingOctants = GetIntersectingOctants(node.BoundingBox, collider->GetBoundingBox());
 
@@ -102,6 +105,8 @@ namespace Quantum::BroadPhase {
 
 				// Create the child node
 				node.SubNodes[octant] = m_NodeIndex;
+				if (depth == 1)
+					m_LeafIndices[m_LeafIndex++] = m_NodeIndex;
 				m_NodePool[node.SubNodes[octant]].BoundingBox = octantBox;
 				m_NodePool[node.SubNodes[octant]].DebugIndex = m_NodeIndex++;
 			}
