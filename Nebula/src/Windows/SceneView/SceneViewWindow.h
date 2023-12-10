@@ -19,6 +19,9 @@ namespace Nebula::Window {
 		EditorCamera* m_EditorCamera = nullptr;
 		Void::Entity* m_SelectedEntity = nullptr;
 		int m_GyzmoType = ImGuizmo::OPERATION::TRANSLATE;
+
+		Quantum::BroadPhase::Octree* m_BroadPhase = new Quantum::BroadPhase::Octree({ glm::vec3(-20, -20, -20), glm::vec3(20, 20, 20) }, 8);
+		Quantum::CollisionHandler m_Handler{ m_BroadPhase, new Quantum::NarrowPhase::DefaultNarrowPhase() };
 	};
 }
 

@@ -13,6 +13,7 @@ namespace Nebula::Window {
 		void DrawTransformInspector();
 		void DrawSpotLightInspector();
 		void DrawPointLightInspector();
+		void DrawBoxCollider3DComponent();
 
 	private:
 		Void::Entity* m_SelectedEntity = nullptr;

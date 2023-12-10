@@ -46,7 +46,7 @@ namespace Void::Rendering {
 		GLCall(glUseProgram(0));
 	}
 
-	void OpenGLShader::SetMatrix4(const std::string& name, glm::mat4& v0)
+	void OpenGLShader::SetMatrix4(const std::string& name, const glm::mat4& v0)
 	{
 		GLCall(glUniformMatrix4fv(GetUniformLocation(name), 1, GL_FALSE, glm::value_ptr(v0)));
 	}
@@ -64,6 +64,11 @@ namespace Void::Rendering {
 	void OpenGLShader::SetFloat(const std::string& name, float v0)
 	{
 		GLCall(glUniform1f(GetUniformLocation(name), v0));
+	}
+
+	void OpenGLShader::SetVec4(const std::string& name, const glm::vec4& v0)
+	{
+		GLCall(glUniform4fv(GetUniformLocation(name), 1, glm::value_ptr(v0)));
 	}
 
 	unsigned int OpenGLShader::CompileShader(const char* code, unsigned int type)

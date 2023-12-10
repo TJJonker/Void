@@ -120,7 +120,7 @@ namespace Void {
 			return &entity->AddComponent<RenderingComponent>();
 		if (componentName == "SpotLightComponent")
 			return &entity->AddComponent<SpotLightComponent>();
-		if (componentName == "PhysicsComponent")
+		if (componentName == "BoxCollider3DComponent")
 			return &entity->AddComponent<BoxCollider3DComponent>();
 		if (componentName == "TagComponent")
 			return &entity->AddComponent<TagComponent>();

@@ -152,6 +152,7 @@
     <ClInclude Include="include\Quantum\Phases\Broad\Octree\Octree.h" />
     <ClInclude Include="include\Quantum\Phases\Narrow\Core\INarrowPhase.h" />
     <ClInclude Include="include\Quantum\Phases\Narrow\DefaultNarrowPhase.h" />
+    <ClInclude Include="include\Quantum\Phases\Phases.h" />
     <ClInclude Include="include\Quantum\Quantum.h" />
     <ClInclude Include="include\Quantum\QuantumPch.h" />
     <ClInclude Include="include\Quantum\Tests\ICollisionTest.h" />

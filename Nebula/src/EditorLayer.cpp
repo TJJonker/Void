@@ -5,7 +5,7 @@ namespace Nebula::Editor {
 
 	void EditorLayer::OnAdded()
 	{
-        Void::SceneManager::GetInstance().LoadScene("Scene7.json");
+        Void::SceneManager::GetInstance().LoadScene("Scene8.json");
 
         m_Dockspace = new Window::GeneralDockspace();
         m_Dockspace->Initialize();
@@ -14,6 +14,7 @@ namespace Nebula::Editor {
         // Shader lib
         Void::ShaderLibrary::GetInstance()->Load("Assets/Shaders/VertexShader.glsl", "Assets/Shaders/FragmentShader.glsl", "DefaultShader");
         Void::ShaderLibrary::GetInstance()->Load("Assets/Core/Shaders/DefaultSkybox/VertexShader.glsl", "Assets/Core/Shaders/DefaultSkybox/FragmentShader.glsl", "DefaultSkyboxShader");
+        Void::ShaderLibrary::GetInstance()->Load("Assets/Core/Shaders/Debug/VertexShader.glsl", "Assets/Core/Shaders/Debug/FragmentShader.glsl", "DebugShader");
 
         // Texture lib
         Void::TextureLibrary::GetInstance().LoadTexture("Assets/Textures/PolygonHeist_Texture_03_C.png");
@@ -52,17 +53,10 @@ namespace Nebula::Editor {
 
 #include "Void/ECS/Core/Scene/SceneManager.h"
 
-        Void::Entity* en = Void::SceneManager::GetInstance().GetCurrentScene()->CreateEntity();
-        en->AddComponent<Void::BoxCollider3DComponent>();
-        Void::SceneManager::GetInstance().SaveScene("Scene8.json");
+        //Void::Entity* en = Void::SceneManager::GetInstance().GetCurrentScene()->CreateEntity();
+        //en->AddComponent<Void::BoxCollider3DComponent>();
+        //Void::SceneManager::GetInstance().SaveScene("Scene8.json");
 
-
-        std::shared_ptr<Void::Rendering::RenderingSystem> renderingSystem = std::make_shared<Void::Rendering::RenderingSystem>();
-        Void::SceneManager::GetInstance().GetCurrentScene()->SetRenderingSystem(renderingSystem);
-
-        
-        //std::shared_ptr<Void::PhysicsSystem> physicsSystem = std::make_shared<Void::PhysicsSystem>();
-        //m_SceneManager->GetCurrentScene()->SetPhysicsSystem(physicsSystem);
         //physicsSystem->AddSolver(std::make_shared<Void::PositionSolver>());
         //physicsSystem->AddSolver(std::make_shared<Void::ImpulseSolver>());
 	}

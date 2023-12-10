@@ -218,6 +218,21 @@ namespace Void::Rendering {
 		Flush();
 	}
 
+	void OpenGLRenderer::DrawDebugRectangle(const glm::mat4& transform, const glm::vec4& color)
+	{
+		VertexArray* va = MeshLibrary::GetInstance()->Get("Assets/Core/Models/Cube.obj")->Submeshes[0];
+		Shader* shader = ShaderLibrary::GetInstance()->Get("DebugShader");
+		shader->Bind();
+		shader->SetMatrix4("viewProjectionMatrix", m_RendererData.ViewProjectionMatrix);
+		shader->SetMatrix4("modelMatrix", transform);
+		shader->SetVec4("a_color", color);
+		va->Bind();
+		va->GetIndexBuffer().get()->Bind();
+		glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+		GLCall(glDrawElements(GL_TRIANGLES, m_RendererData.VertexArray->GetIndexBuffer()->GetCount(), GL_UNSIGNED_INT, nullptr));
+		glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+	}
+
 	unsigned int OpenGLRenderer::NewTexturesCount(std::vector<std::string> textureNames)
 	{
 		unsigned int amount = 0;

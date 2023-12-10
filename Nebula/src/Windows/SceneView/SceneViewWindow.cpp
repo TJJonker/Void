@@ -19,6 +19,16 @@ namespace Nebula::Window {
 		m_EditorCamera->SetSkybox("Default");
 
 		Events::EventManager::GetInstance().EntitySelectedEvent.AddCommand(new Events::SetCurrentEntityCommand(&m_SelectedEntity));
+
+
+		std::shared_ptr<Void::Rendering::RenderingSystem> renderingSystem = std::make_shared<Void::Rendering::RenderingSystem>();
+		Void::SceneManager::GetInstance().GetCurrentScene()->SetRenderingSystem(renderingSystem);
+
+		//m_BroadPhase->SetDebugCallback([](const Quantum::AABB& aabb) {
+		//		Void::Rendering::RenderingCommands
+		//	})
+		//std::shared_ptr<Void::PhysicsSystem> physicsSystem = std::make_shared<Void::PhysicsSystem>(m_Handler);
+		//Void::SceneManager::GetInstance().GetCurrentScene()->SetPhysicsSystem(physicsSystem);
 	}
 
 	void SceneViewWindow::OnGuiRender()
@@ -29,7 +39,19 @@ namespace Nebula::Window {
 		Void::Rendering::RenderingCommands::Clear();
 		Void::SceneManager::GetInstance().GetCurrentScene()->UpdateRenderingSystem();
 		Void::Rendering::RenderingCommands::PrepareRender(m_EditorCamera->GetViewProjection(), m_EditorCamera->GetPosition(), m_EditorCamera->GetSkybox());
+		
 		Void::Rendering::RenderingCommands::Render();
+		std::vector<Void::Entity*> view = Void::SceneManager::GetInstance().GetCurrentScene()->GetAllEntitesWith<Void::TransformComponent, Void::BoxCollider3DComponent>();
+		for (Void::Entity* entity : view) {
+			Void::TransformComponent& transform = entity->GetComponent<Void::TransformComponent>();
+			Void::BoxCollider3DComponent& collider = entity->GetComponent<Void::BoxCollider3DComponent>();
+
+			glm::mat4 transformMatrix = glm::translate(transform.GetTransformNS(), collider.Collider.GetOffset());
+			transformMatrix = glm::scale(transformMatrix, collider.Collider.HalfExtents * 2.f);
+			Void::Rendering::RenderingCommands::DrawDebugRectangle(transformMatrix, glm::vec4(1, 0, 0, 1));
+		}
+
+
 		m_FrameBuffer->Unbind();
 
 		ImGui::Image((ImTextureID)m_FrameBuffer->GetRenderingID(), ImVec2{ p_WindowSize.x, p_WindowSize.y }, ImVec2{ 0, 1 }, ImVec2{ 1, 0 });

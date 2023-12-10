@@ -123,6 +123,7 @@
     <ClInclude Include="include\Quantum\Tests\Tests.h">
       <Filter>include\Quantum\Tests</Filter>
     </ClInclude>
+    <ClInclude Include="include\Quantum\Phases\Phases.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\CollisionHandler.cpp">

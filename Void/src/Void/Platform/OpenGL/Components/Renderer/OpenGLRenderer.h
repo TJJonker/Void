@@ -36,5 +36,8 @@ namespace Void::Rendering {
 	private:
 		std::map<std::string, std::vector<BatchSubmission>> m_Submissions;
 		std::map<std::string, std::vector<BatchSubmission>> m_SubmissionsBlended;
+
+		// Inherited via Renderer
+		void DrawDebugRectangle(const glm::mat4& transform, const glm::vec4& color) override;
 	};
 }

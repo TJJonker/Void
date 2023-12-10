@@ -52,3 +52,5 @@
 #include "Void/Physics/Solvers/Impulse/ImpulseSolver.h"
 
 #include "Void/Utils/Math/Math.h"
+
+#include <Quantum/Quantum.h>

@@ -13,7 +13,7 @@ namespace Void {
 	{
 		//for (unsigned int i = 0; i < m_Substeps; i++) {
 		//	ApplyForces(scene);
-		//	ResolveCollisions(scene);
+		ResolveCollisions(scene);
 		//}
 	}
 

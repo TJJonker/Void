@@ -29,6 +29,9 @@ namespace Nebula::Window {
 
 		if (m_SelectedEntity->HasComponent<Void::PointLightComponent>())
 			DrawPointLightInspector();
+
+		if (m_SelectedEntity->HasComponent<Void::BoxCollider3DComponent>())
+			DrawBoxCollider3DComponent();
 	}
 
 	void InspectorWindow::DrawTransformInspector()
@@ -67,7 +70,7 @@ namespace Nebula::Window {
 	void InspectorWindow::DrawPointLightInspector()
 	{
 		Void::PointLightComponent& pointLight = m_SelectedEntity->GetComponent<Void::PointLightComponent>();
-		if (ImGui::CollapsingHeader("Transform", ImGuiTreeNodeFlags_None))
+		if (ImGui::CollapsingHeader("Pointlight", ImGuiTreeNodeFlags_None))
 		{
 			ImGui::Text("Properties");
 			ImGui::DragFloat("Constant", &pointLight.Constant);
@@ -78,6 +81,24 @@ namespace Nebula::Window {
 			ImGui::ColorEdit3("Ambient", (float*)&pointLight.Ambient);
 			ImGui::ColorEdit3("Diffuse", (float*)&pointLight.Diffuse);
 			ImGui::ColorEdit3("Specular", (float*)&pointLight.Specular);
+		}
+	}
+	void InspectorWindow::DrawBoxCollider3DComponent()
+	{
+		Void::BoxCollider3DComponent& collider = m_SelectedEntity->GetComponent<Void::BoxCollider3DComponent>();
+		if (ImGui::CollapsingHeader("BoxCollider3D", ImGuiTreeNodeFlags_None))
+		{
+			ImGui::Text("Properties");
+			glm::vec3 offset = collider.Collider.GetOffset();
+			if (ImGui::DragFloat3("Offset", (float*)&offset))
+				collider.Collider.SetOffset(offset);
+			
+			bool isTrigger = collider.Collider.IsTrigger();
+			if (ImGui::Checkbox("Is Trigger", &isTrigger))
+				collider.Collider.SetTrigger(isTrigger);
+
+			ImGui::DragFloat3("HalfExtents", (float*)&collider.Collider.HalfExtents);
+
 		}
 	}
 }

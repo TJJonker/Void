@@ -4,14 +4,18 @@
 #include <Quantum/Objects/ICollider.h>
 
 namespace Quantum {
+    constexpr uint8_t MaxSubnodes = 8;
+    constexpr uint8_t TempMaxObjectsPerNode = 255;
+
     struct OctreeNode {
         AABB BoundingBox;
-        std::vector<ICollider*> Objects;
-        OctreeNode SubNodes[8] = {0};
+        uint8_t AmountOfObjects;
+        ICollider* Objects[TempMaxObjectsPerNode];
+        uint8_t SubNodes[MaxSubnodes] = {0};
 
-        OctreeNode(const AABB& box) : BoundingBox(box) {
-            for (int i = 0; i < 8; ++i) {
-                SubNodes[i] = nullptr;
+        OctreeNode() {
+            for (int i = 0; i < MaxSubnodes; ++i) {
+                SubNodes[i] = 0;
             }
         }
     };

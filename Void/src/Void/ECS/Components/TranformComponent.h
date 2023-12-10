@@ -19,6 +19,13 @@ namespace Void {
 			return translationMatrix * rotationMatrix * scaleMatrix;
 		}
 
+		glm::mat4 GetTransformNS() const {
+			glm::mat4 translationMatrix = glm::translate(glm::mat4(1.0f), Position);
+			glm::mat4 rotationMatrix = glm::toMat4(glm::quat(Rotation));
+
+			return translationMatrix * rotationMatrix;
+		}
+
 		glm::vec3 GetForwardVector() const {
 			return -glm::vec3(glm::mat3(GetTransformMatrix())[2]);
 		}
