@@ -25,6 +25,9 @@
     <Filter Include="Void\ECS\Components">
       <UniqueIdentifier>{76D809CD-E239-E7DA-6BA7-2D8DD7071E9A}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Void\ECS\Components\Physics">
+      <UniqueIdentifier>{E8F16DE0-54FF-9BC6-DDE5-97B149F2677D}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Void\ECS\Core">
       <UniqueIdentifier>{F962BF92-6523-3BC9-2E5E-84469ADD7FA5}</UniqueIdentifier>
     </Filter>
@@ -69,18 +72,6 @@
     </Filter>
     <Filter Include="Void\Physics">
       <UniqueIdentifier>{A9683830-95CB-C7D4-3E51-008B2A939357}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Void\Physics\Colliders">
-      <UniqueIdentifier>{B9FA3EB2-A5F4-6704-8E61-FE147AFACD70}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Void\Physics\Phases">
-      <UniqueIdentifier>{1CE6475B-8847-2569-11B5-6B1B7D155C28}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Void\Physics\Phases\BroadPhase">
-      <UniqueIdentifier>{A4ED1552-9013-E0B8-7959-6584651E0585}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Void\Physics\Phases\BroadPhase\Core">
-      <UniqueIdentifier>{7C38D93F-E8F1-43EA-7151-5EC4DD09FA59}</UniqueIdentifier>
     </Filter>
     <Filter Include="Void\Physics\Solvers">
       <UniqueIdentifier>{462F50BC-32BE-D985-DBDC-ED80C74AEA2B}</UniqueIdentifier>
@@ -292,11 +283,14 @@
     <ClInclude Include="src\Void\ECS\Components\CameraControllerComponent.h">
       <Filter>Void\ECS\Components</Filter>
     </ClInclude>
+    <ClInclude Include="src\Void\ECS\Components\Components.h">
+      <Filter>Void\ECS\Components</Filter>
+    </ClInclude>
     <ClInclude Include="src\Void\ECS\Components\EventListenerComponent.h">
       <Filter>Void\ECS\Components</Filter>
     </ClInclude>
-    <ClInclude Include="src\Void\ECS\Components\PhysicsComponent.h">
-      <Filter>Void\ECS\Components</Filter>
+    <ClInclude Include="src\Void\ECS\Components\Physics\BoxCollider3DComponent.h">
+      <Filter>Void\ECS\Components\Physics</Filter>
     </ClInclude>
     <ClInclude Include="src\Void\ECS\Components\PointLightComponent.h">
       <Filter>Void\ECS\Components</Filter>
@@ -381,42 +375,6 @@
     </ClInclude>
     <ClInclude Include="src\Void\Layers\ImGuiLayer.h">
       <Filter>Void\Layers</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Void\Physics\ColissionAlgorithms.h">
-      <Filter>Void\Physics</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Void\Physics\Colliders\Collider.h">
-      <Filter>Void\Physics\Colliders</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Void\Physics\Colliders\MeshCollider.h">
-      <Filter>Void\Physics\Colliders</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Void\Physics\Colliders\PlaneCollider.h">
-      <Filter>Void\Physics\Colliders</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Void\Physics\Colliders\SphereCollider.h">
-      <Filter>Void\Physics\Colliders</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Void\Physics\Collision.h">
-      <Filter>Void\Physics</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Void\Physics\CollisionPoints.h">
-      <Filter>Void\Physics</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Void\Physics\Phases\BroadPhase\Core\IBroadPhase.h">
-      <Filter>Void\Physics\Phases\BroadPhase\Core</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Void\Physics\Solvers\Impulse\ImpulseSolver.h">
-      <Filter>Void\Physics\Solvers\Impulse</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Void\Physics\Solvers\Position\PositionSolver.h">
-      <Filter>Void\Physics\Solvers\Position</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Void\Physics\Solvers\Solver.h">
-      <Filter>Void\Physics\Solvers</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Void\Physics\Tranform.h">
-      <Filter>Void\Physics</Filter>
     </ClInclude>
     <ClInclude Include="src\Void\Platform\FMOD\AudioLibrary\FMODAudioLibrary.h">
       <Filter>Void\Platform\FMOD\AudioLibrary</Filter>
@@ -566,6 +524,7 @@
       <Filter>Void\Vendor\stb_lib</Filter>
     </ClInclude>
     <ClInclude Include="src\pch.h" />
+    <ClInclude Include="src\Void\ECS\Components\Physics\MeshCollider3DComponent.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Void\Audio\AudioManager\AudioManager.cpp">
@@ -621,24 +580,6 @@
     </ClCompile>
     <ClCompile Include="src\Void\Layers\ImGuiLayer.cpp">
       <Filter>Void\Layers</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Void\Physics\ColissionAlgorithms.cpp">
-      <Filter>Void\Physics</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Void\Physics\Colliders\MeshCollider.cpp">
-      <Filter>Void\Physics\Colliders</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Void\Physics\Colliders\PlaneCollider.cpp">
-      <Filter>Void\Physics\Colliders</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Void\Physics\Colliders\SphereCollider.cpp">
-      <Filter>Void\Physics\Colliders</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Void\Physics\Solvers\Impulse\ImpulseSolver.cpp">
-      <Filter>Void\Physics\Solvers\Impulse</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Void\Physics\Solvers\Position\PositionSolver.cpp">
-      <Filter>Void\Physics\Solvers\Position</Filter>
     </ClCompile>
     <ClCompile Include="src\Void\Platform\FMOD\AudioLibrary\FMODAudioLibrary.cpp">
       <Filter>Void\Platform\FMOD\AudioLibrary</Filter>

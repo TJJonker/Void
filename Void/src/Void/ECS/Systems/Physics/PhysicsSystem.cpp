@@ -1,30 +1,28 @@
 #include "pch.h"
 #include "PhysicsSystem.h"
 #include <Void/ECS/Components/TranformComponent.h>
-#include <Void/ECS/Components/PhysicsComponent.h>
 #include <Void/ECS/Components/VelocityComponent.h>
-#include "Void/Physics/Collision.h"
 #include "Void/ECS/Core/Scene/Scene.h"
 #include "Void/ECS/Event/CollisionInfo.h"
 
+#include "Void/ECS/Components/Components.h"
 
 namespace Void {
 
 	void PhysicsSystem::Update(Scene* scene)
 	{
-		for (unsigned int i = 0; i < m_Substeps; i++) {
-			ApplyForces(scene);
-			ResolveCollisions(scene);
-		}
+		//for (unsigned int i = 0; i < m_Substeps; i++) {
+		//	ApplyForces(scene);
+		//	ResolveCollisions(scene);
+		//}
 	}
 
 	void PhysicsSystem::ResolveCollisions(Scene* scene)
 	{
 		std::vector<Collision> collisions;
-		std::vector<Entity*> entities = scene->GetAllEntitesWith<PhysicsComponent, TransformComponent>();
+		std::vector<Entity*> entities = scene->GetAllEntitesWith<BoxCollider3DComponent, TransformComponent>();
 
-		for (Entity* a : entities) {
-
+		/*for (Entity* a : entities) {
 			TransformComponent& aTransform = a->GetComponent<TransformComponent>();
 			PhysicsComponent& aPhysics = a->GetComponent<PhysicsComponent>();
 
@@ -53,25 +51,25 @@ namespace Void {
 		}
 
 		for (std::shared_ptr<Solver> solver : m_Solvers)
-			solver->Solve(collisions);
+			solver->Solve(collisions);*/
 	}
 
 	void PhysicsSystem::ApplyForces(Scene* scene)
 	{
-		for (const Entity* entity : scene->GetAllEntitesWith<PhysicsComponent, TransformComponent, VelocityComponent>()) {
-			TransformComponent& transform = entity->GetComponent<TransformComponent>();
-			PhysicsComponent& physics = entity->GetComponent<PhysicsComponent>();
-			VelocityComponent velocity = entity->GetComponent<VelocityComponent>();
+		//for (const Entity* entity : scene->GetAllEntitesWith<PhysicsComponent, TransformComponent, VelocityComponent>()) {
+		//	TransformComponent& transform = entity->GetComponent<TransformComponent>();
+		//	PhysicsComponent& physics = entity->GetComponent<PhysicsComponent>();
+		//	VelocityComponent velocity = entity->GetComponent<VelocityComponent>();
 
-			if (physics.IsStatic)
-				continue;
+		//	if (physics.IsStatic)
+		//		continue;
 
-			physics.Force += physics.Mass * glm::vec3(0, -2.5, 0); // apply a force
+		//	physics.Force += physics.Mass * glm::vec3(0, -2.5, 0); // apply a force
 
-			velocity.Velocity += physics.Force / physics.Mass * (Time::DeltaTime() / m_Substeps);
-			transform.Position += velocity.Velocity * (Time::DeltaTime() / m_Substeps);
+		//	velocity.Velocity += physics.Force / physics.Mass * (Time::DeltaTime() / m_Substeps);
+		//	transform.Position += velocity.Velocity * (Time::DeltaTime() / m_Substeps);
 
-			physics.Force = glm::vec3(0, 0, 0); // reset net force at the end
-		}
+		//	physics.Force = glm::vec3(0, 0, 0); // reset net force at the end
+		//}
 	}
 }

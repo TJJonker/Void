@@ -3,8 +3,9 @@
 #include <Void/ECS/Components/TranformComponent.h>
 #include <Void/ECS/Components/RenderingComponent.h>
 #include <Void/ECS/Components/SpotLightComponent.h>
-#include <Void/ECS/Components/PhysicsComponent.h>
 #include <Void/ECS/Components/TagComponent.h>
+#include <Void/ECS/Components/Physics/BoxCollider3DComponent.h>
+
 
 namespace Void {
 
@@ -84,11 +85,11 @@ namespace Void {
 				entityJson["Components"].push_back(componentJson);
 			}
 
-			if (entity->HasComponent<PhysicsComponent>()) {
+			if (entity->HasComponent<BoxCollider3DComponent>()) {
 				nlohmann::ordered_json componentJson;
 
-				PhysicsComponent& rendering = entity->GetComponent<PhysicsComponent>();
-				componentJson["Type"] = "PhysicsComponent";
+				BoxCollider3DComponent& rendering = entity->GetComponent<BoxCollider3DComponent>();
+				componentJson["Type"] = "BoxCollider3DComponent";
 				componentJson["Data"] = rendering.ToJSON();
 
 				entityJson["Components"].push_back(componentJson);
@@ -120,7 +121,7 @@ namespace Void {
 		if (componentName == "SpotLightComponent")
 			return &entity->AddComponent<SpotLightComponent>();
 		if (componentName == "PhysicsComponent")
-			return &entity->AddComponent<PhysicsComponent>();
+			return &entity->AddComponent<BoxCollider3DComponent>();
 		if (componentName == "TagComponent")
 			return &entity->AddComponent<TagComponent>();
 

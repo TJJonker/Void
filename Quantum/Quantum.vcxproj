@@ -74,7 +74,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <PrecompiledHeader>Use</PrecompiledHeader>
-      <PrecompiledHeaderFile>QuantumPch.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderFile>Quantum/QuantumPch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>QUANTUM_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>include;..\Void\vendor\SPDLOG\include;..\Void\vendor\GLM;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
@@ -92,7 +92,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <PrecompiledHeader>Use</PrecompiledHeader>
-      <PrecompiledHeaderFile>QuantumPch.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderFile>Quantum/QuantumPch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>QUANTUM_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>include;..\Void\vendor\SPDLOG\include;..\Void\vendor\GLM;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
@@ -114,7 +114,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">
     <ClCompile>
       <PrecompiledHeader>Use</PrecompiledHeader>
-      <PrecompiledHeaderFile>QuantumPch.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderFile>Quantum/QuantumPch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>QUANTUM_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>include;..\Void\vendor\SPDLOG\include;..\Void\vendor\GLM;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
@@ -134,36 +134,43 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="DefaultNarrowPhase.h" />
-    <ClInclude Include="include\CollisionHandler.h" />
-    <ClInclude Include="include\Common.h" />
-    <ClInclude Include="include\DataStructs\CollisionInfo.h" />
-    <ClInclude Include="include\DataStructs\CollisionPair.h" />
-    <ClInclude Include="include\DataStructs\ExtendedTriangle.h" />
-    <ClInclude Include="include\DataStructs\Triangle.h" />
-    <ClInclude Include="include\Objects\BoxCollider3D.h" />
-    <ClInclude Include="include\Objects\ICollider.h" />
-    <ClInclude Include="include\Objects\MeshCollider3D.h" />
-    <ClInclude Include="include\Objects\PlaneCollider3D.h" />
-    <ClInclude Include="include\Objects\SphereCollider3D.h" />
-    <ClInclude Include="include\Phases\Broad\Core\IBroadPhase.h" />
-    <ClInclude Include="include\Phases\Narrow\Core\INarrowPhase.h" />
-    <ClInclude Include="include\QuantumPch.h" />
-    <ClInclude Include="include\Tests\ICollisionTest.h" />
-    <ClInclude Include="include\Tests\Sphere_Plane_Collision.h" />
-    <ClInclude Include="include\Tests\Sphere_Sphere_Collision.h" />
-    <ClInclude Include="include\Tests\Sphere_Mesh_Collision.h" />
-    <ClInclude Include="include\Tests\Tests.h" />
+    <ClInclude Include="include\Quantum\CollisionHandler.h" />
+    <ClInclude Include="include\Quantum\Common.h" />
+    <ClInclude Include="include\Quantum\DataStructs\CollisionInfo.h" />
+    <ClInclude Include="include\Quantum\DataStructs\CollisionPair.h" />
+    <ClInclude Include="include\Quantum\DataStructs\ExtendedTriangle.h" />
+    <ClInclude Include="include\Quantum\DataStructs\OctreeNode.h" />
+    <ClInclude Include="include\Quantum\DataStructs\AABB.h" />
+    <ClInclude Include="include\Quantum\DataStructs\Triangle.h" />
+    <ClInclude Include="include\Quantum\Objects\BoxCollider3D.h" />
+    <ClInclude Include="include\Quantum\Objects\ICollider.h" />
+    <ClInclude Include="include\Quantum\Objects\MeshCollider3D.h" />
+    <ClInclude Include="include\Quantum\Objects\Objects.h" />
+    <ClInclude Include="include\Quantum\Objects\PlaneCollider3D.h" />
+    <ClInclude Include="include\Quantum\Objects\SphereCollider3D.h" />
+    <ClInclude Include="include\Quantum\Phases\Broad\Core\IBroadPhase.h" />
+    <ClInclude Include="include\Quantum\Phases\Broad\Octree\Octree.h" />
+    <ClInclude Include="include\Quantum\Phases\Narrow\Core\INarrowPhase.h" />
+    <ClInclude Include="include\Quantum\Phases\Narrow\DefaultNarrowPhase.h" />
+    <ClInclude Include="include\Quantum\Quantum.h" />
+    <ClInclude Include="include\Quantum\QuantumPch.h" />
+    <ClInclude Include="include\Quantum\Tests\ICollisionTest.h" />
+    <ClInclude Include="include\Quantum\Tests\Sphere_Mesh_Collision.h" />
+    <ClInclude Include="include\Quantum\Tests\Sphere_Plane_Collision.h" />
+    <ClInclude Include="include\Quantum\Tests\Sphere_Sphere_Collision.h" />
+    <ClInclude Include="include\Quantum\Tests\Tests.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="DefaultNarrowPhase.cpp" />
-    <ClCompile Include="src\Tests\Sphere_Mesh_Collision.cpp" />
-    <ClCompile Include="src\Tests\Sphere_Plane_Collision.cpp" />
-    <ClCompile Include="src\Tests\Sphere_Sphere_Collision.cpp" />
     <ClCompile Include="src\CollisionHandler.cpp" />
+    <ClCompile Include="src\Objects\BoxCollider3D.cpp" />
+    <ClCompile Include="src\Phases\DefaultNarrowPhase.cpp" />
+    <ClCompile Include="src\Phases\Octree.cpp" />
     <ClCompile Include="src\QuantumPch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="src\Tests\Sphere_Mesh_Collision.cpp" />
+    <ClCompile Include="src\Tests\Sphere_Plane_Collision.cpp" />
+    <ClCompile Include="src\Tests\Sphere_Sphere_Collision.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

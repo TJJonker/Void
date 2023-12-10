@@ -1,5 +1,5 @@
-#include "QuantumPch.h"
-#include "Tests/Sphere_Plane_Collision.h"
+#include "Quantum/QuantumPch.h"
+#include "Quantum/Tests/Sphere_Plane_Collision.h"
 
 namespace Quantum::Tests {
     std::vector<CollisionInfo> FindSpherePlaneCollisionPoints(const ICollider* colliderA, const glm::mat4& transformA, const ICollider* colliderB, const glm::mat4& transformB)

@@ -15,23 +15,28 @@ project "Nebula"
 		"src",
 		solutionDir .. "%{includeDirs.VOID}",
 		solutionDir .. "%{includeDirs.SPDLOG}",
-		solutionDir .. "%{includeDirs.GLM}",
+		solutionDir .. "%{includeDirs.GLFW}",
 		solutionDir .. "%{includeDirs.GLAD}",
-		solutionDir .. "%{includeDirs.IMGUI}",
+		solutionDir .. "%{includeDirs.GLM}",
 		solutionDir .. "%{includeDirs.ASSIMP}",
+		solutionDir .. "%{includeDirs.IMGUI}",
 		solutionDir .. "%{includeDirs.NLOHMANN}",
-		solutionDir .. "%{includeDirs.IMGUIZMO}"	
+		solutionDir .. "%{includeDirs.FMOD}",
+		solutionDir .. "%{includeDirs.IMGUIZMO}",
+		solutionDir .. "%{includeDirs.QUANTUM}"
 	}
 
 	libdirs {
 		solutionDir .. "/bin/" .. outputdir .. "/%{prj.name}",
-		solutionDir .. "%{libraryDirs.IMGUIZMO}"
+		solutionDir .. "%{libraryDirs.IMGUIZMO}",
+		solutionDir .. "%{libraryDirs.QUANTUM}"
 	}
 
 	links {
 		"Void",
 		"ImGui",
-		"ImGuizmo.lib"
+		"ImGuizmo.lib",
+		"Quantum.lib"
 	}
 
 	defines { }

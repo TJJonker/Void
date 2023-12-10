@@ -5,11 +5,11 @@ project "Quantum"
 	targetdir ("lib")
 	objdir (solutionDir .. "/bin-int/" .. outputdir .. "/%{prj.name}")
 
-	pchheader "QuantumPch.h"
+	pchheader "Quantum/QuantumPch.h"
 	pchsource "src/QuantumPch.cpp" 
 
 	files {
-		"include/**.h",
+		"include/Quantum/**.h",
 		"src/**.cpp"
 	}
 

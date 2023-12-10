@@ -1,6 +1,6 @@
-#include "QuantumPch.h"
-#include "Tests/Sphere_Mesh_Collision.h"
-#include <DataStructs/ExtendedTriangle.h>
+#include "Quantum/QuantumPch.h"
+#include "Quantum/Tests/Sphere_Mesh_Collision.h"
+#include <Quantum/DataStructs/ExtendedTriangle.h>
 
 namespace Quantum::Tests {
 	std::vector<CollisionInfo> FindSphereMeshCollisionPoints(const ICollider* colliderA, const glm::mat4& transformA, const ICollider* colliderB, const glm::mat4& transformB)

@@ -41,7 +41,7 @@
 #include <Void/ECS/Components/PointLightComponent.h>
 #include <Void/ECS/Components/SpotLightComponent.h>
 #include <Void/ECS/Components/TagComponent.h>
-
+#include <Void/ECS/Components/Physics/BoxCollider3DComponent.h>
 #include "Void/Physics/CollisionPoints.h"
 
 // Vendor

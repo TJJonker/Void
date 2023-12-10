@@ -23,13 +23,15 @@ project "Void"
 		solutionDir .. "%{includeDirs.IMGUI}",
 		solutionDir .. "%{includeDirs.NLOHMANN}",
 		solutionDir .. "%{includeDirs.FMOD}",
-		solutionDir .. "%{includeDirs.IMGUIZMO}"
+		solutionDir .. "%{includeDirs.IMGUIZMO}",
+		solutionDir .. "%{includeDirs.QUANTUM}"
 	}
 
 	libdirs {
 		solutionDir .. "%{libraryDirs.ASSIMP}",
 		solutionDir .. "%{libraryDirs.FMOD}",
-		solutionDir .. "%{libraryDirs.IMGUIZMO}"
+		solutionDir .. "%{libraryDirs.IMGUIZMO}",
+		solutionDir .. "%{libraryDirs.QUANTUM}"
 	}
 
 	links {
@@ -40,7 +42,8 @@ project "Void"
 		"ImGui",
 		"fmod_vc.lib",
 		"fmodL_vc.lib",
-		"ImGuizmo.lib"
+		"ImGuizmo.lib",
+		"Quantum.lib"
 	}
 
 

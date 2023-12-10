@@ -4,53 +4,150 @@
     <Filter Include="include">
       <UniqueIdentifier>{89AF369E-F58E-B539-FEA6-40106A051C9B}</UniqueIdentifier>
     </Filter>
-    <Filter Include="include\Phases">
-      <UniqueIdentifier>{FCB05519-E87E-491F-D112-BA45BD7F2584}</UniqueIdentifier>
+    <Filter Include="include\Quantum">
+      <UniqueIdentifier>{03A056AF-6F2B-C473-783C-4768E4462074}</UniqueIdentifier>
     </Filter>
-    <Filter Include="include\Phases\Broad">
-      <UniqueIdentifier>{13ADBA47-FF3B-4411-A85A-580C94C854B7}</UniqueIdentifier>
+    <Filter Include="include\Quantum\DataStructs">
+      <UniqueIdentifier>{A4C310FF-10D1-3EE5-99B7-3AD005C40A9C}</UniqueIdentifier>
     </Filter>
-    <Filter Include="include\Phases\Broad\Core">
-      <UniqueIdentifier>{4BF539E8-B7B7-6D72-0068-FCFE6C694650}</UniqueIdentifier>
+    <Filter Include="include\Quantum\Objects">
+      <UniqueIdentifier>{BC910BD7-28C9-536E-31D3-B7919D897A67}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\Quantum\Phases">
+      <UniqueIdentifier>{36148720-220E-B072-0B7B-4683F71316DF}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\Quantum\Phases\Broad">
+      <UniqueIdentifier>{CD13DC65-B9CE-CB11-6286-445C4E2016A2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\Quantum\Phases\Broad\Core">
+      <UniqueIdentifier>{45A00AA3-B10E-6022-FAF7-1A2266A555BE}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\Quantum\Phases\Broad\Octree">
+      <UniqueIdentifier>{7EE459AB-EA9D-C455-73FD-DE2FDFB57AC5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\Quantum\Phases\Narrow">
+      <UniqueIdentifier>{BEC32A3C-2ADC-1166-F388-A1FF5F60A6FF}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\Quantum\Phases\Narrow\Core">
+      <UniqueIdentifier>{D6EE0903-C22A-0D6D-2B3D-25641798B587}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\Quantum\Tests">
+      <UniqueIdentifier>{05318918-719D-4413-3A91-DC70A6BC667B}</UniqueIdentifier>
     </Filter>
     <Filter Include="src">
       <UniqueIdentifier>{2DAB880B-99B4-887C-2230-9F7C8E38947C}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Objects">
+      <UniqueIdentifier>{E62683BA-52DC-FBAF-DBD0-F5864785F2B3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Phases">
+      <UniqueIdentifier>{20AC6B27-0C64-AD74-756B-86D061424865}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Tests">
+      <UniqueIdentifier>{AF73E5B3-1BDE-992A-641C-4BD0D0C5777F}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\Phases\Broad\Core\IBroadPhase.h">
-      <Filter>include\Phases\Broad\Core</Filter>
+    <ClInclude Include="include\Quantum\CollisionHandler.h">
+      <Filter>include\Quantum</Filter>
     </ClInclude>
-    <ClInclude Include="include\QuantumPch.h">
-      <Filter>include</Filter>
+    <ClInclude Include="include\Quantum\Common.h">
+      <Filter>include\Quantum</Filter>
     </ClInclude>
-    <ClInclude Include="include\Common.h" />
-    <ClInclude Include="include\DataStructs\CollisionInfo.h" />
-    <ClInclude Include="include\Objects\ICollider.h" />
-    <ClInclude Include="include\Objects\BoxCollider3D.h" />
-    <ClInclude Include="include\CollisionHandler.h" />
-    <ClInclude Include="include\Phases\Narrow\Core\INarrowPhase.h" />
-    <ClInclude Include="include\Tests\ICollisionTest.h" />
-    <ClInclude Include="include\DataStructs\CollisionPair.h" />
-    <ClInclude Include="include\Tests\Sphere_Sphere_Collision.h" />
-    <ClInclude Include="include\Objects\SphereCollider3D.h" />
-    <ClInclude Include="include\Objects\MeshCollider3D.h" />
-    <ClInclude Include="include\Objects\PlaneCollider3D.h" />
-    <ClInclude Include="include\Tests\Sphere_Plane_Collision.h" />
-    <ClInclude Include="include\Tests\Sphere_Mesh_Collision.h" />
-    <ClInclude Include="include\DataStructs\Triangle.h" />
-    <ClInclude Include="include\DataStructs\ExtendedTriangle.h" />
-    <ClInclude Include="DefaultNarrowPhase.h" />
-    <ClInclude Include="include\Tests\Tests.h" />
+    <ClInclude Include="include\Quantum\DataStructs\CollisionInfo.h">
+      <Filter>include\Quantum\DataStructs</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Quantum\DataStructs\CollisionPair.h">
+      <Filter>include\Quantum\DataStructs</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Quantum\DataStructs\ExtendedTriangle.h">
+      <Filter>include\Quantum\DataStructs</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Quantum\DataStructs\OctreeNode.h">
+      <Filter>include\Quantum\DataStructs</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Quantum\DataStructs\AABB.h">
+      <Filter>include\Quantum\DataStructs</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Quantum\DataStructs\Triangle.h">
+      <Filter>include\Quantum\DataStructs</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Quantum\Objects\BoxCollider3D.h">
+      <Filter>include\Quantum\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Quantum\Objects\ICollider.h">
+      <Filter>include\Quantum\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Quantum\Objects\MeshCollider3D.h">
+      <Filter>include\Quantum\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Quantum\Objects\Objects.h">
+      <Filter>include\Quantum\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Quantum\Objects\PlaneCollider3D.h">
+      <Filter>include\Quantum\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Quantum\Objects\SphereCollider3D.h">
+      <Filter>include\Quantum\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Quantum\Phases\Broad\Core\IBroadPhase.h">
+      <Filter>include\Quantum\Phases\Broad\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Quantum\Phases\Broad\Octree\Octree.h">
+      <Filter>include\Quantum\Phases\Broad\Octree</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Quantum\Phases\Narrow\Core\INarrowPhase.h">
+      <Filter>include\Quantum\Phases\Narrow\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Quantum\Phases\Narrow\DefaultNarrowPhase.h">
+      <Filter>include\Quantum\Phases\Narrow</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Quantum\Quantum.h">
+      <Filter>include\Quantum</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Quantum\QuantumPch.h">
+      <Filter>include\Quantum</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Quantum\Tests\ICollisionTest.h">
+      <Filter>include\Quantum\Tests</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Quantum\Tests\Sphere_Mesh_Collision.h">
+      <Filter>include\Quantum\Tests</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Quantum\Tests\Sphere_Plane_Collision.h">
+      <Filter>include\Quantum\Tests</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Quantum\Tests\Sphere_Sphere_Collision.h">
+      <Filter>include\Quantum\Tests</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Quantum\Tests\Tests.h">
+      <Filter>include\Quantum\Tests</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\CollisionHandler.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Objects\BoxCollider3D.cpp">
+      <Filter>src\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Phases\DefaultNarrowPhase.cpp">
+      <Filter>src\Phases</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Phases\Octree.cpp">
+      <Filter>src\Phases</Filter>
+    </ClCompile>
     <ClCompile Include="src\QuantumPch.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\CollisionHandler.cpp" />
-    <ClCompile Include="src\Tests\Sphere_Sphere_Collision.cpp" />
-    <ClCompile Include="src\Tests\Sphere_Plane_Collision.cpp" />
-    <ClCompile Include="src\Tests\Sphere_Mesh_Collision.cpp" />
-    <ClCompile Include="DefaultNarrowPhase.cpp" />
+    <ClCompile Include="src\Tests\Sphere_Mesh_Collision.cpp">
+      <Filter>src\Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Tests\Sphere_Plane_Collision.cpp">
+      <Filter>src\Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Tests\Sphere_Sphere_Collision.cpp">
+      <Filter>src\Tests</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

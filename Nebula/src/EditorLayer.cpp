@@ -50,20 +50,17 @@ namespace Nebula::Editor {
         Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Env_Door_Glass_01.obj");
         Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Prop_WaterCooler_Tank_01.obj");
 
+#include "Void/ECS/Core/Scene/SceneManager.h"
 
-
-        //entt::entity en = m_SceneManager->GetCurrentScene()->CreateEntity();
-        //m_SceneManager->GetCurrentScene()->AddComponent<Void::TransformComponent>(en);
-        //Void::PhysicsComponent& pc = m_SceneManager->GetCurrentScene()->AddComponent<Void::PhysicsComponent>(en);
-        //pc.Collider = new Void::SphereCollider();
-        //Void::TagComponent& tag = m_SceneManager->GetCurrentScene()->AddComponent<Void::TagComponent>(en);
-        //tag.Tag = "Player";
-        //m_SceneManager->SaveScene("Scene7.json");
+        Void::Entity* en = Void::SceneManager::GetInstance().GetCurrentScene()->CreateEntity();
+        en->AddComponent<Void::BoxCollider3DComponent>();
+        Void::SceneManager::GetInstance().SaveScene("Scene8.json");
 
 
         std::shared_ptr<Void::Rendering::RenderingSystem> renderingSystem = std::make_shared<Void::Rendering::RenderingSystem>();
         Void::SceneManager::GetInstance().GetCurrentScene()->SetRenderingSystem(renderingSystem);
 
+        
         //std::shared_ptr<Void::PhysicsSystem> physicsSystem = std::make_shared<Void::PhysicsSystem>();
         //m_SceneManager->GetCurrentScene()->SetPhysicsSystem(physicsSystem);
         //physicsSystem->AddSolver(std::make_shared<Void::PositionSolver>());

@@ -77,7 +77,7 @@
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>VOID_PLATFORM_WINDOWS;VOID_BUILD_DLL;VOID_ASSERT_ENABLED;VOID_AUDIO_FMOD;VOID_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\SPDLOG\include;vendor\GLFW\include;vendor\GLAD\include;vendor\GLM;vendor\ASSIMP\include;vendor\IMGUI;vendor\NLOHMANN\single_include;vendor\FMOD\include;vendor\IMGUIZMO;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;vendor\SPDLOG\include;vendor\GLFW\include;vendor\GLAD\include;vendor\GLM;vendor\ASSIMP\include;vendor\IMGUI;vendor\NLOHMANN\single_include;vendor\FMOD\include;vendor\IMGUIZMO;..\Quantum\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -89,8 +89,8 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <Lib>
-      <AdditionalDependencies>opengl32.lib;assimp-vc143-mtd.lib;fmod_vc.lib;fmodL_vc.lib;ImGuizmo.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>vendor\ASSIMP\libs;vendor\FMOD\lib;vendor\IMGUIZMO\ImGuizmo\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opengl32.lib;assimp-vc143-mtd.lib;fmod_vc.lib;fmodL_vc.lib;ImGuizmo.lib;Quantum.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>vendor\ASSIMP\libs;vendor\FMOD\lib;vendor\IMGUIZMO\ImGuizmo\lib;..\Quantum\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Lib>
     <PreBuildEvent>
       <Command>IF EXIST vendor\ASSIMP\libs\assimp-vc143-mtd.dll\ (xcopy /Q /E /Y /I vendor\ASSIMP\libs\assimp-vc143-mtd.dll $(SolutionDir)\bin\Debug-windows-x86_64\$(ProjectName) &gt; nul) ELSE (xcopy /Q /Y /I vendor\ASSIMP\libs\assimp-vc143-mtd.dll $(SolutionDir)\bin\Debug-windows-x86_64\$(ProjectName) &gt; nul)
@@ -109,7 +109,7 @@ IF EXIST ..\bin\Debug-windows-x86_64\$(ProjectName)\fmod.dll\ (xcopy /Q /E /Y /I
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>VOID_PLATFORM_WINDOWS;VOID_BUILD_DLL;VOID_ASSERT_ENABLED;VOID_AUDIO_FMOD;VOID_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\SPDLOG\include;vendor\GLFW\include;vendor\GLAD\include;vendor\GLM;vendor\ASSIMP\include;vendor\IMGUI;vendor\NLOHMANN\single_include;vendor\FMOD\include;vendor\IMGUIZMO;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;vendor\SPDLOG\include;vendor\GLFW\include;vendor\GLAD\include;vendor\GLM;vendor\ASSIMP\include;vendor\IMGUI;vendor\NLOHMANN\single_include;vendor\FMOD\include;vendor\IMGUIZMO;..\Quantum\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -125,8 +125,8 @@ IF EXIST ..\bin\Debug-windows-x86_64\$(ProjectName)\fmod.dll\ (xcopy /Q /E /Y /I
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
     <Lib>
-      <AdditionalDependencies>opengl32.lib;assimp-vc143-mtd.lib;fmod_vc.lib;fmodL_vc.lib;ImGuizmo.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>vendor\ASSIMP\libs;vendor\FMOD\lib;vendor\IMGUIZMO\ImGuizmo\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opengl32.lib;assimp-vc143-mtd.lib;fmod_vc.lib;fmodL_vc.lib;ImGuizmo.lib;Quantum.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>vendor\ASSIMP\libs;vendor\FMOD\lib;vendor\IMGUIZMO\ImGuizmo\lib;..\Quantum\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Lib>
     <PreBuildEvent>
       <Command>IF EXIST vendor\ASSIMP\libs\assimp-vc143-mtd.dll\ (xcopy /Q /E /Y /I vendor\ASSIMP\libs\assimp-vc143-mtd.dll $(SolutionDir)\bin\Release-windows-x86_64\$(ProjectName) &gt; nul) ELSE (xcopy /Q /Y /I vendor\ASSIMP\libs\assimp-vc143-mtd.dll $(SolutionDir)\bin\Release-windows-x86_64\$(ProjectName) &gt; nul)
@@ -145,7 +145,7 @@ IF EXIST ..\bin\Release-windows-x86_64\$(ProjectName)\fmod.dll\ (xcopy /Q /E /Y 
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>VOID_PLATFORM_WINDOWS;VOID_BUILD_DLL;VOID_ASSERT_ENABLED;VOID_AUDIO_FMOD;VOID_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\SPDLOG\include;vendor\GLFW\include;vendor\GLAD\include;vendor\GLM;vendor\ASSIMP\include;vendor\IMGUI;vendor\NLOHMANN\single_include;vendor\FMOD\include;vendor\IMGUIZMO;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;vendor\SPDLOG\include;vendor\GLFW\include;vendor\GLAD\include;vendor\GLM;vendor\ASSIMP\include;vendor\IMGUI;vendor\NLOHMANN\single_include;vendor\FMOD\include;vendor\IMGUIZMO;..\Quantum\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -161,8 +161,8 @@ IF EXIST ..\bin\Release-windows-x86_64\$(ProjectName)\fmod.dll\ (xcopy /Q /E /Y 
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
     <Lib>
-      <AdditionalDependencies>opengl32.lib;assimp-vc143-mtd.lib;fmod_vc.lib;fmodL_vc.lib;ImGuizmo.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>vendor\ASSIMP\libs;vendor\FMOD\lib;vendor\IMGUIZMO\ImGuizmo\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opengl32.lib;assimp-vc143-mtd.lib;fmod_vc.lib;fmodL_vc.lib;ImGuizmo.lib;Quantum.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>vendor\ASSIMP\libs;vendor\FMOD\lib;vendor\IMGUIZMO\ImGuizmo\lib;..\Quantum\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Lib>
     <PreBuildEvent>
       <Command>IF EXIST vendor\ASSIMP\libs\assimp-vc143-mtd.dll\ (xcopy /Q /E /Y /I vendor\ASSIMP\libs\assimp-vc143-mtd.dll $(SolutionDir)\bin\Dist-windows-x86_64\$(ProjectName) &gt; nul) ELSE (xcopy /Q /Y /I vendor\ASSIMP\libs\assimp-vc143-mtd.dll $(SolutionDir)\bin\Dist-windows-x86_64\$(ProjectName) &gt; nul)
@@ -189,8 +189,10 @@ IF EXIST ..\bin\Dist-windows-x86_64\$(ProjectName)\fmod.dll\ (xcopy /Q /E /Y /I 
     <ClInclude Include="src\Void\ECS\Components\AudioListenerComponent.h" />
     <ClInclude Include="src\Void\ECS\Components\CameraComponent.h" />
     <ClInclude Include="src\Void\ECS\Components\CameraControllerComponent.h" />
+    <ClInclude Include="src\Void\ECS\Components\Components.h" />
     <ClInclude Include="src\Void\ECS\Components\EventListenerComponent.h" />
-    <ClInclude Include="src\Void\ECS\Components\PhysicsComponent.h" />
+    <ClInclude Include="src\Void\ECS\Components\Physics\BoxCollider3DComponent.h" />
+    <ClInclude Include="src\Void\ECS\Components\Physics\MeshCollider3DComponent.h" />
     <ClInclude Include="src\Void\ECS\Components\PointLightComponent.h" />
     <ClInclude Include="src\Void\ECS\Components\RenderingComponent.h" />
     <ClInclude Include="src\Void\ECS\Components\SkyboxComponent.h" />
@@ -219,18 +221,6 @@ IF EXIST ..\bin\Dist-windows-x86_64\$(ProjectName)\fmod.dll\ (xcopy /Q /E /Y /I 
     <ClInclude Include="src\Void\Layers\Core\Layer.h" />
     <ClInclude Include="src\Void\Layers\Core\LayerStack.h" />
     <ClInclude Include="src\Void\Layers\ImGuiLayer.h" />
-    <ClInclude Include="src\Void\Physics\ColissionAlgorithms.h" />
-    <ClInclude Include="src\Void\Physics\Colliders\Collider.h" />
-    <ClInclude Include="src\Void\Physics\Colliders\MeshCollider.h" />
-    <ClInclude Include="src\Void\Physics\Colliders\PlaneCollider.h" />
-    <ClInclude Include="src\Void\Physics\Colliders\SphereCollider.h" />
-    <ClInclude Include="src\Void\Physics\Collision.h" />
-    <ClInclude Include="src\Void\Physics\CollisionPoints.h" />
-    <ClInclude Include="src\Void\Physics\Phases\BroadPhase\Core\IBroadPhase.h" />
-    <ClInclude Include="src\Void\Physics\Solvers\Impulse\ImpulseSolver.h" />
-    <ClInclude Include="src\Void\Physics\Solvers\Position\PositionSolver.h" />
-    <ClInclude Include="src\Void\Physics\Solvers\Solver.h" />
-    <ClInclude Include="src\Void\Physics\Tranform.h" />
     <ClInclude Include="src\Void\Platform\FMOD\AudioLibrary\FMODAudioLibrary.h" />
     <ClInclude Include="src\Void\Platform\FMOD\AudioManager\FMODAudioManager.h" />
     <ClInclude Include="src\Void\Platform\FMOD\DataStructs\FMODChannel.h" />
@@ -301,12 +291,6 @@ IF EXIST ..\bin\Dist-windows-x86_64\$(ProjectName)\fmod.dll\ (xcopy /Q /E /Y /I 
     <ClCompile Include="src\Void\Layers\Core\Layer.cpp" />
     <ClCompile Include="src\Void\Layers\Core\LayerStack.cpp" />
     <ClCompile Include="src\Void\Layers\ImGuiLayer.cpp" />
-    <ClCompile Include="src\Void\Physics\ColissionAlgorithms.cpp" />
-    <ClCompile Include="src\Void\Physics\Colliders\MeshCollider.cpp" />
-    <ClCompile Include="src\Void\Physics\Colliders\PlaneCollider.cpp" />
-    <ClCompile Include="src\Void\Physics\Colliders\SphereCollider.cpp" />
-    <ClCompile Include="src\Void\Physics\Solvers\Impulse\ImpulseSolver.cpp" />
-    <ClCompile Include="src\Void\Physics\Solvers\Position\PositionSolver.cpp" />
     <ClCompile Include="src\Void\Platform\FMOD\AudioLibrary\FMODAudioLibrary.cpp" />
     <ClCompile Include="src\Void\Platform\FMOD\AudioManager\FMODAudioManager.cpp" />
     <ClCompile Include="src\Void\Platform\FMOD\AudioManager\FMODAudioManagerDSP.cpp" />
