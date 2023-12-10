@@ -20,9 +20,9 @@ namespace Void::Rendering {
 		m_Renderer->SubmitBlended(vertexArray, modelMatrix, textureNames, shaderName);
 	}
 
-	void RenderingCommands::DrawDebugRectangle(const glm::mat4& transform, const glm::vec4& color) 
+	void RenderingCommands::SubmitDebugRectangle(const glm::mat4& transform, const glm::vec4& color)
 	{
-		m_Renderer->DrawDebugRectangle(transform, color);
+		m_Renderer->SubmitDebugRectangle(transform, color);
 	}
 
 	void RenderingCommands::PrepareRender(const Camera* camera, const glm::mat4& transformMatrix)

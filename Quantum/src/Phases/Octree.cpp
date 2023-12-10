@@ -5,28 +5,21 @@ namespace Quantum::BroadPhase {
 
 	void Octree::Execute(const std::vector<ICollider*>& colliders, std::vector<CollisionPair>& outColissionInfo)
 	{
+		for (int i = 0; i < m_NodeIndex; i++) {
+			m_NodePool[i].SoftReset();
+		}
+		m_NodeIndex = 1;
+		m_NodePool[m_RootNodeID].BoundingBox = m_WorldBounds;
+
 		for(ICollider* collider : colliders)
 			InsertRecursive(m_NodePool[m_RootNodeID], collider, MaxDepth);
-		//ExecuteRecursive(m_RootNode, outColissionInfo);
 	}
 
 	void Octree::VisualiseDebug()
 	{
-		DebugRecursive(m_NodePool[m_RootNodeID]);
+		for (int i = 0; i < m_NodeIndex; i++)
+			m_DebugCallback(m_NodePool[i].BoundingBox);
 	}
-
-#pragma region Debug
-	void Octree::DebugRecursive(OctreeNode& node)
-	{
-		m_DebugCallback(node.BoundingBox);
-		for (int i = 0; i < 8; i++) {
-			if (node.SubNodes[i] != 0) {
-				DebugRecursive(m_NodePool[node.SubNodes[i]]);
-			}
-		}
-	}
-#pragma endregion
-
 
 #pragma region Checking
 	void Octree::ExecuteRecursive(OctreeNode& node, std::vector<Quantum::CollisionPair>& outColissionInfo)
@@ -77,41 +70,45 @@ namespace Quantum::BroadPhase {
 	void Octree::InsertRecursive(OctreeNode& node, ICollider* collider, uint8_t depth)
 	{
 		// Check if lasts and overlaps
-
-		if (/*depth == 0 && */IsObjectInBox(node.BoundingBox, collider->GetBoundingBox())) {
+		bool isobjectinbox = IsObjectInBox(node.BoundingBox, collider->GetBoundingBox());
+		if (depth == 0 && isobjectinbox) {
 			// If the object spans multiple octants or we reached the maximum depth, insert in current node
 			node.Objects[node.AmountOfObjects] = collider;
 			node.AmountOfObjects++;
 			return;
 		}
 
+		if (depth == 0)
+			return;
 		// Determine which octants the object intersects
-		//std::vector<int> intersectingOctants = GetIntersectingOctants(node->BoundingBox, collider->GetBoundingBox());
+		std::vector<int> intersectingOctants = GetIntersectingOctants(node.BoundingBox, collider->GetBoundingBox());
 
-		//for (int octant : intersectingOctants) {
-		//	// Create the child node if it doesn't exist
-		//	if (node->SubNodes[octant] == nullptr) {
-		//		// Subdivide the bounding box into octants
-		//		glm::vec3 min = node->BoundingBox.Min;
-		//		glm::vec3 max = node->BoundingBox.Max;
-		//		glm::vec3 mid = 0.5f * (min + max);
+		for (int octant : intersectingOctants) {
+			// Create the child node if it doesn't exist
+			if (node.SubNodes[octant] == 0) {
+				// Subdivide the bounding box into octants
+				glm::vec3 min = node.BoundingBox.Min;
+				glm::vec3 max = node.BoundingBox.Max;
+				glm::vec3 mid = 0.5f * (min + max);
 
-		//		// Create bounding box for the octant
-		//		AABB octantBox;
-		//		octantBox.Min = glm::vec3(octant & 1 ? mid.x : min.x,
-		//			octant & 2 ? mid.y : min.y,
-		//			octant & 4 ? mid.z : min.z);
-		//		octantBox.Max = glm::vec3(octant & 1 ? max.x : mid.x,
-		//			octant & 2 ? max.y : mid.y,
-		//			octant & 4 ? max.z : mid.z);
+				// Create bounding box for the octant
+				AABB octantBox;
+				octantBox.Min = glm::vec3(octant & 1 ? mid.x : min.x,
+					octant & 2 ? mid.y : min.y,
+					octant & 4 ? mid.z : min.z);
+				octantBox.Max = glm::vec3(octant & 1 ? max.x : mid.x,
+					octant & 2 ? max.y : mid.y,
+					octant & 4 ? max.z : mid.z);
 
-		//		// Create the child node
-		//		node->SubNodes[octant] = new OctreeNode(octantBox);
-		//	}
+				// Create the child node
+				node.SubNodes[octant] = m_NodeIndex;
+				m_NodePool[node.SubNodes[octant]].BoundingBox = octantBox;
+				m_NodePool[node.SubNodes[octant]].DebugIndex = m_NodeIndex++;
+			}
 
-		//	// Recursively insert the object into the appropriate octant
-		//	InsertRecursive(node->SubNodes[octant], collider, depth - 1);
-		//}
+			// Recursively insert the object into the appropriate octant
+			InsertRecursive(m_NodePool[node.SubNodes[octant]], collider, depth - 1);
+		}
 	}
 
 	std::vector<int> Octree::GetIntersectingOctants(const AABB& nodeBox, const AABB& objectBox)

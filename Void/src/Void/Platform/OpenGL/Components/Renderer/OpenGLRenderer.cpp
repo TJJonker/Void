@@ -15,6 +15,11 @@ namespace Void::Rendering {
 		glm::vec3 TextureIndex = glm::vec3(0);
 	};
 
+	struct DebugBatchLayout {
+		glm::vec3 Position = glm::vec3(0);
+		glm::vec4 Color = glm::vec4(0);
+	};
+
 	struct BatchData {
 		// Limits
 		static const uint32_t MaxTriangles = 40000;
@@ -22,10 +27,10 @@ namespace Void::Rendering {
 		static const uint32_t MaxTextureSlots = 32;
 
 		// References
-		VertexArray* VertexArray = nullptr;
-		std::shared_ptr<VertexBuffer> VertexBuffer = nullptr;
-		std::shared_ptr<IndexBuffer> IndexBuffer = nullptr;
-		Shader* Shader = nullptr;
+		Rendering::VertexArray* VertexArray = nullptr;
+		std::shared_ptr<Rendering::VertexBuffer> VertexBuffer = nullptr;
+		std::shared_ptr<Rendering::IndexBuffer> IndexBuffer = nullptr;
+		Rendering::Shader* Shader = nullptr;
 
 		Cubemap* CubemapTexture;
 
@@ -60,6 +65,31 @@ namespace Void::Rendering {
 			Shader->SetVec3("directionalLight.diffuse", glm::vec3( .4f, .4f, .4f ));
 			Shader->SetVec3("directionalLight.specular", glm::vec3( 1.f, 1.f, 1.f ));
 		}
+
+
+		// References
+		Rendering::VertexArray* DebugVertexArray = nullptr;
+		std::shared_ptr<Rendering::VertexBuffer> DebugVertexBuffer = nullptr;
+		std::shared_ptr<Rendering::IndexBuffer> DebugIndexBuffer = nullptr;
+		Rendering::Shader* DebugShader = nullptr;
+
+		// Points to begin of the array
+		DebugBatchLayout* DebugVertexBufferBase = nullptr;
+		// Points to next free location in array
+		DebugBatchLayout* DebugVertexBufferPtr = nullptr;
+
+		// Points to begin of the array
+		uint32_t* DebugIndexBufferBase = nullptr;
+		//Points to next free location in array
+		uint32_t* DebugIndexBufferPtr = nullptr;
+
+		uint32_t GetDebugVertexCount() { return uint32_t((uint8_t*)DebugVertexBufferPtr - (uint8_t*)DebugVertexBufferBase) / sizeof(DebugBatchLayout); }
+		uint32_t GetDebugIndexCount() { return uint32_t((uint8_t*)DebugIndexBufferPtr - (uint8_t*)DebugIndexBufferBase) / sizeof(uint32_t); }
+
+		void SetDebugShaderSettings() {
+			DebugShader->Bind();
+			DebugShader->SetMatrix4("viewProjectionMatrix", ViewProjectionMatrix);
+		}
 	};
 
 	static BatchData m_RendererData;
@@ -67,27 +97,39 @@ namespace Void::Rendering {
 
 	void OpenGLRenderer::Initialize()
 	{
-		m_RendererData.VertexArray = VertexArray::Create();
+		{
+			m_RendererData.VertexArray = VertexArray::Create();
+			m_RendererData.VertexBuffer.reset(VertexBuffer::Create(m_RendererData.MaxIndices * sizeof(BatchLayout)));
+			VertexBufferLayout bufferLayout;
+			bufferLayout.Push<float>(3);
+			bufferLayout.Push<float>(3);
+			bufferLayout.Push<float>(2);
+			bufferLayout.Push<unsigned int>(3);
+			m_RendererData.VertexBuffer->SetVertexBufferLayout(bufferLayout);
+			m_RendererData.IndexBuffer.reset(IndexBuffer::Create(m_RendererData.MaxIndices * sizeof(uint32_t)));
+			m_RendererData.VertexArray->AddVertexBuffer(m_RendererData.VertexBuffer);
+			m_RendererData.VertexArray->SetIndexBuffer(m_RendererData.IndexBuffer);
+			// Create array for vertices
+			m_RendererData.VertexBufferBase = new BatchLayout[m_RendererData.MaxTriangles];
+			// Create array for indices
+			m_RendererData.IndexBufferBase = new uint32_t[m_RendererData.MaxIndices];
+		}
 
-		m_RendererData.VertexBuffer.reset(VertexBuffer::Create(m_RendererData.MaxIndices * sizeof(BatchLayout)));
-
-		VertexBufferLayout bufferLayout;
-		bufferLayout.Push<float>(3);
-		bufferLayout.Push<float>(3);
-		bufferLayout.Push<float>(2);
-		bufferLayout.Push<unsigned int>(3);
-		m_RendererData.VertexBuffer->SetVertexBufferLayout(bufferLayout);
-
-		m_RendererData.IndexBuffer.reset(IndexBuffer::Create(m_RendererData.MaxIndices * sizeof(uint32_t)));
-
-		m_RendererData.VertexArray->AddVertexBuffer(m_RendererData.VertexBuffer);
-		m_RendererData.VertexArray->SetIndexBuffer(m_RendererData.IndexBuffer)
-			;
-		// Create array for vertices
-		m_RendererData.VertexBufferBase = new BatchLayout[m_RendererData.MaxTriangles];
-
-		// Create array for indices
-		m_RendererData.IndexBufferBase = new uint32_t[m_RendererData.MaxIndices];
+		{
+			m_RendererData.DebugVertexArray = VertexArray::Create();
+			m_RendererData.DebugVertexBuffer.reset(VertexBuffer::Create(m_RendererData.MaxIndices * sizeof(DebugBatchLayout)));
+			VertexBufferLayout debugBufferLayout;
+			debugBufferLayout.Push<float>(3);
+			debugBufferLayout.Push<float>(4);
+			m_RendererData.DebugVertexBuffer->SetVertexBufferLayout(debugBufferLayout);
+			m_RendererData.DebugIndexBuffer.reset(IndexBuffer::Create(m_RendererData.MaxIndices * sizeof(uint32_t)));
+			m_RendererData.DebugVertexArray->AddVertexBuffer(m_RendererData.DebugVertexBuffer);
+			m_RendererData.DebugVertexArray->SetIndexBuffer(m_RendererData.DebugIndexBuffer);
+			// Create array for vertices
+			m_RendererData.DebugVertexBufferBase = new DebugBatchLayout[m_RendererData.MaxTriangles];
+			// Create array for indices
+			m_RendererData.DebugIndexBufferBase = new uint32_t[m_RendererData.MaxIndices];
+		}
 	}
 
 	void OpenGLRenderer::Submit(VertexArray* vertexArray, const glm::mat4& modelMatrix, const std::vector<std::string>& textureNames, const std::string& shaderName)
@@ -98,6 +140,12 @@ namespace Void::Rendering {
 	void OpenGLRenderer::SubmitBlended(VertexArray* vertexArray, const glm::mat4& modelMatrix, const std::vector<std::string>& textureNames, const std::string& shaderName)
 	{
 		m_SubmissionsBlended[shaderName].push_back({ vertexArray, modelMatrix, textureNames });
+	}
+
+	void OpenGLRenderer::SubmitDebugRectangle(const glm::mat4& transform, const glm::vec4& color)
+	{
+		VertexArray* va = MeshLibrary::GetInstance()->Get("Assets/Core/Models/Cube.obj")->Submeshes[0];
+		m_DebugSubmissions.push_back({ va, transform, color });
 	}
 
 	void OpenGLRenderer::PrepareRender(const Camera* camera, const glm::mat4& transformMatrix)
@@ -150,6 +198,8 @@ namespace Void::Rendering {
 		for (const std::pair<std::string, std::vector<BatchSubmission>>& pair : m_SubmissionsBlended) {
 			ExecuteRender(pair);
 		}
+
+		ExecuteDebugRender(m_DebugSubmissions);
 	}
 
 	void OpenGLRenderer::ExecuteRender(const std::pair<std::string, std::vector<BatchSubmission>>& pair) {
@@ -218,19 +268,42 @@ namespace Void::Rendering {
 		Flush();
 	}
 
-	void OpenGLRenderer::DrawDebugRectangle(const glm::mat4& transform, const glm::vec4& color)
-	{
-		VertexArray* va = MeshLibrary::GetInstance()->Get("Assets/Core/Models/Cube.obj")->Submeshes[0];
-		Shader* shader = ShaderLibrary::GetInstance()->Get("DebugShader");
-		shader->Bind();
-		shader->SetMatrix4("viewProjectionMatrix", m_RendererData.ViewProjectionMatrix);
-		shader->SetMatrix4("modelMatrix", transform);
-		shader->SetVec4("a_color", color);
-		va->Bind();
-		va->GetIndexBuffer().get()->Bind();
-		glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
-		GLCall(glDrawElements(GL_TRIANGLES, m_RendererData.VertexArray->GetIndexBuffer()->GetCount(), GL_UNSIGNED_INT, nullptr));
-		glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+	void OpenGLRenderer::ExecuteDebugRender(const std::vector<DebugBatchSubmission>& submissions) {
+		m_RendererData.DebugShader = ShaderLibrary::GetInstance()->Get("DebugShader");
+		m_RendererData.SetDebugShaderSettings();
+		for (auto& submission : submissions) {
+			IndexBuffer* indexBuffer = submission.VertexArray->GetIndexBuffer().get();
+			VertexBuffer* vertexBuffer = submission.VertexArray->getVertexBuffers()[0].get();
+
+			VertexLayout* vb = (VertexLayout*)vertexBuffer->GetData();
+
+			// Check if the batch is full based on Indices Count
+			if (m_RendererData.GetDebugIndexCount() + submission.VertexArray->GetIndexBuffer()->GetCount()
+				> m_RendererData.MaxIndices)
+				DebugFlush();
+
+			// Add indexBuffer to batch indexBuffer
+			{
+				for (int i = 0; i < indexBuffer->GetCount(); i++) {
+					*m_RendererData.DebugIndexBufferPtr = *(indexBuffer->GetIndices() + i) + m_RendererData.GetDebugVertexCount();
+					m_RendererData.DebugIndexBufferPtr++;
+				}
+			}
+
+			// Add vertexBuffer to batch vertexBuffer
+			{
+				const uint32_t count = vertexBuffer->GetSize() / sizeof(VertexLayout);
+				VertexLayout* localVertexBuffer = (VertexLayout*)vertexBuffer->GetData();
+				glm::mat3 ITModelMatrix = glm::transpose(glm::inverse(submission.ModelMatrix));
+				for (uint32_t i = 0; i < count; i++) {
+					VertexLayout* currentLayout = localVertexBuffer + i;
+					m_RendererData.DebugVertexBufferPtr->Position = submission.ModelMatrix * glm::vec4(currentLayout->Position, 1.f);
+					m_RendererData.DebugVertexBufferPtr->Color = submission.Colors;
+					m_RendererData.DebugVertexBufferPtr++;
+				}
+			}
+		}
+		DebugFlush();
 	}
 
 	unsigned int OpenGLRenderer::NewTexturesCount(std::vector<std::string> textureNames)
@@ -248,6 +321,9 @@ namespace Void::Rendering {
 	{
 		m_RendererData.VertexBufferPtr = m_RendererData.VertexBufferBase;
 		m_RendererData.IndexBufferPtr = m_RendererData.IndexBufferBase;
+
+		m_RendererData.DebugVertexBufferPtr = m_RendererData.DebugVertexBufferBase;
+		m_RendererData.DebugIndexBufferPtr = m_RendererData.DebugIndexBufferBase;
 
 		m_RendererData.TextureSlotsIndex = 0;
 		m_RendererData.Shader = nullptr;
@@ -270,6 +346,7 @@ namespace Void::Rendering {
 
 	void OpenGLRenderer::FinishRender()
 	{
+		DebugFlush();
 		Flush();
 	}
 
@@ -277,6 +354,7 @@ namespace Void::Rendering {
 	{
 		m_Submissions.clear();
 		m_SubmissionsBlended.clear();
+		m_DebugSubmissions.clear();
 	}
 
 	void OpenGLRenderer::Flush()
@@ -304,5 +382,25 @@ namespace Void::Rendering {
 		m_RendererData.IndexBufferPtr = m_RendererData.IndexBufferBase;
 		m_RendererData.VertexBufferPtr = m_RendererData.VertexBufferBase;
 		m_RendererData.TextureSlotsIndex = 0;
+	}
+
+	void OpenGLRenderer::DebugFlush()
+	{
+		m_RendererData.DebugShader->Bind();
+
+		size_t indexCount = m_RendererData.GetDebugIndexCount();
+		size_t vertexCount = m_RendererData.GetDebugVertexCount();
+
+		m_RendererData.DebugIndexBuffer->SetData(m_RendererData.DebugIndexBufferBase, m_RendererData.GetDebugIndexCount() * sizeof(uint32_t));
+		m_RendererData.DebugVertexBuffer->SetData(m_RendererData.DebugVertexBufferBase, m_RendererData.GetDebugVertexCount() * sizeof(DebugBatchLayout));
+
+		m_RendererData.DebugVertexArray->Bind();
+		m_RendererData.DebugIndexBuffer->Bind();
+		glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+		GLCall(glDrawElements(GL_TRIANGLES, m_RendererData.DebugVertexArray->GetIndexBuffer()->GetCount(), GL_UNSIGNED_INT, nullptr));
+		glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+
+		m_RendererData.DebugIndexBufferPtr = m_RendererData.DebugIndexBufferBase;
+		m_RendererData.DebugVertexBufferPtr = m_RendererData.DebugVertexBufferBase;
 	}
 }

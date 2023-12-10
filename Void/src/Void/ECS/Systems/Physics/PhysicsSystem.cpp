@@ -22,6 +22,13 @@ namespace Void {
 		std::vector<Collision> collisions;
 		std::vector<Entity*> entities = scene->GetAllEntitesWith<BoxCollider3DComponent, TransformComponent>();
 
+		for (Entity* entity : entities) {
+			TransformComponent& transform = entity->GetComponent<TransformComponent>();
+			BoxCollider3DComponent& collider = entity->GetComponent<BoxCollider3DComponent>();
+			collider.Collider.CalculateBoundingBox(transform.GetTransformNS());
+			std::vector<Quantum::CollisionPair> collisionPairs;
+			m_Handler.RunBroadPhase({ &collider.Collider }, collisionPairs);
+		}
 		/*for (Entity* a : entities) {
 			TransformComponent& aTransform = a->GetComponent<TransformComponent>();
 			PhysicsComponent& aPhysics = a->GetComponent<PhysicsComponent>();

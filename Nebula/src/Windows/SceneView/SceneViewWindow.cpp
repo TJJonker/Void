@@ -24,33 +24,49 @@ namespace Nebula::Window {
 		std::shared_ptr<Void::Rendering::RenderingSystem> renderingSystem = std::make_shared<Void::Rendering::RenderingSystem>();
 		Void::SceneManager::GetInstance().GetCurrentScene()->SetRenderingSystem(renderingSystem);
 
-		//m_BroadPhase->SetDebugCallback([](const Quantum::AABB& aabb) {
-		//		Void::Rendering::RenderingCommands
-		//	})
-		//std::shared_ptr<Void::PhysicsSystem> physicsSystem = std::make_shared<Void::PhysicsSystem>(m_Handler);
-		//Void::SceneManager::GetInstance().GetCurrentScene()->SetPhysicsSystem(physicsSystem);
+		m_BroadPhase->SetDebugCallback([](const Quantum::AABB& aabb) {
+			glm::vec3 center = (aabb.Min + aabb.Max) / 2.0f;
+
+			// Calculate the extents (half-size) of the AABB
+			glm::vec3 extents = (aabb.Max - aabb.Min) / 2.0f;
+
+			// Create a translation matrix
+			glm::mat4 translationMatrix = glm::translate(glm::mat4(1.0f), center);
+
+			// Create a scale matrix
+			glm::mat4 scaleMatrix = glm::scale(glm::mat4(1.0f), extents);
+
+			// Combine translation and scale to get the transformation matrix
+			glm::mat4 transformMatrix = translationMatrix * scaleMatrix;
+
+			Void::Rendering::RenderingCommands::SubmitDebugRectangle(transformMatrix, glm::vec4(0, 1, 0, 1));
+			});
+		std::shared_ptr<Void::PhysicsSystem> physicsSystem = std::make_shared<Void::PhysicsSystem>(m_Handler);
+		Void::SceneManager::GetInstance().GetCurrentScene()->SetPhysicsSystem(physicsSystem);
 	}
 
 	void SceneViewWindow::OnGuiRender()
 	{
 		m_EditorCamera->OnUpdate();
 
+		Void::SceneManager::GetInstance().GetCurrentScene()->UpdatePhysicsSystem();
+
 		m_FrameBuffer->Bind();
 		Void::Rendering::RenderingCommands::Clear();
 		Void::SceneManager::GetInstance().GetCurrentScene()->UpdateRenderingSystem();
 		Void::Rendering::RenderingCommands::PrepareRender(m_EditorCamera->GetViewProjection(), m_EditorCamera->GetPosition(), m_EditorCamera->GetSkybox());
 		
-		Void::Rendering::RenderingCommands::Render();
 		std::vector<Void::Entity*> view = Void::SceneManager::GetInstance().GetCurrentScene()->GetAllEntitesWith<Void::TransformComponent, Void::BoxCollider3DComponent>();
 		for (Void::Entity* entity : view) {
 			Void::TransformComponent& transform = entity->GetComponent<Void::TransformComponent>();
 			Void::BoxCollider3DComponent& collider = entity->GetComponent<Void::BoxCollider3DComponent>();
 
 			glm::mat4 transformMatrix = glm::translate(transform.GetTransformNS(), collider.Collider.GetOffset());
-			transformMatrix = glm::scale(transformMatrix, collider.Collider.HalfExtents * 2.f);
-			Void::Rendering::RenderingCommands::DrawDebugRectangle(transformMatrix, glm::vec4(1, 0, 0, 1));
+			transformMatrix = glm::scale(transformMatrix, collider.Collider.HalfExtents);
+			Void::Rendering::RenderingCommands::SubmitDebugRectangle(transformMatrix, glm::vec4(1, 0, 0, 1));
 		}
-
+		m_BroadPhase->VisualiseDebug();
+		Void::Rendering::RenderingCommands::Render();
 
 		m_FrameBuffer->Unbind();
 

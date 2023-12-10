@@ -19,7 +19,7 @@ namespace Void::Rendering {
 		virtual void Submit(VertexArray* vertexArray, const glm::mat4& modelMatrix, const std::vector<std::string>& textureNames, const std::string& shaderName) = 0;
 		virtual void SubmitBlended(VertexArray* vertexArray, const glm::mat4& modelMatrix, const std::vector<std::string>& textureNames, const std::string& shaderName) = 0;
 
-		virtual void DrawDebugRectangle(const glm::mat4& transform, const glm::vec4& color) = 0;
+		virtual void SubmitDebugRectangle(const glm::mat4& transform, const glm::vec4& color) = 0;
 
 		virtual void PrepareRender(const Camera* camera, const glm::mat4& transformMatrix) = 0;
 		virtual void PrepareRender(const glm::mat4& viewProjectionMatrix, const glm::vec3& position, std::string skyboxTitle) = 0;

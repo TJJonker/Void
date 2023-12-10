@@ -7,7 +7,7 @@ namespace Void {
 	class PhysicsSystem : public ISystem
 	{
 	public:
-		PhysicsSystem(const Quantum::CollisionHandler& handler)
+		PhysicsSystem(Quantum::CollisionHandler& handler)
 			: m_Handler(handler) { }
 
 		virtual void Update(Scene* scene) override;
@@ -22,6 +22,6 @@ namespace Void {
 		unsigned int m_Substeps = 1;
 		std::vector<std::shared_ptr<Solver>> m_Solvers;
 
-		const Quantum::CollisionHandler& m_Handler;
+		Quantum::CollisionHandler& m_Handler;
 	};
 }

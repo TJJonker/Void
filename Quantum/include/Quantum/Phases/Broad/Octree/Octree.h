@@ -8,13 +8,13 @@
 namespace Quantum::BroadPhase {
 	typedef std::function<void(const AABB& boundingBox)> DebugCallback;
 
-	constexpr uint8_t MaxDepth = 8;
+	constexpr uint8_t MaxDepth = 4;
 
 	class Octree : public IBroadPhase
 	{
 	public:
 		Octree(const AABB& worldBounds, uint8_t maxDepth)
-			: m_RootNodeID(0) { }
+			: m_RootNodeID(0), m_WorldBounds(worldBounds) { }
 
 		virtual void Execute(const std::vector<ICollider*>& colliders, std::vector<CollisionPair>& outColissionInfo) override;
 		virtual void VisualiseDebug() override;
@@ -33,12 +33,12 @@ namespace Quantum::BroadPhase {
 		std::vector<int> GetIntersectingOctants(const AABB& nodeBox, const AABB& objectBox);
 		bool IsObjectInBox(const AABB& box, const AABB& objectBox);
 
-		void DebugRecursive(OctreeNode& node);
-
 	private:
+		AABB m_WorldBounds;
 		uint8_t m_RootNodeID;
 		DebugCallback m_DebugCallback;
 
+		uint32_t m_NodeIndex = 1;
 		OctreeNode m_NodePool[MaxSubnodes * (MaxSubnodes * MaxSubnodes)];
 	};
 }

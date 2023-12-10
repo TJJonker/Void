@@ -12,8 +12,15 @@ namespace Quantum {
         uint8_t AmountOfObjects;
         ICollider* Objects[TempMaxObjectsPerNode];
         uint8_t SubNodes[MaxSubnodes] = {0};
+        unsigned int DebugIndex;
 
         OctreeNode() {
+            SoftReset();
+        }
+
+        void SoftReset() {
+            AmountOfObjects = 0;
+            DebugIndex = 0;
             for (int i = 0; i < MaxSubnodes; ++i) {
                 SubNodes[i] = 0;
             }
