@@ -1,20 +1,61 @@
 {
     "Entities": [
         {
-            "Name": "SM_Env_Road_YellowLines_02",
+            "Name": "Exterior Ground Glass 2",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": -5.0,
+                            "Y": 6.5,
+                            "Z": 0.0
+                        },
+                        "Rotation": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 1.0,
+                            "Y": 1.0,
+                            "Z": 1.0
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Blending": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Assets/Models/SM_Env_Wall_Exterior_Window_Ground_Glass_02.obj",
+                                "Texture": [
+                                    "Assets/Textures/PolygonHeist_Texture_03_C.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Exterior Ground Glass 1",
             "Components": [
                 {
                     "Type": "TransformComponent",
                     "Data": {
                         "Position": {
                             "X": 0.0,
-                            "Y": -1.000003695487976,
-                            "Z": -23.5
+                            "Y": 6.5,
+                            "Z": 0.0
                         },
                         "Rotation": {
-                            "X": -3.141592264175415,
+                            "X": 0.0,
                             "Y": 0.0,
-                            "Z": -3.141592264175415
+                            "Z": 0.0
                         },
                         "Scale": {
                             "X": 1.0,
@@ -30,9 +71,9 @@
                         "Blending": false,
                         "Submeshes": [
                             {
-                                "Model": "Assets/Models/SM_Env_Road_YellowLines_02.obj",
+                                "Model": "Assets/Models/SM_Env_Wall_Exterior_Window_Ground_Glass_01.obj",
                                 "Texture": [
-                                    "Assets/Textures/PolygonCity_Texture_04_A.png"
+                                    "Assets/Textures/PolygonHeist_Texture_03_C.png"
                                 ],
                                 "Shader": "DefaultShader"
                             }
@@ -42,20 +83,20 @@
             ]
         },
         {
-            "Name": "SM_Env_Road_YellowLines_01",
+            "Name": "Exterior Window Ground 2",
             "Components": [
                 {
                     "Type": "TransformComponent",
                     "Data": {
                         "Position": {
                             "X": -5.0,
-                            "Y": -1.0000066757202148,
-                            "Z": -13.599348068237305
+                            "Y": 6.5,
+                            "Z": 0.0
                         },
                         "Rotation": {
-                            "X": 4.76837158203125e-07,
+                            "X": 0.0,
                             "Y": 0.0,
-                            "Z": 4.76837158203125e-07
+                            "Z": 0.0
                         },
                         "Scale": {
                             "X": 1.0,
@@ -71,9 +112,9 @@
                         "Blending": false,
                         "Submeshes": [
                             {
-                                "Model": "Assets/Models/SM_Env_Road_YellowLines_01.obj",
+                                "Model": "Assets/Models/SM_Env_Wall_Exterior_Window_Ground_02.obj",
                                 "Texture": [
-                                    "Assets/Textures/PolygonCity_Texture_04_A.png"
+                                    "Assets/Textures/PolygonHeist_Texture_03_C.png"
                                 ],
                                 "Shader": "DefaultShader"
                             }
@@ -83,61 +124,20 @@
             ]
         },
         {
-            "Name": "SM_Env_Road_Patch_01",
+            "Name": "Exterior Window Ground 1",
             "Components": [
                 {
                     "Type": "TransformComponent",
                     "Data": {
                         "Position": {
-                            "X": -1.056783676147461,
-                            "Y": -0.7573164701461792,
-                            "Z": -10.30756950378418
+                            "X": 0.0,
+                            "Y": 6.5,
+                            "Z": 0.0
                         },
                         "Rotation": {
-                            "X": -3.141592264175415,
-                            "Y": -0.35849034786224365,
-                            "Z": -3.141592264175415
-                        },
-                        "Scale": {
-                            "X": 0.9999995231628418,
-                            "Y": 1.0,
-                            "Z": 0.9999995231628418
-                        }
-                    }
-                },
-                {
-                    "Type": "RenderingComponent",
-                    "Data": {
-                        "DrawWireframe": false,
-                        "Blending": false,
-                        "Submeshes": [
-                            {
-                                "Model": "Assets/Models/SM_Env_Road_Patch_01.obj",
-                                "Texture": [
-                                    "Assets/Textures/PolygonCity_Texture_04_A.png"
-                                ],
-                                "Shader": "DefaultShader"
-                            }
-                        ]
-                    }
-                }
-            ]
-        },
-        {
-            "Name": "SM_Env_Road_ParkingLines_01",
-            "Components": [
-                {
-                    "Type": "TransformComponent",
-                    "Data": {
-                        "Position": {
-                            "X": -15.0,
-                            "Y": -1.0000085830688477,
-                            "Z": -8.5
-                        },
-                        "Rotation": {
-                            "X": 4.76837158203125e-07,
+                            "X": 0.0,
                             "Y": 0.0,
-                            "Z": 4.76837158203125e-07
+                            "Z": 0.0
                         },
                         "Scale": {
                             "X": 1.0,
@@ -153,9 +153,9 @@
                         "Blending": false,
                         "Submeshes": [
                             {
-                                "Model": "Assets/Models/SM_Env_Road_ParkingLines_01.obj",
+                                "Model": "Assets/Models/SM_Env_Wall_Exterior_Window_Ground_01.obj",
                                 "Texture": [
-                                    "Assets/Textures/PolygonCity_Texture_04_A.png"
+                                    "Assets/Textures/PolygonHeist_Texture_03_C.png"
                                 ],
                                 "Shader": "DefaultShader"
                             }
@@ -165,20 +165,103 @@
             ]
         },
         {
-            "Name": "SM_Env_Road_Median_02",
+            "Name": "Exterior Window Glass 2",
             "Components": [
                 {
                     "Type": "TransformComponent",
                     "Data": {
                         "Position": {
-                            "X": -5.0,
-                            "Y": -1.000003695487976,
-                            "Z": -18.5
+                            "X": 6.5,
+                            "Y": 3.0,
+                            "Z": 0.0
                         },
                         "Rotation": {
-                            "X": -3.141592264175415,
+                            "X": 0.0,
                             "Y": 0.0,
-                            "Z": -3.141592264175415
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 1.0,
+                            "Y": 1.0,
+                            "Z": 1.0
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Blending": true,
+                        "Submeshes": [
+                            {
+                                "Model": "Assets/Models/SM_Env_Wall_Exterior_Window_Glass_02.obj",
+                                "Texture": [
+                                    "Assets/Textures/PolygonHeist_Texture_03_C.png",
+                                    "Assets/Textures/Heist_Transparency_R.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Exterior Window Glass 1",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": 0.0,
+                            "Y": 3.0,
+                            "Z": 0.0
+                        },
+                        "Rotation": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 1.0,
+                            "Y": 1.0,
+                            "Z": 1.0
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Blending": true,
+                        "Submeshes": [
+                            {
+                                "Model": "Assets/Models/SM_Env_Wall_Exterior_Window_Glass_01.obj",
+                                "Texture": [
+                                    "Assets/Textures/PolygonHeist_Texture_03_C.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Exterior Window 2",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": 6.5,
+                            "Y": 3.0,
+                            "Z": 0.0
+                        },
+                        "Rotation": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
                         },
                         "Scale": {
                             "X": 1.0,
@@ -194,9 +277,9 @@
                         "Blending": false,
                         "Submeshes": [
                             {
-                                "Model": "Assets/Models/SM_Env_Road_Median_02.obj",
+                                "Model": "Assets/Models/SM_Env_Wall_Exterior_Window_02.obj",
                                 "Texture": [
-                                    "Assets/Textures/PolygonCity_Texture_04_A.png"
+                                    "Assets/Textures/PolygonHeist_Texture_03_C.png"
                                 ],
                                 "Shader": "DefaultShader"
                             }
@@ -206,20 +289,20 @@
             ]
         },
         {
-            "Name": "SM_Env_Road_Median_01",
+            "Name": "Exterior Window 1",
             "Components": [
                 {
                     "Type": "TransformComponent",
                     "Data": {
                         "Position": {
-                            "X": -5.0,
-                            "Y": -1.0000053644180298,
-                            "Z": -23.369998931884766
+                            "X": 0.0,
+                            "Y": 3.0,
+                            "Z": 0.0
                         },
                         "Rotation": {
-                            "X": -3.141592264175415,
+                            "X": 0.0,
                             "Y": 0.0,
-                            "Z": -3.141592264175415
+                            "Z": 0.0
                         },
                         "Scale": {
                             "X": 1.0,
@@ -235,9 +318,9 @@
                         "Blending": false,
                         "Submeshes": [
                             {
-                                "Model": "Assets/Models/SM_Env_Road_Median_01.obj",
+                                "Model": "Assets/Models/SM_Env_Wall_Exterior_Window_01.obj",
                                 "Texture": [
-                                    "Assets/Textures/PolygonCity_Texture_04_A.png"
+                                    "Assets/Textures/PolygonHeist_Texture_03_C.png"
                                 ],
                                 "Shader": "DefaultShader"
                             }
@@ -247,20 +330,20 @@
             ]
         },
         {
-            "Name": "SM_Env_Road_Lines_02",
+            "Name": "Exterior Wall Ground 1",
             "Components": [
                 {
                     "Type": "TransformComponent",
                     "Data": {
                         "Position": {
-                            "X": -10.0,
-                            "Y": -1.0000056028366089,
-                            "Z": -18.5
+                            "X": -5.5,
+                            "Y": 0.0,
+                            "Z": 0.0
                         },
                         "Rotation": {
-                            "X": -3.141592264175415,
+                            "X": 0.0,
                             "Y": 0.0,
-                            "Z": -3.141592264175415
+                            "Z": 0.0
                         },
                         "Scale": {
                             "X": 1.0,
@@ -276,9 +359,9 @@
                         "Blending": false,
                         "Submeshes": [
                             {
-                                "Model": "Assets/Models/SM_Env_Road_Lines_02.obj",
+                                "Model": "Assets/Models/SM_Env_Wall_Exterior_Ground_01.obj",
                                 "Texture": [
-                                    "Assets/Textures/PolygonCity_Texture_04_A.png"
+                                    "Assets/Textures/PolygonHeist_Texture_03_C.png"
                                 ],
                                 "Shader": "DefaultShader"
                             }
@@ -288,20 +371,20 @@
             ]
         },
         {
-            "Name": "SM_Env_Road_Lines_01",
+            "Name": "Double Door 1",
             "Components": [
                 {
                     "Type": "TransformComponent",
                     "Data": {
                         "Position": {
-                            "X": -10.0,
-                            "Y": -1.0000073909759521,
-                            "Z": -23.369998931884766
+                            "X": 11.5,
+                            "Y": 0.0,
+                            "Z": 0.0
                         },
                         "Rotation": {
-                            "X": -3.141592264175415,
+                            "X": 0.0,
                             "Y": 0.0,
-                            "Z": -3.141592264175415
+                            "Z": 0.0
                         },
                         "Scale": {
                             "X": 1.0,
@@ -317,9 +400,9 @@
                         "Blending": false,
                         "Submeshes": [
                             {
-                                "Model": "Assets/Models/SM_Env_Road_Lines_01.obj",
+                                "Model": "Assets/Models/SM_Env_Wall_Exterior_DoubleDoor_01.obj",
                                 "Texture": [
-                                    "Assets/Textures/PolygonCity_Texture_04_A.png"
+                                    "Assets/Textures/PolygonHeist_Texture_03_C.png"
                                 ],
                                 "Shader": "DefaultShader"
                             }
@@ -329,20 +412,20 @@
             ]
         },
         {
-            "Name": "SM_Env_Road_Crossing_01",
+            "Name": "Exterior Door 1",
             "Components": [
                 {
                     "Type": "TransformComponent",
                     "Data": {
                         "Position": {
-                            "X": 5.0,
-                            "Y": -1.0000029802322388,
-                            "Z": -18.5
+                            "X": 6.5,
+                            "Y": 0.0,
+                            "Z": 0.0
                         },
                         "Rotation": {
-                            "X": -3.141592264175415,
+                            "X": 0.0,
                             "Y": 0.0,
-                            "Z": -3.141592264175415
+                            "Z": 0.0
                         },
                         "Scale": {
                             "X": 1.0,
@@ -358,9 +441,9 @@
                         "Blending": false,
                         "Submeshes": [
                             {
-                                "Model": "Assets/Models/SM_Env_Road_Crossing_01.obj",
+                                "Model": "Assets/Models/SM_Env_Wall_Exterior_Door_01.obj",
                                 "Texture": [
-                                    "Assets/Textures/PolygonCity_Texture_04_A.png"
+                                    "Assets/Textures/PolygonHeist_Texture_03_C.png"
                                 ],
                                 "Shader": "DefaultShader"
                             }
@@ -370,20 +453,20 @@
             ]
         },
         {
-            "Name": "SM_Env_Road_Bare_01",
+            "Name": "Exterior Wall 1",
             "Components": [
                 {
                     "Type": "TransformComponent",
                     "Data": {
                         "Position": {
-                            "X": -10.0,
-                            "Y": -1.0000017881393433,
-                            "Z": -8.5
+                            "X": -5.5,
+                            "Y": 3.0,
+                            "Z": 0.0
                         },
                         "Rotation": {
-                            "X": -3.141592264175415,
+                            "X": 0.0,
                             "Y": 0.0,
-                            "Z": -3.141592264175415
+                            "Z": 0.0
                         },
                         "Scale": {
                             "X": 1.0,
@@ -399,214 +482,9 @@
                         "Blending": false,
                         "Submeshes": [
                             {
-                                "Model": "Assets/Models/SM_Env_Road_Bare_01.obj",
+                                "Model": "Assets/Models/SM_Env_Wall_Exterior_01.obj",
                                 "Texture": [
-                                    "Assets/Textures/PolygonCity_Texture_04_A.png"
-                                ],
-                                "Shader": "DefaultShader"
-                            }
-                        ]
-                    }
-                }
-            ]
-        },
-        {
-            "Name": "SM_Env_Road_Arrow_02",
-            "Components": [
-                {
-                    "Type": "TransformComponent",
-                    "Data": {
-                        "Position": {
-                            "X": -5.0,
-                            "Y": -0.9999997615814209,
-                            "Z": -8.5
-                        },
-                        "Rotation": {
-                            "X": -3.141592264175415,
-                            "Y": 0.0,
-                            "Z": -3.141592264175415
-                        },
-                        "Scale": {
-                            "X": 1.0,
-                            "Y": 1.0,
-                            "Z": 1.0
-                        }
-                    }
-                },
-                {
-                    "Type": "RenderingComponent",
-                    "Data": {
-                        "DrawWireframe": false,
-                        "Blending": false,
-                        "Submeshes": [
-                            {
-                                "Model": "Assets/Models/SM_Env_Road_Arrow_02.obj",
-                                "Texture": [
-                                    "Assets/Textures/PolygonCity_Texture_04_A.png"
-                                ],
-                                "Shader": "DefaultShader"
-                            }
-                        ]
-                    }
-                }
-            ]
-        },
-        {
-            "Name": "SM_Env_Road_Arrow_01",
-            "Components": [
-                {
-                    "Type": "TransformComponent",
-                    "Data": {
-                        "Position": {
-                            "X": 5.0,
-                            "Y": -1.0000004768371582,
-                            "Z": -13.604389190673828
-                        },
-                        "Rotation": {
-                            "X": -3.141592264175415,
-                            "Y": 0.0,
-                            "Z": -3.141592264175415
-                        },
-                        "Scale": {
-                            "X": 1.0,
-                            "Y": 1.0,
-                            "Z": 1.0
-                        }
-                    }
-                },
-                {
-                    "Type": "RenderingComponent",
-                    "Data": {
-                        "DrawWireframe": false,
-                        "Blending": false,
-                        "Submeshes": [
-                            {
-                                "Model": "Assets/Models/SM_Env_Road_Arrow_01.obj",
-                                "Texture": [
-                                    "Assets/Textures/PolygonCity_Texture_04_A.png"
-                                ],
-                                "Shader": "DefaultShader"
-                            }
-                        ]
-                    }
-                }
-            ]
-        },
-        {
-            "Name": "SM_Env_Road_03",
-            "Components": [
-                {
-                    "Type": "TransformComponent",
-                    "Data": {
-                        "Position": {
-                            "X": -5.0,
-                            "Y": -1.0000073909759521,
-                            "Z": -3.5
-                        },
-                        "Rotation": {
-                            "X": 4.76837158203125e-07,
-                            "Y": 0.0,
-                            "Z": 4.76837158203125e-07
-                        },
-                        "Scale": {
-                            "X": 1.0,
-                            "Y": 1.0,
-                            "Z": 1.0
-                        }
-                    }
-                },
-                {
-                    "Type": "RenderingComponent",
-                    "Data": {
-                        "DrawWireframe": false,
-                        "Blending": false,
-                        "Submeshes": [
-                            {
-                                "Model": "Assets/Models/SM_Env_Road_03.obj",
-                                "Texture": [
-                                    "Assets/Textures/PolygonCity_Texture_04_A.png"
-                                ],
-                                "Shader": "DefaultShader"
-                            }
-                        ]
-                    }
-                }
-            ]
-        },
-        {
-            "Name": "SM_Env_Road_02",
-            "Components": [
-                {
-                    "Type": "TransformComponent",
-                    "Data": {
-                        "Position": {
-                            "X": 5.0,
-                            "Y": -0.9999959468841553,
-                            "Z": -8.5
-                        },
-                        "Rotation": {
-                            "X": -3.141592264175415,
-                            "Y": 0.0,
-                            "Z": -3.141592264175415
-                        },
-                        "Scale": {
-                            "X": 1.0,
-                            "Y": 1.0,
-                            "Z": 1.0
-                        }
-                    }
-                },
-                {
-                    "Type": "RenderingComponent",
-                    "Data": {
-                        "DrawWireframe": false,
-                        "Blending": false,
-                        "Submeshes": [
-                            {
-                                "Model": "Assets/Models/SM_Env_Road_02.obj",
-                                "Texture": [
-                                    "Assets/Textures/PolygonCity_Texture_04_A.png"
-                                ],
-                                "Shader": "DefaultShader"
-                            }
-                        ]
-                    }
-                }
-            ]
-        },
-        {
-            "Name": "SM_Env_Road_01",
-            "Components": [
-                {
-                    "Type": "TransformComponent",
-                    "Data": {
-                        "Position": {
-                            "X": 7.582177073695018e-13,
-                            "Y": -1.000001072883606,
-                            "Z": -13.595396995544434
-                        },
-                        "Rotation": {
-                            "X": -3.141592264175415,
-                            "Y": 0.0,
-                            "Z": -3.141592264175415
-                        },
-                        "Scale": {
-                            "X": 0.9998569488525391,
-                            "Y": 1.0,
-                            "Z": 0.9998569488525391
-                        }
-                    }
-                },
-                {
-                    "Type": "RenderingComponent",
-                    "Data": {
-                        "DrawWireframe": false,
-                        "Blending": false,
-                        "Submeshes": [
-                            {
-                                "Model": "Assets/Models/SM_Env_Road_01.obj",
-                                "Texture": [
-                                    "Assets/Textures/PolygonCity_Texture_04_A.png"
+                                    "Assets/Textures/PolygonHeist_Texture_03_C.png"
                                 ],
                                 "Shader": "DefaultShader"
                             }

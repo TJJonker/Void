@@ -179,8 +179,8 @@ namespace Void::Rendering {
 					break;
 
 				std::string textureName = submission.TextureNames[i];
-				auto it = std::find(m_RendererData.TextureSlots.begin(), m_RendererData.TextureSlots.end(), textureName);
-				if (it != m_RendererData.TextureSlots.end()) {
+				auto it = std::find(m_RendererData.TextureSlots.begin(), m_RendererData.TextureSlots.begin() + m_RendererData.TextureSlotsIndex, textureName);
+				if (it != m_RendererData.TextureSlots.begin() + m_RendererData.TextureSlotsIndex) {
 					textureIndex = std::distance(m_RendererData.TextureSlots.begin(), it);
 				}
 
@@ -211,6 +211,7 @@ namespace Void::Rendering {
 					m_RendererData.VertexBufferPtr->Normals = ITModelMatrix * currentLayout->Normals;
 					m_RendererData.VertexBufferPtr->TextureCoord = currentLayout->TextureCoords;
 					m_RendererData.VertexBufferPtr->TextureIndex[0] = textureIndices[0];
+					m_RendererData.VertexBufferPtr->TextureIndex[1] = textureIndices[1];
 					m_RendererData.VertexBufferPtr++;
 				}
 			}

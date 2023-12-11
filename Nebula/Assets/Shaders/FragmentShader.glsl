@@ -39,7 +39,15 @@ void main()
 
     //vec3 result = ambient + diffuse + specular;
     vec3 result = ambient + diffuse;
-    color = vec4(result, 1);
+    if(TextureIndex.y == -1){
+        color = vec4(result, 1);
+    }
+    else{
+        float alpha = texture(Textures[int(TextureIndex.y)], TextureCoords).r;
+        color = vec4(result, alpha);
+    }
+
+    //color = vec4(result, 1);
     //color = vec4(TextureIndex.xyz, 1.0);
     //color = vec4(0.3, 0.3, 0.6, 1.0);
     //color = texture(Textures[int(TextureIndex[0])], TextureCoords).rrrr;

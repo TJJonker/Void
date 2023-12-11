@@ -18,6 +18,7 @@ namespace Nebula::Editor {
         // Texture lib
         Void::TextureLibrary::GetInstance().LoadTexture("Assets/Textures/PolygonHeist_Texture_03_C.png");
         Void::TextureLibrary::GetInstance().LoadTexture("Assets/Textures/PolygonCity_Texture_04_A.png");
+        Void::TextureLibrary::GetInstance().LoadTexture("Assets/Textures/Heist_Transparency_R.png");
 
         // Cubemaps
         Void::TextureLibrary::GetInstance().LoadCubemap("Default",
@@ -31,24 +32,21 @@ namespace Nebula::Editor {
             });
 
         // Mesh lib
-        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Env_Road_01.obj");
-        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Env_Road_02.obj");
-        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Env_Road_03.obj");
-        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Env_Road_Arrow_01.obj");
-        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Env_Road_Arrow_02.obj");
-        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Env_Road_Bare_01.obj");
-        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Env_Road_Crossing_01.obj");
-        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Env_Road_Lines_01.obj");
-        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Env_Road_Lines_02.obj");
-        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Env_Road_Median_01.obj");
-        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Env_Road_Median_02.obj");
-        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Env_Road_ParkingLines_01.obj");
-        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Env_Road_Patch_01.obj");
-        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Env_Road_YellowLines_01.obj");
-        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Env_Road_YellowLines_02.obj");
         Void::MeshLibrary::GetInstance()->Load("Assets/Core/Models/Cube.obj");
-        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Env_Door_Glass_01.obj");
-        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Prop_WaterCooler_Tank_01.obj");
+        
+        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Env_Wall_Exterior_01.obj");
+        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Env_Wall_Exterior_Door_01.obj");
+        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Env_Wall_Exterior_DoubleDoor_01.obj");
+        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Env_Wall_Exterior_Ground_01.obj");
+        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Env_Wall_Exterior_Window_01.obj");
+        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Env_Wall_Exterior_Window_02.obj");
+        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Env_Wall_Exterior_Window_Glass_01.obj");
+        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Env_Wall_Exterior_Window_Glass_02.obj");
+        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Env_Wall_Exterior_Window_Ground_01.obj");
+        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Env_Wall_Exterior_Window_Ground_02.obj");
+        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Env_Wall_Exterior_Window_Ground_Glass_01.obj");
+        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Env_Wall_Exterior_Window_Ground_Glass_02.obj");
+
 
 
 
