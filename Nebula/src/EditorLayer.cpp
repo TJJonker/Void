@@ -47,6 +47,18 @@ namespace Nebula::Editor {
         Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Env_Wall_Exterior_Window_Ground_Glass_01.obj");
         Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Env_Wall_Exterior_Window_Ground_Glass_02.obj");
 
+        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Env_Road_01.obj");
+        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Env_Road_02.obj");
+        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Env_Road_03.obj");
+        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Env_Road_Median_01.obj");
+        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Env_Road_Median_02.obj");
+        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Env_Sidewalk_Straight_01.obj");
+        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Env_Sidewalk_Corner_01.obj");
+        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Env_Sidewalk_Corner_02.obj");
+        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Env_Sidewalk_01.obj");
+        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Env_Fence_01.obj");
+        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Env_Fence_End_01.obj");
+
 
 
 

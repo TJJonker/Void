@@ -1,15 +1,15 @@
 {
     "Entities": [
         {
-            "Name": "Exterior Ground Glass 2",
+            "Name": "Road",
             "Components": [
                 {
                     "Type": "TransformComponent",
                     "Data": {
                         "Position": {
-                            "X": -5.0,
-                            "Y": 6.5,
-                            "Z": 0.0
+                            "X": -0.5,
+                            "Y": 0.0,
+                            "Z": 19.0
                         },
                         "Rotation": {
                             "X": 0.0,
@@ -30,9 +30,9 @@
                         "Blending": false,
                         "Submeshes": [
                             {
-                                "Model": "Assets/Models/SM_Env_Wall_Exterior_Window_Ground_Glass_02.obj",
+                                "Model": "Assets/Models/SM_Env_Road_01.obj",
                                 "Texture": [
-                                    "Assets/Textures/PolygonHeist_Texture_03_C.png"
+                                    "Assets/Textures/PolygonCity_Texture_04_A.png"
                                 ],
                                 "Shader": "DefaultShader"
                             }
@@ -42,15 +42,15 @@
             ]
         },
         {
-            "Name": "Exterior Ground Glass 1",
+            "Name": "Road",
             "Components": [
                 {
                     "Type": "TransformComponent",
                     "Data": {
                         "Position": {
-                            "X": 0.0,
-                            "Y": 6.5,
-                            "Z": 0.0
+                            "X": -0.5,
+                            "Y": 0.0,
+                            "Z": 14.0
                         },
                         "Rotation": {
                             "X": 0.0,
@@ -71,9 +71,9 @@
                         "Blending": false,
                         "Submeshes": [
                             {
-                                "Model": "Assets/Models/SM_Env_Wall_Exterior_Window_Ground_Glass_01.obj",
+                                "Model": "Assets/Models/SM_Env_Road_01.obj",
                                 "Texture": [
-                                    "Assets/Textures/PolygonHeist_Texture_03_C.png"
+                                    "Assets/Textures/PolygonCity_Texture_04_A.png"
                                 ],
                                 "Shader": "DefaultShader"
                             }
@@ -83,15 +83,261 @@
             ]
         },
         {
-            "Name": "Exterior Window Ground 2",
+            "Name": "Road",
             "Components": [
                 {
                     "Type": "TransformComponent",
                     "Data": {
                         "Position": {
-                            "X": -5.0,
-                            "Y": 6.5,
+                            "X": -0.5000004768371582,
+                            "Y": 0.0,
+                            "Z": 14.0
+                        },
+                        "Rotation": {
+                            "X": 0.0,
+                            "Y": 1.5707963705062866,
                             "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 0.9999678730964661,
+                            "Y": 1.0,
+                            "Z": 0.9999678730964661
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Blending": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Assets/Models/SM_Env_Road_01.obj",
+                                "Texture": [
+                                    "Assets/Textures/PolygonCity_Texture_04_A.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Road",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": -5.5,
+                            "Y": 0.0,
+                            "Z": 14.0
+                        },
+                        "Rotation": {
+                            "X": 0.0,
+                            "Y": 1.5707963705062866,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 0.9999851584434509,
+                            "Y": 1.0,
+                            "Z": 0.9999851584434509
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Blending": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Assets/Models/SM_Env_Road_01.obj",
+                                "Texture": [
+                                    "Assets/Textures/PolygonCity_Texture_04_A.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Road",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": -10.5,
+                            "Y": 0.0,
+                            "Z": 9.0
+                        },
+                        "Rotation": {
+                            "X": -3.141592264175415,
+                            "Y": 0.0,
+                            "Z": -3.141592264175415
+                        },
+                        "Scale": {
+                            "X": 1.0,
+                            "Y": 1.0,
+                            "Z": 1.0
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Blending": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Assets/Models/SM_Env_Road_01.obj",
+                                "Texture": [
+                                    "Assets/Textures/PolygonCity_Texture_04_A.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Road",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": -10.5,
+                            "Y": 0.0,
+                            "Z": 14.0
+                        },
+                        "Rotation": {
+                            "X": -3.141592264175415,
+                            "Y": 0.0,
+                            "Z": -3.141592264175415
+                        },
+                        "Scale": {
+                            "X": 1.0,
+                            "Y": 1.0,
+                            "Z": 1.0
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Blending": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Assets/Models/SM_Env_Road_01.obj",
+                                "Texture": [
+                                    "Assets/Textures/PolygonCity_Texture_04_A.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Sidewalk straight 3",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": 4.499999523162842,
+                            "Y": 0.0,
+                            "Z": 14.0
+                        },
+                        "Rotation": {
+                            "X": 0.0,
+                            "Y": -1.5707963705062866,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 0.9999902844429016,
+                            "Y": 1.0,
+                            "Z": 0.9999902844429016
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Blending": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Assets/Models/SM_Env_Sidewalk_Straight_01.obj",
+                                "Texture": [
+                                    "Assets/Textures/PolygonCity_Texture_04_A.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Sidewalk corner 2",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": -15.5,
+                            "Y": 1.160530005428484e-13,
+                            "Z": 9.001726150512695
+                        },
+                        "Rotation": {
+                            "X": -3.141592264175415,
+                            "Y": 1.570451021194458,
+                            "Z": -3.141592264175415
+                        },
+                        "Scale": {
+                            "X": 0.9999998807907104,
+                            "Y": 1.0,
+                            "Z": 0.9999998807907104
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Blending": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Assets/Models/SM_Env_Sidewalk_Corner_02.obj",
+                                "Texture": [
+                                    "Assets/Textures/PolygonCity_Texture_04_A.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Sidewalk corner 1",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": 4.5,
+                            "Y": 0.0,
+                            "Z": 9.0
                         },
                         "Rotation": {
                             "X": 0.0,
@@ -112,9 +358,9 @@
                         "Blending": false,
                         "Submeshes": [
                             {
-                                "Model": "Assets/Models/SM_Env_Wall_Exterior_Window_Ground_02.obj",
+                                "Model": "Assets/Models/SM_Env_Sidewalk_Corner_02.obj",
                                 "Texture": [
-                                    "Assets/Textures/PolygonHeist_Texture_03_C.png"
+                                    "Assets/Textures/PolygonCity_Texture_04_A.png"
                                 ],
                                 "Shader": "DefaultShader"
                             }
@@ -124,15 +370,15 @@
             ]
         },
         {
-            "Name": "Exterior Window Ground 1",
+            "Name": "Sidewalk straight 3",
             "Components": [
                 {
                     "Type": "TransformComponent",
                     "Data": {
                         "Position": {
-                            "X": 0.0,
-                            "Y": 6.5,
-                            "Z": 0.0
+                            "X": -5.5,
+                            "Y": 0.0,
+                            "Z": 9.0
                         },
                         "Rotation": {
                             "X": 0.0,
@@ -153,9 +399,9 @@
                         "Blending": false,
                         "Submeshes": [
                             {
-                                "Model": "Assets/Models/SM_Env_Wall_Exterior_Window_Ground_01.obj",
+                                "Model": "Assets/Models/SM_Env_Sidewalk_Straight_01.obj",
                                 "Texture": [
-                                    "Assets/Textures/PolygonHeist_Texture_03_C.png"
+                                    "Assets/Textures/PolygonCity_Texture_04_A.png"
                                 ],
                                 "Shader": "DefaultShader"
                             }
@@ -165,15 +411,15 @@
             ]
         },
         {
-            "Name": "Exterior Window Glass 2",
+            "Name": "Sidewalk straight 4",
             "Components": [
                 {
                     "Type": "TransformComponent",
                     "Data": {
                         "Position": {
-                            "X": 6.5,
-                            "Y": 3.0,
-                            "Z": 0.0
+                            "X": -0.5,
+                            "Y": 0.0,
+                            "Z": 9.0
                         },
                         "Rotation": {
                             "X": 0.0,
@@ -184,6 +430,1851 @@
                             "X": 1.0,
                             "Y": 1.0,
                             "Z": 1.0
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Blending": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Assets/Models/SM_Env_Sidewalk_Straight_01.obj",
+                                "Texture": [
+                                    "Assets/Textures/PolygonCity_Texture_04_A.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Sidewalk straight 2",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": -10.5,
+                            "Y": 0.0,
+                            "Z": 9.0
+                        },
+                        "Rotation": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 1.0,
+                            "Y": 1.0,
+                            "Z": 1.0
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Blending": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Assets/Models/SM_Env_Sidewalk_Straight_01.obj",
+                                "Texture": [
+                                    "Assets/Textures/PolygonCity_Texture_04_A.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Sidewalk straight 1",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": -15.5,
+                            "Y": 0.0,
+                            "Z": 9.0
+                        },
+                        "Rotation": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 1.0,
+                            "Y": 1.0,
+                            "Z": 1.0
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Blending": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Assets/Models/SM_Env_Sidewalk_Straight_01.obj",
+                                "Texture": [
+                                    "Assets/Textures/PolygonCity_Texture_04_A.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Sidewalk straight 1",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": -15.5,
+                            "Y": 0.0,
+                            "Z": 14.0
+                        },
+                        "Rotation": {
+                            "X": 0.0,
+                            "Y": 1.5707963705062866,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 0.9999693036079407,
+                            "Y": 1.0,
+                            "Z": 0.9999693036079407
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Blending": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Assets/Models/SM_Env_Sidewalk_Straight_01.obj",
+                                "Texture": [
+                                    "Assets/Textures/PolygonCity_Texture_04_A.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Sidewalk straight 1",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": 4.5,
+                            "Y": 0.0,
+                            "Z": 8.999999046325684
+                        },
+                        "Rotation": {
+                            "X": 0.0,
+                            "Y": -1.5707963705062866,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 0.9999642968177795,
+                            "Y": 1.0,
+                            "Z": 0.9999642968177795
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Blending": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Assets/Models/SM_Env_Sidewalk_Straight_01.obj",
+                                "Texture": [
+                                    "Assets/Textures/PolygonCity_Texture_04_A.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Sidewalk straight 1",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": -15.5,
+                            "Y": 0.0,
+                            "Z": 19.0
+                        },
+                        "Rotation": {
+                            "X": 0.0,
+                            "Y": 1.5707963705062866,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 0.9999772310256958,
+                            "Y": 1.0,
+                            "Z": 0.9999772310256958
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Blending": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Assets/Models/SM_Env_Sidewalk_Straight_01.obj",
+                                "Texture": [
+                                    "Assets/Textures/PolygonCity_Texture_04_A.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Sidewalk inner corner 1",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": -10.500000953674316,
+                            "Y": 0.0,
+                            "Z": 14.0
+                        },
+                        "Rotation": {
+                            "X": 0.0,
+                            "Y": -1.5707963705062866,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 0.9999426007270813,
+                            "Y": 1.0,
+                            "Z": 0.9999426007270813
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Blending": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Assets/Models/SM_Env_Sidewalk_Corner_01.obj",
+                                "Texture": [
+                                    "Assets/Textures/PolygonCity_Texture_04_A.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Sidewalk inner corner 2",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": -0.4999987483024597,
+                            "Y": 7.03729619999649e-06,
+                            "Z": 14.000001907348633
+                        },
+                        "Rotation": {
+                            "X": -3.141592025756836,
+                            "Y": -5.960464477539063e-08,
+                            "Z": -3.141592264175415
+                        },
+                        "Scale": {
+                            "X": 0.9999949932098389,
+                            "Y": 1.0,
+                            "Z": 0.9999949932098389
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Blending": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Assets/Models/SM_Env_Sidewalk_Corner_01.obj",
+                                "Texture": [
+                                    "Assets/Textures/PolygonCity_Texture_04_A.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Sidewalk",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": -20.5,
+                            "Y": -1.6446814697701484e-05,
+                            "Z": -10.999996185302734
+                        },
+                        "Rotation": {
+                            "X": -3.141592025756836,
+                            "Y": -5.960464477539063e-08,
+                            "Z": -3.141592264175415
+                        },
+                        "Scale": {
+                            "X": 0.9999949932098389,
+                            "Y": 1.0,
+                            "Z": 0.9999949932098389
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Blending": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Assets/Models/SM_Env_Sidewalk_01.obj",
+                                "Texture": [
+                                    "Assets/Textures/PolygonCity_Texture_04_A.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Sidewalk",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": 14.499999046325684,
+                            "Y": -2.8173117243568413e-06,
+                            "Z": -10.999998092651367
+                        },
+                        "Rotation": {
+                            "X": -3.141592025756836,
+                            "Y": -5.960464477539063e-08,
+                            "Z": -3.141592264175415
+                        },
+                        "Scale": {
+                            "X": 0.9999949932098389,
+                            "Y": 1.0,
+                            "Z": 0.9999949932098389
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Blending": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Assets/Models/SM_Env_Sidewalk_01.obj",
+                                "Texture": [
+                                    "Assets/Textures/PolygonCity_Texture_04_A.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Sidewalk",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": -15.500000953674316,
+                            "Y": -1.4499742064799648e-05,
+                            "Z": -10.999998092651367
+                        },
+                        "Rotation": {
+                            "X": -3.141592025756836,
+                            "Y": -5.960464477539063e-08,
+                            "Z": -3.141592264175415
+                        },
+                        "Scale": {
+                            "X": 0.9999949932098389,
+                            "Y": 1.0,
+                            "Z": 0.9999949932098389
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Blending": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Assets/Models/SM_Env_Sidewalk_01.obj",
+                                "Texture": [
+                                    "Assets/Textures/PolygonCity_Texture_04_A.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Sidewalk",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": -10.500000953674316,
+                            "Y": -1.2552670341392513e-05,
+                            "Z": -10.999998092651367
+                        },
+                        "Rotation": {
+                            "X": -3.141592025756836,
+                            "Y": -5.960464477539063e-08,
+                            "Z": -3.141592264175415
+                        },
+                        "Scale": {
+                            "X": 0.9999949932098389,
+                            "Y": 1.0,
+                            "Z": 0.9999949932098389
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Blending": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Assets/Models/SM_Env_Sidewalk_01.obj",
+                                "Texture": [
+                                    "Assets/Textures/PolygonCity_Texture_04_A.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Sidewalk",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": 9.499999046325684,
+                            "Y": -4.764383447763976e-06,
+                            "Z": -10.999998092651367
+                        },
+                        "Rotation": {
+                            "X": -3.141592025756836,
+                            "Y": -5.960464477539063e-08,
+                            "Z": -3.141592264175415
+                        },
+                        "Scale": {
+                            "X": 0.9999949932098389,
+                            "Y": 1.0,
+                            "Z": 0.9999949932098389
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Blending": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Assets/Models/SM_Env_Sidewalk_01.obj",
+                                "Texture": [
+                                    "Assets/Textures/PolygonCity_Texture_04_A.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Sidewalk",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": 4.5,
+                            "Y": -6.71145517117111e-06,
+                            "Z": -10.999998092651367
+                        },
+                        "Rotation": {
+                            "X": -3.141592025756836,
+                            "Y": -5.960464477539063e-08,
+                            "Z": -3.141592264175415
+                        },
+                        "Scale": {
+                            "X": 0.9999949932098389,
+                            "Y": 1.0,
+                            "Z": 0.9999949932098389
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Blending": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Assets/Models/SM_Env_Sidewalk_01.obj",
+                                "Texture": [
+                                    "Assets/Textures/PolygonCity_Texture_04_A.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Sidewalk",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": -0.5000002384185791,
+                            "Y": -8.658526894578245e-06,
+                            "Z": -10.999998092651367
+                        },
+                        "Rotation": {
+                            "X": -3.141592025756836,
+                            "Y": -5.960464477539063e-08,
+                            "Z": -3.141592264175415
+                        },
+                        "Scale": {
+                            "X": 0.9999949932098389,
+                            "Y": 1.0,
+                            "Z": 0.9999949932098389
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Blending": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Assets/Models/SM_Env_Sidewalk_01.obj",
+                                "Texture": [
+                                    "Assets/Textures/PolygonCity_Texture_04_A.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Sidewalk",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": -5.5,
+                            "Y": -1.0605598617985379e-05,
+                            "Z": -10.999998092651367
+                        },
+                        "Rotation": {
+                            "X": -3.141592025756836,
+                            "Y": -5.960464477539063e-08,
+                            "Z": -3.141592264175415
+                        },
+                        "Scale": {
+                            "X": 0.9999949932098389,
+                            "Y": 1.0,
+                            "Z": 0.9999949932098389
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Blending": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Assets/Models/SM_Env_Sidewalk_01.obj",
+                                "Texture": [
+                                    "Assets/Textures/PolygonCity_Texture_04_A.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Sidewalk",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": 14.5,
+                            "Y": 3.218533493054565e-07,
+                            "Z": -5.999998092651367
+                        },
+                        "Rotation": {
+                            "X": -3.141592025756836,
+                            "Y": -5.960464477539063e-08,
+                            "Z": -3.141592264175415
+                        },
+                        "Scale": {
+                            "X": 0.9999949932098389,
+                            "Y": 1.0,
+                            "Z": 0.9999949932098389
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Blending": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Assets/Models/SM_Env_Sidewalk_01.obj",
+                                "Texture": [
+                                    "Assets/Textures/PolygonCity_Texture_04_A.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Sidewalk",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": -20.5,
+                            "Y": -1.3307649169291835e-05,
+                            "Z": -5.999996185302734
+                        },
+                        "Rotation": {
+                            "X": -3.141592025756836,
+                            "Y": -5.960464477539063e-08,
+                            "Z": -3.141592264175415
+                        },
+                        "Scale": {
+                            "X": 0.9999949932098389,
+                            "Y": 1.0,
+                            "Z": 0.9999949932098389
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Blending": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Assets/Models/SM_Env_Sidewalk_01.obj",
+                                "Texture": [
+                                    "Assets/Textures/PolygonCity_Texture_04_A.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Sidewalk",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": 9.5,
+                            "Y": -1.6252188288490288e-06,
+                            "Z": -5.999998092651367
+                        },
+                        "Rotation": {
+                            "X": -3.141592025756836,
+                            "Y": -5.960464477539063e-08,
+                            "Z": -3.141592264175415
+                        },
+                        "Scale": {
+                            "X": 0.9999949932098389,
+                            "Y": 1.0,
+                            "Z": 0.9999949932098389
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Blending": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Assets/Models/SM_Env_Sidewalk_01.obj",
+                                "Texture": [
+                                    "Assets/Textures/PolygonCity_Texture_04_A.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Sidewalk",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": -15.5,
+                            "Y": -1.1360577445884701e-05,
+                            "Z": -5.999998092651367
+                        },
+                        "Rotation": {
+                            "X": -3.141592025756836,
+                            "Y": -5.960464477539063e-08,
+                            "Z": -3.141592264175415
+                        },
+                        "Scale": {
+                            "X": 0.9999949932098389,
+                            "Y": 1.0,
+                            "Z": 0.9999949932098389
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Blending": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Assets/Models/SM_Env_Sidewalk_01.obj",
+                                "Texture": [
+                                    "Assets/Textures/PolygonCity_Texture_04_A.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Sidewalk",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": -10.5,
+                            "Y": -9.413505722477566e-06,
+                            "Z": -5.999998092651367
+                        },
+                        "Rotation": {
+                            "X": -3.141592025756836,
+                            "Y": -5.960464477539063e-08,
+                            "Z": -3.141592264175415
+                        },
+                        "Scale": {
+                            "X": 0.9999949932098389,
+                            "Y": 1.0,
+                            "Z": 0.9999949932098389
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Blending": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Assets/Models/SM_Env_Sidewalk_01.obj",
+                                "Texture": [
+                                    "Assets/Textures/PolygonCity_Texture_04_A.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Sidewalk",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": 4.500000476837158,
+                            "Y": -3.572290552256163e-06,
+                            "Z": -5.999998092651367
+                        },
+                        "Rotation": {
+                            "X": -3.141592025756836,
+                            "Y": -5.960464477539063e-08,
+                            "Z": -3.141592264175415
+                        },
+                        "Scale": {
+                            "X": 0.9999949932098389,
+                            "Y": 1.0,
+                            "Z": 0.9999949932098389
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Blending": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Assets/Models/SM_Env_Sidewalk_01.obj",
+                                "Texture": [
+                                    "Assets/Textures/PolygonCity_Texture_04_A.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Sidewalk",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": -0.4999999403953552,
+                            "Y": -5.519362275663298e-06,
+                            "Z": -5.999998092651367
+                        },
+                        "Rotation": {
+                            "X": -3.141592025756836,
+                            "Y": -5.960464477539063e-08,
+                            "Z": -3.141592264175415
+                        },
+                        "Scale": {
+                            "X": 0.9999949932098389,
+                            "Y": 1.0,
+                            "Z": 0.9999949932098389
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Blending": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Assets/Models/SM_Env_Sidewalk_01.obj",
+                                "Texture": [
+                                    "Assets/Textures/PolygonCity_Texture_04_A.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Sidewalk",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": -5.499999523162842,
+                            "Y": -7.466433999070432e-06,
+                            "Z": -5.999998092651367
+                        },
+                        "Rotation": {
+                            "X": -3.141592025756836,
+                            "Y": -5.960464477539063e-08,
+                            "Z": -3.141592264175415
+                        },
+                        "Scale": {
+                            "X": 0.9999949932098389,
+                            "Y": 1.0,
+                            "Z": 0.9999949932098389
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Blending": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Assets/Models/SM_Env_Sidewalk_01.obj",
+                                "Texture": [
+                                    "Assets/Textures/PolygonCity_Texture_04_A.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Sidewalk",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": -20.499998092651367,
+                            "Y": -1.0168484550376888e-05,
+                            "Z": -0.9999971389770508
+                        },
+                        "Rotation": {
+                            "X": -3.141592025756836,
+                            "Y": -5.960464477539063e-08,
+                            "Z": -3.141592264175415
+                        },
+                        "Scale": {
+                            "X": 0.9999949932098389,
+                            "Y": 1.0,
+                            "Z": 0.9999949932098389
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Blending": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Assets/Models/SM_Env_Sidewalk_01.obj",
+                                "Texture": [
+                                    "Assets/Textures/PolygonCity_Texture_04_A.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Sidewalk",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": -15.5,
+                            "Y": -8.221412826969754e-06,
+                            "Z": -0.9999971389770508
+                        },
+                        "Rotation": {
+                            "X": -3.141592025756836,
+                            "Y": -5.960464477539063e-08,
+                            "Z": -3.141592264175415
+                        },
+                        "Scale": {
+                            "X": 0.9999949932098389,
+                            "Y": 1.0,
+                            "Z": 0.9999949932098389
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Blending": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Assets/Models/SM_Env_Sidewalk_01.obj",
+                                "Texture": [
+                                    "Assets/Textures/PolygonCity_Texture_04_A.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Sidewalk",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": 14.5,
+                            "Y": 3.4610179682204034e-06,
+                            "Z": -0.9999990463256836
+                        },
+                        "Rotation": {
+                            "X": -3.141592025756836,
+                            "Y": -5.960464477539063e-08,
+                            "Z": -3.141592264175415
+                        },
+                        "Scale": {
+                            "X": 0.9999949932098389,
+                            "Y": 1.0,
+                            "Z": 0.9999949932098389
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Blending": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Assets/Models/SM_Env_Sidewalk_01.obj",
+                                "Texture": [
+                                    "Assets/Textures/PolygonCity_Texture_04_A.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Sidewalk",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": -10.5,
+                            "Y": -6.2743411035626195e-06,
+                            "Z": -0.9999971389770508
+                        },
+                        "Rotation": {
+                            "X": -3.141592025756836,
+                            "Y": -5.960464477539063e-08,
+                            "Z": -3.141592264175415
+                        },
+                        "Scale": {
+                            "X": 0.9999949932098389,
+                            "Y": 1.0,
+                            "Z": 0.9999949932098389
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Blending": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Assets/Models/SM_Env_Sidewalk_01.obj",
+                                "Texture": [
+                                    "Assets/Textures/PolygonCity_Texture_04_A.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Sidewalk",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": -5.499999523162842,
+                            "Y": -4.327269380155485e-06,
+                            "Z": -0.9999980926513672
+                        },
+                        "Rotation": {
+                            "X": -3.141592025756836,
+                            "Y": -5.960464477539063e-08,
+                            "Z": -3.141592264175415
+                        },
+                        "Scale": {
+                            "X": 0.9999949932098389,
+                            "Y": 1.0,
+                            "Z": 0.9999949932098389
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Blending": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Assets/Models/SM_Env_Sidewalk_01.obj",
+                                "Texture": [
+                                    "Assets/Textures/PolygonCity_Texture_04_A.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Sidewalk",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": 9.5,
+                            "Y": 1.5139457900659181e-06,
+                            "Z": -0.9999990463256836
+                        },
+                        "Rotation": {
+                            "X": -3.141592025756836,
+                            "Y": -5.960464477539063e-08,
+                            "Z": -3.141592264175415
+                        },
+                        "Scale": {
+                            "X": 0.9999949932098389,
+                            "Y": 1.0,
+                            "Z": 0.9999949932098389
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Blending": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Assets/Models/SM_Env_Sidewalk_01.obj",
+                                "Texture": [
+                                    "Assets/Textures/PolygonCity_Texture_04_A.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Sidewalk",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": 4.5,
+                            "Y": -4.331259333412163e-07,
+                            "Z": -0.9999982118606567
+                        },
+                        "Rotation": {
+                            "X": -3.141592025756836,
+                            "Y": -5.960464477539063e-08,
+                            "Z": -3.141592264175415
+                        },
+                        "Scale": {
+                            "X": 0.9999949932098389,
+                            "Y": 1.0,
+                            "Z": 0.9999949932098389
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Blending": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Assets/Models/SM_Env_Sidewalk_01.obj",
+                                "Texture": [
+                                    "Assets/Textures/PolygonCity_Texture_04_A.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Sidewalk",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": -0.4999997615814209,
+                            "Y": -2.3801976567483507e-06,
+                            "Z": -0.9999982118606567
+                        },
+                        "Rotation": {
+                            "X": -3.141592025756836,
+                            "Y": -5.960464477539063e-08,
+                            "Z": -3.141592264175415
+                        },
+                        "Scale": {
+                            "X": 0.9999949932098389,
+                            "Y": 1.0,
+                            "Z": 0.9999949932098389
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Blending": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Assets/Models/SM_Env_Sidewalk_01.obj",
+                                "Texture": [
+                                    "Assets/Textures/PolygonCity_Texture_04_A.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Fence",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": -13.0,
+                            "Y": -4.10871234635124e-06,
+                            "Z": 4.000002861022949
+                        },
+                        "Rotation": {
+                            "X": -3.141592025756836,
+                            "Y": -5.960464477539063e-08,
+                            "Z": -3.141592264175415
+                        },
+                        "Scale": {
+                            "X": 0.9999949932098389,
+                            "Y": 1.0,
+                            "Z": 0.9999949932098389
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Blending": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Assets/Models/SM_Env_Fence_01.obj",
+                                "Texture": [
+                                    "Assets/Textures/PolygonCity_Texture_04_A.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Fence",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": -2.9999992847442627,
+                            "Y": -2.14568899536971e-07,
+                            "Z": 4.000001907348633
+                        },
+                        "Rotation": {
+                            "X": -3.141592025756836,
+                            "Y": -5.960464477539063e-08,
+                            "Z": -3.141592264175415
+                        },
+                        "Scale": {
+                            "X": 0.9999949932098389,
+                            "Y": 1.0,
+                            "Z": 0.9999949932098389
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Blending": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Assets/Models/SM_Env_Fence_01.obj",
+                                "Texture": [
+                                    "Assets/Textures/PolygonCity_Texture_04_A.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Fence",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": 2.0000007152557373,
+                            "Y": 1.7325028238701634e-06,
+                            "Z": 4.000001907348633
+                        },
+                        "Rotation": {
+                            "X": -3.141592025756836,
+                            "Y": -5.960464477539063e-08,
+                            "Z": -3.141592264175415
+                        },
+                        "Scale": {
+                            "X": 0.9999949932098389,
+                            "Y": 1.0,
+                            "Z": 0.9999949932098389
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Blending": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Assets/Models/SM_Env_Fence_01.obj",
+                                "Texture": [
+                                    "Assets/Textures/PolygonCity_Texture_04_A.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Fence",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": -17.999998092651367,
+                            "Y": -6.055784069758374e-06,
+                            "Z": 4.000002861022949
+                        },
+                        "Rotation": {
+                            "X": -3.141592025756836,
+                            "Y": -5.960464477539063e-08,
+                            "Z": -3.141592264175415
+                        },
+                        "Scale": {
+                            "X": 0.9999949932098389,
+                            "Y": 1.0,
+                            "Z": 0.9999949932098389
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Blending": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Assets/Models/SM_Env_Fence_01.obj",
+                                "Texture": [
+                                    "Assets/Textures/PolygonCity_Texture_04_A.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Fence",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": -17.999998092651367,
+                            "Y": -6.055784069758374e-06,
+                            "Z": 4.000002861022949
+                        },
+                        "Rotation": {
+                            "X": -3.141592025756836,
+                            "Y": -5.960464477539063e-08,
+                            "Z": -3.141592264175415
+                        },
+                        "Scale": {
+                            "X": 0.9999949932098389,
+                            "Y": 1.0,
+                            "Z": 0.9999949932098389
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Blending": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Assets/Models/SM_Env_Fence_01.obj",
+                                "Texture": [
+                                    "Assets/Textures/PolygonCity_Texture_04_A.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Fence",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": -22.499998092651367,
+                            "Y": -7.808148438925855e-06,
+                            "Z": 4.000002861022949
+                        },
+                        "Rotation": {
+                            "X": -3.141592025756836,
+                            "Y": -5.960464477539063e-08,
+                            "Z": -3.141592264175415
+                        },
+                        "Scale": {
+                            "X": 0.9999949932098389,
+                            "Y": 1.0,
+                            "Z": 0.9999949932098389
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Blending": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Assets/Models/SM_Env_Fence_01.obj",
+                                "Texture": [
+                                    "Assets/Textures/PolygonCity_Texture_04_A.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Fence",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": -17.999998092651367,
+                            "Y": -6.055784069758374e-06,
+                            "Z": 4.000002861022949
+                        },
+                        "Rotation": {
+                            "X": -3.141592025756836,
+                            "Y": -5.960464477539063e-08,
+                            "Z": -3.141592264175415
+                        },
+                        "Scale": {
+                            "X": 0.9999949932098389,
+                            "Y": 1.0,
+                            "Z": 0.9999949932098389
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Blending": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Assets/Models/SM_Env_Fence_01.obj",
+                                "Texture": [
+                                    "Assets/Textures/PolygonCity_Texture_04_A.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Fence",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": 7.000001907348633,
+                            "Y": 3.6795754567719996e-06,
+                            "Z": 4.000001430511475
+                        },
+                        "Rotation": {
+                            "X": -3.141592025756836,
+                            "Y": -5.960464477539063e-08,
+                            "Z": -3.141592264175415
+                        },
+                        "Scale": {
+                            "X": 0.9999949932098389,
+                            "Y": 1.0,
+                            "Z": 0.9999949932098389
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Blending": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Assets/Models/SM_Env_Fence_01.obj",
+                                "Texture": [
+                                    "Assets/Textures/PolygonCity_Texture_04_A.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Fence End",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": 12.000000953674316,
+                            "Y": 5.626646725431783e-06,
+                            "Z": 4.000000953674316
+                        },
+                        "Rotation": {
+                            "X": -3.141592025756836,
+                            "Y": -5.960464477539063e-08,
+                            "Z": -3.141592264175415
+                        },
+                        "Scale": {
+                            "X": 0.9999949932098389,
+                            "Y": 1.0,
+                            "Z": 0.9999949932098389
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Blending": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Assets/Models/SM_Env_Fence_End_01.obj",
+                                "Texture": [
+                                    "Assets/Textures/PolygonCity_Texture_04_A.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Fence End",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": -22.5,
+                            "Y": -7.808148438925855e-06,
+                            "Z": 4.000002861022949
+                        },
+                        "Rotation": {
+                            "X": -3.141592025756836,
+                            "Y": -5.960464477539063e-08,
+                            "Z": -3.141592264175415
+                        },
+                        "Scale": {
+                            "X": 0.9999949932098389,
+                            "Y": 1.0,
+                            "Z": 0.9999949932098389
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Blending": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Assets/Models/SM_Env_Fence_End_01.obj",
+                                "Texture": [
+                                    "Assets/Textures/PolygonCity_Texture_04_A.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Fence End",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": -7.999999046325684,
+                            "Y": -2.1616406229441054e-06,
+                            "Z": 4.000001907348633
+                        },
+                        "Rotation": {
+                            "X": -3.141592025756836,
+                            "Y": -5.960464477539063e-08,
+                            "Z": -3.141592264175415
+                        },
+                        "Scale": {
+                            "X": 0.9999949932098389,
+                            "Y": 1.0,
+                            "Z": 0.9999949932098389
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Blending": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Assets/Models/SM_Env_Fence_End_01.obj",
+                                "Texture": [
+                                    "Assets/Textures/PolygonCity_Texture_04_A.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "Fence End",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": -2.999999523162842,
+                            "Y": -2.1456907006722759e-07,
+                            "Z": 4.000001907348633
+                        },
+                        "Rotation": {
+                            "X": -3.141592025756836,
+                            "Y": -5.960464477539063e-08,
+                            "Z": -3.141592264175415
+                        },
+                        "Scale": {
+                            "X": 0.9999949932098389,
+                            "Y": 1.0,
+                            "Z": 0.9999949932098389
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Blending": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Assets/Models/SM_Env_Fence_End_01.obj",
+                                "Texture": [
+                                    "Assets/Textures/PolygonCity_Texture_04_A.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "SM_Bld_Shop_03",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": -2.999999523162842,
+                            "Y": -2.1456907006722759e-07,
+                            "Z": 4.000001907348633
+                        },
+                        "Rotation": {
+                            "X": -3.141592025756836,
+                            "Y": -5.960464477539063e-08,
+                            "Z": -3.141592264175415
+                        },
+                        "Scale": {
+                            "X": 0.9999949932098389,
+                            "Y": 1.0,
+                            "Z": 0.9999949932098389
+                        }
+                    }
+                },
+                {
+                    "Type": "RenderingComponent",
+                    "Data": {
+                        "DrawWireframe": false,
+                        "Blending": false,
+                        "Submeshes": [
+                            {
+                                "Model": "Assets/Models/SM_Bld_Shop_03.obj",
+                                "Texture": [
+                                    "Assets/Textures/PolygonCity_Texture_04_A.png"
+                                ],
+                                "Shader": "DefaultShader"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "SM_Bld_Shop_03_Glass",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": -2.999999523162842,
+                            "Y": -2.1456907006722759e-07,
+                            "Z": 4.000001907348633
+                        },
+                        "Rotation": {
+                            "X": -3.141592025756836,
+                            "Y": -5.960464477539063e-08,
+                            "Z": -3.141592264175415
+                        },
+                        "Scale": {
+                            "X": 0.9999949932098389,
+                            "Y": 1.0,
+                            "Z": 0.9999949932098389
                         }
                     }
                 },
@@ -194,297 +2285,10 @@
                         "Blending": true,
                         "Submeshes": [
                             {
-                                "Model": "Assets/Models/SM_Env_Wall_Exterior_Window_Glass_02.obj",
+                                "Model": "Assets/Models/SM_Bld_Shop_03_Glass.obj",
                                 "Texture": [
-                                    "Assets/Textures/PolygonHeist_Texture_03_C.png",
+                                    "Assets/Textures/PolygonCity_Texture_04_A.png",
                                     "Assets/Textures/Heist_Transparency_R.png"
-                                ],
-                                "Shader": "DefaultShader"
-                            }
-                        ]
-                    }
-                }
-            ]
-        },
-        {
-            "Name": "Exterior Window Glass 1",
-            "Components": [
-                {
-                    "Type": "TransformComponent",
-                    "Data": {
-                        "Position": {
-                            "X": 0.0,
-                            "Y": 3.0,
-                            "Z": 0.0
-                        },
-                        "Rotation": {
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Scale": {
-                            "X": 1.0,
-                            "Y": 1.0,
-                            "Z": 1.0
-                        }
-                    }
-                },
-                {
-                    "Type": "RenderingComponent",
-                    "Data": {
-                        "DrawWireframe": false,
-                        "Blending": true,
-                        "Submeshes": [
-                            {
-                                "Model": "Assets/Models/SM_Env_Wall_Exterior_Window_Glass_01.obj",
-                                "Texture": [
-                                    "Assets/Textures/PolygonHeist_Texture_03_C.png"
-                                ],
-                                "Shader": "DefaultShader"
-                            }
-                        ]
-                    }
-                }
-            ]
-        },
-        {
-            "Name": "Exterior Window 2",
-            "Components": [
-                {
-                    "Type": "TransformComponent",
-                    "Data": {
-                        "Position": {
-                            "X": 6.5,
-                            "Y": 3.0,
-                            "Z": 0.0
-                        },
-                        "Rotation": {
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Scale": {
-                            "X": 1.0,
-                            "Y": 1.0,
-                            "Z": 1.0
-                        }
-                    }
-                },
-                {
-                    "Type": "RenderingComponent",
-                    "Data": {
-                        "DrawWireframe": false,
-                        "Blending": false,
-                        "Submeshes": [
-                            {
-                                "Model": "Assets/Models/SM_Env_Wall_Exterior_Window_02.obj",
-                                "Texture": [
-                                    "Assets/Textures/PolygonHeist_Texture_03_C.png"
-                                ],
-                                "Shader": "DefaultShader"
-                            }
-                        ]
-                    }
-                }
-            ]
-        },
-        {
-            "Name": "Exterior Window 1",
-            "Components": [
-                {
-                    "Type": "TransformComponent",
-                    "Data": {
-                        "Position": {
-                            "X": 0.0,
-                            "Y": 3.0,
-                            "Z": 0.0
-                        },
-                        "Rotation": {
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Scale": {
-                            "X": 1.0,
-                            "Y": 1.0,
-                            "Z": 1.0
-                        }
-                    }
-                },
-                {
-                    "Type": "RenderingComponent",
-                    "Data": {
-                        "DrawWireframe": false,
-                        "Blending": false,
-                        "Submeshes": [
-                            {
-                                "Model": "Assets/Models/SM_Env_Wall_Exterior_Window_01.obj",
-                                "Texture": [
-                                    "Assets/Textures/PolygonHeist_Texture_03_C.png"
-                                ],
-                                "Shader": "DefaultShader"
-                            }
-                        ]
-                    }
-                }
-            ]
-        },
-        {
-            "Name": "Exterior Wall Ground 1",
-            "Components": [
-                {
-                    "Type": "TransformComponent",
-                    "Data": {
-                        "Position": {
-                            "X": -5.5,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Rotation": {
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Scale": {
-                            "X": 1.0,
-                            "Y": 1.0,
-                            "Z": 1.0
-                        }
-                    }
-                },
-                {
-                    "Type": "RenderingComponent",
-                    "Data": {
-                        "DrawWireframe": false,
-                        "Blending": false,
-                        "Submeshes": [
-                            {
-                                "Model": "Assets/Models/SM_Env_Wall_Exterior_Ground_01.obj",
-                                "Texture": [
-                                    "Assets/Textures/PolygonHeist_Texture_03_C.png"
-                                ],
-                                "Shader": "DefaultShader"
-                            }
-                        ]
-                    }
-                }
-            ]
-        },
-        {
-            "Name": "Double Door 1",
-            "Components": [
-                {
-                    "Type": "TransformComponent",
-                    "Data": {
-                        "Position": {
-                            "X": 11.5,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Rotation": {
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Scale": {
-                            "X": 1.0,
-                            "Y": 1.0,
-                            "Z": 1.0
-                        }
-                    }
-                },
-                {
-                    "Type": "RenderingComponent",
-                    "Data": {
-                        "DrawWireframe": false,
-                        "Blending": false,
-                        "Submeshes": [
-                            {
-                                "Model": "Assets/Models/SM_Env_Wall_Exterior_DoubleDoor_01.obj",
-                                "Texture": [
-                                    "Assets/Textures/PolygonHeist_Texture_03_C.png"
-                                ],
-                                "Shader": "DefaultShader"
-                            }
-                        ]
-                    }
-                }
-            ]
-        },
-        {
-            "Name": "Exterior Door 1",
-            "Components": [
-                {
-                    "Type": "TransformComponent",
-                    "Data": {
-                        "Position": {
-                            "X": 6.5,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Rotation": {
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Scale": {
-                            "X": 1.0,
-                            "Y": 1.0,
-                            "Z": 1.0
-                        }
-                    }
-                },
-                {
-                    "Type": "RenderingComponent",
-                    "Data": {
-                        "DrawWireframe": false,
-                        "Blending": false,
-                        "Submeshes": [
-                            {
-                                "Model": "Assets/Models/SM_Env_Wall_Exterior_Door_01.obj",
-                                "Texture": [
-                                    "Assets/Textures/PolygonHeist_Texture_03_C.png"
-                                ],
-                                "Shader": "DefaultShader"
-                            }
-                        ]
-                    }
-                }
-            ]
-        },
-        {
-            "Name": "Exterior Wall 1",
-            "Components": [
-                {
-                    "Type": "TransformComponent",
-                    "Data": {
-                        "Position": {
-                            "X": -5.5,
-                            "Y": 3.0,
-                            "Z": 0.0
-                        },
-                        "Rotation": {
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Scale": {
-                            "X": 1.0,
-                            "Y": 1.0,
-                            "Z": 1.0
-                        }
-                    }
-                },
-                {
-                    "Type": "RenderingComponent",
-                    "Data": {
-                        "DrawWireframe": false,
-                        "Blending": false,
-                        "Submeshes": [
-                            {
-                                "Model": "Assets/Models/SM_Env_Wall_Exterior_01.obj",
-                                "Texture": [
-                                    "Assets/Textures/PolygonHeist_Texture_03_C.png"
                                 ],
                                 "Shader": "DefaultShader"
                             }

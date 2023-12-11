@@ -32,13 +32,13 @@ void main()
     vec3 diffuse = directionalLight.diffuse * diff * vec3(texture(Textures[int(TextureIndex.x)], TextureCoords));
 
     // Specuar 
-//    vec3 viewDir = normalize(viewPosition - FragPosition); 
-//    vec3 reflectDir = reflect(-lightDir, norm);
-//    float spec = pow(max(dot(viewDir, reflectDir), 0.0), 32);
-//    vec3 specular = directionalLight.specular * spec;
+    vec3 viewDir = normalize(viewPosition - FragPosition); 
+    vec3 reflectDir = reflect(-lightDir, norm);
+    float spec = pow(max(dot(viewDir, reflectDir), 0.0), 64);
+    vec3 specular = directionalLight.specular * spec;
 
-    //vec3 result = ambient + diffuse + specular;
-    vec3 result = ambient + diffuse;
+    vec3 result = ambient + diffuse + specular;
+    //vec3 result = ambient + diffuse;
     if(TextureIndex.y == -1){
         color = vec4(result, 1);
     }
