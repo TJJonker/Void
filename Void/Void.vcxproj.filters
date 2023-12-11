@@ -525,6 +525,9 @@
     </ClInclude>
     <ClInclude Include="src\pch.h" />
     <ClInclude Include="src\Void\ECS\Components\Physics\MeshCollider3DComponent.h" />
+    <ClInclude Include="src\Void\ECS\Components\Physics\PhysicsComponent.h" />
+    <ClInclude Include="src\Void\Physics\Solvers\Solver.h" />
+    <ClInclude Include="src\Void\Physics\Solvers\Position\PositionSolver.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Void\Audio\AudioManager\AudioManager.cpp">
@@ -696,5 +699,6 @@
       <Filter>Void\Vendor\stb_lib</Filter>
     </ClCompile>
     <ClCompile Include="src\pch.cpp" />
+    <ClCompile Include="src\Void\Physics\Solvers\Position\PositionSolver.cpp" />
   </ItemGroup>
 </Project>

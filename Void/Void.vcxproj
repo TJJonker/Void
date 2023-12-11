@@ -193,6 +193,7 @@ IF EXIST ..\bin\Dist-windows-x86_64\$(ProjectName)\fmod.dll\ (xcopy /Q /E /Y /I 
     <ClInclude Include="src\Void\ECS\Components\EventListenerComponent.h" />
     <ClInclude Include="src\Void\ECS\Components\Physics\BoxCollider3DComponent.h" />
     <ClInclude Include="src\Void\ECS\Components\Physics\MeshCollider3DComponent.h" />
+    <ClInclude Include="src\Void\ECS\Components\Physics\PhysicsComponent.h" />
     <ClInclude Include="src\Void\ECS\Components\PointLightComponent.h" />
     <ClInclude Include="src\Void\ECS\Components\RenderingComponent.h" />
     <ClInclude Include="src\Void\ECS\Components\SkyboxComponent.h" />
@@ -221,6 +222,8 @@ IF EXIST ..\bin\Dist-windows-x86_64\$(ProjectName)\fmod.dll\ (xcopy /Q /E /Y /I 
     <ClInclude Include="src\Void\Layers\Core\Layer.h" />
     <ClInclude Include="src\Void\Layers\Core\LayerStack.h" />
     <ClInclude Include="src\Void\Layers\ImGuiLayer.h" />
+    <ClInclude Include="src\Void\Physics\Solvers\Position\PositionSolver.h" />
+    <ClInclude Include="src\Void\Physics\Solvers\Solver.h" />
     <ClInclude Include="src\Void\Platform\FMOD\AudioLibrary\FMODAudioLibrary.h" />
     <ClInclude Include="src\Void\Platform\FMOD\AudioManager\FMODAudioManager.h" />
     <ClInclude Include="src\Void\Platform\FMOD\DataStructs\FMODChannel.h" />
@@ -291,6 +294,7 @@ IF EXIST ..\bin\Dist-windows-x86_64\$(ProjectName)\fmod.dll\ (xcopy /Q /E /Y /I 
     <ClCompile Include="src\Void\Layers\Core\Layer.cpp" />
     <ClCompile Include="src\Void\Layers\Core\LayerStack.cpp" />
     <ClCompile Include="src\Void\Layers\ImGuiLayer.cpp" />
+    <ClCompile Include="src\Void\Physics\Solvers\Position\PositionSolver.cpp" />
     <ClCompile Include="src\Void\Platform\FMOD\AudioLibrary\FMODAudioLibrary.cpp" />
     <ClCompile Include="src\Void\Platform\FMOD\AudioManager\FMODAudioManager.cpp" />
     <ClCompile Include="src\Void\Platform\FMOD\AudioManager\FMODAudioManagerDSP.cpp" />

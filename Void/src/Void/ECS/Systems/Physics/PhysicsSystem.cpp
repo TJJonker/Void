@@ -2,6 +2,7 @@
 #include "PhysicsSystem.h"
 #include <Void/ECS/Components/TranformComponent.h>
 #include <Void/ECS/Components/VelocityComponent.h>
+#include <Void/ECS/Components/VelocityComponent.h>
 #include "Void/ECS/Core/Scene/Scene.h"
 #include "Void/ECS/Event/CollisionInfo.h"
 
@@ -12,7 +13,7 @@ namespace Void {
 	void PhysicsSystem::Update(Scene* scene)
 	{
 		//for (unsigned int i = 0; i < m_Substeps; i++) {
-		//	ApplyForces(scene);
+		ApplyForces(scene);
 		ResolveCollisions(scene);
 		//}
 	}
@@ -26,14 +27,27 @@ namespace Void {
 		for (Entity* entity : entities) {
 			TransformComponent& transform = entity->GetComponent<TransformComponent>();
 			BoxCollider3DComponent& collider = entity->GetComponent<BoxCollider3DComponent>();
+			collider.Collider.SetID(entity->GetID());
 			collider.Collider.CalculateBoundingBox(transform.GetTransformNS());
 			colliders.push_back(&collider.Collider);
 		}
 
 		std::vector<Quantum::CollisionPair> collisionPairs;
 		m_Handler.RunBroadPhase(colliders, collisionPairs);
-		
-		
+
+		std::vector<Collision> allInfo;
+
+		for (Quantum::CollisionPair pair : collisionPairs) {
+			Void::TransformComponent& t1 = scene->GetEntity(pair.ColliderA->GetID())->GetComponent<Void::TransformComponent>();
+			Void::TransformComponent& t2 = scene->GetEntity(pair.ColliderB->GetID())->GetComponent<Void::TransformComponent>();			
+			std::vector<Quantum::CollisionInfo> outInfo = m_Handler.RunNarrowPhase(pair.ColliderA, t1.GetTransformMatrix(), pair.ColliderB, t2.GetTransformMatrix());
+			for (Quantum::CollisionInfo& info : outInfo)
+				allInfo.push_back({ scene->GetEntity(pair.ColliderA->GetID()), scene->GetEntity(pair.ColliderB->GetID()), info});
+		}
+
+		m_Solver.Solve(allInfo);
+
+
 		
 		/*for (Entity* a : entities) {
 			TransformComponent& aTransform = a->GetComponent<TransformComponent>();
@@ -69,20 +83,17 @@ namespace Void {
 
 	void PhysicsSystem::ApplyForces(Scene* scene)
 	{
-		//for (const Entity* entity : scene->GetAllEntitesWith<PhysicsComponent, TransformComponent, VelocityComponent>()) {
-		//	TransformComponent& transform = entity->GetComponent<TransformComponent>();
-		//	PhysicsComponent& physics = entity->GetComponent<PhysicsComponent>();
-		//	VelocityComponent velocity = entity->GetComponent<VelocityComponent>();
+		for (const Entity* entity : scene->GetAllEntitesWith<PhysicsComponent, TransformComponent, VelocityComponent>()) {
+			TransformComponent& transform = entity->GetComponent<TransformComponent>();
+			PhysicsComponent& physics = entity->GetComponent<PhysicsComponent>();
+			VelocityComponent& velocity = entity->GetComponent<VelocityComponent>();
 
-		//	if (physics.IsStatic)
-		//		continue;
+			physics.Force += physics.Mass * glm::vec3(0, -2.5, 0); // apply a force
 
-		//	physics.Force += physics.Mass * glm::vec3(0, -2.5, 0); // apply a force
+			velocity.Velocity += physics.Force / physics.Mass * (Time::DeltaTime() / m_Substeps);
+			transform.Position += velocity.Velocity * (Time::DeltaTime() / m_Substeps);
 
-		//	velocity.Velocity += physics.Force / physics.Mass * (Time::DeltaTime() / m_Substeps);
-		//	transform.Position += velocity.Velocity * (Time::DeltaTime() / m_Substeps);
-
-		//	physics.Force = glm::vec3(0, 0, 0); // reset net force at the end
-		//}
+			physics.Force = glm::vec3(0, 0, 0); // reset net force at the end
+		}
 	}
 }

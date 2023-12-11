@@ -32,10 +32,27 @@
                             "Z": 0.0
                         },
                         "IsTrigger": false,
+                        "IsStatic": false,
                         "HalfExtents": {
                             "X": 0.5,
                             "Y": 1.0,
                             "Z": 0.5
+                        }
+                    }
+                },
+                {
+                    "Type": "PhysicsComponent",
+                    "Data": {
+                        "Mass": 1.0
+                    }
+                },
+                {
+                    "Type": "VelocityComponent",
+                    "Data": {
+                        "Velocity": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
                         }
                     }
                 }
@@ -73,10 +90,27 @@
                             "Z": 0.0
                         },
                         "IsTrigger": false,
+                        "IsStatic": true,
                         "HalfExtents": {
                             "X": 0.5,
                             "Y": 0.5,
                             "Z": 0.5
+                        }
+                    }
+                },
+                {
+                    "Type": "PhysicsComponent",
+                    "Data": {
+                        "Mass": 1.0
+                    }
+                },
+                {
+                    "Type": "VelocityComponent",
+                    "Data": {
+                        "Velocity": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
                         }
                     }
                 }

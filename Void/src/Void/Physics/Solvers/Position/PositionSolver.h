@@ -4,6 +4,7 @@
 namespace Void {
 	class PositionSolver : public Solver
 	{
+	public:
 		void Solve(std::vector<Collision>& collisions) override;
 	};
 }

@@ -11,6 +11,7 @@ namespace Void {
 			nlohmann::ordered_json json;
 			
 			json["IsTrigger"] = Collider.IsTrigger();
+			json["IsStatic"] = Collider.IsStatic();
 			json["Offset"]["X"] = Collider.GetOffset().x;
 			json["Offset"]["Y"] = Collider.GetOffset().y;
 			json["Offset"]["Z"] = Collider.GetOffset().z;
@@ -24,6 +25,7 @@ namespace Void {
 		virtual void FromJSON(const nlohmann::json& json) override {
 
 			Collider.SetTrigger(json["IsTrigger"]);
+			Collider.SetStatic(json["IsStatic"]);
 			
 			float x, y, z;
 			x = json["Offset"]["X"];

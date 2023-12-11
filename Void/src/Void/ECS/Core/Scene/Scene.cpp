@@ -33,16 +33,16 @@ namespace Void {
 		return entities;
 	}
 
-	Entity* Scene::GetEntity(const entt::entity& id)
+	Entity* Scene::GetEntity(uint32_t id)
 	{
-		VOID_CORE_ASSERT(m_Entities.count(id), "No Entity bound to the given id.");
-		return m_Entities[id];
+		VOID_CORE_ASSERT(m_Entities.count((entt::entity)id), "No Entity bound to the given id.");
+		return m_Entities[(entt::entity)id];
 	}
 
 	void Scene::RemoveEntity(const entt::entity& id)
 	{
 		// Remove object
-		delete GetEntity(id);
+		delete GetEntity((uint32_t)id);
 		// Remove entity
 		m_Registry.destroy(id);
 		// Remove from map

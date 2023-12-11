@@ -2,6 +2,7 @@
 #include "Void/ECS/Core/Systems/ISystem.h"
 #include "Void/Physics/Solvers/Solver.h"
 #include <Quantum/Quantum.h>
+#include "Void/Physics/Solvers/Position/PositionSolver.h"
 
 namespace Void {	 
 	class PhysicsSystem : public ISystem
@@ -23,5 +24,6 @@ namespace Void {
 		std::vector<std::shared_ptr<Solver>> m_Solvers;
 
 		Quantum::CollisionHandler& m_Handler;
+		PositionSolver m_Solver;
 	};
 }

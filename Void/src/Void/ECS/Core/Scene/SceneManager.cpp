@@ -5,6 +5,8 @@
 #include <Void/ECS/Components/SpotLightComponent.h>
 #include <Void/ECS/Components/TagComponent.h>
 #include <Void/ECS/Components/Physics/BoxCollider3DComponent.h>
+#include <Void/ECS/Components/Physics/PhysicsComponent.h>
+#include <Void/ECS/Components/VelocityComponent.h>
 
 
 namespace Void {
@@ -95,6 +97,26 @@ namespace Void {
 				entityJson["Components"].push_back(componentJson);
 			}
 
+			if (entity->HasComponent<PhysicsComponent>()) {
+				nlohmann::ordered_json componentJson;
+
+				PhysicsComponent& rendering = entity->GetComponent<PhysicsComponent>();
+				componentJson["Type"] = "PhysicsComponent";
+				componentJson["Data"] = rendering.ToJSON();
+
+				entityJson["Components"].push_back(componentJson);
+			}
+
+			if (entity->HasComponent<VelocityComponent>()) {
+				nlohmann::ordered_json componentJson;
+
+				VelocityComponent& rendering = entity->GetComponent<VelocityComponent>();
+				componentJson["Type"] = "VelocityComponent";
+				componentJson["Data"] = rendering.ToJSON();
+
+				entityJson["Components"].push_back(componentJson);
+			}
+
 			if (entity->HasComponent<TagComponent>()) {
 				nlohmann::ordered_json componentJson;
 
@@ -122,8 +144,12 @@ namespace Void {
 			return &entity->AddComponent<SpotLightComponent>();
 		if (componentName == "BoxCollider3DComponent")
 			return &entity->AddComponent<BoxCollider3DComponent>();
+		if (componentName == "PhysicsComponent")
+			return &entity->AddComponent<PhysicsComponent>();
 		if (componentName == "TagComponent")
 			return &entity->AddComponent<TagComponent>();
+		if (componentName == "VelocityComponent")
+			return &entity->AddComponent<VelocityComponent>();
 
 		VOID_ASSERT(false, "Component does not exist");
 		return nullptr;

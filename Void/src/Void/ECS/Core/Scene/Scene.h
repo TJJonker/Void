@@ -29,7 +29,8 @@ namespace Void {
 
 		std::vector<Entity*> GetAllEntities() const;
 		
-		Entity* GetEntity(const entt::entity& id);
+		Entity* GetEntity(uint32_t id);
+
 
 		void RemoveEntity(const entt::entity& id);
 
@@ -39,7 +40,7 @@ namespace Void {
 			std::vector<Entity*> entities;
 
 			for (entt::entity ent : view) {
-				entities.push_back(GetEntity(ent));
+				entities.push_back(GetEntity((uint32_t)ent));
 			}
 
 			return entities;
