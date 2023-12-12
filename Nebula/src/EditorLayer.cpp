@@ -21,12 +21,9 @@ namespace Nebula::Editor {
         Void::ShaderLibrary::GetInstance()->Load("Assets/Core/Shaders/DefaultSkybox/VertexShader.glsl", "Assets/Core/Shaders/DefaultSkybox/FragmentShader.glsl", "DefaultSkyboxShader");
 
         // Texture lib
-        Void::TextureLibrary::GetInstance().LoadTexture("Assets/Textures/PolygonHeist_Texture_03_C.png");
-        Void::TextureLibrary::GetInstance().LoadTexture("Assets/Textures/PolygonCity_Texture_04_A.png");
-        Void::TextureLibrary::GetInstance().LoadTexture("Assets/Textures/PolygonCity_Texture_04_AB.png");
-        Void::TextureLibrary::GetInstance().LoadTexture("Assets/Textures/Heist_Transparency_R.png");
-        Void::TextureLibrary::GetInstance().LoadTexture("Assets/Textures/PolygonHeist_Texture_03_C_Specular.png");
-        Void::TextureLibrary::GetInstance().LoadTexture("Assets/Textures/BillboardAds.png");
+        Void::TextureLibrary::GetInstance().LoadTexture("Assets/Textures/Dungeons_2_Texture_01_A.png");
+        Void::TextureLibrary::GetInstance().LoadTexture("Assets/Textures/PolygonCity_Texture_01_A.png");
+
 
         // Cubemaps
         Void::TextureLibrary::GetInstance().LoadCubemap("Default",
@@ -42,41 +39,10 @@ namespace Nebula::Editor {
         // Mesh lib
         Void::MeshLibrary::GetInstance()->Load("Assets/Core/Models/Cube.obj");
         
-        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Env_Wall_Exterior_01.obj");
-        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Env_Wall_Exterior_Door_01.obj");
-        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Env_Wall_Exterior_DoubleDoor_01.obj");
-        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Env_Wall_Exterior_Ground_01.obj");
-        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Env_Wall_Exterior_Window_01.obj");
-        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Env_Wall_Exterior_Window_02.obj");
-        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Env_Wall_Exterior_Window_Glass_01.obj");
-        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Env_Wall_Exterior_Window_Glass_02.obj");
-        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Env_Wall_Exterior_Window_Ground_01.obj");
-        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Env_Wall_Exterior_Window_Ground_02.obj");
-        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Env_Wall_Exterior_Window_Ground_Glass_01.obj");
-        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Env_Wall_Exterior_Window_Ground_Glass_02.obj");
 
-        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Env_Road_01.obj");
-        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Env_Road_02.obj");
-        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Env_Road_03.obj");
-        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Env_Road_Median_01.obj");
-        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Env_Road_Median_02.obj");
-        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Env_Sidewalk_Straight_01.obj");
-        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Env_Sidewalk_Corner_01.obj");
-        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Env_Sidewalk_Corner_02.obj");
+        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Env_Dwarf_Wall_01.ply");
+        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Env_Dwarf_Wall_Archway_01.ply");
         Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Env_Sidewalk_01.obj");
-        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Env_Fence_01.obj");
-        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Env_Fence_End_01.obj");
-
-        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Bld_Shop_03.obj");
-        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Bld_Shop_03_Glass.obj");
-        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Bld_Shop_Corner_02.obj");
-        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Bld_Shop_Corner_02_Glass.obj");
-        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Prop_Billboard_Pole_01.obj");
-        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Prop_Billboard_Sign_02.obj");
-        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Prop_LightPole_CrossLights_01.obj");
-
-        Void::MeshLibrary::GetInstance()->Load("Assets/Models/Cop_car.obj");
-        Void::MeshLibrary::GetInstance()->Load("Assets/Models/Helicopter.obj");
 
 
         //Void::Entity* entity = Void::SceneManager::GetInstance().GetCurrentScene()->CreateEntity();

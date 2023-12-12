@@ -112,9 +112,9 @@ void main() {
 
     vec3 result = CalculateDirectionalLighting();
 
-    for (int i = 0; i < NR_POINTS_LIGHT; i++) {
-        result += CalcPointLight(pointLightData[i], norm, FragPosition);
-    }
+//    for (int i = 0; i < NR_POINTS_LIGHT; i++) {
+//        result += CalcPointLight(pointLightData[i], norm, FragPosition);
+//    }
 
 //    for (int i = 0; i < NR_SPOT_LIGHTS; i++) {
 //        result += CalcSpotLight(spotLights[i], norm, FragPosition);

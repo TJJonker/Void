@@ -15,7 +15,7 @@ namespace Nebula::Window {
 		m_FrameBuffer = Void::Rendering::FrameBuffer::Create(config);
 		Void::Rendering::RenderingCommands::SetClearColor({ .3, .2, .2, 1 });
 
-		m_EditorCamera = new EditorCamera(45.f, 1280.f / 720.f, .1f, 100.f);
+		m_EditorCamera = new EditorCamera(45.f, 1280.f / 720.f, .1f, 1000.f);
 		m_EditorCamera->SetSkybox("Default");
 
 		Events::EventManager::GetInstance().EntitySelectedEvent.AddCommand(new Events::SetCurrentEntityCommand(&m_SelectedEntity));
