@@ -7,6 +7,7 @@ namespace Void::Rendering {
 		VertexArray* VertexArray;
 		glm::mat4 ModelMatrix;
 		std::vector<std::string> TextureNames;
+		bool ShowTexture;
 	};
 
 	class OpenGLRenderer : public Renderer
@@ -19,7 +20,7 @@ namespace Void::Rendering {
 		virtual void FinishRender() override;
 		void ResetSubmissions();
 		
-		virtual void Submit(VertexArray* vertexArray, const glm::mat4& modelMatrix, const std::vector<std::string>& textureNames, const std::string& shaderName) override;
+		virtual void Submit(VertexArray* vertexArray, const glm::mat4& modelMatrix, const std::vector<std::string>& textureNames, const std::string& shaderName, bool showTexture) override;
 		virtual void SubmitBlended(VertexArray* vertexArray, const glm::mat4& modelMatrix, const std::vector<std::string>& textureNames, const std::string& shaderName) override;
 
 		virtual void Render() override;

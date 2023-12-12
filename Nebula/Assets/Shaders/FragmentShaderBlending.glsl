@@ -43,5 +43,10 @@ void main()
     vec3 specular = directionalLight.specular * spec;
 
     vec3 result = ambient + diffuse + specular;
-    color = vec4(result, 1);
+
+    float alpha = vec3(texture(Textures[int(TextureIndex.y)], TextureCoords)).r;
+    
+    if(alpha < .1)
+        discard;
+    color = vec4(result, alpha);
 }

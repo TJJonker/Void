@@ -28,7 +28,7 @@ namespace Void::Rendering {
     {
         tempData = data;
         GLCall(glBindBuffer(GL_ARRAY_BUFFER, m_ID));
-        GLCall(glBufferSubData(GL_ARRAY_BUFFER, 0, size, data));
+        glBufferSubData(GL_ARRAY_BUFFER, 0, size, data);
     }
 
     OpenGLVertexBuffer::~OpenGLVertexBuffer()

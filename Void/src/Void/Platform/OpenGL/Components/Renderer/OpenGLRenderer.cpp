@@ -13,6 +13,7 @@ namespace Void::Rendering {
 		glm::vec3 Normals = glm::vec3(0);
 		glm::vec2 TextureCoord = glm::vec2(0);
 		glm::vec3 TextureIndex = glm::vec3(0);
+		int ShowTexture = 1;
 	};
 
 	struct BatchData {
@@ -54,6 +55,7 @@ namespace Void::Rendering {
 			Shader->Bind();
 			Shader->SetMatrix4("viewProjectionMatrix", ViewProjectionMatrix);
 			Shader->SetVec3("viewPosition", ViewPosition);
+			Shader->SetFloat("Time", Time::TimeSinceStartup());
 
 			Shader->SetVec3("directionalLight.direction", glm::vec3(.2f, 0.f, -1.f ));
 			Shader->SetVec3("directionalLight.ambient", glm::vec3( .3f, .3f, .3f ));
@@ -76,6 +78,7 @@ namespace Void::Rendering {
 		bufferLayout.Push<float>(3);
 		bufferLayout.Push<float>(2);
 		bufferLayout.Push<unsigned int>(3);
+		bufferLayout.Push<unsigned int>(1);
 		m_RendererData.VertexBuffer->SetVertexBufferLayout(bufferLayout);
 
 		m_RendererData.IndexBuffer.reset(IndexBuffer::Create(m_RendererData.MaxIndices * sizeof(uint32_t)));
@@ -90,9 +93,9 @@ namespace Void::Rendering {
 		m_RendererData.IndexBufferBase = new uint32_t[m_RendererData.MaxIndices];
 	}
 
-	void OpenGLRenderer::Submit(VertexArray* vertexArray, const glm::mat4& modelMatrix, const std::vector<std::string>& textureNames, const std::string& shaderName)
+	void OpenGLRenderer::Submit(VertexArray* vertexArray, const glm::mat4& modelMatrix, const std::vector<std::string>& textureNames, const std::string& shaderName, bool showTexture)
 	{
-		m_Submissions[shaderName].push_back({ vertexArray, modelMatrix, textureNames });
+		m_Submissions[shaderName].push_back({ vertexArray, modelMatrix, textureNames, showTexture });
 	}
 
 	void OpenGLRenderer::SubmitBlended(VertexArray* vertexArray, const glm::mat4& modelMatrix, const std::vector<std::string>& textureNames, const std::string& shaderName)
@@ -162,8 +165,12 @@ namespace Void::Rendering {
 			VertexLayout* vb = (VertexLayout*)vertexBuffer->GetData();
 
 			// Check if the batch is full based on Indices Count
-			if (m_RendererData.GetIndexCount() + submission.VertexArray->GetIndexBuffer()->GetCount()
+			if (m_RendererData.GetIndexCount() + indexBuffer->GetCount()
 					> m_RendererData.MaxIndices)
+				Flush();
+
+			if (m_RendererData.GetVertexCount() + vertexBuffer->GetSize() / sizeof(VertexLayout)
+					> m_RendererData.MaxTriangles)
 				Flush();
 
 			int newTextureCount = NewTexturesCount(submission.TextureNames);
@@ -212,6 +219,7 @@ namespace Void::Rendering {
 					m_RendererData.VertexBufferPtr->TextureCoord = currentLayout->TextureCoords;
 					m_RendererData.VertexBufferPtr->TextureIndex[0] = textureIndices[0];
 					m_RendererData.VertexBufferPtr->TextureIndex[1] = textureIndices[1];
+					m_RendererData.VertexBufferPtr->ShowTexture = submission.ShowTexture;
 					m_RendererData.VertexBufferPtr++;
 				}
 			}
@@ -267,6 +275,7 @@ namespace Void::Rendering {
 
 	void OpenGLRenderer::Flush()
 	{
+		m_RendererData.VertexArray->Bind();
 		m_RendererData.Shader->Bind();
 
 		for (uint32_t i = 0; i < m_RendererData.TextureSlotsIndex; i++) {
@@ -278,14 +287,13 @@ namespace Void::Rendering {
 		size_t indexCount = m_RendererData.GetIndexCount();
 		size_t vertexCount = m_RendererData.GetVertexCount();
 
-		m_RendererData.IndexBuffer->SetData(m_RendererData.IndexBufferBase, m_RendererData.GetIndexCount() * sizeof(uint32_t));
-		m_RendererData.VertexBuffer->SetData(m_RendererData.VertexBufferBase, m_RendererData.GetVertexCount() * sizeof(BatchLayout));
+		m_RendererData.IndexBuffer->SetData(m_RendererData.IndexBufferBase, indexCount * sizeof(uint32_t));
+		m_RendererData.VertexBuffer->SetData(m_RendererData.VertexBufferBase, vertexCount * sizeof(BatchLayout));
 
-		m_RendererData.VertexArray->Bind();
 		GLCall(glEnable(GL_DEPTH_TEST));
 		glEnable(GL_BLEND);
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-		GLCall(glDrawElements(GL_TRIANGLES, m_RendererData.VertexArray->GetIndexBuffer()->GetCount(), GL_UNSIGNED_INT, nullptr));
+		GLCall(glDrawElements(GL_TRIANGLES, indexCount, GL_UNSIGNED_INT, nullptr));
 
 		m_RendererData.IndexBufferPtr = m_RendererData.IndexBufferBase;
 		m_RendererData.VertexBufferPtr = m_RendererData.VertexBufferBase;

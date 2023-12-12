@@ -16,7 +16,7 @@ namespace Void::Rendering {
 	public:
 		virtual void Initialize() = 0;
 
-		virtual void Submit(VertexArray* vertexArray, const glm::mat4& modelMatrix, const std::vector<std::string>& textureNames, const std::string& shaderName) = 0;
+		virtual void Submit(VertexArray* vertexArray, const glm::mat4& modelMatrix, const std::vector<std::string>& textureNames, const std::string& shaderName, bool showTexture) = 0;
 		virtual void SubmitBlended(VertexArray* vertexArray, const glm::mat4& modelMatrix, const std::vector<std::string>& textureNames, const std::string& shaderName) = 0;
 
 		virtual void PrepareRender(const Camera* camera, const glm::mat4& transformMatrix) = 0;

@@ -31,7 +31,7 @@ namespace Void::Rendering {
 				if(rendering.Blending)
 					Rendering::RenderingCommands::SubmitBlended(vertexArray, transform.GetTransformMatrix(), submesh.Textures, submesh.Shader);
 				else
-					Rendering::RenderingCommands::Submit(vertexArray, transform.GetTransformMatrix(), submesh.Textures, submesh.Shader);
+					Rendering::RenderingCommands::Submit(vertexArray, transform.GetTransformMatrix(), submesh.Textures, submesh.Shader, !rendering.DrawWireframe);
 			}
 		}
 	}

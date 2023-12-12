@@ -10,9 +10,9 @@ namespace Void::Rendering {
 		m_Renderer->Initialize();
 	}
 
-	void RenderingCommands::Submit(VertexArray* vertexArray, glm::mat4 modelMatrix, std::vector<std::string> textureNames, std::string shaderName)
+	void RenderingCommands::Submit(VertexArray* vertexArray, glm::mat4 modelMatrix, std::vector<std::string> textureNames, std::string shaderName, bool showTexture)
 	{
-		m_Renderer->Submit(vertexArray, modelMatrix, textureNames, shaderName);
+		m_Renderer->Submit(vertexArray, modelMatrix, textureNames, shaderName, showTexture);
 	}
 
 	void RenderingCommands::SubmitBlended(VertexArray* vertexArray, glm::mat4 modelMatrix, std::vector<std::string> textureNames, std::string shaderName)

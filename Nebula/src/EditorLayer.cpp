@@ -12,13 +12,20 @@ namespace Nebula::Editor {
 
         // Temp
         // Shader lib
+        Void::ShaderLibrary::GetInstance()->Load("Assets/Shaders/VertexShader.glsl", "Assets/Shaders/FragmentShaderAnimating.glsl", "AnimatingShader");
+        Void::ShaderLibrary::GetInstance()->Load("Assets/Shaders/VertexShader.glsl", "Assets/Shaders/FragmentShaderBlending.glsl", "BlendingShader");
         Void::ShaderLibrary::GetInstance()->Load("Assets/Shaders/VertexShader.glsl", "Assets/Shaders/FragmentShader.glsl", "DefaultShader");
+        Void::ShaderLibrary::GetInstance()->Load("Assets/Shaders/VertexShader.glsl", "Assets/Shaders/FragmentShaderSpecular.glsl", "SpecularShader");
+        Void::ShaderLibrary::GetInstance()->Load("Assets/Shaders/VertexShader.glsl", "Assets/Shaders/FragmentShaderMoving.glsl", "MovingShader");
         Void::ShaderLibrary::GetInstance()->Load("Assets/Core/Shaders/DefaultSkybox/VertexShader.glsl", "Assets/Core/Shaders/DefaultSkybox/FragmentShader.glsl", "DefaultSkyboxShader");
 
         // Texture lib
         Void::TextureLibrary::GetInstance().LoadTexture("Assets/Textures/PolygonHeist_Texture_03_C.png");
         Void::TextureLibrary::GetInstance().LoadTexture("Assets/Textures/PolygonCity_Texture_04_A.png");
+        Void::TextureLibrary::GetInstance().LoadTexture("Assets/Textures/PolygonCity_Texture_04_AB.png");
         Void::TextureLibrary::GetInstance().LoadTexture("Assets/Textures/Heist_Transparency_R.png");
+        Void::TextureLibrary::GetInstance().LoadTexture("Assets/Textures/PolygonHeist_Texture_03_C_Specular.png");
+        Void::TextureLibrary::GetInstance().LoadTexture("Assets/Textures/BillboardAds.png");
 
         // Cubemaps
         Void::TextureLibrary::GetInstance().LoadCubemap("Default",
@@ -59,8 +66,16 @@ namespace Nebula::Editor {
         Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Env_Fence_01.obj");
         Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Env_Fence_End_01.obj");
 
+        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Bld_Shop_03.obj");
+        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Bld_Shop_03_Glass.obj");
+        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Bld_Shop_Corner_02.obj");
+        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Bld_Shop_Corner_02_Glass.obj");
+        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Prop_Billboard_Pole_01.obj");
+        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Prop_Billboard_Sign_02.obj");
+        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Prop_LightPole_CrossLights_01.obj");
 
-
+        Void::MeshLibrary::GetInstance()->Load("Assets/Models/Cop_car.obj");
+        Void::MeshLibrary::GetInstance()->Load("Assets/Models/Helicopter.obj");
 
         //entt::entity en = m_SceneManager->GetCurrentScene()->CreateEntity();
         //m_SceneManager->GetCurrentScene()->AddComponent<Void::TransformComponent>(en);

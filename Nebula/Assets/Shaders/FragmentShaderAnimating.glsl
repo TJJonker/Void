@@ -15,6 +15,7 @@ in vec3 FragPosition;
 in vec3 TextureIndex;
 flat in int ShowTexture;
 
+uniform float Time;
 uniform DirectionalLight directionalLight;
 
 uniform vec3 viewPosition;
@@ -22,10 +23,15 @@ uniform sampler2D Textures[32];
 
 void main()
 {
+    int switchValue = int(step(0.5, fract(Time)));
+    int textureToShow = int(TextureIndex.x);
+    if(switchValue == 1)
+        textureToShow = int(TextureIndex.y);
+
      // Ambient
     vec3 ambient = directionalLight.ambient;
     if(ShowTexture == 1)
-        ambient *= vec3(texture(Textures[int(TextureIndex.x)], TextureCoords));
+        ambient *= vec3(texture(Textures[textureToShow], TextureCoords));
 
     // Diffuse
     vec3 norm = normalize(Normal);
@@ -33,7 +39,7 @@ void main()
     float diff = max(dot(norm, lightDir), 0.0);
     vec3 diffuse = directionalLight.diffuse * diff;
     if(ShowTexture == 1)
-        diffuse *= vec3(texture(Textures[int(TextureIndex.x)], TextureCoords));
+        diffuse *= vec3(texture(Textures[textureToShow], TextureCoords));
 
 
     // Specuar 

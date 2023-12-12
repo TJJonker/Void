@@ -29,6 +29,9 @@ namespace Nebula::Window {
 
 		if (m_SelectedEntity->HasComponent<Void::PointLightComponent>())
 			DrawPointLightInspector();
+
+		if (m_SelectedEntity->HasComponent<Void::RenderingComponent>())
+			DrawRenderingInspector();
 	}
 
 	void InspectorWindow::DrawTransformInspector()
@@ -78,6 +81,16 @@ namespace Nebula::Window {
 			ImGui::ColorEdit3("Ambient", (float*)&pointLight.Ambient);
 			ImGui::ColorEdit3("Diffuse", (float*)&pointLight.Diffuse);
 			ImGui::ColorEdit3("Specular", (float*)&pointLight.Specular);
+		}
+	}
+
+	void InspectorWindow::DrawRenderingInspector()
+	{
+		Void::RenderingComponent& rendering = m_SelectedEntity->GetComponent<Void::RenderingComponent>();
+		if (ImGui::CollapsingHeader("Rendering", ImGuiTreeNodeFlags_None))
+		{
+			ImGui::Text("Properties");
+			ImGui::Checkbox("Hide texture", &rendering.DrawWireframe);
 		}
 	}
 }

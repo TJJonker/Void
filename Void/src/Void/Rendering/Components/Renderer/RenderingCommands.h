@@ -45,7 +45,7 @@ namespace Void::Rendering {
 	public:
 		static void Initialize();
 
-		static void Submit(VertexArray* vertexArray, glm::mat4 modelMatrix, std::vector<std::string> textureNames, std::string shaderName);
+		static void Submit(VertexArray* vertexArray, glm::mat4 modelMatrix, std::vector<std::string> textureNames, std::string shaderName, bool showTexture);
 		static void SubmitBlended(VertexArray* vertexArray, glm::mat4 modelMatrix, std::vector<std::string> textureNames, std::string shaderName);
 
 		static void PrepareRender(const Camera* camera, const glm::mat4& transformMatrix);
