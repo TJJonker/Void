@@ -1,4 +1,5 @@
 #include "EditorLayer.h"
+#include <Void/ECS/Systems/Light/PointLightSystem.h>
 
 
 namespace Nebula::Editor {
@@ -77,17 +78,20 @@ namespace Nebula::Editor {
         Void::MeshLibrary::GetInstance()->Load("Assets/Models/Cop_car.obj");
         Void::MeshLibrary::GetInstance()->Load("Assets/Models/Helicopter.obj");
 
-        //entt::entity en = m_SceneManager->GetCurrentScene()->CreateEntity();
-        //m_SceneManager->GetCurrentScene()->AddComponent<Void::TransformComponent>(en);
-        //Void::PhysicsComponent& pc = m_SceneManager->GetCurrentScene()->AddComponent<Void::PhysicsComponent>(en);
-        //pc.Collider = new Void::SphereCollider();
-        //Void::TagComponent& tag = m_SceneManager->GetCurrentScene()->AddComponent<Void::TagComponent>(en);
-        //tag.Tag = "Player";
-        //m_SceneManager->SaveScene("Scene7.json");
 
+        //Void::Entity* entity = Void::SceneManager::GetInstance().GetCurrentScene()->CreateEntity();
+        //entity->AddComponent<Void::PointLightComponent>();
+        //Void::SceneManager::GetInstance().SaveScene("Scene8.json");
 
-        std::shared_ptr<Void::Rendering::RenderingSystem> renderingSystem = std::make_shared<Void::Rendering::RenderingSystem>();
-        Void::SceneManager::GetInstance().GetCurrentScene()->SetRenderingSystem(renderingSystem);
+        {
+            std::shared_ptr<Void::Rendering::RenderingSystem> renderingSystem = std::make_shared<Void::Rendering::RenderingSystem>();
+            Void::SceneManager::GetInstance().GetCurrentScene()->SetRenderingSystem(renderingSystem);
+        }
+
+        {
+            std::shared_ptr<Void::PointLightSystem> pointLightSystem = std::make_shared<Void::PointLightSystem>();
+            Void::SceneManager::GetInstance().GetCurrentScene()->AddSystem(pointLightSystem);
+        }
 
         //std::shared_ptr<Void::PhysicsSystem> physicsSystem = std::make_shared<Void::PhysicsSystem>();
         //m_SceneManager->GetCurrentScene()->SetPhysicsSystem(physicsSystem);

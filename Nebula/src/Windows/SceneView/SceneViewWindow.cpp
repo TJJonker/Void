@@ -28,6 +28,7 @@ namespace Nebula::Window {
 		m_FrameBuffer->Bind();
 		Void::Rendering::RenderingCommands::Clear();
 		Void::SceneManager::GetInstance().GetCurrentScene()->UpdateRenderingSystem();
+		Void::SceneManager::GetInstance().GetCurrentScene()->UpdateSystems();
 		Void::Rendering::RenderingCommands::PrepareRender(m_EditorCamera->GetViewProjection(), m_EditorCamera->GetPosition(), m_EditorCamera->GetSkybox());
 		Void::Rendering::RenderingCommands::Render();
 		m_FrameBuffer->Unbind();

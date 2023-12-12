@@ -20,6 +20,11 @@ namespace Void::Rendering {
 		m_Renderer->SubmitBlended(vertexArray, modelMatrix, textureNames, shaderName);
 	}
 
+	void RenderingCommands::SubmitPointLight(const PointLightData& pointLight)
+	{
+		m_Renderer->SubmitPointLight(pointLight);
+	}
+
 	void RenderingCommands::PrepareRender(const Camera* camera, const glm::mat4& transformMatrix)
 	{
 		m_Renderer->PrepareRender(camera, transformMatrix);

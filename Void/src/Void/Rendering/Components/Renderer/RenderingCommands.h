@@ -8,14 +8,6 @@
 namespace Void::Rendering {
 	class RenderingCommands {
 	public:
-		//struct PointLightData {
-		//	glm::vec3 Position = glm::vec3(0);
-		//	float Constant = 1.0f;
-		//	float Linear = 0.09f;
-		//	float Quadratic = 0.032f;
-		//	glm::vec3 Ambient = glm::vec3(0);
-		//	glm::vec3 Diffuse = glm::vec3(0);
-		//};
 
 		//struct SpotLightData {
 		//	glm::vec3 Position = glm::vec3(0); 
@@ -47,6 +39,8 @@ namespace Void::Rendering {
 
 		static void Submit(VertexArray* vertexArray, glm::mat4 modelMatrix, std::vector<std::string> textureNames, std::string shaderName, bool showTexture);
 		static void SubmitBlended(VertexArray* vertexArray, glm::mat4 modelMatrix, std::vector<std::string> textureNames, std::string shaderName);
+
+		static void SubmitPointLight(const PointLightData& pointLight);
 
 		static void PrepareRender(const Camera* camera, const glm::mat4& transformMatrix);
 		static void PrepareRender(const glm::mat4& viewProjectionMatrix, const glm::vec3& position, std::string skyboxTitle = "");

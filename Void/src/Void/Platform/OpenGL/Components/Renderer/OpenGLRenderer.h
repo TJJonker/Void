@@ -22,6 +22,7 @@ namespace Void::Rendering {
 		
 		virtual void Submit(VertexArray* vertexArray, const glm::mat4& modelMatrix, const std::vector<std::string>& textureNames, const std::string& shaderName, bool showTexture) override;
 		virtual void SubmitBlended(VertexArray* vertexArray, const glm::mat4& modelMatrix, const std::vector<std::string>& textureNames, const std::string& shaderName) override;
+		virtual void SubmitPointLight(const PointLightData& pointLight) override;
 
 		virtual void Render() override;
 		void Flush();
@@ -37,5 +38,6 @@ namespace Void::Rendering {
 	private:
 		std::map<std::string, std::vector<BatchSubmission>> m_Submissions;
 		std::map<std::string, std::vector<BatchSubmission>> m_SubmissionsBlended;
+		std::vector<PointLightData> m_SubmissonsPointLight;
 	};
 }

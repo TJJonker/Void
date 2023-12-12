@@ -1,43 +1,38 @@
 #pragma once
 #include "Void/Utils/Parser/ISerializable.h"
 #include <glm/glm.hpp>
+#include "Void/Rendering/Components/Renderer/PointLightData.h"
 
 namespace Void {
 
 	struct PointLightComponent : public ISerializable {
-		float Constant = 1.0f;
-		float Linear = 0.09f;
-		float Quadratic = 0.032f;
-
-		glm::vec3 Ambient = glm::vec3(1.0, 1.0, 1.0);
-		glm::vec3 Diffuse = glm::vec3(1.0, 1.0, 1.0);
-		glm::vec3 Specular = glm::vec3(1.0, 1.0, 1.0);
+		PointLightData pointLightData{};
 
 		nlohmann::ordered_json ToJSON() const override {
 			nlohmann::ordered_json json;
-			json["Constant"] = Constant;
-			json["Linear"] = Linear;
-			json["Quadratic"] = Quadratic;
-			json["Ambient"]["R"] = Ambient.x;
-			json["Ambient"]["G"] = Ambient.y;
-			json["Ambient"]["B"] = Ambient.z;
-			json["Diffuse"]["R"] = Diffuse.x;
-			json["Diffuse"]["G"] = Diffuse.y;
-			json["Diffuse"]["B"] = Diffuse.z;
+			json["Constant"] = pointLightData.Constant;
+			json["Linear"] = pointLightData.Linear;
+			json["Quadratic"] = pointLightData.Quadratic;
+			json["Ambient"]["R"] = pointLightData.Ambient.x;
+			json["Ambient"]["G"] = pointLightData.Ambient.y;
+			json["Ambient"]["B"] = pointLightData.Ambient.z;
+			json["Diffuse"]["R"] = pointLightData.Diffuse.x;
+			json["Diffuse"]["G"] = pointLightData.Diffuse.y;
+			json["Diffuse"]["B"] = pointLightData.Diffuse.z;
 			return json;
 		}
 
 		void FromJSON(const nlohmann::json& json) override {
-			Constant = json["Constant"];
-			Linear = json["Linear"];
-			Quadratic = json["Quadratic"];
-			Ambient.x = json["Ambient"]["R"];
-			Ambient.y = json["Ambient"]["G"];
-			Ambient.z = json["Ambient"]["B"];
+			pointLightData.Constant = json["Constant"];
+			pointLightData.Linear = json["Linear"];
+			pointLightData.Quadratic = json["Quadratic"];
+			pointLightData.Ambient.x = json["Ambient"]["R"];
+			pointLightData.Ambient.y = json["Ambient"]["G"];
+			pointLightData.Ambient.z = json["Ambient"]["B"];
 
-			Diffuse.x = json["Diffuse"]["R"];
-			Diffuse.y = json["Diffuse"]["G"];
-			Diffuse.z = json["Diffuse"]["B"];
+			pointLightData.Diffuse.x = json["Diffuse"]["R"];
+			pointLightData.Diffuse.y = json["Diffuse"]["G"];
+			pointLightData.Diffuse.z = json["Diffuse"]["B"];
 		}
 	};
 }

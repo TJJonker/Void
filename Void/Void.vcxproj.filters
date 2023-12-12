@@ -554,6 +554,8 @@
       <Filter>Void\Vendor\stb_lib</Filter>
     </ClInclude>
     <ClInclude Include="src\pch.h" />
+    <ClInclude Include="src\Void\Rendering\Components\Renderer\PointLightData.h" />
+    <ClInclude Include="src\Void\ECS\Systems\Light\PointLightSystem.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Void\Audio\AudioManager\AudioManager.cpp">
@@ -743,5 +745,6 @@
       <Filter>Void\Vendor\stb_lib</Filter>
     </ClCompile>
     <ClCompile Include="src\pch.cpp" />
+    <ClCompile Include="src\Void\ECS\Systems\Light\PointLightSystem.cpp" />
   </ItemGroup>
 </Project>

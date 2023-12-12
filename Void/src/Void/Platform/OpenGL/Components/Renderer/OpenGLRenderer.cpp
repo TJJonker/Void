@@ -84,8 +84,7 @@ namespace Void::Rendering {
 		m_RendererData.IndexBuffer.reset(IndexBuffer::Create(m_RendererData.MaxIndices * sizeof(uint32_t)));
 
 		m_RendererData.VertexArray->AddVertexBuffer(m_RendererData.VertexBuffer);
-		m_RendererData.VertexArray->SetIndexBuffer(m_RendererData.IndexBuffer)
-			;
+		m_RendererData.VertexArray->SetIndexBuffer(m_RendererData.IndexBuffer);
 		// Create array for vertices
 		m_RendererData.VertexBufferBase = new BatchLayout[m_RendererData.MaxTriangles];
 
@@ -101,6 +100,11 @@ namespace Void::Rendering {
 	void OpenGLRenderer::SubmitBlended(VertexArray* vertexArray, const glm::mat4& modelMatrix, const std::vector<std::string>& textureNames, const std::string& shaderName)
 	{
 		m_SubmissionsBlended[shaderName].push_back({ vertexArray, modelMatrix, textureNames });
+	}
+
+	void OpenGLRenderer::SubmitPointLight(const PointLightData& pointLight)
+	{
+		m_SubmissonsPointLight.push_back(pointLight);
 	}
 
 	void OpenGLRenderer::PrepareRender(const Camera* camera, const glm::mat4& transformMatrix)
@@ -158,6 +162,20 @@ namespace Void::Rendering {
 	void OpenGLRenderer::ExecuteRender(const std::pair<std::string, std::vector<BatchSubmission>>& pair) {
 		m_RendererData.Shader = ShaderLibrary::GetInstance()->Get(pair.first.c_str());
 		m_RendererData.SetShaderSettings();
+
+#define MAX_POINT_LIGHTS 1.f
+
+		int PointLightSize = std::min((float)m_SubmissonsPointLight.size(), MAX_POINT_LIGHTS);
+		for (int i = 0; i < PointLightSize; i++) {
+			m_RendererData.Shader->SetVec3("pointLightData[" + std::to_string(i) + "].Position", m_SubmissonsPointLight[i].Position);
+			m_RendererData.Shader->SetFloat("pointLightData[" + std::to_string(i) + "].Constant", m_SubmissonsPointLight[i].Constant);
+			m_RendererData.Shader->SetFloat("pointLightData[" + std::to_string(i) + "].Linear", m_SubmissonsPointLight[i].Linear);
+			m_RendererData.Shader->SetFloat("pointLightData[" + std::to_string(i) + "].Quadratic", m_SubmissonsPointLight[i].Quadratic);
+			m_RendererData.Shader->SetVec3("pointLightData[" + std::to_string(i) + "].Ambient", m_SubmissonsPointLight[i].Ambient);
+			m_RendererData.Shader->SetVec3("pointLightData[" + std::to_string(i) + "].Diffuse", m_SubmissonsPointLight[i].Diffuse);
+		}
+
+
 		for (auto& submission : pair.second) {
 			IndexBuffer* indexBuffer = submission.VertexArray->GetIndexBuffer().get();
 			VertexBuffer* vertexBuffer = submission.VertexArray->getVertexBuffers()[0].get();
@@ -271,6 +289,7 @@ namespace Void::Rendering {
 	{
 		m_Submissions.clear();
 		m_SubmissionsBlended.clear();
+		m_SubmissonsPointLight.clear();
 	}
 
 	void OpenGLRenderer::Flush()

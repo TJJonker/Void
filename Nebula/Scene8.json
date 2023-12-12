@@ -1,6 +1,49 @@
 {
     "Entities": [
         {
+            "Name": "New entity",
+            "Components": [
+                {
+                    "Type": "TransformComponent",
+                    "Data": {
+                        "Position": {
+                            "X": -9.125680923461914,
+                            "Y": 11.53372573852539,
+                            "Z": 8.020318984985352
+                        },
+                        "Rotation": {
+                            "X": -0.29795169830322266,
+                            "Y": 0.7515767216682434,
+                            "Z": -0.4226551651954651
+                        },
+                        "Scale": {
+                            "X": 1.1999839544296265,
+                            "Y": 1.2000001668930054,
+                            "Z": 1.1999841928482056
+                        }
+                    }
+                },
+                {
+                    "Type": "PointLightComponent",
+                    "Data": {
+                        "Constant": 1.0,
+                        "Linear": 0.09000000357627869,
+                        "Quadratic": 0.03200000151991844,
+                        "Ambient": {
+                            "R": 1.0,
+                            "G": 1.0,
+                            "B": 1.0
+                        },
+                        "Diffuse": {
+                            "R": 1.0,
+                            "G": 1.0,
+                            "B": 1.0
+                        }
+                    }
+                }
+            ]
+        },
+        {
             "Name": "Helicopter",
             "Components": [
                 {
@@ -2666,49 +2709,6 @@
                                 "Shader": "BlendingShader"
                             }
                         ]
-                    }
-                }
-            ]
-        },
-        {
-            "Name": "New entity",
-            "Components": [
-                {
-                    "Type": "TransformComponent",
-                    "Data": {
-                        "Position": {
-                            "X": -8.013916969299316,
-                            "Y": 2.5770692825317383,
-                            "Z": 3.9816694259643555
-                        },
-                        "Rotation": {
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Scale": {
-                            "X": 1.1999839544296265,
-                            "Y": 1.2000001668930054,
-                            "Z": 1.1999841928482056
-                        }
-                    }
-                },
-                {
-                    "Type": "PointLightComponent",
-                    "Data": {
-                        "Constant": 1.0,
-                        "Linear": 0.8299999833106995,
-                        "Quadratic": 0.6320000290870667,
-                        "Ambient": {
-                            "R": 1.0,
-                            "G": 1.0,
-                            "B": 1.0
-                        },
-                        "Diffuse": {
-                            "R": 1.0,
-                            "G": 1.0,
-                            "B": 1.0
-                        }
                     }
                 }
             ]

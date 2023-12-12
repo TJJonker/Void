@@ -70,17 +70,17 @@ namespace Nebula::Window {
 	void InspectorWindow::DrawPointLightInspector()
 	{
 		Void::PointLightComponent& pointLight = m_SelectedEntity->GetComponent<Void::PointLightComponent>();
-		if (ImGui::CollapsingHeader("Transform", ImGuiTreeNodeFlags_None))
+		if (ImGui::CollapsingHeader("Point Light", ImGuiTreeNodeFlags_None))
 		{
 			ImGui::Text("Properties");
-			ImGui::DragFloat("Constant", &pointLight.Constant);
-			ImGui::DragFloat("Linear", &pointLight.Linear);
-			ImGui::DragFloat("Quadratic", &pointLight.Quadratic);
+			ImGui::DragFloat("Constant", &pointLight.pointLightData.Constant);
+			ImGui::DragFloat("Linear", &pointLight.pointLightData.Linear);
+			ImGui::DragFloat("Quadratic", &pointLight.pointLightData.Quadratic);
 
 			ImGui::Text("Color");
-			ImGui::ColorEdit3("Ambient", (float*)&pointLight.Ambient);
-			ImGui::ColorEdit3("Diffuse", (float*)&pointLight.Diffuse);
-			ImGui::ColorEdit3("Specular", (float*)&pointLight.Specular);
+			ImGui::ColorEdit3("Ambient", (float*)&pointLight.pointLightData.Ambient);
+			ImGui::ColorEdit3("Diffuse", (float*)&pointLight.pointLightData.Diffuse);
+			//ImGui::ColorEdit3("Specular", (float*)&pointLight.pointLightData.Specular);
 		}
 	}
 
