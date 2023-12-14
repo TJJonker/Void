@@ -31,12 +31,12 @@ namespace Nebula::Editor {
         // Cubemaps
         Void::TextureLibrary::GetInstance().LoadCubemap("Default",
             {
-                "Assets/Skybox/DefaultSkybox/right.jpg",
-                "Assets/Skybox/DefaultSkybox/left.jpg",
-                "Assets/Skybox/DefaultSkybox/top.jpg",
-                "Assets/Skybox/DefaultSkybox/bottom.jpg",
-                "Assets/Skybox/DefaultSkybox/front.jpg",
-                "Assets/Skybox/DefaultSkybox/back.jpg",
+                "Assets/Skybox/Space/right.jpg",
+                "Assets/Skybox/Space/left.jpg",
+                "Assets/Skybox/Space/top.jpg",
+                "Assets/Skybox/Space/bottom.jpg",
+                "Assets/Skybox/Space/front.jpg",
+                "Assets/Skybox/Space/back.jpg",
             });
 
         // Mesh lib

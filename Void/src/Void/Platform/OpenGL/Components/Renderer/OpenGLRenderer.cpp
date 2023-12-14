@@ -58,9 +58,12 @@ namespace Void::Rendering {
 			Shader->SetFloat("Time", Time::TimeSinceStartup());
 
 			Shader->SetVec3("directionalLight.direction", glm::vec3(.2f, 0.f, -1.f ));
-			Shader->SetVec3("directionalLight.ambient", glm::vec3( .3f, .3f, .3f ));
-			Shader->SetVec3("directionalLight.diffuse", glm::vec3( .5f, .5f, .5f ));
+			Shader->SetVec3("directionalLight.ambient", glm::vec3( .1f, .1f, .1f ));
+			Shader->SetVec3("directionalLight.diffuse", glm::vec3( .3f, .3f, .3f ));
 			Shader->SetVec3("directionalLight.specular", glm::vec3( .2f, .2f, .2f ));
+
+			// Texture
+			CubemapTexture->Bind();
 		}
 	};
 
@@ -138,9 +141,6 @@ namespace Void::Rendering {
 			
 			glm::mat4 modelMatrix = glm::translate(glm::mat4(1.f), m_RendererData.ViewPosition);
 			m_RendererData.Shader->SetMatrix4("modelMatrix", modelMatrix);
-
-			// Texture
-			m_RendererData.CubemapTexture->Bind();
 
 			// VertexArray
 			glDepthFunc(GL_LEQUAL);
