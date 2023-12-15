@@ -24,8 +24,15 @@
                     }
                 },
                 {
-                    "Type": "PointLightComponent",
+                    "Type": "SpotLightComponent",
                     "Data": {
+                        "Direction": {
+                            "X": 1.0,
+                            "Y": 1.0,
+                            "Z": 1.0
+                        },
+                        "CutOff": 1.0,
+                        "OuterCutOff": 1.0,
                         "Constant": 1.0,
                         "Linear": 0.09000000357627869,
                         "Quadratic": 0.03200000151991844,

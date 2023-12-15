@@ -14,6 +14,7 @@ namespace Nebula {
 		void OnUpdate();
 		void OnEvent(Void::Event& e);
 
+		void SetPitchYawDistanceFP(float pitch, float yaw, float distance, glm::vec3 focalPoint);
 		inline float GetDistance() const { return m_Distance; }
 		inline void SetDistance(float distance) { m_Distance = distance; }
 

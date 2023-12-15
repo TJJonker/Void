@@ -53,17 +53,16 @@ namespace Nebula::Window {
 		if (ImGui::CollapsingHeader("Spotlight", ImGuiTreeNodeFlags_None))
 		{
 			ImGui::Text("Properties");
-			ImGui::DragFloat3("Direction", (float*)&spotLight.Direction);
-			ImGui::DragFloat("Inner Cutoff", &spotLight.CutOff);
-			ImGui::DragFloat("Outer Cutoff", &spotLight.OuterCutOff);
-			ImGui::DragFloat("Constant", &spotLight.Constant);
-			ImGui::DragFloat("Linear", &spotLight.Linear);
-			ImGui::DragFloat("Quadratic", &spotLight.Quadratic);
+			ImGui::DragFloat3("Direction", (float*)&spotLight.SpotLightData.Direction);
+			ImGui::DragFloat("Inner Cutoff", &spotLight.SpotLightData.CutOff);
+			ImGui::DragFloat("Outer Cutoff", &spotLight.SpotLightData.OuterCutOff);
+			ImGui::DragFloat("Constant", &spotLight.SpotLightData.Constant);
+			ImGui::DragFloat("Linear", &spotLight.SpotLightData.Linear);
+			ImGui::DragFloat("Quadratic", &spotLight.SpotLightData.Quadratic);
 
 			ImGui::Text("Color");
-			ImGui::ColorEdit3("Ambient", (float*)&spotLight.Ambient);
-			ImGui::ColorEdit3("Diffuse", (float*)&spotLight.Diffuse);
-			ImGui::ColorEdit3("Specular", (float*)&spotLight.Specular);
+			ImGui::ColorEdit3("Ambient", (float*)&spotLight.SpotLightData.Ambient);
+			ImGui::ColorEdit3("Diffuse", (float*)&spotLight.SpotLightData.Diffuse);
 		}
 	}
 

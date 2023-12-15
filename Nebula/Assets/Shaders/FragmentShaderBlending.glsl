@@ -14,6 +14,7 @@ in vec3 Normal;
 in vec3 FragPosition;
 in vec3 TextureIndex;
 flat in int ShowTexture;
+in float Intensity;
 
 uniform DirectionalLight directionalLight;
 
@@ -44,9 +45,9 @@ void main()
 
     vec3 result = ambient + diffuse + specular;
 
-    float alpha = vec3(texture(Textures[int(TextureIndex.y)], TextureCoords)).r;
+    float alpha = texture(Textures[int(TextureIndex.y)], TextureCoords).a;
     
     if(alpha < .1)
         discard;
-    color = vec4(result, alpha);
+    color = vec4(result * 5 * Intensity, alpha);
 }

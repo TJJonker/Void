@@ -25,6 +25,11 @@ namespace Void::Rendering {
 		m_Renderer->SubmitPointLight(pointLight);
 	}
 
+	void RenderingCommands::SubmitSpotLight(const SpotLightData& spotLight)
+	{
+		m_Renderer->SubmitSpotLight(spotLight);
+	}
+
 	void RenderingCommands::PrepareRender(const Camera* camera, const glm::mat4& transformMatrix)
 	{
 		m_Renderer->PrepareRender(camera, transformMatrix);

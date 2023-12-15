@@ -17,6 +17,7 @@ namespace Nebula::Window {
 
 		m_EditorCamera = new EditorCamera(45.f, 1280.f / 720.f, .1f, 1000.f);
 		m_EditorCamera->SetSkybox("Default");
+		m_EditorCamera->SetPitchYawDistanceFP(glm::radians(45.f), glm::radians(80.f), 100, glm::vec3(20, 0, 0));
 
 		Events::EventManager::GetInstance().EntitySelectedEvent.AddCommand(new Events::SetCurrentEntityCommand(&m_SelectedEntity));
 	}

@@ -556,6 +556,7 @@
     <ClInclude Include="src\pch.h" />
     <ClInclude Include="src\Void\Rendering\Components\Renderer\PointLightData.h" />
     <ClInclude Include="src\Void\ECS\Systems\Light\PointLightSystem.h" />
+    <ClInclude Include="src\Void\Rendering\Components\Renderer\SpotLightData.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Void\Audio\AudioManager\AudioManager.cpp">

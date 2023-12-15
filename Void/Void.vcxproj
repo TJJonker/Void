@@ -258,6 +258,7 @@ IF EXIST ..\bin\Dist-windows-x86_64\$(ProjectName)\fmod.dll\ (xcopy /Q /E /Y /I 
     <ClInclude Include="src\Void\Rendering\Components\Renderer\PointLightData.h" />
     <ClInclude Include="src\Void\Rendering\Components\Renderer\Renderer.h" />
     <ClInclude Include="src\Void\Rendering\Components\Renderer\RenderingCommands.h" />
+    <ClInclude Include="src\Void\Rendering\Components\Renderer\SpotLightData.h" />
     <ClInclude Include="src\Void\Rendering\Components\RenderingContext\RenderingContext.h" />
     <ClInclude Include="src\Void\Rendering\Components\Shader\Shader.h" />
     <ClInclude Include="src\Void\Rendering\Components\Texture\Texture.h" />

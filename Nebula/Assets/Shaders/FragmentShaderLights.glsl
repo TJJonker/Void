@@ -29,7 +29,6 @@ struct SpotLight {
     float quadratic;
     vec3 ambient;
     vec3 diffuse;
-    vec3 specular;
 };
 
 #define NR_POINTS_LIGHT 4

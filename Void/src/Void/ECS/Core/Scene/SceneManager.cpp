@@ -6,6 +6,7 @@
 #include <Void/ECS/Components/PhysicsComponent.h>
 #include <Void/ECS/Components/TagComponent.h>
 #include <Void/ECS/Components/PointLightComponent.h>
+#include <Void/ECS/Components/SpotLightComponent.h>
 
 namespace Void {
 
@@ -104,6 +105,7 @@ namespace Void {
 
 				entityJson["Components"].push_back(componentJson);
 			}
+
 			if (entity->HasComponent<PointLightComponent>()) {
 				nlohmann::ordered_json componentJson;
 
@@ -114,6 +116,15 @@ namespace Void {
 				entityJson["Components"].push_back(componentJson);
 			}
 
+			if (entity->HasComponent<SpotLightComponent>()) {
+				nlohmann::ordered_json componentJson;
+
+				SpotLightComponent& light = entity->GetComponent<SpotLightComponent>();
+				componentJson["Type"] = "SpotLightComponent";
+				componentJson["Data"] = light.ToJSON();
+
+				entityJson["Components"].push_back(componentJson);
+			}
 			
 			sceneJson["Entities"].push_back(entityJson);
 		}
@@ -135,6 +146,8 @@ namespace Void {
 			return &entity->AddComponent<TagComponent>();
 		if (componentName == "PointLightComponent")
 			return &entity->AddComponent<PointLightComponent>();
+		if (componentName == "SpotLightComponent")
+			return &entity->AddComponent<SpotLightComponent>();
 
 		VOID_ASSERT(false, "Component does not exist");
 		return nullptr;

@@ -76,6 +76,15 @@ namespace Nebula {
 		delegator.Delegate<Void::MouseScrolledEvent>([&](Void::MouseScrolledEvent& e) { return EditorCamera::OnMouseScroll(e); });
 	}
 
+	void EditorCamera::SetPitchYawDistanceFP(float pitch, float yaw, float distance, glm::vec3 focalPoint)
+	{
+		m_Pitch = pitch;
+		m_Yaw = yaw;
+		m_Distance = distance;
+		m_FocalPoint = focalPoint;
+		UpdateView();
+	}
+
 	bool EditorCamera::OnMouseScroll(Void::MouseScrolledEvent& e)
 	{
 		float delta = e.GetYOffset() * 0.1f;

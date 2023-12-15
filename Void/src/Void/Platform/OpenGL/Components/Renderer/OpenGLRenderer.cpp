@@ -107,6 +107,11 @@ namespace Void::Rendering {
 		m_SubmissonsPointLight.push_back(pointLight);
 	}
 
+	void OpenGLRenderer::SubmitSpotLight(const SpotLightData& spotLight)
+	{
+		m_SubmissonsSpotLight.push_back(spotLight);
+	}
+
 	void OpenGLRenderer::PrepareRender(const Camera* camera, const glm::mat4& transformMatrix)
 	{
 		m_RendererData.CubemapTexture = camera->GetSkybox() != "" ? TextureLibrary::GetInstance().GetCubemap(camera->GetSkybox().c_str()) : nullptr;
@@ -163,7 +168,7 @@ namespace Void::Rendering {
 		m_RendererData.Shader = ShaderLibrary::GetInstance()->Get(pair.first.c_str());
 		m_RendererData.SetShaderSettings();
 
-#define MAX_POINT_LIGHTS 1.f
+#define MAX_POINT_LIGHTS 7.f
 
 		int PointLightSize = std::min((float)m_SubmissonsPointLight.size(), MAX_POINT_LIGHTS);
 		for (int i = 0; i < PointLightSize; i++) {
@@ -173,6 +178,21 @@ namespace Void::Rendering {
 			m_RendererData.Shader->SetFloat("pointLightData[" + std::to_string(i) + "].Quadratic", m_SubmissonsPointLight[i].Quadratic);
 			m_RendererData.Shader->SetVec3("pointLightData[" + std::to_string(i) + "].Ambient", m_SubmissonsPointLight[i].Ambient);
 			m_RendererData.Shader->SetVec3("pointLightData[" + std::to_string(i) + "].Diffuse", m_SubmissonsPointLight[i].Diffuse);
+		}
+
+#define MAX_SPOT_LIGHTS 1.f
+
+		int SpotLightSize = std::min((float)m_SubmissonsSpotLight.size(), MAX_SPOT_LIGHTS);
+		for (int i = 0; i < SpotLightSize; i++) {
+			m_RendererData.Shader->SetVec3("spotLightData[" + std::to_string(i) + "].Position", m_SubmissonsSpotLight[i].Position);
+			m_RendererData.Shader->SetVec3("spotLightData[" + std::to_string(i) + "].Direction", m_SubmissonsSpotLight[i].Direction);
+			m_RendererData.Shader->SetFloat("spotLightData[" + std::to_string(i) + "].CutOff", m_SubmissonsSpotLight[i].CutOff);
+			m_RendererData.Shader->SetFloat("spotLightData[" + std::to_string(i) + "].OuterCutOff", m_SubmissonsSpotLight[i].OuterCutOff);
+			m_RendererData.Shader->SetFloat("spotLightData[" + std::to_string(i) + "].Constant", m_SubmissonsSpotLight[i].Constant);
+			m_RendererData.Shader->SetFloat("spotLightData[" + std::to_string(i) + "].Linear", m_SubmissonsSpotLight[i].Linear);
+			m_RendererData.Shader->SetFloat("spotLightData[" + std::to_string(i) + "].Quadratic", m_SubmissonsSpotLight[i].Quadratic);
+			m_RendererData.Shader->SetVec3("spotLightData[" + std::to_string(i) + "].Ambient", m_SubmissonsSpotLight[i].Ambient);
+			m_RendererData.Shader->SetVec3("spotLightData[" + std::to_string(i) + "].Diffuse", m_SubmissonsSpotLight[i].Diffuse);
 		}
 
 
@@ -302,6 +322,7 @@ namespace Void::Rendering {
 			TextureLibrary::GetInstance().GetTexture(m_RendererData.TextureSlots[i].c_str())->Bind();
 			m_RendererData.Shader->SetInt("Textures[" + std::to_string(i) + "]", i);
 		}
+		m_RendererData.CubemapTexture->Bind();
 
 		size_t indexCount = m_RendererData.GetIndexCount();
 		size_t vertexCount = m_RendererData.GetVertexCount();
