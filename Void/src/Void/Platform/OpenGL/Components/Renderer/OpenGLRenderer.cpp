@@ -57,7 +57,7 @@ namespace Void::Rendering {
 			Shader->SetVec3("viewPosition", ViewPosition);
 			Shader->SetFloat("Time", Time::TimeSinceStartup());
 
-			Shader->SetVec3("directionalLight.direction", glm::vec3(.2f, 0.f, -1.f ));
+			Shader->SetVec3("directionalLight.direction", glm::vec3(.2f, -1.f, -1.f ));
 			Shader->SetVec3("directionalLight.ambient", glm::vec3( .1f, .1f, .1f ));
 			Shader->SetVec3("directionalLight.diffuse", glm::vec3( .3f, .3f, .3f ));
 			Shader->SetVec3("directionalLight.specular", glm::vec3( .2f, .2f, .2f ));
@@ -163,7 +163,7 @@ namespace Void::Rendering {
 		m_RendererData.Shader = ShaderLibrary::GetInstance()->Get(pair.first.c_str());
 		m_RendererData.SetShaderSettings();
 
-#define MAX_POINT_LIGHTS 1.f
+#define MAX_POINT_LIGHTS 7.f
 
 		int PointLightSize = std::min((float)m_SubmissonsPointLight.size(), MAX_POINT_LIGHTS);
 		for (int i = 0; i < PointLightSize; i++) {

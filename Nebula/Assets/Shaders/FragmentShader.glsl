@@ -26,17 +26,11 @@ flat in int ShowTexture;
 
 uniform DirectionalLight directionalLight;
 
-#define NR_POINTS_LIGHT 1
+#define NR_POINTS_LIGHT 7
 uniform PointLightData pointLightData[NR_POINTS_LIGHT];
 
 uniform vec3 viewPosition;  
 uniform sampler2D Textures[32];
-
-layout (std140) uniform Lights
-{
-    mat4 projection;
-    mat4 view;
-};
 
 
 

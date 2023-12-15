@@ -19,6 +19,7 @@ namespace Nebula::Editor {
         Void::ShaderLibrary::GetInstance()->Load("Assets/Shaders/VertexShader.glsl", "Assets/Shaders/FragmentShaderSpecular.glsl", "SpecularShader");
         Void::ShaderLibrary::GetInstance()->Load("Assets/Shaders/VertexShader.glsl", "Assets/Shaders/FragmentShaderMoving.glsl", "MovingShader");
         Void::ShaderLibrary::GetInstance()->Load("Assets/Core/Shaders/DefaultSkybox/VertexShader.glsl", "Assets/Core/Shaders/DefaultSkybox/FragmentShader.glsl", "DefaultSkyboxShader");
+        Void::ShaderLibrary::GetInstance()->Load("Assets/Shaders/VertexShader.glsl", "Assets/Shaders/FragmentShaderSkyboxReflection.glsl", "CubemapReflectionShader");
 
         // Texture lib
         Void::TextureLibrary::GetInstance().LoadTexture("Assets/Textures/PolygonHeist_Texture_03_C.png");
@@ -77,6 +78,8 @@ namespace Nebula::Editor {
 
         Void::MeshLibrary::GetInstance()->Load("Assets/Models/Cop_car.obj");
         Void::MeshLibrary::GetInstance()->Load("Assets/Models/Helicopter.obj");
+        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Bld_CityHall_01.obj");
+        Void::MeshLibrary::GetInstance()->Load("Assets/Models/SM_Env_Ceiling_Light_03.obj");
 
 
         //Void::Entity* entity = Void::SceneManager::GetInstance().GetCurrentScene()->CreateEntity();

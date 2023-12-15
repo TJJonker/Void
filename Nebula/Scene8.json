@@ -2664,7 +2664,7 @@
                                     "Assets/Textures/PolygonCity_Texture_04_A.png",
                                     "Assets/Textures/Heist_Transparency_R.png"
                                 ],
-                                "Shader": "BlendingShader"
+                                "Shader": "CubemapReflectionShader"
                             }
                         ]
                     }
